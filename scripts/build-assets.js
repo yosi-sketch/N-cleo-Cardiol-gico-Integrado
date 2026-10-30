@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const sharp = require('sharp');
 
-const uploadedLogo = 'C:/Users/matheus/.gemini/antigravity/brain/5c4749d0-737e-4e26-9ae2-43270fda7776/.user_uploaded/media_1793377865506_bbb4ac15.png';
-const uploadedHero = 'C:/Users/matheus/.gemini/antigravity/brain/5c4749d0-737e-4e26-9ae2-43270fda7776/.user_uploaded/media_1793377873701_2d5f8d03.jpg';
+const uploadedLogo = 'C:/Users/matheus/.gemini/antigravity/brain/f3646b79-59ae-4ade-86a0-34b7384f195f/.user_uploaded/media_1793383481769_31f63b35.png';
+const uploadedPhoto = 'C:/Users/matheus/.gemini/antigravity/brain/f3646b79-59ae-4ade-86a0-34b7384f195f/.user_uploaded/media_1793383470441_f254711f.jpg';
 
 const publicDir = path.resolve(__dirname, '../public');
 const appDir = path.resolve(__dirname, '../app');
@@ -40,20 +40,39 @@ function createIcoFromPngs(pngBuffers) {
 }
 
 async function build() {
-  console.log('Generating Rafael Nascimento Advocacia assets from uploaded source files...');
+  console.log('Generating Mariana Madeira assets...');
 
-  // 1. Save full logo (crystal clear PNG)
-  await sharp(uploadedLogo)
-    .png({ quality: 100, compressionLevel: 9 })
-    .toFile(path.join(publicDir, 'logo.png'));
-  console.log('Saved public/logo.png (1024x373)');
-
-  // 2. Extract emblem symbol "R" (left: 32, top: 38, width: 293, height: 323)
-  const symbolCropped = await sharp(uploadedLogo)
-    .extract({ left: 32, top: 38, width: 293, height: 323 })
+  // 1. Save full logo (trim extra transparent space and add balanced padding)
+  const trimmedLogoBuffer = await sharp(uploadedLogo)
+    .trim({ threshold: 10 })
     .toBuffer();
 
-  // Make a square 512x512 emblem with transparent padding
+  const trimmedMeta = await sharp(trimmedLogoBuffer).metadata();
+  console.log('Trimmed logo size:', trimmedMeta.width, 'x', trimmedMeta.height);
+
+  // Extend with elegant padding for crisp display
+  await sharp(trimmedLogoBuffer)
+    .extend({
+      top: 24,
+      bottom: 24,
+      left: 32,
+      right: 32,
+      background: { r: 0, g: 0, b: 0, alpha: 0 }
+    })
+    .png({ quality: 100, compressionLevel: 9 })
+    .toFile(path.join(publicDir, 'logo.png'));
+  console.log('Saved public/logo.png');
+
+  // Also create a logo version with brighter gold / white text for dark backgrounds if desired
+  // Let's create an inverted/white-text variant or enhanced gold variant
+  // In the logo, pixels with gold color:
+  // Let's extract the square emblem:
+  // Bounding box of emblem in original: x: 60, y: 95, w: 233, h: 235
+  const symbolCropped = await sharp(uploadedLogo)
+    .extract({ left: 58, top: 93, width: 237, height: 239 })
+    .toBuffer();
+
+  // Square 512x512 emblem with transparent padding
   const symbolSquare = await sharp(symbolCropped)
     .resize(440, 440, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
     .extend({
@@ -67,31 +86,25 @@ async function build() {
     .toBuffer();
 
   await sharp(symbolSquare).toFile(path.join(publicDir, 'logo-symbol.png'));
-  console.log('Saved public/logo-symbol.png (512x512)');
+  console.log('Saved public/logo-symbol.png (512x512 transparent)');
 
-  // Also create a high-contrast square symbol with elegant dark background for tab visibility
+  // Emblem on luxury dark obsidian background for tab / app visibility
   const symbolFaviconBase = await sharp(symbolCropped)
-    .resize(430, 430, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
+    .resize(420, 420, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
     .extend({
-      top: 41,
-      bottom: 41,
-      left: 41,
-      right: 41,
-      background: { r: 12, g: 14, b: 20, alpha: 1 }
+      top: 46,
+      bottom: 46,
+      left: 46,
+      right: 46,
+      background: { r: 14, g: 16, b: 22, alpha: 1 } // Obsidian noir #0e1016
     })
     .png()
     .toBuffer();
 
-  // 3. Generate icon sizes for favicon and apple-touch-icon
-  // Transparent variant
-  const icon16 = await sharp(symbolSquare).resize(16, 16).png().toBuffer();
-  const icon32 = await sharp(symbolSquare).resize(32, 32).png().toBuffer();
-  const icon48 = await sharp(symbolSquare).resize(48, 48).png().toBuffer();
-
-  // Dark-framed variant (for crisp rendering on browser tabs and bookmarks)
-  const icon32Tile = await sharp(symbolFaviconBase).resize(32, 32).png().toBuffer();
-  const icon16Tile = await sharp(symbolFaviconBase).resize(16, 16).png().toBuffer();
-  const icon48Tile = await sharp(symbolFaviconBase).resize(48, 48).png().toBuffer();
+  // 2. Favicons
+  const icon16 = await sharp(symbolFaviconBase).resize(16, 16).png().toBuffer();
+  const icon32 = await sharp(symbolFaviconBase).resize(32, 32).png().toBuffer();
+  const icon48 = await sharp(symbolFaviconBase).resize(48, 48).png().toBuffer();
 
   const icon180 = await sharp(symbolFaviconBase).resize(180, 180).png().toBuffer();
   const icon192 = await sharp(symbolSquare).resize(192, 192).png().toBuffer();
@@ -103,79 +116,93 @@ async function build() {
   await fs.promises.writeFile(path.join(publicDir, 'icon.png'), icon192);
   await fs.promises.writeFile(path.join(publicDir, 'icon-512x512.png'), icon512);
 
-  // App router icons
-  await fs.promises.writeFile(path.join(appDir, 'apple-icon.png'), icon180);
-  await fs.promises.writeFile(path.join(appDir, 'icon.png'), icon192);
-
-  // Multi-resolution favicon.ico containing 16, 32, 48
   const icoBuffer = createIcoFromPngs([
-    { width: 16, height: 16, buffer: icon16Tile },
-    { width: 32, height: 32, buffer: icon32Tile },
-    { width: 48, height: 48, buffer: icon48Tile }
+    { width: 16, height: 16, buffer: icon16 },
+    { width: 32, height: 32, buffer: icon32 },
+    { width: 48, height: 48, buffer: icon48 },
   ]);
   await fs.promises.writeFile(path.join(publicDir, 'favicon.ico'), icoBuffer);
+
+  // Also copy to app/ for Next.js app router metadata icons
   await fs.promises.writeFile(path.join(appDir, 'favicon.ico'), icoBuffer);
-  console.log('Saved favicon.ico (multi-res 16, 32, 48) to public/ and app/');
+  await fs.promises.writeFile(path.join(appDir, 'icon.png'), icon192);
+  await fs.promises.writeFile(path.join(appDir, 'apple-icon.png'), icon180);
+  console.log('Saved favicon and icons in public/ and app/');
 
-  // 4. Portrait photo of Dr. Rafael Nascimento
-  const heroBuffer = fs.readFileSync(uploadedHero);
-  await sharp(heroBuffer)
-    .jpeg({ quality: 94, mozjpeg: true })
-    .toFile(path.join(publicDir, 'hero.jpg'));
-  await sharp(heroBuffer)
-    .jpeg({ quality: 94, mozjpeg: true })
-    .toFile(path.join(publicDir, 'rafael-nascimento.jpg'));
-  console.log('Saved public/hero.jpg and public/rafael-nascimento.jpg');
+  // 3. Process photo of Dra. Mariana Madeira
+  // Full photo
+  await sharp(uploadedPhoto)
+    .jpeg({ quality: 92, mozjpeg: true })
+    .toFile(path.join(publicDir, 'mariana-madeira.jpg'));
+  console.log('Saved public/mariana-madeira.jpg');
 
-  // 5. OpenGraph Image (1200x630)
-  // Premium dark obsidian layout with portrait on the right and logo on the left
-  const heroCroppedForOg = await sharp(heroBuffer)
-    .resize(580, 630, { fit: 'cover', position: 'top' })
-    .toBuffer();
+  // Portrait crop centered on Mariana (e.g. 800x1000 for bio and hero cards)
+  // Dra. Mariana is centered horizontally
+  await sharp(uploadedPhoto)
+    .extract({
+      left: 200,
+      top: 0,
+      width: 624,
+      height: 682,
+    })
+    .resize(800, 874, { fit: 'cover' })
+    .jpeg({ quality: 92, mozjpeg: true })
+    .toFile(path.join(publicDir, 'mariana-madeira-portrait.jpg'));
+  console.log('Saved public/mariana-madeira-portrait.jpg');
 
-  const ogLogoResized = await sharp(uploadedLogo)
-    .resize(520, 220, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
-    .toBuffer();
+  // Square avatar crop (500x500)
+  await sharp(uploadedPhoto)
+    .extract({
+      left: 270,
+      top: 20,
+      width: 480,
+      height: 480,
+    })
+    .resize(500, 500, { fit: 'cover' })
+    .jpeg({ quality: 92, mozjpeg: true })
+    .toFile(path.join(publicDir, 'mariana-madeira-avatar.jpg'));
+  console.log('Saved public/mariana-madeira-avatar.jpg');
 
-  // Create an SVG overlay with credentials
-  const svgOverlay = Buffer.from(`
-    <svg width="600" height="630" viewBox="0 0 600 630" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#f5d77f" />
-          <stop offset="50%" stop-color="#d4a34b" />
-          <stop offset="100%" stop-color="#c88a2c" />
-        </linearGradient>
-      </defs>
-      <rect x="50" y="370" width="120" height="2" fill="url(#goldGrad)" />
-      <text x="50" y="415" font-family="sans-serif" font-size="22" font-weight="bold" fill="#ffffff" letter-spacing="1">ADVOGADO CRIMINAL E CÍVEL</text>
-      <text x="50" y="450" font-family="sans-serif" font-size="16" fill="#e7cc99" letter-spacing="0.5">Especialista em Ciências Criminais — PUC Minas</text>
-      <text x="50" y="495" font-family="sans-serif" font-size="14" font-weight="600" fill="#94a3b8">Itapecerica - MG • Atendimento em Todo o Brasil</text>
-      <text x="50" y="535" font-family="sans-serif" font-size="16" font-weight="bold" fill="#f5d77f">★ 5,0 no Google • (37) 99137-3661</text>
-    </svg>
-  `);
-
-  await sharp({
+  // 4. Generate OpenGraph Banner (1200x630)
+  // Elegant dark obsidian canvas with Mariana's photo on the right and logo + value prop on the left
+  const ogCanvas = sharp({
     create: {
       width: 1200,
       height: 630,
       channels: 4,
-      background: { r: 8, g: 9, b: 13, alpha: 1 }
+      background: { r: 14, g: 16, b: 22, alpha: 1 }
+    }
+  });
+
+  const photoOg = await sharp(uploadedPhoto)
+    .extract({ left: 240, top: 0, width: 620, height: 682 })
+    .resize(560, 630, { fit: 'cover' })
+    .toBuffer();
+
+  const logoOg = await sharp(trimmedLogoBuffer)
+    .resize(480, null, { fit: 'inside' })
+    .toBuffer();
+
+  const ogComposite = await sharp({
+    create: {
+      width: 1200,
+      height: 630,
+      channels: 4,
+      background: { r: 14, g: 16, b: 22, alpha: 1 }
     }
   })
   .composite([
-    { input: heroCroppedForOg, left: 620, top: 0 },
-    { input: ogLogoResized, left: 45, top: 120 },
-    { input: svgOverlay, left: 0, top: 0 }
+    { input: photoOg, left: 640, top: 0 },
+    { input: logoOg, left: 80, top: 220 },
   ])
-  .jpeg({ quality: 92 })
+  .jpeg({ quality: 90 })
   .toFile(path.join(publicDir, 'og-image.jpg'));
-
   console.log('Saved public/og-image.jpg (1200x630)');
-  console.log('All image assets created successfully!');
+
+  console.log('All Mariana Madeira assets successfully created!');
 }
 
 build().catch(err => {
-  console.error(err);
+  console.error('Error generating assets:', err);
   process.exit(1);
 });

@@ -1,27 +1,29 @@
-# Rafael Nascimento Advocacia
+# Mariana Madeira — Registro de Marcas e Advocacia Empresarial
 
-Landing page e site institucional de altíssimo padrão desenvolvido em Next.js (App Router), Tailwind CSS v4 e Framer Motion para **Rafael Nascimento Advocacia** em Itapecerica - MG e com atendimento online em todo o Brasil.
+Landing page e site institucional de altíssimo padrão desenvolvido em Next.js (App Router), Tailwind CSS v4 e Framer Motion para **Mariana Madeira Registro de Marcas e Advocacia Empresarial** em Itapecerica - MG e com atendimento online em todo o Brasil.
 
 ## Dados do Escritório
-- **Nome Institucional:** Rafael Nascimento Advocacia
-- **Advogado Titular:** Dr. Rafael Nascimento
-- **Especialidade Acadêmica:** Especialista em Ciências Criminais (PUC Minas)
-- **Áreas de Atuação:** Direito Criminal e Direito Cível
-- **Posicionamento & Slogan:** "Defesa Criminal Estratégica e Soluções Cíveis de alta precisão técnica em Itapecerica - MG e em todo o Brasil."
-- **Localização:** R. Cônego Cesário, 282 - Sl 04 - Centro, Itapecerica - MG, CEP 35550-000, Brasil
-- **Telefone / WhatsApp:** (37) 99137-3661 (`https://wa.me/5537991373661`)
-- **E-mail:** contato@rafaelnascimento.adv.br
-- **Horário de Atendimento:** Segunda a Sexta, das 08:00 às 17:00
-- **Instagram:** [@advrafaelnascimento](https://www.instagram.com/advrafaelnascimento/)
-- **Linktree:** [linktr.ee/rafaelnascimentoadv](https://linktr.ee/rafaelnascimentoadv)
-- **Prova Social Google:** Nota Máxima 5,0 ★ unânime em 11 avaliações no Google Meu Negócio ("Rafael Nascimento — Advogado Itapecerica · MG").
+- **Nome Institucional:** Mariana Madeira Registro de Marcas e Advocacia Empresarial
+- **Nome Fantasia:** Mariana Madeira Marcas
+- **Advogada Titular:** Dra. Mariana Madeira
+- **Especialidade:** Registro de Marcas no INPI, Advocacia para Negócios Digitais e Contratos Empresariais
+- **Posicionamento & Slogan:** "Proteção jurídica para quem empreende. Registro de Marcas no INPI, Contratos e Negócios Digitais. Atendimento presencial em Itapecerica - MG e digital em todo o Brasil."
+- **Localização:** Av. Severo Augusto Ribeiro, 179 - Centro, Itapecerica - MG, CEP 35550-000, Brasil
+- **Telefone / WhatsApp:** (37) 99809-0441 (`https://wa.me/5537998090441`)
+- **E-mail:** contato@marianamadeira.adv.br
+- **Horário de Atendimento:** Segunda a Sexta, das 08:30 às 17:00
+- **Instagram:** [@marianamadeira.adv](https://www.instagram.com/marianamadeira.adv/) (2.316 seguidores, 232 posts)
+- **Prova Social Google:** Nota Máxima 5,0 ★ unânime em 10 avaliações no Google Meu Negócio ("Mariana Madeira Registro de Marcas e Advocacia Empresarial").
+- **Autoridade:** +500 marcas conduzidas e protegidas perante o INPI.
 
 ## Estrutura de Assets
-- `public/logo.png`: Logo oficial em alta resolução (1024x373) com transparência.
-- `public/logo-symbol.png`: Emblema estilizado "R" metálico isolado em alta resolução (512x512).
-- `public/hero.jpg` / `public/rafael-nascimento.jpg`: Fotografia oficial de alta resolução do Dr. Rafael Nascimento.
-- `public/og-image.jpg`: Imagem de OpenGraph otimizada (1200x630) para compartilhamento em redes sociais.
-- `public/favicon.ico`, `public/favicon-32x32.png`, `public/favicon-16x16.png`, `public/icon.png`, `public/icon-512x512.png`, `public/apple-icon.png`: Ícones e favicons gerados diretamente do emblema oficial da marca com contraste refinado para guias de navegadores.
+- `public/logo.png`: Logo oficial em alta resolução com transparência.
+- `public/logo-symbol.png`: Emblema estrela/bússola estilizado isolado em alta resolução (512x512).
+- `public/mariana-madeira.jpg`: Fotografia oficial de alta resolução da Dra. Mariana Madeira.
+- `public/mariana-madeira-portrait.jpg`: Enquadramento 4:5 otimizado para o Hero e seção Sobre.
+- `public/mariana-madeira-avatar.jpg`: Avatar quadrado de alta resolução.
+- `public/og-image.jpg`: Imagem de OpenGraph (1200x630) para compartilhamento em redes sociais e WhatsApp.
+- `public/favicon.ico`, `favicon-32x32.png`, `favicon-16x16.png`, `icon.png`, `icon-512x512.png`, `apple-icon.png`: Favicons gerados diretamente do emblema oficial da marca com alto contraste para guias de navegadores.
 
 ## Comandos do Projeto
 ```bash

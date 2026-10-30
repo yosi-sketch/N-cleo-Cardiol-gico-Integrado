@@ -1,3 +1,3 @@
-Write-Host "Generating Rafael Nascimento Advocacia assets..."
-node scripts/build-assets.js
-Write-Host "Rafael Nascimento Advocacia assets are active in public/ and app/"
+Write-Host "Generating Mariana Madeira Marcas assets..."
+node scripts/build-assets-mariana.js
+Write-Host "Mariana Madeira Marcas assets are active in public/ and app/"

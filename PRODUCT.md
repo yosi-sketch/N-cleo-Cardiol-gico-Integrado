@@ -1,87 +1,59 @@
-# RAFAEL NASCIMENTO ADVOCACIA
+# MARIANA MADEIRA — REGISTRO DE MARCAS E ADVOCACIA EMPRESARIAL
 
-Documento de especificação de produto, identidade visual e diretrizes da landing page de alta conversão para **Rafael Nascimento Advocacia**.
+Documento de especificação de produto, identidade visual e diretrizes da landing page de alta conversão para **Mariana Madeira Registro de Marcas e Advocacia Empresarial**.
 
 ---
 
 ## 1. DADOS CADASTRAIS & INFORMAÇÕES DE CONTATO
 
-- **Nome Institucional / Razão:** Rafael Nascimento Advocacia
-- **Advogado Titular:** Dr. Rafael Nascimento
-- **Qualificação:** Advogado Criminal e Cível | Especialista em Ciências Criminais - PUC Minas
-- **Sede Física / Endereço:** R. Cônego Cesário, 282 - Sl 04 - Centro, Itapecerica - MG, CEP 35550-000, Brasil.
-- **Horário de Funcionamento:** Segunda a Sexta, das 08:00 às 17:00.
-- **Telefone / WhatsApp Comercial:** (37) 99137-3661 (`https://wa.me/5537991373661`).
-- **E-mail de Contato:** contato@rafaelnascimento.adv.br
+- **Nome Institucional / Razão:** Mariana Madeira Registro de Marcas e Advocacia Empresarial
+- **Nome Fantasia / Marca:** Mariana Madeira Marcas
+- **Advogada Titular:** Dra. Mariana Madeira
+- **Qualificação:** Advogada Empresarial · Especialista em Registro de Marcas (INPI) e Negócios Digitais
+- **Sede Física / Endereço:** Av. Severo Augusto Ribeiro, 179 - Centro, Itapecerica - MG, CEP 35550-000, Brasil.
+- **Horário de Funcionamento:** Segunda a Sexta, das 08:30 às 17:00.
+- **Telefone / WhatsApp Comercial:** (37) 99809-0441 (`https://wa.me/5537998090441`).
+- **E-mail de Contato:** contato@marianamadeira.adv.br
 - **Canais Oficiais:**
-  - Instagram: [@advrafaelnascimento](https://www.instagram.com/advrafaelnascimento/) (2.234 seguidores, 32 posts).
-  - Linktree: [linktr.ee/rafaelnascimentoadv](https://linktr.ee/rafaelnascimentoadv).
-  - WhatsApp: `https://wa.me/5537991373661`.
-- **Prova Social / Avaliações Google:** Nota Máxima 5,0 ★ em 11 avaliações reais e unânimes no Google Meu Negócio ("Rafael Nascimento — Advogado Itapecerica · MG").
+  - Instagram: [@marianamadeira.adv](https://www.instagram.com/marianamadeira.adv/) (2.316 seguidores, 232 posts).
+  - WhatsApp: `https://wa.me/5537998090441`.
+- **Prova Social / Avaliações Google:** Nota Máxima 5,0 ★ em 10 avaliações reais e unânimes no Google Meu Negócio ("Mariana Madeira Registro de Marcas e Advocacia Empresarial · Itapecerica - MG").
+- **Histórico & Autoridade:** Mais de 500 marcas protegidas e vigiadas perante o INPI.
 
 ---
 
 ## 2. IDENTIDADE VISUAL & BRANDING
 
 ### Paleta de Cores Extraída do Novo Logo
-- **3D Sculpted Metallic Gold & Platinum Champagne:**
-  - Shimmer / Brilho especular: `#fdf8cf`, `#fbf3d1`, `#fce8b5`
-  - Radiant Gold: `#e4a749`, `#d4a34b`, `#c88a2c`
-  - Âmbar / Ocre Dourado: `#b87b1c`, `#9d5b16`
-  - Bronze Antigo / Profundidade: `#7c4f1d`, `#5a350b`, `#1d0d01`
-  - Platinum Champagne (Letreiro do Logo): `#fbfbf7`, `#d7cec0`
+- **Metallic Warm Bronze Gold & Champagne Amber:**
+  - Shimmer / Brilho especular: `#fcf6e9`, `#f7edd7`
+  - Radiant Gold: `#d9aa69`, `#c89658`
+  - Dourado Primário do Logo: `#b8874d`
+  - Âmbar / Ocre Dourado: `#aa773b`, `#8c5d28`
+  - Bronze Profundo / Sombra: `#684116`, `#2d1904`
 - **Luxury Obsidian Noir Base:**
-  - Base ultra-escura: `#08090d`, `#0e1017`, `#151821`
-  - Superfícies e cards: `#161a22`, `#1c212d`
-  - Bordas e divisores: `#282f3f`, `rgba(212, 163, 75, 0.35)`
-- **Luxury Light Base (Warm Alabaster):**
+  - Base ultra-escura: `#090a0d`, `#0e1015`, `#14171e`
+  - Superfícies e cards: `#161a22`, `#1b202a`
+  - Bordas e divisores: `#262c3a`, `rgba(184, 135, 77, 0.35)`
+- **Luxury Light Base (Cashmere & Warm Alabaster):**
   - Superfície: `#faf8f5`, `#ffffff`
-  - Bordas: `#e7e0d3`, `#d4a34b`
+  - Bordas: `#e8e2d8`, `#b8874d`
 - **WhatsApp Emerald Conversion:**
   - `#25D366`, `#1ebe5d`, `#128C7E`
 
 ### Tipografia
-- **Títulos de Prestígio:** `Cinzel` & `Cormorant Garamond` (letras romanas monumentais e serifas clássicas de alta legibilidade e nobreza, idênticas ao estilo do logo "RAFAEL NASCIMENTO").
-- **Corpo & Interface:** `Plus Jakarta Sans` (proporções modernas, legibilidade impecável e elegância contemporânea).
+- **Títulos de Prestígio:** `Cinzel` & `Cormorant Garamond` (geometria nobre, simetria e serifas refinadas que combinam com o letreiro estilizado e com o emblema de bússola/estrela de Mariana Madeira).
+- **Corpo & Interface:** `Plus Jakarta Sans` (proporções modernas, máxima legibilidade e elegância contemporânea).
 
 ---
 
-## 3. ASSETS E ARQUIVOS NA PASTA PUBLIC
+## 3. ASSETS E ARQUIVOS NA PASTA PUBLIC & APP
 
-- `public/logo.png`: Logo oficial em alta resolução (1024x373) com transparência.
-- `public/logo-symbol.png`: Emblema estilizado "R" metálico em alta resolução (512x512).
-- `public/hero.jpg` / `public/rafael-nascimento.jpg`: Fotografia oficial de alta resolução do Dr. Rafael Nascimento.
-- `public/og-image.jpg`: Imagem de OpenGraph otimizada (1200x630) para compartilhamento em redes sociais.
-- `public/favicon.ico`, `public/favicon-32x32.png`, `public/favicon-16x16.png`, `public/icon.png`, `public/icon-512x512.png`, `public/apple-icon.png`: Ícones e favicons gerados diretamente do emblema oficial da marca.
-
----
-
-## 4. PILARES OFICIAIS DE ATUAÇÃO
-
-1. **Direito Criminal & Defesa Penal Estratégica (Especialidade Central):**
-   - Flagrantes, audiências de custódia e medidas urgentes 24 horas.
-   - Inquéritos policiais, oitivas em delegacias e Habeas Corpus.
-   - Atuação combativa no Tribunal do Júri e sustentações perante os Tribunais (TJMG, STJ, STF).
-   - Execução penal: progressão de regime, livramento condicional e remição de pena.
-
-2. **Direito Cível & Reparação de Danos:**
-   - Ações indenizatórias (danos materiais, morais e lucros cessantes).
-   - Cobranças judiciais e extrajudiciais de cheques, títulos, notas e créditos.
-   - Execuções de títulos e embargos à execução.
-
-3. **Contratos & Segurança Jurídica:**
-   - Redação, revisão e blindagem preventiva de contratos civis e empresariais.
-   - Notificações extrajudiciais e resolução amigável de conflitos.
-
-4. **Família & Planejamento Sucessório:**
-   - Inventários em cartório (extrajudiciais) e judiciais.
-   - Divórcios e partilhas patrimoniais.
-   - Ações de alimentos (pensão) e guarda.
-
-5. **Direito Imobiliário & Possessório:**
-   - Ações possessórias (reintegração e manutenção de posse).
-   - Usucapião judicial e extrajudicial em cartório.
-   - Regularização de terrenos e imóveis.
-
-6. **Consultoria Jurídica Estratégica & Digital:**
-   - Atendimento presencial na sede (Itapecerica - MG) ou 100% digital em todo o Brasil.
+- `public/logo.png`: Logo oficial completo "MARIANA MADEIRA MARCAS" com o emblema estrela/bússola em moldura quadrada.
+- `public/logo-symbol.png`: Emblema quadrado recortado com transparência (512x512).
+- `public/mariana-madeira.jpg`: Foto oficial da Dra. Mariana Madeira em alta resolução.
+- `public/mariana-madeira-portrait.jpg`: Enquadramento portrait (4:5) para o Hero e Sobre.
+- `public/mariana-madeira-avatar.jpg`: Avatar quadrado para provas sociais e cards.
+- `public/og-image.jpg`: Banner de OpenGraph (1200x630) para compartilhamento em redes sociais e WhatsApp.
+- `public/favicon.ico`, `favicon-16x16.png`, `favicon-32x32.png`, `apple-icon.png`, `icon.png`, `icon-512x512.png`: Ícones do site com o emblema dourado sobre fundo obsidian de alto contraste para visibilidade cristalina nas abas de navegadores.
+- `app/favicon.ico`, `app/icon.png`, `app/apple-icon.png`: Ícones nativos detectados pelo Next.js App Router.

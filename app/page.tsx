@@ -23,51 +23,54 @@ import {
   Users,
   Briefcase,
   AlertCircle,
-  Gavel,
-  Coins,
   Award,
-  Home as HomeIcon,
-  ShieldAlert,
-  GraduationCap,
+  Globe,
+  Lock,
+  Search,
+  Eye,
+  BadgeCheck,
+  ShieldCheck,
+  Building2,
+  Laptop,
 } from "lucide-react";
 import GlowingButton from "./components/GlowingButton";
 
-const WHATSAPP_NUMBER = "5537991373661";
-const PHONE_DISPLAY = "(37) 99137-3661";
-const EMAIL_CONTACT = "contato@rafaelnascimento.adv.br";
-const INSTAGRAM_URL = "https://www.instagram.com/advrafaelnascimento/";
-const INSTAGRAM_HANDLE = "@advrafaelnascimento";
-const LINKTREE_URL = "https://linktr.ee/rafaelnascimentoadv";
+const WHATSAPP_NUMBER = "5537998090441";
+const PHONE_DISPLAY = "(37) 99809-0441";
+const EMAIL_CONTACT = "contato@marianamadeira.adv.br";
+const INSTAGRAM_URL = "https://www.instagram.com/marianamadeira.adv/";
+const INSTAGRAM_HANDLE = "@marianamadeira.adv";
 
-const FIRM_NAME = "Rafael Nascimento Advocacia";
-const FIRM_SHORT_NAME = "Rafael Nascimento";
+const FIRM_NAME = "Mariana Madeira Registro de Marcas e Advocacia Empresarial";
+const FIRM_SHORT_NAME = "Mariana Madeira Marcas";
 const FIRM_SLOGAN =
-  "Defesa Criminal Estratégica e Soluções Cíveis de alta precisão técnica. Atendimento presencial em Itapecerica - MG e digital em todo o Brasil.";
-const LAWYER_NAME = "Dr. Rafael Nascimento";
+  "Proteção jurídica para quem empreende. Registro de Marcas no INPI, Contratos e Negócios Digitais. Atendimento presencial em Itapecerica - MG e digital em todo o Brasil.";
+const LAWYER_NAME = "Dra. Mariana Madeira";
 const LAWYER_TITLE =
-  "Advogado Criminal e Cível · Especialista em Ciências Criminais (PUC Minas)";
+  "Advogada Empresarial · Especialista em Registro de Marcas & Negócios Digitais";
 
 const ADDRESS_TEXT =
-  "R. Cônego Cesário, 282 - Sl 04 - Centro, Itapecerica - MG, 35550-000";
+  "Av. Severo Augusto Ribeiro, 179 - Centro, Itapecerica - MG, 35550-000";
 const REGION_TEXT =
-  "Itapecerica · Centro-Oeste Mineiro & Atendimento Digital em Todo o Brasil";
+  "Itapecerica · Minas Gerais & Atendimento Digital em Todo o Brasil";
 
 const GOOGLE_SEARCH_URL =
-  "https://www.google.com/search?q=Rafael+Nascimento+%E2%80%94+Advogado%0AItapecerica+%C2%B7+MG&sourceid=chrome&ie=UTF-8#";
+  "https://www.google.com/search?q=Mariana+Madeira+%E2%80%94+Advocacia+Empresarial%0AItapecerica+%C2%B7+MG&sourceid=chrome&ie=UTF-8#";
 const GOOGLE_MAPS_URL =
-  "https://www.google.com/maps/search/?api=1&query=R.+C%C3%B4nego+Ces%C3%A1rio%2C+282+-+Sl+04+-+Centro%2C+Itapecerica+-+MG%2C+35550-000";
+  "https://www.google.com/maps/search/?api=1&query=Av.+Severo+Augusto+Ribeiro%2C+179+-+Centro%2C+Itapecerica+-+MG%2C+35550-000";
 
 const LOGO_SRC = "/logo.png";
 const LOGO_SYMBOL_SRC = "/logo-symbol.png";
-const FOTO_HERO_SRC = "/dr-rafael-nascimento.jpg";
-const FOTO_PERFIL_SRC = "/dr-rafael-nascimento.jpg";
+const FOTO_HERO_SRC = "/mariana-madeira-portrait.jpg";
+const FOTO_PERFIL_SRC = "/mariana-madeira.jpg";
+const FOTO_AVATAR_SRC = "/mariana-madeira-avatar.jpg";
 
 function getWhatsAppUrl(
   message?: string,
   number: string = WHATSAPP_NUMBER
 ) {
   const defaultText =
-    "Olá, Dr. Rafael Nascimento! Gostaria de agendar uma consulta jurídica e conversar sobre o meu caso.";
+    "Olá, Dra. Mariana Madeira! Gostaria de uma avaliação para registrar minha marca e proteger meu negócio.";
   return `https://wa.me/${number}?text=${encodeURIComponent(
     message || defaultText
   )}`;
@@ -176,7 +179,7 @@ export default function Home() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-  const [modalArea, setModalArea] = useState<string>("Consulta Jurídica Especializada");
+  const [modalArea, setModalArea] = useState<string>("Registro de Marcas no INPI");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -186,302 +189,297 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const openConsultModal = (areaName = "Consulta Jurídica Especializada") => {
+  const openConsultModal = (areaName = "Registro de Marcas no INPI") => {
     setModalArea(areaName);
     setModalOpen(true);
   };
 
   const closeMenu = () => setIsMenuOpen(false);
 
-  // Pilares Oficiais de Atuação de Rafael Nascimento Advocacia
+  // Pilares Oficiais de Atuação de Mariana Madeira
   const areasAtuacao = [
     {
-      id: "direito-criminal",
-      icon: ShieldAlert,
-      title: "Direito Criminal & Defesa Penal Estratégica",
+      id: "registro-marcas-inpi",
+      icon: BadgeCheck,
+      title: "Registro de Marcas no INPI",
       shortDesc:
-        "Especialização central conduzida pelo Dr. Rafael Nascimento (PUC Minas). Atuação combativa e técnica em flagrantes, inquéritos e ações penais com urgência e sigilo absoluto.",
+        "Exclusividade nacional de 10 anos garantida por lei. Pesquisa prévia de viabilidade, depósito correto, acompanhamento da RPI e entrega do certificado oficial de registro (®).",
       bullets: [
-        "Audiências de custódia e flagrantes com atendimento imediato 24 horas",
-        "Acompanhamento em inquéritos policiais, delegacias e oitivas",
-        "Habeas Corpus, revogação de prisão preventiva e liberdade provisória",
-        "Defesa perante o Tribunal do Júri e sustentações em Tribunais (TJMG, STJ e STF)",
-        "Execução Penal: progressão de regime, livramento condicional e remição de pena",
+        "Pesquisa aprofundada de viabilidade marcária (evita indeferimentos e perdas financeiras)",
+        "Classificação técnica precisa nas classes de Nice para proteção abrangente",
+        "Acompanhamento semanal de cada despacho na Revista da Propriedade Industrial (RPI)",
+        "Defesa técnica perante oposições de terceiros, recursos e cumprimento de exigências",
+        "Concessão do Certificado Oficial de Registro de Marca válido em todo o Brasil",
       ],
-      tag: "Penal",
+      tag: "INPI",
       badge: "Especialidade Principal",
       whatsappMsg:
-        "Olá, Dr. Rafael Nascimento! Preciso de orientação jurídica com urgência sobre causa Criminal / Flagrante / Inquérito.",
+        "Olá, Dra. Mariana Madeira! Gostaria de fazer a pesquisa de viabilidade para registrar minha marca no INPI.",
     },
     {
-      id: "direito-civel",
-      icon: Scale,
-      title: "Direito Cível & Reparação de Danos",
+      id: "negocios-digitais",
+      icon: Laptop,
+      title: "Advocacia para Negócios Digitais",
       shortDesc:
-        "Atuação resolutiva e estratégica em ações indenizatórias, cobranças judiciais e defesa patrimonial, garantindo a recomposição justa dos seus direitos.",
+        "Segurança jurídica para infoprodutores, agências, criadores de conteúdo, e-commerces e startups que faturam no digital e precisam de blindagem sólida.",
       bullets: [
-        "Ações de indenização por danos materiais, morais e lucros cessantes",
-        "Cobrança judicial e extrajudicial de títulos, dívidas e contratos inadimplidos",
-        "Ações de execução, embargos à execução e defesa técnica de patrimônio",
-        "Resolução contenciosa e preventiva de litígios civis e obrigações de fazer",
+        "Termos de Uso e Políticas de Privacidade em total conformidade com a LGPD",
+        "Contratos de coprodução, prestação de serviços digitais, afiliados e parcerias",
+        "Proteção de cursos, mentorias, infoprodutos e propriedade intelectual",
+        "Atuação contra pirataria, plágio e remoção de perfis fakes em redes sociais",
       ],
-      tag: "Cível",
-      badge: "Defesa Patrimonial",
+      tag: "Digital",
+      badge: "Negócios Digitais",
       whatsappMsg:
-        "Olá, Dr. Rafael Nascimento! Gostaria de consultoria jurídica sobre Direito Cível / Indenização / Cobrança.",
+        "Olá, Dra. Mariana Madeira! Preciso de assessoria jurídica especializada para meu negócio digital / infoproduto.",
     },
     {
-      id: "contratos-negocios",
+      id: "contratos-empresariais",
       icon: FileText,
-      title: "Contratos & Segurança Jurídica",
+      title: "Contratos Empresariais Estratégicos",
       shortDesc:
-        "Elaboração, análise e blindagem técnica de instrumentos contratuais para pessoas físicas e empresas, prevenindo riscos financeiros e litígios futuros.",
+        "Elaboração, análise e blindagem minuciosa de instrumentos contratuais para empresas físicas e digitais, prevenindo litígios, calotes e passivos financeiros.",
       bullets: [
-        "Redação minuciosa e revisão de contratos civis, comerciais e de serviços",
-        "Blindagem de cláusulas rescisórias, multas e garantias contratuais",
-        "Assessoria em distratos amigáveis e renegociação extrajudicial de acordos",
-        "Notificações extrajudiciais formais para resguardo legal imediato",
+        "Redação e revisão customizada de contratos comerciais com clientes e fornecedores",
+        "Acordos de sócios (Memorandos de Entendimento / MoUs) e regras societárias claras",
+        "Termos de Confidencialidade (NDA) e não-concorrência para blindagem de know-how",
+        "Notificações extrajudiciais formais e cobrança jurídica de inadimplentes",
       ],
       tag: "Contratos",
-      badge: "Prevenção de Litígios",
+      badge: "Blindagem Jurídica",
       whatsappMsg:
-        "Olá, Dr. Rafael Nascimento! Gostaria de orientações para elaboração / revisão de um contrato.",
+        "Olá, Dra. Mariana Madeira! Gostaria de orientações para elaboração ou revisão de contratos da minha empresa.",
     },
     {
-      id: "familia-sucessoes",
-      icon: Users,
-      title: "Família & Planejamento Sucessório",
+      id: "pirataria-concorrencia",
+      icon: ShieldCheck,
+      title: "Combate à Pirataria & Concorrência Desleal",
       shortDesc:
-        "Condução técnica, ética e humanizada em inventários em cartório, partilha de herança, divórcios e questões patrimoniais de família.",
+        "Medidas rápidas e enérgicas contra quem tenta se apropriar indevidamente do nome, da reputação, do conteúdo ou da clientela da sua empresa.",
       bullets: [
-        "Inventário extrajudicial em cartório: solução rápida, econômica e sem desgaste",
-        "Inventários judiciais e partilha equilibrada e transparente de bens",
-        "Divórcio consensual e litigioso com proteção ao patrimônio familiar",
-        "Ações de alimentos (fixação, revisão e execução de pensão) e guarda de filhos",
+        "Notificações extrajudiciais imediatas para cessação de uso indevido de marca",
+        "Ações judiciais de abstenção de uso de marca cumuladas com pedidos indenizatórios",
+        "Derrubada ágil de contas clonadas, anúncios fraudulentos e marketplaces piratas",
+        "Defesa de segredo comercial e proteção do patrimônio intangível do negócio",
       ],
-      tag: "Família",
-      badge: "Inventários & Partilhas",
+      tag: "Proteção",
+      badge: "Defesa Patrimonial",
       whatsappMsg:
-        "Olá, Dr. Rafael Nascimento! Gostaria de informações sobre Inventário / Partilha de Bens / Família.",
+        "Olá, Dra. Mariana Madeira! Identifiquei terceiros usando indevidamente o nome da minha marca / conteúdo.",
     },
     {
-      id: "direito-imobiliario",
-      icon: HomeIcon,
-      title: "Direito Imobiliário & Possessório",
+      id: "assessoria-pmes",
+      icon: Building2,
+      title: "Assessoria Jurídica Contínua para PMEs",
       shortDesc:
-        "Segurança jurídica na proteção de terrenos, posse e patrimônio imobiliário em Itapecerica e em toda a região de Minas Gerais.",
+        "Retaguarda jurídica preventiva mensal para o empresário tomar decisões comerciais com segurança, previsibilidade e apoio direto da Dra. Mariana Madeira.",
       bullets: [
-        "Ações possessórias: reintegração de posse, manutenção e interdito proibitório",
-        "Ações de usucapião judicial e extrajudicial diretamente em cartório",
-        "Regularização fundiária de terrenos, glebas urbanas e rurais sem escritura",
-        "Assessoria em litígios de vizinhança, locações comerciais e contratos de compra e venda",
+        "Consultoria mensal preventiva para empresas em expansão no presencial e digital",
+        "Análise de riscos comerciais, negociações contratuais e pareceres ágeis",
+        "Atendimento direto e sem burocracia para resolver as dúvidas do dia a dia",
+        "Tranquilidade para o empresário focar em faturar e escalar sem medo de processos",
       ],
-      tag: "Imobiliário",
-      badge: "Regularização & Posse",
+      tag: "Assessoria",
+      badge: "Suporte Mensal",
       whatsappMsg:
-        "Olá, Dr. Rafael Nascimento! Preciso de orientação jurídica sobre Usucapião / Posse / Regularização de Imóvel.",
+        "Olá, Dra. Mariana Madeira! Gostaria de saber mais sobre a assessoria jurídica mensal contínua para empresas.",
     },
     {
-      id: "consultoria-estrategica",
-      icon: Gavel,
-      title: "Consultoria Jurídica Estratégica & Digital",
+      id: "monitoramento-vigilancia",
+      icon: Eye,
+      title: "Vigilância & Monitoramento Ativo no INPI",
       shortDesc:
-        "Atendimento personalizado na sede física no Centro de Itapecerica - MG ou 100% digital com alcance nacional. Diagnóstico transparente e plano de ação claro.",
+        "Sua marca não pode ficar desprotegida após o registro. Monitoramos semanalmente novas tentativas de cópia para barrar concorrentes de imediato.",
       bullets: [
-        "Consulta privativa com sigilo absoluto e avaliação realista de viabilidade",
-        "Atendimento presencial na R. Cônego Cesário, 282 - Sala 04 ou por videochamada",
-        "Acompanhamento direto e contínuo pelo Dr. Rafael Nascimento em todas as fases",
-        "Atuação ágil via processo eletrônico (PJe) nos Tribunais de todo o Brasil",
+        "Vigilância contínua da Revista da Propriedade Industrial (RPI) semana a semana",
+        "Alertas imediatos caso terceiros tentem depositar marcas similares ou idênticas",
+        "Protocolo célere de Oposição Administrativa dentro do prazo legal do INPI",
+        "Manutenção ativa da exclusividade conquistada no mercado nacional",
       ],
-      tag: "Consultoria",
-      badge: "Atendimento Direto",
+      tag: "Vigilância",
+      badge: "Vigilância Ativa",
       whatsappMsg:
-        "Olá, Dr. Rafael Nascimento! Gostaria de agendar uma consulta jurídica para avaliar minha situação.",
+        "Olá, Dra. Mariana Madeira! Quero contratar o serviço de vigilância e monitoramento contínuo da minha marca no INPI.",
     },
   ];
 
-  // Avaliações Reais do Google Meu Negócio de Rafael Nascimento Advocacia (Nota Máxima 5,0 ★ unânime)
+  // Avaliações Reais do Google Meu Negócio de Mariana Madeira (Nota Máxima 5,0 ★ unânime)
   const depoimentosGoogle = [
     {
-      author: "Sidney Neves",
+      author: "Lara Nascimento Santos Lopes",
       detail: "2 avaliações no Google",
       stars: 5,
-      date: "Avaliação verificada no Google",
-      quote: "Ótimo profissional. Recomendo a todos.",
-      highlight: "Ótimo profissional, recomendo a todos",
+      date: "3 meses atrás · Avaliação verificada",
+      quote:
+        "Profissional super competente e justa. Desde a pesquisa de viabilidade da marca até a sua concessão, se mostra super solícita. Preço justo pelos serviços prestados e muito clara em cada etapa que o registro de marca requer.",
+      highlight: "Super competente e justa, clareza em cada etapa do registro",
     },
     {
-      author: "INDÚSTRIA BRASILEIRA DE BECAS",
-      detail: "3 avaliações · 1 foto no Google",
-      stars: 5,
-      date: "Avaliação verificada no Google",
-      quote: "Excelente profissional! Recomendamos!",
-      highlight: "Excelente profissional! Recomendamos!",
-    },
-    {
-      author: "Denize Camargos",
-      detail: "2 avaliações no Google",
-      stars: 5,
-      date: "Avaliação verificada no Google",
-      quote: "Excelente! Resolução rápida. Super recomendo.",
-      highlight: "Excelente! Resolução rápida",
-    },
-    {
-      author: "Renata Bueno",
+      author: "Lavinia Dini",
       detail: "1 avaliação no Google",
       stars: 5,
-      date: "Avaliação verificada no Google",
-      quote: "Rafael é um excelente advogado meus parabéns 👏 jesus te abençoe 🙏",
-      highlight: "Excelente advogado, parabéns pelo trabalho",
+      date: "3 meses atrás · Avaliação verificada",
+      quote:
+        "Profissional excelente!!! Super atenciosa e prestativa. Não tenho preocupação com minha marca hoje graças a ela, que registrou tudo 🙏🏼 Obrigada, Mariana!!",
+      highlight: "Não tenho preocupação com minha marca hoje graças a ela",
     },
     {
-      author: "Professor Wilson Diniz",
-      detail: "1 avaliação no Google",
-      stars: 5,
-      date: "Avaliação verificada no Google",
-      quote: "Excelente profissional!!! Sério, comprometido e competente! 🙏",
-      highlight: "Sério, comprometido e competente!",
-    },
-    {
-      author: "Milena Santos",
+      author: "Isabela Gondim Wulf",
       detail: "3 avaliações no Google",
       stars: 5,
-      date: "Avaliação verificada no Google",
-      quote: "Super recomendo. Muito atencioso!",
-      highlight: "Super recomendo, muito atencioso!",
+      date: "3 meses atrás · Avaliação verificada",
+      quote:
+        "Excelente profissional! Confio de olhos fechados. Extremamente atenciosa e dedicada.",
+      highlight: "Confio de olhos fechados, extremamente atenciosa e dedicada",
     },
     {
-      author: "Julia Cunha",
-      detail: "2 avaliações no Google",
+      author: "Ariane Medeiros Santos",
+      detail: "6 avaliações · 3 fotos no Google",
       stars: 5,
-      date: "Avaliação verificada no Google",
-      quote: "Ótimo profissional!",
-      highlight: "Ótimo profissional, dedicação exemplar",
+      date: "3 meses atrás · Avaliação verificada",
+      quote: "Excelente profissional! Recomendo de olhos fechados.",
+      highlight: "Excelente profissional, recomendo de olhos fechados",
+    },
+    {
+      author: "Marcelo Cotta",
+      detail: "6 avaliações no Google",
+      stars: 5,
+      date: "3 meses atrás · Avaliação verificada",
+      quote: "Excelente profissional!!",
+      highlight: "Excelente profissional, dedicação e seriedade",
+    },
+    {
+      author: "Cristiane Lamounier Costa",
+      detail: "3 avaliações no Google",
+      stars: 5,
+      date: "3 meses atrás · Avaliação verificada",
+      quote: "Pontualidade e confiança",
+      highlight: "Pontualidade e confiança absoluta em cada processo",
     },
   ];
 
-  // Diferenciais Competitivos de Rafael Nascimento Advocacia
+  // Diferenciais Competitivos de Mariana Madeira
   const diferenciais = [
     {
-      icon: GraduationCap,
-      title: "Especialista em Ciências Criminais (PUC Minas)",
+      icon: Award,
+      title: "+500 Marcas Conduzidas e Protegidas",
       description:
-        "O Dr. Rafael Nascimento possui especialização de excelência em Ciências Criminais pela PUC Minas, garantindo fundamentação dogmática rigorosa, técnica processual apurada e estratégia penal defensiva de vanguarda.",
-    },
-    {
-      icon: Shield,
-      title: "Atuação Criminal Combativa & Plantão Urgente",
-      description:
-        "Prontidão para atuar em flagrantes, audiências de custódia e medidas urgentes de liberdade (Habeas Corpus), resguardando com firmeza as garantias constitucionais do cidadão.",
+        "Ampla vivência prática e expertise consolidada em processos no INPI para empresas de diversos nichos e portes, tanto no mercado tradicional quanto nos negócios digitais em todo o Brasil.",
     },
     {
       icon: Star,
       title: "Nota Máxima 5,0 ★ Unânime no Google",
       description:
-        "Reconhecimento espontâneo de clientes com 100% de avaliações 5 estrelas no Google Meu Negócio, atestando a competência, a seriedade e a rapidez nas resoluções jurídicas.",
+        "Reconhecimento espontâneo de clientes com 100% de avaliações 5 estrelas no Google Meu Negócio, atestando a competência, a pontualidade, a clareza didática e a dedicação personalizada.",
+    },
+    {
+      icon: Laptop,
+      title: "Especialista em Negócios Digitais & Startups",
+      description:
+        "Domínio das dinâmicas ágeis de infoprodutos, e-commerces, plataformas e criadores. Contratos de coprodução, termos LGPD e defesa contra pirataria digital pensados para a velocidade da internet.",
     },
     {
       icon: HeartHandshake,
-      title: "Atendimento Humanizado, Direto & Sigiloso",
+      title: "Atendimento Direto, Humanizado & Sem Juridiquês",
       description:
-        "O cliente conversa e traça a estratégia diretamente com o Dr. Rafael Nascimento. Atendimento com sigilo profissional inviolável, empatia e clareza didática sem juridiquês desnecessário.",
+        "Você alinha suas estratégias e tira dúvidas diretamente com a Dra. Mariana Madeira. Comunicação clara, honesta, sem termos herméticos e com suporte solícito em cada fase do processo.",
     },
     {
       icon: MapPin,
       title: "Sede Central em Itapecerica & Alcance Nacional",
       description:
-        "Escritório estruturado na R. Cônego Cesário, 282 - Sala 04 - Centro, em Itapecerica - MG, aliado a uma advocacia digital conectada aos Tribunais de Minas Gerais e de todo o Brasil.",
+        "Escritório presencial na Av. Severo Augusto Ribeiro, 179 - Centro, Itapecerica - MG, aliado a um fluxo 100% digital e seguro para atender clientes de qualquer estado do país.",
     },
     {
-      icon: Coins,
-      title: "Honorários Transparentes & Rigor Ético",
+      icon: Shield,
+      title: "Honorários Claros, Preço Justo & Rigor Ético",
       description:
-        "Contratos claros, transparentes e alinhados às diretrizes do Código de Ética e Disciplina da OAB, proporcionando segurança, previsibilidade e confiança mútua.",
+        "Transparência absoluta sobre custos, taxas oficiais do INPI e cronograma de trabalho. Contratos transparentes alinhados ao Código de Ética e Disciplina da OAB.",
     },
   ];
 
   // Situações comuns (Diagnóstico Rápido)
   const situacoesDiagnostico = [
     {
-      pergunta: "Está diante de uma urgência criminal, flagrante, custódia ou intimação?",
+      pergunta: "Sua empresa já investe em nome, logo e fachada, mas você ainda não registrou no INPI?",
       orientacao:
-        "O Dr. Rafael Nascimento atua de forma imediata e técnica para assegurar seus direitos constitucionais, acompanhar depoimentos em delegacia, formular pedidos de liberdade provisória ou impetrar Habeas Corpus.",
-      cta: "Buscar Defesa Criminal Urgente",
-      area: "Direito Criminal",
+        "No Brasil, o direito sobre a marca pertence a quem registra primeiro no INPI. Sem o registro, você corre o risco de ser impedido de usar seu próprio nome, perder seguidores, ter que trocar de fachada e ainda pagar indenização a terceiros.",
+      cta: "Fazer Pesquisa de Viabilidade Gratuita",
+      area: "Registro de Marcas no INPI",
     },
     {
-      pergunta: "Possui valores a receber, títulos inadimplidos ou disputas contratuais?",
+      pergunta: "Descobriu alguém copiando seu logotipo, nome comercial, fotos ou infoprodutos?",
       orientacao:
-        "Atuação ágil na cobrança judicial e extrajudicial de créditos, cheques, notas promissórias e contratos, além de ações indenizatórias por descumprimento de obrigações e danos patrimoniais.",
-      cta: "Analisar Meu Caso Cível",
-      area: "Direito Cível",
+        "A Dra. Mariana Madeira atua prontamente com notificações extrajudiciais formais para cessação imediata do uso indevido e, quando necessário, ingresso com medidas judiciais de abstenção de uso e indenização por perdas e danos.",
+      cta: "Combater Uso Indevido da Marca",
+      area: "Combate à Pirataria",
     },
     {
-      pergunta: "Precisa redigir, revisar ou blindar um contrato comercial ou de prestação?",
+      pergunta: "Está fechando parcerias, entrando em sociedade ou contratando sem um documento blindado?",
       orientacao:
-        "Construção de instrumentos contratuais sólidos com cláusulas preventivas de salvaguarda, mitigando passivos e assegurando que sua vontade seja integralmente respeitada perante a Justiça.",
-      cta: "Revisar / Blindar Contrato",
-      area: "Contratos & Negócios",
+        "Estruturamos Acordos de Sócios (MoUs), contratos de prestação de serviços e termos de confidencialidade (NDA) customizados para mitigar riscos, alinhar expectativas e evitar litígios que sangrem seu negócio.",
+      cta: "Blindar Meus Contratos Comerciais",
+      area: "Contratos Empresariais",
     },
     {
-      pergunta: "Precisa realizar inventário de bens da família ou resolver partilha de herança?",
+      pergunta: "Atua no mercado digital (cursos, infoprodutos, e-commerce) e precisa de estrutura jurídica segura?",
       orientacao:
-        "Condução sensível e célere de inventários em cartório (extrajudiciais, muito mais rápidos e com menor custo) ou judiciais, divórcios e fixação/execução de pensão alimentícia.",
-      cta: "Consultar Inventário & Família",
-      area: "Família & Sucessões",
+        "Elaboração de Termos de Uso, Políticas de Privacidade alinhadas à LGPD, contratos de coprodução e estratégias completas de blindagem para você vender na internet com tranquilidade institucional.",
+      cta: "Consultar Advocacia para o Digital",
+      area: "Negócios Digitais",
     },
   ];
 
   // FAQ
   const faqs = [
     {
-      question: "Como funciona o primeiro atendimento com o Dr. Rafael Nascimento?",
+      question: "Por que ter o CNPJ ou registro na Junta Comercial não protege minha marca?",
       answer:
-        "O primeiro atendimento é privativo, seguro e detalhado. Pode ser realizado presencialmente em nosso escritório na R. Cônego Cesário, 282 - Sala 04 - Centro, em Itapecerica - MG, ou de forma 100% digital por WhatsApp ou videochamada para qualquer localidade. Analisamos detalhadamente a documentação e os fatos, indicando com honestidade e clareza os melhores caminhos jurídicos.",
+        "O CNPJ e a Junta Comercial garantem apenas o registro do nome empresarial na sua junta estadual. Eles NÃO concedem exclusividade comercial sobre a marca nem sobre o logotipo. Apenas o registro concedido pelo INPI (Instituto Nacional da Propriedade Industrial) confere o direito exclusivo de uso da marca em todo o território nacional e o direito de usar o símbolo ®.",
     },
     {
-      question: "O que fazer em caso de prisão em flagrante ou intimação para comparecer à delegacia?",
+      question: "Como funciona a pesquisa prévia de viabilidade da marca?",
       answer:
-        "O cidadão tem o direito constitucional de ser assistido por um advogado antes e durante qualquer declaração à autoridade policial. Entre em contato imediatamente com o Dr. Rafael Nascimento para que a defesa técnica acompanhe o procedimento desde o primeiro instante, evitando abusos e viabilizando o pedido de liberdade na audiência de custódia.",
+        "A pesquisa de viabilidade é o passo mais estratégico antes de iniciar o processo. Analisamos detalhadamente a base de dados do INPI para verificar se já existem marcas idênticas ou semelhantes registradas ou em trâmite no mesmo segmento mercadológico. Isso evita que você gaste taxas em um pedido com alto risco de indeferimento.",
     },
     {
-      question: "O escritório atende apenas em Itapecerica ou em outras comarcas?",
+      question: "Quanto tempo dura o processo no INPI e qual a validade do registro?",
       answer:
-        "Atendemos presencialmente toda a comarca de Itapecerica e cidades do Centro-Oeste de Minas (como Divinópolis, Formiga, Oliveira, Cláudio, Camacho e região). Além disso, graças à digitalização integral dos processos (PJe, Projudi e e-Proc), atuamos com a mesma presteza e eficiência perante os Tribunais de todo o Brasil.",
+        "Atualmente, um processo de registro de marca no INPI costuma levar em média de 8 a 14 meses quando não há oposições complexas de terceiros. Uma vez concedido, o Certificado de Registro tem validade de 10 anos em todo o Brasil e pode ser renovado indefinidamente por períodos iguais.",
     },
     {
-      question: "Como funciona o inventário extrajudicial em cartório?",
+      question: "O escritório atende apenas presencialmente em Itapecerica ou em todo o Brasil?",
       answer:
-        "Quando todos os herdeiros forem maiores, capazes e houver consenso na partilha dos bens (e na ausência de testamento com exigência judicial), o inventário pode ser realizado diretamente em Cartório de Notas por meio de escritura pública. É um procedimento muito mais rápido, econômico e sem o desgaste de uma ação judicial prolongada.",
+        "Atendemos com muito prazer de forma presencial em nosso escritório na Av. Severo Augusto Ribeiro, 179 - Centro, em Itapecerica - MG. E, como o sistema do INPI e a gestão contratual são 100% digitais, atendemos com a mesma agilidade, proximidade e excelência clientes de qualquer cidade ou estado do Brasil.",
     },
     {
-      question: "Como o escritório atua em cobranças judiciais e disputas cíveis?",
+      question: "O que acontece se eu receber uma notificação extrajudicial para parar de usar meu nome?",
       answer:
-        "Iniciamos com uma abordagem estratégica de notificação e negociação extrajudicial para viabilizar acordos rápidos. Caso não haja composição amigável, ingressamos imediatamente com a ação judicial cabível (execução de título, ação monitória ou cobrança), utilizando ferramentas modernas de localização de bens para assegurar a efetividade do crédito.",
+        "Se outra empresa possui a marca registrada antes de você no INPI, ela pode exigir que você pare de utilizá-la imediatamente e cobrar indenizações pelo uso indevido. Caso você tenha recebido uma notificação, entre em contato imediatamente com a Dra. Mariana Madeira para analisarmos a validade do documento e traçarmos a melhor estratégia defensiva.",
     },
     {
-      question: "Como são estabelecidos os honorários da advocacia?",
+      question: "Como funcionam os honorários e as taxas oficiais do INPI?",
       answer:
-        "Trabalhamos com absoluta transparência contratual, em conformidade com as diretrizes da Ordem dos Advogados do Brasil (OAB/MG). Cada contrato detalha claramente o escopo de atuação, prazos e condições de pagamento, assegurando que o cliente tenha previsibilidade financeira total desde o início.",
+        "Trabalhamos com absoluta transparência. Informamos com clareza quais são as taxas oficiais obrigatórias do Governo Federal (INPI) — que possuem descontos de até 60% para MEI, ME, EPP e pessoas físicas — e detalhamos nossos honorários em contrato formal, com condições facilitadas de pagamento.",
     },
   ];
 
   return (
     <MotionConfig reducedMotion="user">
-      <div className="relative min-h-screen bg-white font-sans text-slate-800 antialiased selection:bg-[#d4a34b] selection:text-[#0b0c10]">
+      <div className="relative min-h-screen bg-white font-sans text-slate-800 antialiased selection:bg-[#b8874d] selection:text-white">
         {/* ========================================================================= */}
         {/* 1. TOP NOTICE / PRE-HEADER                                               */}
         {/* ========================================================================= */}
-        <div className="border-b border-[#262118] bg-gradient-to-r from-[#08090d] via-[#10121a] to-[#151821] px-4 py-2 text-white">
+        <div className="border-b border-[#262c3a] bg-gradient-to-r from-[#090a0d] via-[#101218] to-[#14171e] px-4 py-2 text-white">
           <div className="mx-auto flex w-full max-w-[1600px] flex-wrap items-center justify-between gap-2 px-4 sm:px-6 lg:px-8 xl:px-12 text-xs">
             <div className="flex items-center gap-2 font-medium">
-              <span className="flex size-2 rounded-full bg-[#f5d77f] animate-pulse" />
-              <span className="text-[#fbf3d1] font-semibold">
-                Rafael Nascimento Advocacia &bull; Itapecerica - MG
+              <span className="flex size-2 rounded-full bg-[#d9aa69] animate-pulse" />
+              <span className="text-[#f7edd7] font-semibold">
+                Mariana Madeira &bull; Registro de Marcas &amp; Advocacia Empresarial
               </span>
-              <span className="hidden sm:inline text-amber-500/60">|</span>
+              <span className="hidden sm:inline text-amber-500/50">|</span>
               <span className="hidden sm:inline text-slate-300">
-                ⚖️ Advogado Criminal e Cível &bull; Especialista em Ciências Criminais (PUC Minas)
+                🛡️ +500 marcas protegidas &bull; Itapecerica - MG e todo o Brasil
               </span>
             </div>
 
@@ -502,14 +500,14 @@ export default function Home() {
                   ))}
                 </div>
                 <span className="font-bold text-white">5,0 ★</span>
-                <span className="text-amber-200/80">(11 avaliações no Google)</span>
+                <span className="text-amber-200/80">(10 avaliações no Google)</span>
               </a>
 
               <a
                 href={getWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden md:flex items-center gap-1 font-semibold text-[#f5d77f] hover:text-white transition-colors"
+                className="hidden md:flex items-center gap-1.5 font-semibold text-[#e8caa0] hover:text-white transition-colors"
               >
                 <WhatsAppIcon size={13} className="text-[#25D366]" />
                 <span>{PHONE_DISPLAY}</span>
@@ -524,22 +522,22 @@ export default function Home() {
         <header
           className={`sticky top-0 z-40 transition-all duration-300 ${
             isScrolled
-              ? "border-b border-amber-400/20 bg-[#08090d]/98 shadow-xl shadow-black/40 backdrop-blur-md"
-              : "border-b border-[#262118] bg-[#08090d]/92 backdrop-blur-md"
+              ? "border-b border-[#b8874d]/30 bg-[#090a0d]/98 shadow-xl shadow-black/40 backdrop-blur-md"
+              : "border-b border-[#262c3a] bg-[#090a0d]/92 backdrop-blur-md"
           }`}
         >
           <div className="mx-auto flex w-full max-w-[1600px] items-center justify-between gap-6 px-4 py-3 sm:px-6 lg:px-8 xl:px-12">
             {/* Left: Official Logo */}
             <a
               href="#inicio"
-              aria-label="Rafael Nascimento Advocacia - Início"
+              aria-label="Mariana Madeira Marcas - Início"
               onClick={closeMenu}
               className="flex shrink-0 items-center transition-opacity hover:opacity-90"
             >
-              <div className="relative h-10 sm:h-12 w-44 sm:w-56 shrink-0">
+              <div className="relative h-11 sm:h-12 w-48 sm:w-60 shrink-0">
                 <Image
                   src={LOGO_SRC}
-                  alt="Rafael Nascimento Advocacia"
+                  alt="Mariana Madeira Marcas e Advocacia Empresarial"
                   fill
                   priority
                   unoptimized
@@ -554,13 +552,16 @@ export default function Home() {
               className="hidden xl:flex items-center gap-6 2xl:gap-8 whitespace-nowrap text-xs font-semibold tracking-wider text-slate-300"
             >
               <a className="nav-link" href="#atuacao">
-                Áreas de Atuação
+                Serviços &amp; INPI
               </a>
               <a className="nav-link" href="#sobre">
-                Dr. Rafael Nascimento
+                Dra. Mariana Madeira
               </a>
               <a className="nav-link" href="#diferenciais">
-                Diferenciais
+                Diferenciais (+500 marcas)
+              </a>
+              <a className="nav-link" href="#metodologia">
+                Como Funciona
               </a>
               <a className="nav-link" href="#avaliacoes">
                 Avaliações (5.0 ★)
@@ -583,7 +584,7 @@ export default function Home() {
                   target="_blank"
                   className="shadow-sm whitespace-nowrap"
                 >
-                  <WhatsAppIcon size={14} className="text-[#1a0e03]" />
+                  <WhatsAppIcon size={14} className="text-[#1e1305]" />
                   <span>Consulta no WhatsApp</span>
                 </GlowingButton>
               </div>
@@ -608,53 +609,60 @@ export default function Home() {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                className="border-b border-[#262118] bg-[#0c0e14] px-5 py-5 xl:hidden shadow-2xl text-white"
+                className="border-b border-[#262c3a] bg-[#0e1015] px-5 py-5 xl:hidden shadow-2xl text-white"
               >
                 <div className="flex flex-col gap-3.5 text-sm font-semibold tracking-wide">
                   <a
-                    className="py-1.5 text-slate-200 hover:text-[#f5d77f]"
+                    className="py-1.5 text-slate-200 hover:text-[#e8caa0]"
                     href="#inicio"
                     onClick={closeMenu}
                   >
                     Início
                   </a>
                   <a
-                    className="py-1.5 text-slate-200 hover:text-[#f5d77f]"
+                    className="py-1.5 text-slate-200 hover:text-[#e8caa0]"
                     href="#atuacao"
                     onClick={closeMenu}
                   >
-                    Áreas de Atuação
+                    Serviços &amp; Registro no INPI
                   </a>
                   <a
-                    className="py-1.5 text-slate-200 hover:text-[#f5d77f]"
+                    className="py-1.5 text-slate-200 hover:text-[#e8caa0]"
                     href="#sobre"
                     onClick={closeMenu}
                   >
-                    Sobre o Dr. Rafael Nascimento
+                    Sobre a Dra. Mariana Madeira
                   </a>
                   <a
-                    className="py-1.5 text-slate-200 hover:text-[#f5d77f]"
+                    className="py-1.5 text-slate-200 hover:text-[#e8caa0]"
                     href="#diferenciais"
                     onClick={closeMenu}
                   >
                     Nossos Diferenciais
                   </a>
                   <a
-                    className="py-1.5 text-slate-200 hover:text-[#f5d77f]"
+                    className="py-1.5 text-slate-200 hover:text-[#e8caa0]"
+                    href="#metodologia"
+                    onClick={closeMenu}
+                  >
+                    Como Funciona o Registro
+                  </a>
+                  <a
+                    className="py-1.5 text-slate-200 hover:text-[#e8caa0]"
                     href="#avaliacoes"
                     onClick={closeMenu}
                   >
                     Avaliações no Google (5.0 ★)
                   </a>
                   <a
-                    className="py-1.5 text-slate-200 hover:text-[#f5d77f]"
+                    className="py-1.5 text-slate-200 hover:text-[#e8caa0]"
                     href="#faq"
                     onClick={closeMenu}
                   >
                     Perguntas Frequentes
                   </a>
                   <a
-                    className="py-1.5 text-slate-200 hover:text-[#f5d77f]"
+                    className="py-1.5 text-slate-200 hover:text-[#e8caa0]"
                     href="#contato"
                     onClick={closeMenu}
                   >
@@ -669,14 +677,14 @@ export default function Home() {
                       target="_blank"
                       className="w-full justify-center"
                     >
-                      <WhatsAppIcon size={16} className="text-[#1a0e03]" />
+                      <WhatsAppIcon size={16} className="text-[#1e1305]" />
                       <span>Falar no WhatsApp</span>
                     </GlowingButton>
                     <a
                       href={`tel:${WHATSAPP_NUMBER}`}
                       className="flex items-center justify-center gap-2 rounded-lg border border-slate-700 py-3 text-xs font-bold text-slate-200 hover:bg-white/5"
                     >
-                      <Phone size={14} className="text-[#f5d77f]" />
+                      <Phone size={14} className="text-[#e8caa0]" />
                       <span>Ligar: {PHONE_DISPLAY}</span>
                     </a>
                   </div>
@@ -691,12 +699,12 @@ export default function Home() {
         {/* ========================================================================= */}
         <section
           id="inicio"
-          className="relative overflow-hidden bg-gradient-to-b from-[#08090d] via-[#10131b] to-[#0c0e14] text-white py-14 sm:py-20 lg:py-24"
+          className="relative overflow-hidden bg-gradient-to-b from-[#090a0d] via-[#12141c] to-[#0c0e14] text-white py-14 sm:py-20 lg:py-24"
         >
           {/* Luminous Ambient Warm Gold Glow */}
-          <div className="pointer-events-none absolute -top-24 left-0 size-[650px] rounded-full bg-[#d4a34b]/15 blur-[140px]" />
-          <div className="pointer-events-none absolute top-1/3 -left-20 size-[500px] rounded-full bg-[#9d5b16]/15 blur-[130px]" />
-          <div className="pointer-events-none absolute top-1/2 -right-40 size-96 rounded-full bg-[#c88a2c]/20 blur-3xl" />
+          <div className="pointer-events-none absolute -top-24 left-0 size-[650px] rounded-full bg-[#b8874d]/15 blur-[140px]" />
+          <div className="pointer-events-none absolute top-1/3 -left-20 size-[500px] rounded-full bg-[#8c5d28]/15 blur-[130px]" />
+          <div className="pointer-events-none absolute top-1/2 -right-40 size-96 rounded-full bg-[#c89658]/20 blur-3xl" />
 
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
@@ -709,9 +717,9 @@ export default function Home() {
               >
                 {/* Eyebrow Badge */}
                 <motion.div variants={fadeInUp} className="mb-4">
-                  <div className="inline-flex items-center gap-2.5 rounded-full border border-amber-300/40 bg-white/5 px-4 py-2 text-xs font-bold tracking-[0.16em] uppercase text-[#fbf3d1] shadow-lg backdrop-blur-md">
-                    <Scale size={14} className="text-[#f5d77f]" />
-                    <span>Rafael Nascimento Advocacia &bull; Itapecerica - MG</span>
+                  <div className="inline-flex items-center gap-2.5 rounded-full border border-amber-300/40 bg-white/5 px-4 py-2 text-xs font-bold tracking-[0.16em] uppercase text-[#f7edd7] shadow-lg backdrop-blur-md">
+                    <ShieldCheck size={14} className="text-[#e8caa0]" />
+                    <span>Mariana Madeira &bull; Advocacia para Empresas e Negócios Digitais</span>
                   </div>
                 </motion.div>
 
@@ -720,11 +728,11 @@ export default function Home() {
                   variants={fadeInUp}
                   className="font-cinzel text-3xl font-extrabold leading-[1.18] tracking-tight sm:text-4xl md:text-5xl lg:text-[3.25rem] text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]"
                 >
-                  Defesa Criminal Estratégica e Soluções Cíveis de{" "}
-                  <span className="text-gradient-gold font-black drop-shadow-[0_2px_16px_rgba(212,163,75,0.4)]">
-                    alta precisão técnica
-                  </span>
-                  .
+                  Sua Marca é Seu Maior Patrimônio: Garanta{" "}
+                  <span className="text-gradient-gold font-black drop-shadow-[0_2px_16px_rgba(184,135,77,0.4)]">
+                    Exclusividade no INPI
+                  </span>{" "}
+                  &amp; Blindagem Jurídica.
                 </motion.h1>
 
                 {/* Subtitle */}
@@ -732,11 +740,13 @@ export default function Home() {
                   variants={fadeInUp}
                   className="mt-6 text-base text-slate-100 sm:text-lg sm:leading-relaxed font-normal drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]"
                 >
-                  Atuação jurídica combativa, ética e resolutiva conduzida pelo{" "}
-                  <strong className="text-white font-bold underline decoration-[#d4a34b]/60 underline-offset-4">
-                    Dr. Rafael Nascimento
+                  Proteção jurídica de alta precisão técnica conduzida pela{" "}
+                  <strong className="text-white font-bold underline decoration-[#b8874d]/70 underline-offset-4">
+                    Dra. Mariana Madeira
                   </strong>
-                  , Especialista em Ciências Criminais pela PUC Minas. Atendimento presencial na sede própria em Itapecerica - MG e digital com máxima agilidade para clientes de todo o Brasil.
+                  . Da pesquisa prévia de viabilidade até a concessão definitiva do registro pelo INPI,
+                  contratos estratégicos e assessoria completa para empresas físicas e negócios digitais.
+                  Mais de 500 marcas protegidas e nota máxima 5,0 ★ no Google.
                 </motion.p>
 
                 {/* Authority Badges Checklist */}
@@ -745,35 +755,35 @@ export default function Home() {
                   className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2 text-xs sm:text-sm text-white"
                 >
                   <div className="flex items-center gap-2.5 rounded-lg bg-white/5 border border-amber-400/20 px-3 py-2 backdrop-blur-xs">
-                    <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-amber-400/20 text-[#f5d77f] border border-amber-400/30">
+                    <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-amber-400/20 text-[#e8caa0] border border-amber-400/30">
                       <CheckCircle2 size={13} />
                     </div>
                     <span className="font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
-                      Nota máxima 5,0 ★ no Google (11 avaliações)
+                      +500 Marcas Confiam no Escritório (®)
                     </span>
                   </div>
                   <div className="flex items-center gap-2.5 rounded-lg bg-white/5 border border-amber-400/20 px-3 py-2 backdrop-blur-xs">
-                    <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-amber-400/20 text-[#f5d77f] border border-amber-400/30">
+                    <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-amber-400/20 text-[#e8caa0] border border-amber-400/30">
                       <CheckCircle2 size={13} />
                     </div>
                     <span className="font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
-                      Especialista em Ciências Criminais (PUC Minas)
+                      Nota Máxima 5,0 ★ no Google (10 avaliações)
                     </span>
                   </div>
                   <div className="flex items-center gap-2.5 rounded-lg bg-white/5 border border-amber-400/20 px-3 py-2 backdrop-blur-xs">
-                    <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-amber-400/20 text-[#f5d77f] border border-amber-400/30">
+                    <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-amber-400/20 text-[#e8caa0] border border-amber-400/30">
                       <CheckCircle2 size={13} />
                     </div>
                     <span className="font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
-                      Advogado Criminal e Cível de Alta Performance
+                      Especialista em Marcas &amp; Negócios Digitais
                     </span>
                   </div>
                   <div className="flex items-center gap-2.5 rounded-lg bg-white/5 border border-amber-400/20 px-3 py-2 backdrop-blur-xs">
-                    <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-amber-400/20 text-[#f5d77f] border border-amber-400/30">
+                    <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-amber-400/20 text-[#e8caa0] border border-amber-400/30">
                       <CheckCircle2 size={13} />
                     </div>
                     <span className="font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
-                      Sede: R. Cônego Cesário, 282 - Centro, Itapecerica
+                      Sede: Av. Severo Augusto Ribeiro, 179 - Centro
                     </span>
                   </div>
                 </motion.div>
@@ -786,19 +796,21 @@ export default function Home() {
                   <GlowingButton
                     variant="gold"
                     size="lg"
-                    href={getWhatsAppUrl()}
+                    href={getWhatsAppUrl(
+                      "Olá, Dra. Mariana Madeira! Quero verificar a viabilidade da minha marca para registrar no INPI."
+                    )}
                     target="_blank"
                     className="shadow-2xl shadow-black/50"
                   >
-                    <WhatsAppIcon size={18} className="text-[#1a0e03]" />
-                    <span>Falar no WhatsApp com o Dr. Rafael</span>
+                    <WhatsAppIcon size={18} className="text-[#1e1305]" />
+                    <span>Consultar Viabilidade da Marca</span>
                   </GlowingButton>
 
                   <a
                     href="#atuacao"
-                    className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-amber-400/40 bg-white/5 px-6 py-4 text-xs font-bold uppercase tracking-[0.14em] text-[#fbf3d1] backdrop-blur-md transition-all hover:border-[#f5d77f] hover:bg-[#d4a34b] hover:text-[#0b0c10] shadow-lg"
+                    className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-amber-400/40 bg-white/5 px-6 py-4 text-xs font-bold uppercase tracking-[0.14em] text-[#f7edd7] backdrop-blur-md transition-all hover:border-[#e8caa0] hover:bg-[#b8874d] hover:text-[#090a0d] shadow-lg"
                   >
-                    <span>Conhecer Áreas de Atuação</span>
+                    <span>Conhecer Nossos Serviços</span>
                     <ArrowRight size={14} />
                   </a>
                 </motion.div>
@@ -821,13 +833,13 @@ export default function Home() {
                     <span className="font-bold text-white text-sm">5,0 de 5,0</span>
                   </div>
                   <span className="text-white/40">&bull;</span>
-                  <span className="font-medium text-white">11 avaliações no Google Meu Negócio</span>
+                  <span className="font-medium text-white">10 avaliações no Google Meu Negócio</span>
                   <span className="text-white/40">&bull;</span>
                   <a
                     href={GOOGLE_SEARCH_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-bold text-[#f5d77f] hover:text-white underline flex items-center gap-1 transition-colors"
+                    className="font-bold text-[#e8caa0] hover:text-white underline flex items-center gap-1 transition-colors"
                   >
                     <span>Ver no Google</span>
                     <ArrowUpRight size={13} />
@@ -835,7 +847,7 @@ export default function Home() {
                 </motion.div>
               </motion.div>
 
-              {/* Right Column: Dr. Rafael Nascimento Portrait Card */}
+              {/* Right Column: Dra. Mariana Madeira Portrait Card */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -844,14 +856,14 @@ export default function Home() {
               >
                 <div className="relative mx-auto max-w-sm sm:max-w-md lg:max-w-none">
                   {/* Decorative Glowing Frame */}
-                  <div className="absolute -inset-2 rounded-2xl bg-gradient-to-tr from-[#d4a34b]/40 via-[#f5d77f]/20 to-transparent blur-md" />
+                  <div className="absolute -inset-2 rounded-2xl bg-gradient-to-tr from-[#b8874d]/40 via-[#e8caa0]/20 to-transparent blur-md" />
 
                   {/* Main Portrait Card */}
-                  <div className="relative overflow-hidden rounded-2xl border-2 border-amber-300/60 bg-[#0e1017] shadow-2xl">
+                  <div className="relative overflow-hidden rounded-2xl border-2 border-amber-300/60 bg-[#0e1015] shadow-2xl">
                     <div className="relative aspect-[4/5] w-full overflow-hidden">
                       <Image
                         src={FOTO_HERO_SRC}
-                        alt="Dr. Rafael Nascimento - Rafael Nascimento Advocacia em Itapecerica MG"
+                        alt="Dra. Mariana Madeira - Registro de Marcas e Advocacia Empresarial"
                         fill
                         priority
                         unoptimized
@@ -859,17 +871,17 @@ export default function Home() {
                       />
 
                       {/* Gradient Overlay for bottom text legibility */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#08090d] via-[#08090d]/25 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#090a0d] via-[#090a0d]/25 to-transparent" />
 
                       {/* Card Lower Badge */}
-                      <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-amber-300/40 bg-[#08090d]/90 p-3.5 backdrop-blur-md">
+                      <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-amber-300/40 bg-[#090a0d]/90 p-3.5 backdrop-blur-md">
                         <div className="flex items-center justify-between">
                           <div>
                             <p className="font-cinzel text-sm sm:text-base font-bold text-white tracking-wide">
-                              Dr. Rafael Nascimento
+                              Dra. Mariana Madeira
                             </p>
-                            <p className="text-[10px] sm:text-xs font-semibold text-[#f5d77f] uppercase tracking-wider mt-0.5">
-                              Especialista em Ciências Criminais &bull; PUC Minas
+                            <p className="text-[10px] sm:text-xs font-semibold text-[#e8caa0] uppercase tracking-wider mt-0.5">
+                              Registro de Marcas &bull; Advocacia Empresarial
                             </p>
                           </div>
                           <div className="flex flex-col items-end">
@@ -883,7 +895,7 @@ export default function Home() {
                               ))}
                             </div>
                             <span className="text-[10px] font-bold text-white mt-0.5">
-                              5,0 ★ no Google (11)
+                              5,0 ★ no Google (10)
                             </span>
                           </div>
                         </div>
@@ -892,22 +904,22 @@ export default function Home() {
                   </div>
 
                   {/* Floating Trust Card Top-Right */}
-                  <div className="hidden sm:flex absolute -top-5 -right-5 items-center gap-2.5 rounded-xl border border-amber-300/60 bg-[#08090d]/95 px-4 py-2.5 shadow-xl backdrop-blur-md">
-                    <div className="flex size-9 items-center justify-center rounded-lg bg-amber-400/15 text-[#f5d77f]">
-                      <GraduationCap size={18} />
+                  <div className="hidden sm:flex absolute -top-5 -right-5 items-center gap-2.5 rounded-xl border border-amber-300/60 bg-[#090a0d]/95 px-4 py-2.5 shadow-xl backdrop-blur-md z-20">
+                    <div className="flex size-9 items-center justify-center rounded-lg bg-amber-400/15 text-[#e8caa0]">
+                      <BadgeCheck size={18} />
                     </div>
                     <div>
-                      <p className="text-[10px] font-bold uppercase tracking-wider text-[#e7cc99]">
-                        Pós-Graduação
+                      <p className="text-[10px] font-bold uppercase tracking-wider text-[#d9aa69]">
+                        Autoridade INPI
                       </p>
-                      <p className="text-xs font-bold text-white">
-                        PUC Minas &bull; Penal
+                      <p className="text-xs font-bold text-white whitespace-nowrap">
+                        +500 Marcas Atendidas
                       </p>
                     </div>
                   </div>
 
-                  {/* Floating Trust Card Bottom-Left */}
-                  <div className="hidden sm:flex absolute -bottom-5 -left-5 items-center gap-2.5 rounded-xl border border-amber-400/30 bg-[#0e1017]/95 px-4 py-2.5 shadow-xl backdrop-blur-md">
+                  {/* Floating Trust Card Left (repositioned to mid-left so it never covers the bottom text) */}
+                  <div className="hidden sm:flex absolute top-28 -left-5 lg:-left-6 items-center gap-2.5 rounded-xl border border-amber-400/30 bg-[#0e1015]/95 px-4 py-2.5 shadow-xl backdrop-blur-md z-20">
                     <div className="flex size-9 items-center justify-center rounded-lg bg-[#25D366]/20 text-[#25D366]">
                       <WhatsAppIcon size={18} />
                     </div>
@@ -915,7 +927,7 @@ export default function Home() {
                       <p className="text-[10px] font-bold uppercase tracking-wider text-slate-300">
                         Atendimento Ágil
                       </p>
-                      <p className="text-xs font-bold text-white">
+                      <p className="text-xs font-bold text-white whitespace-nowrap">
                         Presencial &amp; Digital
                       </p>
                     </div>
@@ -929,57 +941,57 @@ export default function Home() {
         {/* ========================================================================= */}
         {/* 4. TRUST & AUTHORITY NUMBERS BAR                                         */}
         {/* ========================================================================= */}
-        <section className="border-y border-[#e7e0d3] bg-[#faf8f5] py-8 sm:py-10">
+        <section className="border-y border-[#e8e2d8] bg-[#faf8f5] py-8 sm:py-10">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-2 gap-6 md:grid-cols-4 lg:gap-8 text-center">
               <div className="flex flex-col items-center">
-                <div className="flex items-center gap-1 text-2xl sm:text-3xl font-extrabold text-[#0e1017]">
+                <div className="flex items-center gap-1 text-2xl sm:text-3xl font-extrabold text-[#0e1015]">
                   <span>5,0</span>
                   <div className="flex text-amber-500">
                     <Star size={18} className="fill-amber-400 text-amber-400" />
                   </div>
                 </div>
-                <p className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#c88a2c] mt-1">
+                <p className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#b8874d] mt-1">
                   Nota Máxima Google
                 </p>
                 <p className="text-[11px] sm:text-xs text-slate-600 mt-0.5">
-                  11 avaliações 100% 5 estrelas
+                  100% de avaliações 5 estrelas
                 </p>
               </div>
 
               <div className="flex flex-col items-center">
-                <div className="text-2xl sm:text-3xl font-extrabold text-[#0e1017]">
-                  PUC Minas
+                <div className="text-2xl sm:text-3xl font-extrabold text-[#0e1015]">
+                  +500 Marcas
                 </div>
-                <p className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#c88a2c] mt-1">
-                  Ciências Criminais
+                <p className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#b8874d] mt-1">
+                  Protegidas &amp; Vigiadas
                 </p>
                 <p className="text-[11px] sm:text-xs text-slate-600 mt-0.5">
-                  Especialização e rigor técnico
+                  Empresas físicas e negócios digitais
                 </p>
               </div>
 
               <div className="flex flex-col items-center">
-                <div className="text-2xl sm:text-3xl font-extrabold text-[#0e1017]">
+                <div className="text-2xl sm:text-3xl font-extrabold text-[#0e1015]">
                   Itapecerica - MG
                 </div>
-                <p className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#c88a2c] mt-1">
+                <p className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#b8874d] mt-1">
                   Sede Central Própria
                 </p>
                 <p className="text-[11px] sm:text-xs text-slate-600 mt-0.5">
-                  R. Cônego Cesário, 282 - Sl 04
+                  Av. Severo Augusto Ribeiro, 179
                 </p>
               </div>
 
               <div className="flex flex-col items-center">
-                <div className="text-2xl sm:text-3xl font-extrabold text-[#0e1017]">
+                <div className="text-2xl sm:text-3xl font-extrabold text-[#0e1015]">
                   Nacional
                 </div>
-                <p className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#c88a2c] mt-1">
+                <p className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#b8874d] mt-1">
                   Atendimento Digital
                 </p>
                 <p className="text-[11px] sm:text-xs text-slate-600 mt-0.5">
-                  Atuação em todo o Brasil (PJe)
+                  Proteção em todo o Brasil (INPI)
                 </p>
               </div>
             </div>
@@ -993,14 +1005,14 @@ export default function Home() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
               <div className="eyebrow-gold justify-center mb-3">
-                Diagnóstico Jurídico Especializado
+                Diagnóstico Rápido de Proteção
               </div>
-              <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-bold text-[#0e1017]">
-                Você se identifica com alguma dessas situações jurídicas?
+              <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-bold text-[#0e1015]">
+                Você se identifica com algum destes cenários no seu negócio?
               </h2>
               <p className="mt-4 text-sm sm:text-base text-slate-600">
-                Não enfrente acusações, riscos à sua liberdade ou prejuízos patrimoniais sem o respaldo de um especialista.
-                Conte com assessoria combativa e técnica desde o primeiro momento:
+                Não espere uma notificação extrajudicial ou a perda definitiva do seu nome para agir.
+                Garanta a segurança jurídica da sua marca desde o primeiro momento:
               </p>
             </div>
 
@@ -1008,14 +1020,14 @@ export default function Home() {
               {situacoesDiagnostico.map((sit, idx) => (
                 <div
                   key={idx}
-                  className="rounded-2xl border border-[#e7e0d3] bg-[#faf8f5] p-6 sm:p-8 transition-all hover:border-[#c88a2c] hover:shadow-lg flex flex-col justify-between"
+                  className="rounded-2xl border border-[#e8e2d8] bg-[#faf8f5] p-6 sm:p-8 transition-all hover:border-[#b8874d] hover:shadow-lg flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-start gap-3.5 mb-3">
-                      <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-amber-500/10 text-[#c88a2c]">
+                      <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-amber-500/10 text-[#b8874d]">
                         <AlertCircle size={20} />
                       </div>
-                      <h3 className="font-cinzel text-lg sm:text-xl font-bold text-[#0e1017] leading-snug">
+                      <h3 className="font-cinzel text-lg sm:text-xl font-bold text-[#0e1015] leading-snug">
                         {sit.pergunta}
                       </h3>
                     </div>
@@ -1024,22 +1036,22 @@ export default function Home() {
                     </p>
                   </div>
 
-                  <div className="mt-6 pt-5 border-t border-[#e7e0d3] flex items-center justify-between">
+                  <div className="mt-6 pt-5 border-t border-[#e8e2d8] flex items-center justify-between">
                     <button
                       type="button"
                       onClick={() => openConsultModal(sit.area)}
-                      className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#c88a2c] hover:text-[#9d5b16] transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#b8874d] hover:text-[#8c5d28] transition-colors cursor-pointer"
                     >
                       <span>{sit.cta}</span>
                       <ArrowRight size={14} />
                     </button>
 
                     <a
-                      href={getWhatsAppUrl(`Olá, Dr. Rafael Nascimento! ${sit.pergunta}`)}
+                      href={getWhatsAppUrl(`Olá, Dra. Mariana Madeira! ${sit.pergunta}`)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex size-9 items-center justify-center rounded-lg bg-[#25D366] text-white hover:brightness-110 transition-all shadow-xs"
-                      aria-label="Falar no WhatsApp sobre esta dúvida jurídica"
+                      aria-label="Falar no WhatsApp sobre este diagnóstico"
                     >
                       <WhatsAppIcon size={16} />
                     </a>
@@ -1051,23 +1063,23 @@ export default function Home() {
         </section>
 
         {/* ========================================================================= */}
-        {/* 6. PILARES DE ATUAÇÃO / ÁREAS ESPECIALIZADAS                             */}
+        {/* 6. PILARES DE ATUAÇÃO / SERVIÇOS ESPECIALIZADOS                           */}
         {/* ========================================================================= */}
         <section
           id="atuacao"
-          className="relative bg-gradient-to-b from-[#08090d] via-[#10131b] to-[#151821] text-white py-16 sm:py-24"
+          className="relative bg-gradient-to-b from-[#090a0d] via-[#10131b] to-[#14171e] text-white py-16 sm:py-24"
         >
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
               <div className="eyebrow-light justify-center mb-3">
-                Pilares de Atuação &bull; Advocacia de Alta Performance
+                Pilares de Atuação &bull; Proteção Jurídica para Empreendedores
               </div>
               <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white">
-                Como atuamos na defesa intransigente dos seus direitos
+                Como atuamos na blindagem e no crescimento do seu negócio
               </h2>
               <p className="mt-4 text-sm sm:text-base text-slate-300">
-                Atuação criminal especializada e soluções cíveis estratégicas em instâncias judiciais
-                e administrativas com fundamentação jurídica de excelência, sigilo e combatividade.
+                Soluções estratégicas em Registro de Marcas, Advocacia Digital e Contratos Comerciais
+                conduzidas com profundidade técnica, ética e foco na viabilidade do seu negócio.
               </p>
             </div>
 
@@ -1082,16 +1094,16 @@ export default function Home() {
                     <div>
                       {/* Top Badges */}
                       <div className="flex items-center justify-between mb-5">
-                        <div className="flex size-12 items-center justify-center rounded-xl bg-gradient-to-br from-amber-400/20 to-amber-500/5 border border-amber-400/30 text-[#f5d77f] group-hover:scale-105 transition-transform">
+                        <div className="flex size-12 items-center justify-center rounded-xl bg-gradient-to-br from-amber-400/20 to-amber-500/5 border border-amber-400/30 text-[#e8caa0] group-hover:scale-105 transition-transform">
                           <IconComponent size={22} />
                         </div>
-                        <span className="rounded-full border border-amber-300/40 bg-amber-400/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#fbf3d1]">
+                        <span className="rounded-full border border-amber-300/40 bg-amber-400/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#f7edd7]">
                           {area.badge}
                         </span>
                       </div>
 
                       {/* Card Title */}
-                      <h3 className="font-cinzel text-lg sm:text-xl font-bold text-white leading-snug group-hover:text-[#f5d77f] transition-colors">
+                      <h3 className="font-cinzel text-lg sm:text-xl font-bold text-white leading-snug group-hover:text-[#e8caa0] transition-colors">
                         {area.title}
                       </h3>
 
@@ -1109,7 +1121,7 @@ export default function Home() {
                           >
                             <CheckCircle2
                               size={14}
-                              className="text-[#f5d77f] shrink-0 mt-0.5"
+                              className="text-[#e8caa0] shrink-0 mt-0.5"
                             />
                             <span>{bullet}</span>
                           </div>
@@ -1123,7 +1135,7 @@ export default function Home() {
                         href={getWhatsAppUrl(area.whatsappMsg)}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-amber-400/40 bg-white/5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[#fbf3d1] transition-all hover:bg-[#d4a34b] hover:text-[#0b0c10] hover:border-[#f5d77f]"
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-amber-400/40 bg-white/5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[#f7edd7] transition-all hover:bg-[#b8874d] hover:text-[#090a0d] hover:border-[#e8caa0]"
                       >
                         <WhatsAppIcon size={14} />
                         <span>Consultar no WhatsApp</span>
@@ -1135,18 +1147,18 @@ export default function Home() {
             </div>
 
             {/* Central Consultation Banner */}
-            <div className="mt-14 rounded-2xl border-2 border-amber-300/40 bg-gradient-to-r from-[#08090d] via-[#10131b] to-[#161a22] p-8 sm:p-10 shadow-2xl">
+            <div className="mt-14 rounded-2xl border-2 border-amber-300/40 bg-gradient-to-r from-[#090a0d] via-[#12141c] to-[#161a22] p-8 sm:p-10 shadow-2xl">
               <div className="flex flex-col items-center justify-between gap-6 text-center lg:flex-row lg:text-left">
                 <div>
                   <div className="eyebrow-light mb-2">
-                    Precisa de Orientação Imediata?
+                    Deseja Registrar Sua Marca com Segurança?
                   </div>
                   <h3 className="font-cinzel text-xl sm:text-2xl font-bold text-white">
-                    Fale diretamente com o Dr. Rafael Nascimento
+                    Fale diretamente com a Dra. Mariana Madeira
                   </h3>
                   <p className="mt-1.5 text-xs sm:text-sm text-slate-300 max-w-2xl">
-                    Envie uma mensagem resumindo sua necessidade. Analisamos seu caso com total sigilo
-                    e presteza técnica para indicar a estratégia jurídica mais adequada e segura.
+                    Envie o nome do seu negócio para realizarmos a pesquisa de viabilidade no INPI.
+                    Analisamos sua marca com rapidez e sigilo para você empreender sem medo.
                   </p>
                 </div>
 
@@ -1154,13 +1166,13 @@ export default function Home() {
                   variant="gold"
                   size="lg"
                   href={getWhatsAppUrl(
-                    "Olá, Dr. Rafael Nascimento! Gostaria de uma avaliação jurídica para entender o caminho mais adequado para o meu caso."
+                    "Olá, Dra. Mariana Madeira! Gostaria de uma avaliação para registrar minha marca e entender as etapas no INPI."
                   )}
                   target="_blank"
                   className="shrink-0"
                 >
-                  <WhatsAppIcon size={17} className="text-[#1a0e03]" />
-                  <span>Tirar Dúvida Agora</span>
+                  <WhatsAppIcon size={17} className="text-[#1e1305]" />
+                  <span>Iniciar Pesquisa de Marca</span>
                 </GlowingButton>
               </div>
             </div>
@@ -1168,34 +1180,34 @@ export default function Home() {
         </section>
 
         {/* ========================================================================= */}
-        {/* 7. SOBRE O ADVOGADO & ESTRUTURA                                           */}
+        {/* 7. SOBRE A ADVOGADA & ESTRUTURA                                           */}
         {/* ========================================================================= */}
         <section id="sobre" className="py-16 sm:py-24 bg-white overflow-hidden">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-              {/* Photo of Dr. Rafael Nascimento on Left */}
+              {/* Photo of Dra. Mariana Madeira on Left */}
               <div className="relative lg:col-span-5">
                 <div className="relative mx-auto max-w-sm sm:max-w-md lg:max-w-none">
                   {/* Subtle Accent Glow */}
-                  <div className="absolute -inset-3 rounded-2xl bg-gradient-to-br from-[#d4a34b]/20 to-transparent blur-lg" />
+                  <div className="absolute -inset-3 rounded-2xl bg-gradient-to-br from-[#b8874d]/20 to-transparent blur-lg" />
 
-                  <div className="relative overflow-hidden rounded-2xl border-2 border-[#e7e0d3] bg-[#08090d] shadow-2xl">
+                  <div className="relative overflow-hidden rounded-2xl border-2 border-[#e8e2d8] bg-[#090a0d] shadow-2xl">
                     <div className="relative aspect-[4/5] w-full">
                       <Image
                         src={FOTO_PERFIL_SRC}
-                        alt="Dr. Rafael Nascimento - Advogado Criminal e Cível em Itapecerica MG"
+                        alt="Dra. Mariana Madeira - Advogada Empresarial e Especialista em Registro de Marcas"
                         fill
                         unoptimized
-                        className="object-cover object-top"
+                        className="object-cover object-center"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#08090d]/85 via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#090a0d]/85 via-transparent to-transparent" />
 
                       <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-amber-300/30 bg-black/60 p-3.5 backdrop-blur-md text-white text-center">
                         <p className="font-cinzel text-base font-bold text-white">
-                          Dr. Rafael Nascimento
+                          Dra. Mariana Madeira
                         </p>
-                        <p className="text-[11px] text-[#f5d77f] mt-0.5">
-                          Especialista em Ciências Criminais &bull; PUC Minas
+                        <p className="text-[11px] text-[#e8caa0] mt-0.5">
+                          Advogada Empresarial &bull; Registro de Marcas no INPI
                         </p>
                       </div>
                     </div>
@@ -1205,37 +1217,37 @@ export default function Home() {
 
               {/* Bio & Details on Right */}
               <div className="lg:col-span-7">
-                <div className="eyebrow-gold mb-3">Sobre o Advogado &amp; Atuação</div>
+                <div className="eyebrow-gold mb-3">Sobre a Profissional &amp; Filosofia</div>
 
-                <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0e1017] leading-tight">
-                  Advocacia ética, combativa e com dedicação incansável a cada cliente em Itapecerica e em todo o Brasil.
+                <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0e1015] leading-tight">
+                  Proteção jurídica de vanguarda para quem empreende no físico e no digital.
                 </h2>
 
                 <div className="mt-6 space-y-4 text-sm sm:text-base text-slate-700 leading-relaxed">
                   <p>
-                    A advocacia liderada pelo <strong className="text-[#0e1017]">Dr. Rafael Nascimento</strong> é
-                    fundamentada na união entre o profundo rigor dogmático, a combatividade processual e o compromisso
-                    intransigente com os direitos de cada pessoa que nos confia sua causa.
+                    A advocacia liderada pela <strong className="text-[#0e1015]">Dra. Mariana Madeira</strong> nasceu
+                    com um propósito claro: garantir que empresários, criadores de conteúdo e negócios inovadores
+                    tenham a segurança jurídica necessária para crescer e faturar sem receio de disputas ou perdas patrimoniais.
                   </p>
                   <p>
-                    Pós-graduado e <strong className="text-[#0e1017]">Especialista em Ciências Criminais pela Pontifícia Universidade Católica de Minas Gerais (PUC Minas)</strong>,
-                    o Dr. Rafael Nascimento une sólido embasamento acadêmico à experiência prática nas esferas Criminal e Cível,
-                    atuando com maestria em flagrantes, audiências de custódia, tribunal do júri, execuções e litígios cíveis complexos.
+                    Com vasta atuação e <strong className="text-[#0e1015]">+500 marcas conduzidas e protegidas perante o INPI</strong>,
+                    a Dra. Mariana Madeira alia rigor técnico em Propriedade Industrial à compreensão prática do mercado atual,
+                    atuando com desenvoltura em contratos para infoprodutos, plataformas online, e-commerces e empresas físicas em expansão.
                   </p>
                   <p>
-                    Com sede física estruturada na <strong className="text-[#0e1017]">R. Cônego Cesário, 282 - Sala 04 - Centro, Itapecerica - MG</strong>,
-                    o escritório oferece um ambiente moderno, privativo e seguro para consultas presenciais, ao mesmo tempo em que disponibiliza
-                    uma eficiente infraestrutura digital para atender clientes em qualquer comarca de Minas Gerais e do território nacional com nota máxima 5,0 ★ no Google.
+                    Com escritório presencial estruturado na <strong className="text-[#0e1015]">Av. Severo Augusto Ribeiro, 179 - Centro, em Itapecerica - MG</strong>,
+                    oferece um atendimento acolhedor, transparente e ético, ao mesmo tempo em que dispõe de uma infraestrutura 100% digital
+                    para conduzir processos de clientes de todas as regiões do Brasil com nota máxima 5,0 ★ no Google.
                   </p>
                 </div>
 
                 {/* Quote Box */}
-                <div className="mt-6 rounded-xl border-l-4 border-[#c88a2c] bg-[#faf8f5] p-4 sm:p-5">
+                <div className="mt-6 rounded-xl border-l-4 border-[#b8874d] bg-[#faf8f5] p-4 sm:p-5">
                   <p className="italic text-sm text-slate-800">
-                    &ldquo;Excelente profissional!!! Sério, comprometido e competente! Resolução rápida e dedicação absoluta em cada etapa... Super recomendo a todos!&rdquo;
+                    &ldquo;Profissional super competente e justa. Desde a pesquisa de viabilidade da marca até a sua concessão, se mostra super solícita. Preço justo e muito clara em cada etapa... Não tenho preocupação com minha marca hoje graças a ela!&rdquo;
                   </p>
-                  <p className="mt-2 text-xs font-bold text-[#c88a2c] uppercase tracking-wider">
-                    — Síntese das avaliações verificadas de clientes no Google Meu Negócio (Nota Máxima 5,0 ★ unânime)
+                  <p className="mt-2 text-xs font-bold text-[#b8874d] uppercase tracking-wider">
+                    — Depoimentos reais de clientes no Google Meu Negócio (Nota Máxima 5,0 ★ unânime)
                   </p>
                 </div>
 
@@ -1247,15 +1259,15 @@ export default function Home() {
                     href={getWhatsAppUrl()}
                     target="_blank"
                   >
-                    <WhatsAppIcon size={16} className="text-[#1a0e03]" />
-                    <span>Falar Diretamente com o Dr. Rafael</span>
+                    <WhatsAppIcon size={16} className="text-[#1e1305]" />
+                    <span>Falar com a Dra. Mariana Madeira</span>
                   </GlowingButton>
 
                   <a
                     href={INSTAGRAM_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-5 py-3 text-xs font-bold uppercase tracking-wider text-slate-800 transition-colors hover:border-[#c88a2c] hover:text-[#c88a2c]"
+                    className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-5 py-3 text-xs font-bold uppercase tracking-wider text-slate-800 transition-colors hover:border-[#b8874d] hover:text-[#b8874d]"
                   >
                     <InstagramIcon size={16} className="text-[#E1306C]" />
                     <span>Instagram {INSTAGRAM_HANDLE}</span>
@@ -1265,10 +1277,10 @@ export default function Home() {
                     href={GOOGLE_SEARCH_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-5 py-3 text-xs font-bold uppercase tracking-wider text-slate-800 transition-colors hover:border-[#c88a2c] hover:text-[#c88a2c]"
+                    className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-5 py-3 text-xs font-bold uppercase tracking-wider text-slate-800 transition-colors hover:border-[#b8874d] hover:text-[#b8874d]"
                   >
                     <GoogleIcon size={16} />
-                    <span>Google Meu Negócio</span>
+                    <span>Avaliações Google (5.0 ★)</span>
                   </a>
                 </div>
               </div>
@@ -1277,19 +1289,19 @@ export default function Home() {
         </section>
 
         {/* ========================================================================= */}
-        {/* 8. DIFERENCIAIS                                                           */}
+        {/* 8. DIFERENCIAIS COMPETITIVOS                                              */}
         {/* ========================================================================= */}
-        <section id="diferenciais" className="py-16 sm:py-24 bg-[#faf8f5] border-t border-[#e7e0d3]">
+        <section id="diferenciais" className="py-16 sm:py-24 bg-[#faf8f5] border-t border-[#e8e2d8]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
               <div className="eyebrow-gold justify-center mb-3">
-                Por Que Escolher Rafael Nascimento Advocacia
+                Por Que Escolher Mariana Madeira Marcas
               </div>
-              <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0e1017]">
-                Diferenciais que asseguram a satisfação absoluta de nossos clientes
+              <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0e1015]">
+                Diferenciais que garantem a segurança definitiva da sua empresa
               </h2>
               <p className="mt-4 text-sm sm:text-base text-slate-600">
-                Uma experiência jurídica com seriedade inegociável, clareza didática e dedicação autêntica.
+                Uma assessoria que combina transparência, agilidade técnica e comprometimento real com cada cliente.
               </p>
             </div>
 
@@ -1299,12 +1311,12 @@ export default function Home() {
                 return (
                   <div
                     key={idx}
-                    className="rounded-2xl border border-[#e7e0d3] bg-white p-6 sm:p-8 shadow-xs transition-all hover:border-[#c88a2c] hover:shadow-md"
+                    className="rounded-2xl border border-[#e8e2d8] bg-white p-6 sm:p-8 shadow-xs transition-all hover:border-[#b8874d] hover:shadow-md"
                   >
-                    <div className="flex size-12 items-center justify-center rounded-xl bg-amber-500/10 text-[#c88a2c] mb-5">
+                    <div className="flex size-12 items-center justify-center rounded-xl bg-amber-500/10 text-[#b8874d] mb-5">
                       <IconComp size={22} />
                     </div>
-                    <h3 className="font-cinzel text-lg font-bold text-[#0e1017]">
+                    <h3 className="font-cinzel text-lg font-bold text-[#0e1015]">
                       {dif.title}
                     </h3>
                     <p className="mt-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -1318,72 +1330,72 @@ export default function Home() {
         </section>
 
         {/* ========================================================================= */}
-        {/* 9. PASSO A PASSO (COMO FUNCIONA O ATENDIMENTO)                           */}
+        {/* 9. METODOLOGIA EM 4 PASSOS (COMO FUNCIONA O REGISTRO NO INPI)            */}
         {/* ========================================================================= */}
-        <section className="py-16 sm:py-24 bg-white">
+        <section id="metodologia" className="py-16 sm:py-24 bg-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
               <div className="eyebrow-gold justify-center mb-3">
-                Processo Transparente e Seguro
+                Metodologia Estruturada &bull; INPI
               </div>
-              <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0e1017]">
-                Como funciona o seu atendimento jurídico
+              <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0e1015]">
+                Como funciona o registro da sua marca passo a passo
               </h2>
               <p className="mt-4 text-sm sm:text-base text-slate-600">
-                Do primeiro contato até a resolução satisfatória da sua demanda:
+                Um processo seguro, transparente e acompanhado de perto em cada etapa oficial:
               </p>
             </div>
 
             <div className="grid gap-6 md:grid-cols-4">
-              <div className="relative rounded-2xl border border-[#e7e0d3] bg-[#faf8f5] p-6 text-center">
-                <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-[#08090d] text-[#f5d77f] font-bold text-lg mb-4 border border-amber-400/40">
+              <div className="relative rounded-2xl border border-[#e8e2d8] bg-[#faf8f5] p-6 text-center">
+                <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-[#090a0d] text-[#e8caa0] font-bold text-lg mb-4 border border-amber-400/40">
                   1
                 </div>
-                <h3 className="font-cinzel text-base font-bold text-[#0e1017]">
-                  Primeiro Contato
+                <h3 className="font-cinzel text-base font-bold text-[#0e1015]">
+                  Pesquisa de Viabilidade
                 </h3>
                 <p className="mt-2 text-xs text-slate-600 leading-relaxed">
-                  Você nos envia uma mensagem no WhatsApp ou liga, resume sua situação e agendamos
-                  sua consulta presencial em Itapecerica ou online.
+                  Realizamos uma varredura aprofundada na base do INPI para atestar se sua marca está livre
+                  e possui chances reais de deferimento sem riscos.
                 </p>
               </div>
 
-              <div className="relative rounded-2xl border border-[#e7e0d3] bg-[#faf8f5] p-6 text-center">
-                <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-[#08090d] text-[#f5d77f] font-bold text-lg mb-4 border border-amber-400/40">
+              <div className="relative rounded-2xl border border-[#e8e2d8] bg-[#faf8f5] p-6 text-center">
+                <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-[#090a0d] text-[#e8caa0] font-bold text-lg mb-4 border border-amber-400/40">
                   2
                 </div>
-                <h3 className="font-cinzel text-base font-bold text-[#0e1017]">
-                  Análise Técnica
+                <h3 className="font-cinzel text-base font-bold text-[#0e1015]">
+                  Protocolo &amp; Depósito
                 </h3>
                 <p className="mt-2 text-xs text-slate-600 leading-relaxed">
-                  O Dr. Rafael Nascimento avalia minuciosamente o inquérito, intimação, contratos ou provas
-                  para estruturar a melhor estratégia defensiva.
+                  Definição correta das classes de produtos e serviços, pagamento das taxas oficiais e protocolo
+                  imediato do pedido no INPI.
                 </p>
               </div>
 
-              <div className="relative rounded-2xl border border-[#e7e0d3] bg-[#faf8f5] p-6 text-center">
-                <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-[#08090d] text-[#f5d77f] font-bold text-lg mb-4 border border-amber-400/40">
+              <div className="relative rounded-2xl border border-[#e8e2d8] bg-[#faf8f5] p-6 text-center">
+                <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-[#090a0d] text-[#e8caa0] font-bold text-lg mb-4 border border-amber-400/40">
                   3
                 </div>
-                <h3 className="font-cinzel text-base font-bold text-[#0e1017]">
-                  Definição Estratégica
+                <h3 className="font-cinzel text-base font-bold text-[#0e1015]">
+                  Acompanhamento RPI
                 </h3>
                 <p className="mt-2 text-xs text-slate-600 leading-relaxed">
-                  Apresentamos o plano com total clareza quanto a prazos, honorários justos e as etapas
-                  necessárias para defender seus direitos com máxima eficácia.
+                  Vigilância semanal das publicações oficiais, cumprimento ágil de eventuais exigências
+                  e resposta técnica a qualquer oposição de concorrentes.
                 </p>
               </div>
 
-              <div className="relative rounded-2xl border border-[#e7e0d3] bg-[#faf8f5] p-6 text-center">
-                <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-[#08090d] text-[#f5d77f] font-bold text-lg mb-4 border border-amber-400/40">
+              <div className="relative rounded-2xl border border-[#e8e2d8] bg-[#faf8f5] p-6 text-center">
+                <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-[#090a0d] text-[#e8caa0] font-bold text-lg mb-4 border border-amber-400/40">
                   4
                 </div>
-                <h3 className="font-cinzel text-base font-bold text-[#0e1017]">
-                  Atuação &amp; Acompanhamento
+                <h3 className="font-cinzel text-base font-bold text-[#0e1015]">
+                  Concessão &amp; Certificado (®)
                 </h3>
                 <p className="mt-2 text-xs text-slate-600 leading-relaxed">
-                  Execução diligente perante delegacias, fóruns, tribunais ou cartórios, com atualizações
-                  periódicas e contato direto com você.
+                  Emissão do Certificado Oficial de Registro de Marca, garantindo exclusividade de uso em todo o Brasil
+                  pelo prazo de 10 anos renováveis.
                 </p>
               </div>
             </div>
@@ -1392,11 +1404,13 @@ export default function Home() {
               <GlowingButton
                 variant="gold"
                 size="lg"
-                href={getWhatsAppUrl()}
+                href={getWhatsAppUrl(
+                  "Olá, Dra. Mariana Madeira! Gostaria de fazer a pesquisa de viabilidade da minha marca para iniciarmos o processo no INPI."
+                )}
                 target="_blank"
               >
-                <WhatsAppIcon size={17} className="text-[#1a0e03]" />
-                <span>Iniciar Minha Consulta no WhatsApp</span>
+                <WhatsAppIcon size={17} className="text-[#1e1305]" />
+                <span>Solicitar Minha Pesquisa de Viabilidade</span>
               </GlowingButton>
             </div>
           </div>
@@ -1407,12 +1421,12 @@ export default function Home() {
         {/* ========================================================================= */}
         <section
           id="avaliacoes"
-          className="py-16 sm:py-24 bg-gradient-to-b from-[#08090d] via-[#10131b] to-[#151821] text-white"
+          className="py-16 sm:py-24 bg-gradient-to-b from-[#090a0d] via-[#10131b] to-[#14171e] text-white"
         >
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
               <div className="eyebrow-light justify-center mb-3">
-                Prova Social &bull; Google Meu Negócio
+                Prova Social Verificada &bull; Google Meu Negócio
               </div>
               <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white">
                 O que dizem os clientes no Google
@@ -1428,8 +1442,8 @@ export default function Home() {
                   ))}
                 </div>
                 <span className="text-xl font-bold text-white">5,0 de 5,0 estrelas</span>
-                <span className="text-sm text-[#e7cc99]">
-                  (11 avaliações verificadas no Google)
+                <span className="text-sm text-[#d9aa69]">
+                  (10 avaliações verificadas no Google)
                 </span>
               </div>
             </div>
@@ -1460,7 +1474,7 @@ export default function Home() {
                     </div>
 
                     {/* Highlight */}
-                    <p className="text-xs font-bold text-[#f5d77f] mb-2 uppercase tracking-wider">
+                    <p className="text-xs font-bold text-[#e8caa0] mb-2 uppercase tracking-wider">
                       {dep.highlight}
                     </p>
 
@@ -1472,7 +1486,7 @@ export default function Home() {
 
                   {/* Author */}
                   <div className="mt-6 pt-4 border-t border-slate-700/60 flex items-center gap-3">
-                    <div className="flex size-9 shrink-0 items-center justify-center rounded-full bg-amber-500/20 text-xs font-bold text-[#f5d77f] border border-amber-400/30">
+                    <div className="flex size-9 shrink-0 items-center justify-center rounded-full bg-amber-500/20 text-xs font-bold text-[#e8caa0] border border-amber-400/30">
                       {dep.author.charAt(0)}
                     </div>
                     <div>
@@ -1494,7 +1508,7 @@ export default function Home() {
                 href={GOOGLE_SEARCH_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg border border-amber-400/40 bg-white/5 px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-white hover:border-[#f5d77f] hover:bg-white/10 transition-colors"
+                className="inline-flex items-center gap-2 rounded-lg border border-amber-400/40 bg-white/5 px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-white hover:border-[#e8caa0] hover:bg-white/10 transition-colors"
               >
                 <GoogleIcon size={16} />
                 <span>Ver Avaliações no Google Meu Negócio</span>
@@ -1513,11 +1527,11 @@ export default function Home() {
               <div className="eyebrow-gold justify-center mb-3">
                 Dúvidas Frequentes
               </div>
-              <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0e1017]">
-                Perguntas Frequentes sobre Atuação &amp; Serviços
+              <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0e1015]">
+                Perguntas Frequentes sobre Registro de Marcas &amp; Advocacia
               </h2>
               <p className="mt-3 text-sm sm:text-base text-slate-600">
-                Respostas diretas e orientações claras sobre como conduzimos as demandas de nossos clientes.
+                Respostas diretas e esclarecedoras sobre como protegemos o patrimônio de quem empreende.
               </p>
             </div>
 
@@ -1527,18 +1541,18 @@ export default function Home() {
                 return (
                   <div
                     key={idx}
-                    className="overflow-hidden rounded-2xl border border-[#e7e0d3] bg-[#faf8f5] transition-colors"
+                    className="overflow-hidden rounded-2xl border border-[#e8e2d8] bg-[#faf8f5] transition-colors"
                   >
                     <button
                       type="button"
                       onClick={() => setActiveFaq(isOpen ? null : idx)}
-                      className="flex w-full items-center justify-between p-5 text-left text-sm sm:text-base font-bold text-[#0e1017] hover:text-[#c88a2c] transition-colors cursor-pointer"
+                      className="flex w-full items-center justify-between p-5 text-left text-sm sm:text-base font-bold text-[#0e1015] hover:text-[#b8874d] transition-colors cursor-pointer"
                       aria-expanded={isOpen}
                     >
                       <span className="pr-4">{faq.question}</span>
                       <ChevronDown
                         size={18}
-                        className={`shrink-0 text-[#c88a2c] transition-transform duration-200 ${
+                        className={`shrink-0 text-[#b8874d] transition-transform duration-200 ${
                           isOpen ? "rotate-180" : ""
                         }`}
                       />
@@ -1550,7 +1564,7 @@ export default function Home() {
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
-                          className="border-t border-[#e7e0d3] px-5 pb-5 pt-3"
+                          className="border-t border-[#e8e2d8] px-5 pb-5 pt-3"
                         >
                           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                             {faq.answer}
@@ -1563,21 +1577,23 @@ export default function Home() {
               })}
             </div>
 
-            <div className="mt-12 rounded-2xl border border-[#e7e0d3] bg-[#faf8f5] p-6 text-center">
-              <p className="font-cinzel text-base font-bold text-[#0e1017]">
-                Ainda tem alguma dúvida sobre a sua situação específica?
+            <div className="mt-12 rounded-2xl border border-[#e8e2d8] bg-[#faf8f5] p-6 text-center">
+              <p className="font-cinzel text-base font-bold text-[#0e1015]">
+                Ainda tem alguma dúvida sobre a proteção da sua marca ou negócio?
               </p>
               <p className="mt-1 text-xs sm:text-sm text-slate-600">
-                O Dr. Rafael Nascimento está à disposição para esclarecer seu caso com ética, sigilo e rapidez.
+                A Dra. Mariana Madeira está à disposição para analisar seu caso com atenção, ética e presteza.
               </p>
               <div className="mt-4">
                 <GlowingButton
                   variant="gold"
                   size="md"
-                  href={getWhatsAppUrl("Olá, Dr. Rafael Nascimento! Tenho uma dúvida sobre o meu caso e gostaria de orientação jurídica.")}
+                  href={getWhatsAppUrl(
+                    "Olá, Dra. Mariana Madeira! Tenho uma dúvida sobre a proteção da minha marca e gostaria de orientação."
+                  )}
                   target="_blank"
                 >
-                  <WhatsAppIcon size={15} className="text-[#1a0e03]" />
+                  <WhatsAppIcon size={15} className="text-[#1e1305]" />
                   <span>Tirar Dúvida no WhatsApp</span>
                 </GlowingButton>
               </div>
@@ -1588,28 +1604,28 @@ export default function Home() {
         {/* ========================================================================= */}
         {/* 12. CONTATO & SEDE EM ITAPECERICA - MG                                     */}
         {/* ========================================================================= */}
-        <section id="contato" className="py-16 sm:py-24 bg-[#faf8f5] border-t border-[#e7e0d3]">
+        <section id="contato" className="py-16 sm:py-24 bg-[#faf8f5] border-t border-[#e8e2d8]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
               {/* Contact Info Column */}
               <div className="lg:col-span-6 flex flex-col justify-between">
                 <div>
                   <div className="eyebrow-gold mb-3">Atendimento &amp; Sede</div>
-                  <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0e1017]">
-                    Entre em contato e agende sua consulta
+                  <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0e1015]">
+                    Fale conosco e proteja seu maior patrimônio
                   </h2>
                   <p className="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed">
                     Atendimento presencial em nossa sede no Centro de Itapecerica - MG ou 100% digital
-                    com atendimento ágil para clientes de todo o Brasil. Escolha o canal de sua preferência.
+                    com atendimento ágil para empreendedores de todo o Brasil. Escolha o canal de sua preferência.
                   </p>
 
                   <div className="mt-8 space-y-4">
                     <div className="flex items-start gap-3.5">
-                      <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-amber-500/10 text-[#c88a2c]">
+                      <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-amber-500/10 text-[#b8874d]">
                         <MapPin size={20} />
                       </div>
                       <div>
-                        <p className="text-xs font-bold text-[#0e1017] uppercase tracking-wider">
+                        <p className="text-xs font-bold text-[#0e1015] uppercase tracking-wider">
                           Endereço da Sede
                         </p>
                         <p className="text-sm text-slate-700 mt-0.5">
@@ -1622,7 +1638,7 @@ export default function Home() {
                           href={GOOGLE_MAPS_URL}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="mt-1 inline-flex items-center gap-1 text-xs font-bold text-[#c88a2c] hover:underline"
+                          className="mt-1 inline-flex items-center gap-1 text-xs font-bold text-[#b8874d] hover:underline"
                         >
                           <span>Como chegar no Google Maps</span>
                           <ArrowUpRight size={12} />
@@ -1631,18 +1647,18 @@ export default function Home() {
                     </div>
 
                     <div className="flex items-start gap-3.5">
-                      <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-amber-500/10 text-[#c88a2c]">
+                      <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-amber-500/10 text-[#b8874d]">
                         <Phone size={20} />
                       </div>
                       <div>
-                        <p className="text-xs font-bold text-[#0e1017] uppercase tracking-wider">
+                        <p className="text-xs font-bold text-[#0e1015] uppercase tracking-wider">
                           Telefone &amp; WhatsApp
                         </p>
                         <a
                           href={getWhatsAppUrl()}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-sm font-semibold text-slate-800 hover:text-[#c88a2c] mt-0.5 block"
+                          className="text-sm font-semibold text-slate-800 hover:text-[#b8874d] mt-0.5 block"
                         >
                           {PHONE_DISPLAY}
                         </a>
@@ -1650,16 +1666,16 @@ export default function Home() {
                     </div>
 
                     <div className="flex items-start gap-3.5">
-                      <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-amber-500/10 text-[#c88a2c]">
+                      <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-amber-500/10 text-[#b8874d]">
                         <Mail size={20} />
                       </div>
                       <div>
-                        <p className="text-xs font-bold text-[#0e1017] uppercase tracking-wider">
+                        <p className="text-xs font-bold text-[#0e1015] uppercase tracking-wider">
                           E-mail de Contato
                         </p>
                         <a
                           href={`mailto:${EMAIL_CONTACT}`}
-                          className="text-sm font-semibold text-slate-800 hover:text-[#c88a2c] mt-0.5 block"
+                          className="text-sm font-semibold text-slate-800 hover:text-[#b8874d] mt-0.5 block"
                         >
                           {EMAIL_CONTACT}
                         </a>
@@ -1667,34 +1683,34 @@ export default function Home() {
                     </div>
 
                     <div className="flex items-start gap-3.5">
-                      <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-amber-500/10 text-[#c88a2c]">
+                      <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-amber-500/10 text-[#b8874d]">
                         <InstagramIcon size={20} />
                       </div>
                       <div>
-                        <p className="text-xs font-bold text-[#0e1017] uppercase tracking-wider">
+                        <p className="text-xs font-bold text-[#0e1015] uppercase tracking-wider">
                           Instagram Oficial
                         </p>
                         <a
                           href={INSTAGRAM_URL}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-sm font-semibold text-slate-800 hover:text-[#c88a2c] mt-0.5 block"
+                          className="text-sm font-semibold text-slate-800 hover:text-[#b8874d] mt-0.5 block"
                         >
-                          {INSTAGRAM_HANDLE} (Rafael Nascimento)
+                          {INSTAGRAM_HANDLE} (Mariana Madeira)
                         </a>
                       </div>
                     </div>
 
                     <div className="flex items-start gap-3.5">
-                      <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-amber-500/10 text-[#c88a2c]">
+                      <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-amber-500/10 text-[#b8874d]">
                         <Clock size={20} />
                       </div>
                       <div>
-                        <p className="text-xs font-bold text-[#0e1017] uppercase tracking-wider">
+                        <p className="text-xs font-bold text-[#0e1015] uppercase tracking-wider">
                           Horário de Funcionamento
                         </p>
                         <p className="text-sm text-slate-700 mt-0.5">
-                          Segunda a Sexta das 08:00 às 17:00
+                          Segunda a Sexta das 08:30 às 17:00
                         </p>
                         <p className="text-xs text-slate-500">
                           Atendimento presencial e digital com agendamento prévio
@@ -1704,7 +1720,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-[#e7e0d3]">
+                <div className="mt-8 pt-6 border-t border-[#e8e2d8]">
                   <GlowingButton
                     variant="gold"
                     size="lg"
@@ -1712,7 +1728,7 @@ export default function Home() {
                     target="_blank"
                     className="w-full justify-center"
                   >
-                    <WhatsAppIcon size={18} className="text-[#1a0e03]" />
+                    <WhatsAppIcon size={18} className="text-[#1e1305]" />
                     <span>Falar no WhatsApp Agora</span>
                   </GlowingButton>
                 </div>
@@ -1720,39 +1736,39 @@ export default function Home() {
 
               {/* Map & Office Card Column */}
               <div className="lg:col-span-6">
-                <div className="rounded-2xl border border-[#e7e0d3] bg-white p-6 sm:p-8 shadow-sm">
+                <div className="rounded-2xl border border-[#e8e2d8] bg-white p-6 sm:p-8 shadow-sm">
                   <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-2">
-                      <div className="relative size-8 shrink-0">
+                    <div className="flex items-center gap-2.5">
+                      <div className="relative size-9 shrink-0">
                         <Image
                           src={LOGO_SYMBOL_SRC}
-                          alt="Rafael Nascimento Advocacia Emblema"
+                          alt="Mariana Madeira Marcas Emblema"
                           fill
                           unoptimized
                           className="object-contain"
                         />
                       </div>
                       <div>
-                        <p className="font-cinzel text-sm font-bold text-[#0e1017]">
-                          Rafael Nascimento Advocacia
+                        <p className="font-cinzel text-sm font-bold text-[#0e1015]">
+                          Mariana Madeira Registro de Marcas
                         </p>
                         <p className="text-[10px] text-slate-500">
-                          Itapecerica - MG &bull; Centro
+                          Av. Severo Augusto Ribeiro, 179 - Centro &bull; Itapecerica - MG
                         </p>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-1 rounded-md bg-amber-50 px-2 py-1 text-xs font-bold text-amber-700 border border-amber-200">
+                    <div className="flex items-center gap-1 rounded-md bg-amber-50 px-2.5 py-1 text-xs font-bold text-amber-800 border border-amber-200">
                       <Star size={12} className="fill-amber-400 text-amber-500" />
-                      <span>5,0 ★ Google (11)</span>
+                      <span>5,0 ★ (10)</span>
                     </div>
                   </div>
 
                   {/* Interactive Map Container */}
                   <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-slate-200 bg-slate-100">
                     <iframe
-                      title="Localização de Rafael Nascimento Advocacia em Itapecerica - MG"
-                      src="https://maps.google.com/maps?q=R.+C%C3%B4nego+Ces%C3%A1rio,+282+-+Sl+04+-+Centro,+Itapecerica+-+MG,+35550-000&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                      title="Localização de Mariana Madeira Registro de Marcas e Advocacia Empresarial em Itapecerica - MG"
+                      src="https://maps.google.com/maps?q=Av.+Severo+Augusto+Ribeiro,+179+-+Centro,+Itapecerica+-+MG,+35550-000&t=&z=16&ie=UTF8&iwloc=&output=embed"
                       className="size-full border-0"
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
@@ -1760,12 +1776,12 @@ export default function Home() {
                   </div>
 
                   <div className="mt-4 flex items-center justify-between text-xs text-slate-600">
-                    <span>R. Cônego Cesário, 282 - Sl 04 - Centro, Itapecerica - MG</span>
+                    <span>Av. Severo Augusto Ribeiro, 179 - Centro, Itapecerica - MG</span>
                     <a
                       href={GOOGLE_MAPS_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-bold text-[#c88a2c] hover:underline flex items-center gap-1"
+                      className="font-bold text-[#b8874d] hover:underline flex items-center gap-1"
                     >
                       <span>Abrir Rotas no GPS</span>
                       <ArrowUpRight size={12} />
@@ -1780,7 +1796,7 @@ export default function Home() {
         {/* ========================================================================= */}
         {/* 13. FOOTER                                                                */}
         {/* ========================================================================= */}
-        <footer className="border-t border-[#262118] bg-gradient-to-b from-[#08090d] to-[#040507] text-white py-12 sm:py-16">
+        <footer className="border-t border-[#262c3a] bg-gradient-to-b from-[#090a0d] to-[#040507] text-white py-12 sm:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-12 lg:gap-12 pb-12 border-b border-slate-800">
               {/* Brand Column */}
@@ -1792,7 +1808,7 @@ export default function Home() {
                   <div className="relative h-14 sm:h-16 w-56 sm:w-64 shrink-0">
                     <Image
                       src={LOGO_SRC}
-                      alt="Rafael Nascimento Advocacia"
+                      alt="Mariana Madeira Marcas"
                       fill
                       unoptimized
                       className="object-contain object-left"
@@ -1809,8 +1825,8 @@ export default function Home() {
                     href={INSTAGRAM_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex size-9 items-center justify-center rounded-lg border border-slate-700 bg-white/5 text-slate-300 transition-colors hover:border-[#f5d77f] hover:text-[#f5d77f]"
-                    aria-label="Instagram de Rafael Nascimento Advocacia"
+                    className="flex size-9 items-center justify-center rounded-lg border border-slate-700 bg-white/5 text-slate-300 transition-colors hover:border-[#e8caa0] hover:text-[#e8caa0]"
+                    aria-label="Instagram de Mariana Madeira Advocacia"
                   >
                     <InstagramIcon size={16} />
                   </a>
@@ -1819,7 +1835,7 @@ export default function Home() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex size-9 items-center justify-center rounded-lg border border-slate-700 bg-white/5 text-slate-300 transition-colors hover:border-[#25D366] hover:text-[#25D366]"
-                    aria-label="WhatsApp de Rafael Nascimento Advocacia"
+                    aria-label="WhatsApp de Mariana Madeira Advocacia"
                   >
                     <WhatsAppIcon size={16} />
                   </a>
@@ -1837,38 +1853,38 @@ export default function Home() {
 
               {/* Navigation Links */}
               <div className="lg:col-span-3">
-                <p className="font-cinzel text-xs font-bold uppercase tracking-[0.16em] text-[#f5d77f] mb-4">
+                <p className="font-cinzel text-xs font-bold uppercase tracking-[0.16em] text-[#e8caa0] mb-4">
                   Áreas de Atuação
                 </p>
                 <ul className="space-y-2.5 text-xs text-slate-300">
                   <li>
                     <a className="footer-link" href="#atuacao">
-                      Direito Criminal &amp; Defesa Penal
+                      Registro de Marcas no INPI
                     </a>
                   </li>
                   <li>
                     <a className="footer-link" href="#atuacao">
-                      Direito Cível &amp; Indenizações
+                      Advocacia para Negócios Digitais
                     </a>
                   </li>
                   <li>
                     <a className="footer-link" href="#atuacao">
-                      Contratos &amp; Blindagem Jurídica
+                      Contratos Empresariais Estratégicos
                     </a>
                   </li>
                   <li>
                     <a className="footer-link" href="#atuacao">
-                      Família &amp; Sucessões (Inventários)
+                      Combate à Pirataria &amp; Plágio
                     </a>
                   </li>
                   <li>
                     <a className="footer-link" href="#atuacao">
-                      Direito Imobiliário &amp; Posse
+                      Assessoria Jurídica para PMEs
                     </a>
                   </li>
                   <li>
                     <a className="footer-link" href="#atuacao">
-                      Consultoria Jurídica Estratégica
+                      Vigilância Ativa de Marcas no INPI
                     </a>
                   </li>
                 </ul>
@@ -1876,12 +1892,12 @@ export default function Home() {
 
               {/* Legal & Office */}
               <div className="lg:col-span-4">
-                <p className="font-cinzel text-xs font-bold uppercase tracking-[0.16em] text-[#f5d77f] mb-4">
+                <p className="font-cinzel text-xs font-bold uppercase tracking-[0.16em] text-[#e8caa0] mb-4">
                   Sede &amp; Contato
                 </p>
                 <div className="space-y-2.5 text-xs text-slate-300">
                   <p className="flex items-start gap-2">
-                    <MapPin size={14} className="text-[#f5d77f] shrink-0 mt-0.5" />
+                    <MapPin size={14} className="text-[#e8caa0] shrink-0 mt-0.5" />
                     <span>{ADDRESS_TEXT}</span>
                   </p>
                   <p className="flex items-center gap-2">
@@ -1889,11 +1905,11 @@ export default function Home() {
                     <span>WhatsApp: {PHONE_DISPLAY}</span>
                   </p>
                   <p className="flex items-center gap-2">
-                    <Mail size={14} className="text-[#f5d77f] shrink-0" />
+                    <Mail size={14} className="text-[#e8caa0] shrink-0" />
                     <span>{EMAIL_CONTACT}</span>
                   </p>
                   <p className="text-[11px] text-slate-400 mt-3 pt-3 border-t border-slate-800">
-                    Atendimento de Segunda a Sexta das 08:00 às 17:00.
+                    Atendimento de Segunda a Sexta das 08:30 às 17:00.
                   </p>
                 </div>
               </div>
@@ -1902,7 +1918,7 @@ export default function Home() {
             {/* Bottom Copyright & OAB Ethics Notice */}
             <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] text-slate-400 text-center md:text-left">
               <p>
-                &copy; {new Date().getFullYear()} Rafael Nascimento Advocacia.
+                &copy; {new Date().getFullYear()} Mariana Madeira Registro de Marcas e Advocacia Empresarial.
                 Todos os direitos reservados.
               </p>
               <p className="max-w-xl text-[10px] leading-relaxed">
@@ -1922,7 +1938,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             className="group relative flex items-center gap-2.5 rounded-full border-2 border-white/80 bg-[#25D366] px-4 py-3 text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-[#1ebe5d]"
-            aria-label="Falar com o Dr. Rafael Nascimento no WhatsApp"
+            aria-label="Falar com a Dra. Mariana Madeira no WhatsApp"
           >
             <span className="absolute -top-1 -right-1 flex size-3">
               <span className="absolute inline-flex size-full animate-ping rounded-full bg-white opacity-75" />
@@ -1953,12 +1969,12 @@ export default function Home() {
                 initial={{ opacity: 0, scale: 0.95, y: 16 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 16 }}
-                className="relative z-10 w-full max-w-lg rounded-2xl border-2 border-amber-300/60 bg-gradient-to-b from-[#08090d] to-[#151821] p-6 sm:p-8 text-white shadow-2xl"
+                className="relative z-10 w-full max-w-lg rounded-2xl border-2 border-amber-300/60 bg-gradient-to-b from-[#090a0d] to-[#14171e] p-6 sm:p-8 text-white shadow-2xl"
               >
                 <button
                   type="button"
                   onClick={() => setModalOpen(false)}
-                  className="absolute top-4 right-4 rounded-lg p-1.5 text-slate-400 hover:bg-white/10 hover:text-white"
+                  className="absolute top-4 right-4 rounded-lg p-1.5 text-slate-400 hover:bg-white/10 hover:text-white cursor-pointer"
                   aria-label="Fechar janela"
                 >
                   <X size={20} />
@@ -1968,7 +1984,7 @@ export default function Home() {
                   <div className="relative size-10 shrink-0">
                     <Image
                       src={LOGO_SYMBOL_SRC}
-                      alt="Rafael Nascimento Advocacia Emblema"
+                      alt="Mariana Madeira Marcas Emblema"
                       fill
                       unoptimized
                       className="object-contain"
@@ -1978,26 +1994,26 @@ export default function Home() {
                     <h3 className="font-cinzel text-lg font-bold text-white">
                       Análise Jurídica Especializada
                     </h3>
-                    <p className="text-xs text-[#f5d77f] font-semibold">
+                    <p className="text-xs text-[#e8caa0] font-semibold">
                       {modalArea}
                     </p>
                   </div>
                 </div>
 
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Para analisar sua demanda com sigilo, agilidade e rigor técnico, você será
-                  redirecionado ao atendimento oficial do{" "}
-                  <strong className="text-white">Dr. Rafael Nascimento</strong>.
+                  Para analisar a proteção da sua marca ou negócio com sigilo, rapidez e rigor técnico, você será
+                  redirecionado ao atendimento oficial da{" "}
+                  <strong className="text-white">Dra. Mariana Madeira</strong>.
                 </p>
 
                 <div className="mt-5 space-y-2 rounded-xl border border-amber-400/20 bg-white/5 p-4 text-xs text-slate-300">
-                  <p className="font-bold text-white uppercase tracking-wider text-[11px] text-[#f5d77f]">
+                  <p className="font-bold text-white uppercase tracking-wider text-[11px] text-[#e8caa0]">
                     O que ter em mãos (se aplicável):
                   </p>
                   <ul className="space-y-1 pl-1">
-                    <li>&bull; Nome completo e cidade onde reside</li>
-                    <li>&bull; Breve resumo da situação ou questão jurídica</li>
-                    <li>&bull; Documentos, intimações, certidões ou comprovantes do caso</li>
+                    <li>&bull; Nome da marca / logotipo que você deseja registrar</li>
+                    <li>&bull; Ramo de atuação e segmento de mercado do seu negócio</li>
+                    <li>&bull; Cidade/Estado onde atua e se vende no ambiente físico ou digital</li>
                   </ul>
                 </div>
 
@@ -2006,19 +2022,19 @@ export default function Home() {
                     variant="gold"
                     size="md"
                     href={getWhatsAppUrl(
-                      `Olá, Dr. Rafael Nascimento! Gostaria de uma avaliação jurídica sobre: ${modalArea}.`
+                      `Olá, Dra. Mariana Madeira! Gostaria de uma avaliação jurídica sobre: ${modalArea}.`
                     )}
                     target="_blank"
                     className="w-full justify-center"
                   >
-                    <WhatsAppIcon size={16} className="text-[#1a0e03]" />
+                    <WhatsAppIcon size={16} className="text-[#1e1305]" />
                     <span>Prosseguir para o WhatsApp</span>
                   </GlowingButton>
 
                   <button
                     type="button"
                     onClick={() => setModalOpen(false)}
-                    className="rounded-lg py-2 text-xs font-semibold text-slate-400 hover:text-white"
+                    className="rounded-lg py-2 text-xs font-semibold text-slate-400 hover:text-white cursor-pointer"
                   >
                     Voltar ao site
                   </button>

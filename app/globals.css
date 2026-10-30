@@ -3,36 +3,37 @@
 :root {
   color-scheme: light dark;
   
-  /* Primary Luxury Obsidian & Warm Noir Base (Rafael Nascimento Advocacia) */
-  --color-black-pure: #08090d;
-  --color-black-surface: #0e1017;
-  --color-black-card: #151821;
-  --color-black-hover: #1c212d;
-  --color-black-border: #282f3f;
+  /* Primary Luxury Obsidian & Warm Noir Base */
+  --color-black-pure: #090a0d;
+  --color-black-surface: #0e1015;
+  --color-black-card: #14171e;
+  --color-black-hover: #1b202a;
+  --color-black-border: #262c3a;
 
   --color-white-pure: #ffffff;
   --color-white-surface: #faf8f5;
   --color-white-card: #ffffff;
-  --color-white-muted: #f4efe6;
+  --color-white-muted: #f4efe7;
+  --color-cashmere-border: #e8e2d8;
 
-  /* Primary Logo Accent: 3D Sculpted Metallic Gold & Champagne Platinum */
-  --brand-gold-specular: #fdf8cf;
-  --brand-gold-champagne: #fbf3d1;
-  --brand-gold-light: #f5d77f;
-  --brand-gold-accent: #e7cc99;
-  --brand-gold-primary: #d4a34b;
-  --brand-gold-radiant: #c88a2c;
-  --brand-gold-amber: #b87b1c;
-  --brand-gold-deep: #9d5b16;
-  --brand-gold-bronze: #7c4f1d;
-  --brand-gold-shadow: #351801;
+  /* Primary Logo Accent: Warm Metallic Bronze Gold & Champagne Amber (Mariana Madeira Marcas) */
+  --brand-gold-specular: #fcf6e9;
+  --brand-gold-champagne: #f7edd7;
+  --brand-gold-light: #e8caa0;
+  --brand-gold-accent: #d9aa69;
+  --brand-gold-primary: #b8874d; /* Extracted directly from Mariana Madeira logo */
+  --brand-gold-radiant: #c89658;
+  --brand-gold-amber: #aa773b;
+  --brand-gold-deep: #8c5d28;
+  --brand-gold-bronze: #684116;
+  --brand-gold-shadow: #2d1904;
 
   /* Deep Slate & Charcoal Tones */
   --brand-slate-accent: #64748b;
   --brand-slate-light: #334155;
   --brand-slate-primary: #1e293b;
   --brand-slate-deep: #0f172a;
-  --brand-slate-midnight: #080d1a;
+  --brand-slate-midnight: #090e17;
 }
 
 @theme inline {
@@ -40,17 +41,17 @@
   --font-cinzel: var(--font-cinzel), "Cinzel", "Playfair Display", serif;
   --font-sans: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
   
-  --color-gold-50: #fefdf5;
-  --color-gold-100: #fdf8cf;
-  --color-gold-200: #fbf3d1;
-  --color-gold-300: #f5d77f;
-  --color-gold-400: #e7cc99;
-  --color-gold-500: #d4a34b;
-  --color-gold-600: #c88a2c;
-  --color-gold-700: #9d5b16;
-  --color-gold-800: #7c4f1d;
-  --color-gold-900: #351801;
-  --color-gold-950: #1c0e02;
+  --color-gold-50: #fdfaf4;
+  --color-gold-100: #fbf4e8;
+  --color-gold-200: #f7edd7;
+  --color-gold-300: #e8caa0;
+  --color-gold-400: #d9aa69;
+  --color-gold-500: #b8874d;
+  --color-gold-600: #c89658;
+  --color-gold-700: #aa773b;
+  --color-gold-800: #8c5d28;
+  --color-gold-900: #684116;
+  --color-gold-950: #2d1904;
 
   --color-noir-50: #f8fafc;
   --color-noir-100: #f1f5f9;
@@ -60,21 +61,9 @@
   --color-noir-500: #64748b;
   --color-noir-600: #334155;
   --color-noir-700: #1e293b;
-  --color-noir-800: #151821;
-  --color-noir-900: #0e1017;
-  --color-noir-950: #08090d;
-
-  --color-navy-50: #edf3fa;
-  --color-navy-100: #d6e4f3;
-  --color-navy-200: #b0cbe8;
-  --color-navy-300: #7eaad7;
-  --color-navy-400: #5a7ea8;
-  --color-navy-500: #2b4568;
-  --color-navy-600: #18283e;
-  --color-navy-700: #101c2c;
-  --color-navy-800: #0d1624;
-  --color-navy-900: #0b131f;
-  --color-navy-950: #060b12;
+  --color-noir-800: #14171e;
+  --color-noir-900: #0e1015;
+  --color-noir-950: #090a0d;
 }
 
 html {
@@ -87,12 +76,12 @@ body {
   background: #ffffff;
   color: #14171f;
   font-family: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
-  caret-color: #d4a34b;
+  caret-color: #b8874d;
 }
 
 ::selection {
-  background: #d4a34b;
-  color: #08090d;
+  background: #b8874d;
+  color: #ffffff;
 }
 
 .font-cinzel {
@@ -116,27 +105,27 @@ body {
 }
 
 .eyebrow-gold {
-  color: #d4a34b;
+  color: #b8874d;
 }
 
 .eyebrow-navy {
-  color: #18283e;
+  color: #1e293b;
 }
 
 .eyebrow-dark {
-  color: #351801;
+  color: #2d1904;
 }
 
 .eyebrow-light {
-  color: #f5d77f;
+  color: #e8caa0;
 }
 
 .eyebrow-amber {
-  color: #c88a2c;
+  color: #c89658;
 }
 
 .eyebrow-silver {
-  color: #d4a34b;
+  color: #b8874d;
 }
 
 .eyebrow-gold::before,
@@ -177,7 +166,7 @@ body {
   bottom: 0;
   left: 0;
   height: 2px;
-  background: #f5d77f;
+  background: #d9aa69;
   content: "";
   transform: scaleX(0);
   transform-origin: center;
@@ -185,7 +174,7 @@ body {
 }
 
 .nav-link:hover {
-  color: #f5d77f;
+  color: #e8caa0;
 }
 
 .nav-link:hover::after {
@@ -199,55 +188,49 @@ body {
 }
 
 .footer-link:hover {
-  color: #f5d77f;
+  color: #e8caa0;
   transform: translateX(2px);
 }
 
-/* 3D Sculpted Metallic Gold Text Gradients Calibrated to the Rafael Nascimento Logo */
+/* Warm Metallic Gold Text Gradients Calibrated to Mariana Madeira Logo */
 .text-gradient-gold {
-  background: linear-gradient(135deg, #ffffff 0%, #fdf8cf 25%, #f5d77f 55%, #df9e38 85%, #9d5b16 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #fcf6e9 25%, #e8caa0 55%, #c89658 85%, #8c5d28 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-champagne {
-  background: linear-gradient(135deg, #ffffff 0%, #fbf3d1 40%, #f5d77f 75%, #d4a34b 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #f7edd7 40%, #e8caa0 75%, #b8874d 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-bronze {
-  background: linear-gradient(135deg, #f5d77f 0%, #d4a34b 35%, #9d5b16 75%, #5a340b 100%);
+  background: linear-gradient(135deg, #e8caa0 0%, #b8874d 35%, #8c5d28 75%, #482e16 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-dark {
-  background: linear-gradient(135deg, #08090d 0%, #151821 50%, #282f3f 100%);
+  background: linear-gradient(135deg, #090a0d 0%, #14171e 50%, #262c3a 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-silver {
-  background: linear-gradient(135deg, #ffffff 0%, #fdf8cf 30%, #f5d77f 65%, #c88a2c 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #fcf6e9 30%, #e8caa0 65%, #c89658 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-platinum {
-  background: linear-gradient(135deg, #ffffff 0%, #fbf3d1 45%, #e7cc99 75%, #dfbd78 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.text-gradient-navy {
-  background: linear-gradient(135deg, #08090d 0%, #101c2c 50%, #18283e 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #f7edd7 45%, #d9aa69 75%, #b8874d 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-amber {
-  background: linear-gradient(135deg, #fdf8cf 0%, #f5d77f 35%, #df9e38 70%, #9d5b16 100%);
+  background: linear-gradient(135deg, #fcf6e9 0%, #e8caa0 35%, #c89658 70%, #8c5d28 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
