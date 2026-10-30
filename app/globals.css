@@ -3,42 +3,36 @@
 :root {
   color-scheme: light dark;
   
-  /* Primary Deep Navy & Oceanic Midnight Base (Nunes & Mota Advogados) */
-  --color-black-pure: #050e18;
-  --color-black-surface: #081626;
-  --color-black-card: #0d2035;
-  --color-black-hover: #132b45;
-  --color-black-border: #1a3a5c;
+  /* Primary Luxury Obsidian & Warm Noir Base (Tharin Miranda Advocacia) */
+  --color-black-pure: #08090d;
+  --color-black-surface: #0e1017;
+  --color-black-card: #151821;
+  --color-black-hover: #1c212d;
+  --color-black-border: #282f3f;
 
   --color-white-pure: #ffffff;
-  --color-white-surface: #f8fafc;
+  --color-white-surface: #faf8f5;
   --color-white-card: #ffffff;
-  --color-white-muted: #f1f5f9;
+  --color-white-muted: #f4efe6;
 
-  /* Primary Logo Accent: 3D Sculpted Platinum & Metallic Chrome Silver */
-  --brand-silver-shimmer: #ffffff;
-  --brand-silver-platinum: #f1f5f9;
-  --brand-silver-light: #e2e8f0;
-  --brand-silver-accent: #cbd5e1;
-  --brand-silver-primary: #94a3b8;
-  --brand-silver-steel: #64748b;
-  --brand-silver-deep: #475569;
-  --brand-silver-dark: #334155;
+  /* Primary Logo Accent: 3D Sculpted Metallic Gold & Champagne Bronze */
+  --brand-gold-specular: #fdf8cf;
+  --brand-gold-champagne: #fbf3d1;
+  --brand-gold-light: #f5d77f;
+  --brand-gold-accent: #e7cc99;
+  --brand-gold-primary: #d4a34b;
+  --brand-gold-radiant: #c88a2c;
+  --brand-gold-amber: #b87b1c;
+  --brand-gold-deep: #9d5b16;
+  --brand-gold-bronze: #7c4f1d;
+  --brand-gold-shadow: #351801;
 
-  /* Warm Architectural Lighting Accent (Office Sconces & Reception Glow) */
-  --brand-amber-shimmer: #fffbeb;
-  --brand-amber-light: #fef3c7;
-  --brand-amber-accent: #fde68a;
-  --brand-amber-primary: #f59e0b;
-  --brand-amber-deep: #d97706;
-
-  /* Deep Oceanic Slate & Navy Tones */
-  --brand-navy-light: #e2e8f0;
-  --brand-navy-muted: #849bbb;
-  --brand-navy-primary: #102947;
-  --brand-navy-deep: #0d2035;
-  --brand-navy-midnight: #081626;
-  --brand-navy-pure: #050e18;
+  /* Deep Oceanic Slate & Navy Tones (matching Dra. Tharin's suit) */
+  --brand-navy-accent: #5a7ea8;
+  --brand-navy-light: #2b4568;
+  --brand-navy-primary: #18283e;
+  --brand-navy-deep: #101c2c;
+  --brand-navy-midnight: #0b131f;
 }
 
 @theme inline {
@@ -46,29 +40,41 @@
   --font-cinzel: var(--font-cinzel), "Cinzel", "Playfair Display", serif;
   --font-sans: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
   
-  --color-silver-50: #f8fafc;
-  --color-silver-100: #f1f5f9;
-  --color-silver-200: #e2e8f0;
-  --color-silver-300: #cbd5e1;
-  --color-silver-400: #94a3b8;
-  --color-silver-500: #64748b;
-  --color-silver-600: #475569;
-  --color-silver-700: #334155;
-  --color-silver-800: #1e293b;
-  --color-silver-900: #0f172a;
+  --color-gold-50: #fefdf5;
+  --color-gold-100: #fdf8cf;
+  --color-gold-200: #fbf3d1;
+  --color-gold-300: #f5d77f;
+  --color-gold-400: #e7cc99;
+  --color-gold-500: #d4a34b;
+  --color-gold-600: #c88a2c;
+  --color-gold-700: #9d5b16;
+  --color-gold-800: #7c4f1d;
+  --color-gold-900: #351801;
+  --color-gold-950: #1c0e02;
+
+  --color-noir-50: #f8fafc;
+  --color-noir-100: #f1f5f9;
+  --color-noir-200: #e2e8f0;
+  --color-noir-300: #cbd5e1;
+  --color-noir-400: #94a3b8;
+  --color-noir-500: #64748b;
+  --color-noir-600: #334155;
+  --color-noir-700: #1e293b;
+  --color-noir-800: #151821;
+  --color-noir-900: #0e1017;
+  --color-noir-950: #08090d;
 
   --color-navy-50: #edf3fa;
   --color-navy-100: #d6e4f3;
   --color-navy-200: #b0cbe8;
   --color-navy-300: #7eaad7;
-  --color-navy-400: #4d86c2;
-  --color-navy-500: #2f69a5;
-  --color-navy-600: #215187;
-  --color-navy-700: #1a406c;
-  --color-navy-800: #16365b;
-  --color-navy-900: #0d2035;
-  --color-navy-950: #081626;
-  --color-navy-990: #050e18;
+  --color-navy-400: #5a7ea8;
+  --color-navy-500: #2b4568;
+  --color-navy-600: #18283e;
+  --color-navy-700: #101c2c;
+  --color-navy-800: #0d1624;
+  --color-navy-900: #0b131f;
+  --color-navy-950: #060b12;
 }
 
 html {
@@ -79,25 +85,26 @@ html {
 
 body {
   background: #ffffff;
-  color: #0b1a2d;
+  color: #14171f;
   font-family: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
-  caret-color: #2f69a5;
+  caret-color: #d4a34b;
 }
 
 ::selection {
-  background: #1a406c;
-  color: #ffffff;
+  background: #d4a34b;
+  color: #08090d;
 }
 
 .font-cinzel {
   font-family: var(--font-cinzel), "Cinzel", "Playfair Display", serif;
 }
 
-.eyebrow-silver,
+.eyebrow-gold,
 .eyebrow-navy,
 .eyebrow-dark,
 .eyebrow-light,
-.eyebrow-amber {
+.eyebrow-amber,
+.eyebrow-silver {
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -108,31 +115,36 @@ body {
   text-transform: uppercase;
 }
 
-.eyebrow-silver {
-  color: #94a3b8;
+.eyebrow-gold {
+  color: #d4a34b;
 }
 
 .eyebrow-navy {
-  color: #16365b;
+  color: #18283e;
 }
 
 .eyebrow-dark {
-  color: #334155;
+  color: #351801;
 }
 
 .eyebrow-light {
-  color: #cbd5e1;
+  color: #f5d77f;
 }
 
 .eyebrow-amber {
-  color: #d97706;
+  color: #c88a2c;
 }
 
-.eyebrow-silver::before,
+.eyebrow-silver {
+  color: #d4a34b;
+}
+
+.eyebrow-gold::before,
 .eyebrow-navy::before,
 .eyebrow-dark::before,
 .eyebrow-light::before,
-.eyebrow-amber::before {
+.eyebrow-amber::before,
+.eyebrow-silver::before {
   width: 1.75rem;
   height: 1.5px;
   flex: none;
@@ -165,7 +177,7 @@ body {
   bottom: 0;
   left: 0;
   height: 2px;
-  background: #16365b;
+  background: #c88a2c;
   content: "";
   transform: scaleX(0);
   transform-origin: center;
@@ -173,7 +185,7 @@ body {
 }
 
 .nav-link:hover {
-  color: #081626;
+  color: #c88a2c;
 }
 
 .nav-link:hover::after {
@@ -181,37 +193,61 @@ body {
 }
 
 .footer-link {
-  color: #94a3b8;
+  color: #cbd5e1;
   transition: color 150ms ease, transform 150ms ease;
   display: inline-block;
 }
 
 .footer-link:hover {
-  color: #f1f5f9;
+  color: #f5d77f;
   transform: translateX(2px);
 }
 
-/* 3D Platinum / Silver Sculpted Text Gradient Calibrated to the Nunes & Mota Logo */
+/* 3D Sculpted Metallic Gold Text Gradients Calibrated to the Tharin Miranda Logo */
+.text-gradient-gold {
+  background: linear-gradient(135deg, #ffffff 0%, #fdf8cf 25%, #f5d77f 55%, #df9e38 85%, #9d5b16 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-champagne {
+  background: linear-gradient(135deg, #ffffff 0%, #fbf3d1 40%, #f5d77f 75%, #d4a34b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-bronze {
+  background: linear-gradient(135deg, #f5d77f 0%, #d4a34b 35%, #9d5b16 75%, #5a340b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-dark {
+  background: linear-gradient(135deg, #08090d 0%, #151821 50%, #282f3f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .text-gradient-silver {
-  background: linear-gradient(135deg, #ffffff 0%, #ffffff 45%, #e0f2fe 75%, #93c5fd 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #fdf8cf 30%, #f5d77f 65%, #c88a2c 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-platinum {
-  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 45%, #f1f5f9 75%, #e2e8f0 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #fbf3d1 45%, #e7cc99 75%, #dfbd78 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-navy {
-  background: linear-gradient(135deg, #050e18 0%, #0d2035 50%, #1a406c 100%);
+  background: linear-gradient(135deg, #08090d 0%, #101c2c 50%, #18283e 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-amber {
-  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 35%, #fde68a 70%, #f59e0b 100%);
+  background: linear-gradient(135deg, #fdf8cf 0%, #f5d77f 35%, #df9e38 70%, #9d5b16 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

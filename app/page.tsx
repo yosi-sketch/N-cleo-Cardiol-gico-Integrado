@@ -28,45 +28,45 @@ import {
   Coins,
   BadgeCheck,
   Award,
-  Accessibility,
+  Home as HomeIcon,
 } from "lucide-react";
 import GlowingButton from "./components/GlowingButton";
 
-const WHATSAPP_NUMBER = "5538999480028";
-const PHONE_DISPLAY = "(38) 99948-0028";
-const EMAIL_CONTACT = "contato@nunesemotaadv.com.br";
-const INSTAGRAM_URL = "https://www.instagram.com/nunesemotaadv/";
-const INSTAGRAM_HANDLE = "@nunesemotaadv";
+const WHATSAPP_NUMBER = "5531988385001";
+const PHONE_DISPLAY = "(31) 98838-5001";
+const EMAIL_CONTACT = "contato@tharinmiranda.adv.br";
+const INSTAGRAM_URL = "https://www.instagram.com/tharin_miranda/";
+const INSTAGRAM_HANDLE = "@tharin_miranda";
 
-const FIRM_NAME = "Nunes & Mota Advogados Associados";
-const FIRM_SHORT_NAME = "Nunes & Mota Advogados";
+const FIRM_NAME = "Tharin Miranda Advocacia";
+const FIRM_SHORT_NAME = "Tharin Miranda";
 const FIRM_SLOGAN =
-  "Há mais de 7 anos prestando uma advocacia combativa, ética e altamente resolutiva para proteger seus direitos, seu trabalho e seu patrimônio.";
-const LAWYERS_NAMES = "Dra. Misley Nunes & Dr. Mota";
-const LAWYERS_TITLE =
-  "Advogados em Januária - MG | Trabalhista, Cível, Consumidor, Família & Previdenciário";
+  "Atuação jurídica especializada, ética e resolutiva em Direito Imobiliário, Trabalhista e Previdenciário em Matozinhos - MG e em todo o Brasil.";
+const LAWYER_NAME = "Dra. Tharin Miranda";
+const LAWYER_TITLE =
+  "Especialista em Direito Imobiliário, Trabalho e Previdenciário · Secretária Geral da OAB de Matozinhos/MG";
 
 const ADDRESS_TEXT =
-  "Av. Cônego Ramiro Leite, 20B - Centro, Januária - MG, 39480-000";
+  "Travessa da Esmeralda, 45 A - São Sebastião, Matozinhos - MG, 35720-000";
 const REGION_TEXT =
-  "Januária · Norte de Minas Gerais & Atendimento Digital em Todo o Brasil";
+  "Matozinhos · Região Metropolitana de BH & Atendimento Digital em Todo o Brasil";
 
 const GOOGLE_SEARCH_URL =
-  "https://www.google.com/search?q=Nunes+%26+Mota+Advogados+Associados%0AJanu%C3%A1ria+%C2%B7+MG&sourceid=chrome&ie=UTF-8#";
+  "https://www.google.com/search?q=Tharin+Miranda+Advocacia%0AMatozinhos+%C2%B7+MG&sourceid=chrome&ie=UTF-8#";
 const GOOGLE_MAPS_URL =
-  "https://www.google.com/maps/search/?api=1&query=Av.+C%C3%B4nego+Ramiro+Leite%2C+20B+-+Centro%2C+Janu%C3%A1ria+-+MG%2C+39480-000";
+  "https://www.google.com/maps/search/?api=1&query=Travessa+da+Esmeralda%2C+45+A+-+S%C3%A3o+Sebastiao%2C+Matozinhos+-+MG%2C+35720-000";
 
 const LOGO_SRC = "/logo.png";
 const LOGO_SYMBOL_SRC = "/logo-symbol.png";
-const FOTO_HERO_SRC = "/hero-advogados.jpg";
-const FOTO_ESCRITORIO_SRC = "/escritorio-recepcao.jpg";
+const FOTO_HERO_SRC = "/hero.jpg";
+const FOTO_PERFIL_SRC = "/dra-tharin-miranda.jpg";
 
 function getWhatsAppUrl(
   message?: string,
   number: string = WHATSAPP_NUMBER
 ) {
   const defaultText =
-    "Olá, Dra. Misley Nunes e Dr. Mota! Gostaria de agendar uma consulta jurídica e conversar sobre o meu caso.";
+    "Olá, Dra. Tharin Miranda! Gostaria de agendar uma consulta jurídica e conversar sobre o meu caso.";
   return `https://wa.me/${number}?text=${encodeURIComponent(
     message || defaultText
   )}`;
@@ -192,366 +192,292 @@ export default function Home() {
 
   const closeMenu = () => setIsMenuOpen(false);
 
-  // Pilares Oficiais de Atuação de Nunes & Mota Advogados Associados
+  // Pilares Oficiais de Atuação de Tharin Miranda Advocacia
   const areasAtuacao = [
     {
-      id: "direito-trabalhista",
-      icon: Briefcase,
-      title: "Direito Trabalhista",
+      id: "direito-imobiliario",
+      icon: HomeIcon,
+      title: "Direito Imobiliário & Regularização",
       shortDesc:
-        "Referência em causas trabalhistas no Norte de Minas. Defesa intransigente dos direitos do trabalhador com exatidão em cálculos e máxima agilidade processual.",
+        "Especialização de referência em Matozinhos e região. Segurança jurídica e patrimonial na regularização de imóveis, usucapião e contratos de alto valor.",
       bullets: [
-        "Rescisão indireta e reversão de justa causa indevida",
-        "Cobrança rigorosa de horas extras, intervalos e adicional noturno",
+        "Usucapião extrajudicial em cartório (rápido e econômico) e judicial",
+        "Regularização fundiária de terrenos, lotes urbanos e rurais sem escritura",
+        "Elaboração, análise e blindagem de contratos de compra, venda e locação",
+        "Assessoria em distratos imobiliários, condomínios e posse de imóveis",
+      ],
+      tag: "Imobiliário",
+      badge: "Especialidade Principal",
+      whatsappMsg:
+        "Olá, Dra. Tharin Miranda! Gostaria de uma consultoria jurídica sobre Direito Imobiliário / Regularização de Imóvel / Usucapião.",
+    },
+    {
+      id: "direito-do-trabalho",
+      icon: Briefcase,
+      title: "Direito do Trabalho",
+      shortDesc:
+        "Atuação combativa e estratégica em causas trabalhistas. Defesa rigorosa dos direitos do trabalhador com exatidão em cálculos e máxima agilidade.",
+      bullets: [
+        "Rescisão indireta do contrato e reversão de justa causa indevida",
+        "Cálculo e cobrança de horas extras, intervalos e adicional noturno",
         "Adicionais de insalubridade, periculosidade e desvio de função",
-        "Indenizações por acidente de trabalho, doenças ocupacionais e assédio",
+        "Indenizações por acidente de trabalho, doenças ocupacionais e assédio moral",
       ],
       tag: "Trabalhista",
-      badge: "Destaque Regional",
+      badge: "Defesa Combativa",
       whatsappMsg:
-        "Olá, Dra. Misley Nunes e Dr. Mota! Preciso de orientação jurídica especializada sobre causa trabalhista e meus direitos.",
-    },
-    {
-      id: "direito-civel",
-      icon: Scale,
-      title: "Direito Cível & Contratos",
-      shortDesc:
-        "Solidez jurídica na elaboração e revisão de contratos, reparações de danos materiais e morais, cobranças e resolução estratégica de conflitos patrimoniais.",
-      bullets: [
-        "Elaboração, análise e blindagem de contratos civis e imobiliários",
-        "Ações indenizatórias por danos morais, materiais e descumprimento de acordos",
-        "Cobrança judicial e extrajudicial de créditos e execução de títulos",
-        "Defesa de propriedade, posse e disputas contratuais complexas",
-      ],
-      tag: "Cível",
-      badge: "Segurança Contratual",
-      whatsappMsg:
-        "Olá, Dra. Misley Nunes e Dr. Mota! Gostaria de consultoria jurídica sobre Direito Cível / Contratos / Indenização.",
-    },
-    {
-      id: "direito-consumidor",
-      icon: Shield,
-      title: "Direito do Consumidor",
-      shortDesc:
-        "Combate firme a abusos de bancos, companhias aéreas, planos de saúde e fornecedores, restabelecendo seu crédito e exigindo indenizações justas.",
-      bullets: [
-        "Limpeza de nome e indenização por negativação indevida no SPC/Serasa",
-        "Golpes do Pix, fraudes bancárias, clonagem de cartão e empréstimos consignados não autorizados",
-        "Cancelamento de compras, cobranças indevidas e vícios ocultos em produtos/serviços",
-        "Ações contra abusos de empresas de telefonia, concessionárias de energia e planos de saúde",
-      ],
-      tag: "Consumidor",
-      badge: "Defesa dos Seus Direitos",
-      whatsappMsg:
-        "Olá, Dra. Misley Nunes e Dr. Mota! Preciso de ajuda com um problema de Direito do Consumidor / Abuso Bancário.",
-    },
-    {
-      id: "familia-sucessoes",
-      icon: Users,
-      title: "Família & Sucessões",
-      shortDesc:
-        "Condução sensível, técnica e segura em inventários em cartório, partilha de herança, divórcios consensuais e litigiosos e ações de pensão alimentícia.",
-      bullets: [
-        "Inventário extrajudicial em cartório rápido, sem desgaste e econômico",
-        "Inventários judiciais e partilhas amigáveis ou contenciosas de bens",
-        "Divórcio consensual e litigioso com proteção patrimonial justa",
-        "Fixação, revisão e execução urgente de pensão alimentícia e guarda",
-      ],
-      tag: "Família",
-      badge: "Acolhimento & Sucessões",
-      whatsappMsg:
-        "Olá, Dra. Misley Nunes e Dr. Mota! Preciso de orientação sobre Inventário / Partilha de Bens / Divórcio.",
+        "Olá, Dra. Tharin Miranda! Preciso de orientação jurídica especializada sobre causa trabalhista e meus direitos.",
     },
     {
       id: "direito-previdenciario",
       icon: FileText,
       title: "Direito Previdenciário (INSS)",
       shortDesc:
-        "Planejamento previdenciário e atuação combativa contra indeferimentos do INSS, garantindo a concessão do melhor benefício para sua aposentadoria.",
+        "Planejamento previdenciário e atuação resolutiva contra indeferimentos do INSS, assegurando a concessão do melhor benefício possível.",
       bullets: [
-        "Concessão de Aposentadoria por Idade, Tempo de Contribuição e Especial",
-        "Auxílio-Doença, Aposentadoria por Invalidez e Auxílio-Acidente",
+        "Planejamento previdenciário completo para aposentadoria no valor máximo",
+        "Aposentadoria por idade, tempo de contribuição e aposentadoria especial",
         "Benefício de Prestação Continuada (BPC / LOAS) para idosos e PCDs",
-        "Revisão de benefícios e recursos administrativos e judiciais contra o INSS",
+        "Auxílio por incapacidade temporária (auxílio-doença) e pensão por morte",
       ],
       tag: "Previdenciário",
       badge: "Benefícios do INSS",
       whatsappMsg:
-        "Olá, Dra. Misley Nunes e Dr. Mota! Gostaria de consultoria sobre Benefício do INSS / Aposentadoria / BPC LOAS.",
+        "Olá, Dra. Tharin Miranda! Gostaria de consultoria sobre Benefício do INSS / Aposentadoria / BPC LOAS.",
+    },
+    {
+      id: "direito-civel",
+      icon: Scale,
+      title: "Direito Cível & Contratos",
+      shortDesc:
+        "Solidez na redação de instrumentos contratuais, reparações de danos materiais e morais, execuções e resolução estratégica de litígios.",
+      bullets: [
+        "Elaboração, revisão minuciosa e execução de contratos cíveis e comerciais",
+        "Ações indenizatórias por danos morais, materiais e descumprimento de acordos",
+        "Cobrança judicial e extrajudicial de títulos e créditos em aberto",
+        "Resolução de conflitos patrimoniais com foco na preservação de bens",
+      ],
+      tag: "Cível",
+      badge: "Segurança Jurídica",
+      whatsappMsg:
+        "Olá, Dra. Tharin Miranda! Gostaria de orientação jurídica sobre Direito Cível / Contratos / Indenização.",
+    },
+    {
+      id: "familia-sucessoes",
+      icon: Users,
+      title: "Família & Sucessões",
+      shortDesc:
+        "Condução técnica, acolhedora e segura em inventários em cartório, partilha de herança, divórcios consensuais e ações de alimentos.",
+      bullets: [
+        "Inventário extrajudicial em cartório rápido, econômico e sem desgaste",
+        "Inventários judiciais e partilha transparente e justa de bens familiares",
+        "Divórcio consensual e litigioso com proteção patrimonial equilibrada",
+        "Fixação, revisão e execução de pensão alimentícia e regulamentação de guarda",
+      ],
+      tag: "Família",
+      badge: "Inventários & Partilhas",
+      whatsappMsg:
+        "Olá, Dra. Tharin Miranda! Preciso de orientação sobre Inventário / Partilha de Bens / Família.",
     },
     {
       id: "consultoria-estrategica",
       icon: Gavel,
-      title: "Assessoria & Atendimento Estratégico",
+      title: "Consultoria Jurídica Estratégica",
       shortDesc:
-        "Atendimento personalizado presencial em Januária ou 100% digital em todo o Brasil. Diagnóstico honesto e plano de ação transparente desde o primeiro contato.",
+        "Atendimento personalizado na sede física em Matozinhos ou 100% digital em todo o Brasil. Diagnóstico honesto e plano de ação transparente.",
       bullets: [
-        "Diagnóstico jurídico realista e transparente sobre chances e prazos",
-        "Atendimento acolhedor na sede moderna em Januária ou por videochamada",
-        "Negociações qualificadas para acordos extrajudiciais rápidos e vantajosos",
-        "Acompanhamento direto e próximo pelos sócios em todas as fases do processo",
+        "Diagnóstico jurídico realista com avaliação prévia de viabilidade",
+        "Atendimento acolhedor na Travessa da Esmeralda, 45 A ou por videochamada",
+        "Negociação qualificada para acordos extrajudiciais rápidos e vantajosos",
+        "Acompanhamento direto pela Dra. Tharin Miranda em todas as fases",
       ],
       tag: "Consultoria",
-      badge: "Transparência Total",
+      badge: "Atendimento Exclusivo",
       whatsappMsg:
-        "Olá, Dra. Misley Nunes e Dr. Mota! Gostaria de agendar uma consulta para avaliar minha situação jurídica.",
+        "Olá, Dra. Tharin Miranda! Gostaria de agendar uma consulta para avaliar minha situação jurídica.",
     },
   ];
 
-  // Avaliações Reais do Google Meu Negócio de Nunes & Mota Advogados Associados (Nota 5,0 ★ em 25 avaliações)
+  // Avaliações Reais do Google Meu Negócio de Tharin Miranda Advocacia (Nota Máxima 5,0 ★)
   const depoimentosGoogle = [
     {
-      author: "Paloma Feletto",
-      detail: "1 avaliação no Google",
+      author: "Marcela Dias",
+      detail: "8 avaliações · 3 fotos no Google",
       stars: 5,
       date: "Avaliação verificada no Google",
       quote:
-        "Uma excelente profissional, resolveu meus problemas trabalhistas com exatidão! Sem contar que tem uma equipe maravilhosa, altamente qualificados... A melhor advogada para causas trabalhistas do Norte de Minas Gerais! Gratidão Dra. Misley♥️",
-      highlight: "A melhor advogada para causas trabalhistas do Norte de Minas Gerais",
-      ownerReply:
-        "Muito Obrigada Paloma. Nós agradecemos pela confiança e pelo feedback! Deus abençoe!!",
+        "Uma excelente profissional e muito competente em seu trabalho! Super indico o trabalho dela como advogada e tenham certeza na boa escolha em contrata-la.",
+      highlight: "Excelente profissional e muito competente em seu trabalho",
     },
     {
-      author: "Grazielly Carvalho",
-      detail: "5 avaliações no Google",
+      author: "Angélica Cupertino ODONTO",
+      detail: "6 avaliações no Google",
       stars: 5,
       date: "Avaliação verificada no Google",
       quote:
-        "Ótimos profissionais! São super atenciosos e competentes! 👏🏽😍",
-      highlight: "Super atenciosos e competentes",
-      ownerReply:
-        "Gratidão!! Temos uma equipe dedicada com prioridade direcionada aos nossos clientes!!",
+        "A Dra. Tharin é uma profissional atenciosa, comprometida, competente e, sobretudo, ética. Recomendo o eficiente trabalho dela!",
+      highlight: "Atenciosa, comprometida, competente e ética",
     },
     {
-      author: "Irene Macieldasilva",
-      detail: "1 avaliação no Google",
-      stars: 5,
-      date: "Avaliação verificada no Google",
-      quote:
-        "Profissionais excelente, super recomendo, consegui resolver meu problema, muito obrigado, gratidão 🙏👏🙏👏👏",
-      highlight: "Consegui resolver meu problema, super recomendo",
-      ownerReply:
-        "Nós agradecemos pela confiança! Deus abençoe!!",
-    },
-    {
-      author: "Lays Santos",
-      detail: "7 avaliações · 9 fotos no Google",
-      stars: 5,
-      date: "Avaliação verificada no Google",
-      quote:
-        "Ambiente moderno, sofisticado e aconchegante para atender os clientes. Possui acesso com rampa para pessoas com mobilidade reduzida. Parabéns e muito sucesso pra vcs. Amei desenvolver esse projeto ❤️",
-      highlight: "Ambiente moderno, sofisticado, aconchegante e com rampa de acessibilidade",
-      ownerReply:
-        "Sempre em busca do melhor acolhimento àqueles que dependem do nosso trabalho! Gratidão!!",
-    },
-    {
-      author: "Larissa Lopes Guedes",
-      detail: "6 avaliações · 2 fotos no Google",
-      stars: 5,
-      date: "Avaliação verificada no Google",
-      quote:
-        "Equipe altamente qualificada. Profissionais que atendem com seriedade e compromisso, sempre a disposição do cliente! Extremamente satisfeita.",
-      highlight: "Equipe altamente qualificada, seriedade e compromisso",
-      ownerReply:
-        "Gratidão!! Sempre à disposição!",
-    },
-    {
-      author: "Érica Oliveira",
-      detail: "12 avaliações · 1 foto no Google",
-      stars: 5,
-      date: "Avaliação verificada no Google",
-      quote:
-        "Excelente atendimento, conseguiram resolver o meu problema com muita agilidade e rapidez.",
-      highlight: "Excelente atendimento, agilidade e rapidez",
-      ownerReply:
-        "Obrigada pela confiança! Sempre à disposição.",
-    },
-    {
-      author: "Gabrielly Melo",
+      author: "Júlia Azevedo",
       detail: "2 avaliações no Google",
       stars: 5,
       date: "Avaliação verificada no Google",
       quote:
-        "Advogados excelentes e recepcionistas muito prestativas. Advocacia exemplar 👏🏼👏🏼👏🏼👏🏼",
-      highlight: "Advogados excelentes e advocacia exemplar",
-      ownerReply:
-        "Muito obrigada pelo feedback!",
+        "Profissional excelente! Ela é muito atenciosa, clara nas explicações e passa muita segurança durante todo o processo. Recomendo muito!",
+      highlight: "Muito atenciosa, clara nas explicações e passa muita segurança",
     },
     {
-      author: "Mariane Souza",
+      author: "Felipe Miranda",
       detail: "2 avaliações no Google",
       stars: 5,
       date: "Avaliação verificada no Google",
       quote:
-        "Ótimos profissionais, atenciosos e competentes eu recomendo os seus serviços 👏👏👏👏👏👏💯😍",
-      highlight: "Profissionais atenciosos, competentes e recomendados",
-      ownerReply:
-        "Deus abençoe! Sempre à disposição!",
+        "A melhor advogada da região!!",
+      highlight: "A melhor advogada da região",
     },
     {
-      author: "Amanda Guedes",
-      detail: "3 avaliações no Google",
-      stars: 5,
-      date: "Avaliação verificada no Google",
-      quote:
-        "Escritório excelente com profissionais renomados. Super indico!",
-      highlight: "Escritório excelente com profissionais renomados",
-      ownerReply:
-        "Gratidão!!!",
-    },
-    {
-      author: "Ana Carolina",
+      author: "Leonardo Rodrigues",
       detail: "1 avaliação no Google",
       stars: 5,
       date: "Avaliação verificada no Google",
       quote:
-        "Excelente atendimento, agilidade no processo, informações objetivas.",
-      highlight: "Agilidade no processo e informações objetivas",
+        "Excelente profissional.",
+      highlight: "Excelente profissional",
     },
     {
-      author: "Bruno Oliveira Mota",
-      detail: "Local Guide · 20 avaliações · 18 fotos no Google",
-      stars: 5,
-      date: "Avaliação verificada no Google",
-      quote:
-        "Profissionais capacitados, problema resolvido. Recomendo.",
-      highlight: "Profissionais capacitados e problema resolvido",
-    },
-    {
-      author: "Zezinha Guedes",
+      author: "Lucia Andrade",
       detail: "1 avaliação no Google",
       stars: 5,
       date: "Avaliação verificada no Google",
       quote:
-        "Advogados super dedicados e atenciosos. Resolveu meu problema!!",
-      highlight: "Super dedicados, atenciosos e problema resolvido",
-      ownerReply:
-        "Muito Obrigada!! Nós agradecemos pela confiança! Deus abençoe!!",
+        "Ótima advogada, atendimento com muito respeito e dedicação.",
+      highlight: "Ótima advocacia com respeito e dedicação",
     },
   ];
 
-  // Diferenciais Competitivos de Nunes & Mota Advogados
+  // Diferenciais Competitivos de Tharin Miranda Advocacia
   const diferenciais = [
     {
       icon: Award,
-      title: "Mais de 7 Anos de Tradição e Excelência",
+      title: "Liderança Institucional na OAB",
       description:
-        "Uma trajetória sólida de mais de 7 anos construída com ética, rigor técnico inegociável e defesa incansável dos direitos de nossos clientes em Januária, MG e em todo o país.",
+        "A Dra. Tharin Miranda exerce a função de Secretária Geral da Subseção da OAB de Matozinhos/MG, assegurando rigor ético inegociável, prestígio institucional e credibilidade comprovada.",
     },
     {
-      icon: Accessibility,
-      title: "Sede Moderna, Confortável & Acessível",
+      icon: HomeIcon,
+      title: "Tríplice Especialização Estratégica",
       description:
-        "Estrutura de ponta na Av. Cônego Ramiro Leite, 20B - Centro, com salas privativas climatizadas e rampa de acesso exclusiva para pessoas com mobilidade reduzida.",
+        "Conhecimento técnico aprofundado em Direito Imobiliário, Direito do Trabalho e Direito Previdenciário, oferecendo soluções jurídicas completas e integradas para cada cliente.",
     },
     {
       icon: HeartHandshake,
-      title: "Atendimento Humanizado & Ágil",
+      title: "Atendimento Humanizado & Seguro",
       description:
-        "Comunicação direta, transparente e descomplicada. Nossa equipe trata cada causa com empatia, mantendo você sempre informado sobre cada andamento do seu processo.",
-    },
-    {
-      icon: Shield,
-      title: "Exatidão Técnica & Alta Resolutividade",
-      description:
-        "Especialização comprovada em Direito Trabalhista, Cível, Consumidor e Família. Foco em soluções práticas, cálculos precisos e resultados consistentes.",
-    },
-    {
-      icon: Coins,
-      title: "Contratos Transparentes & Honorários Claros",
-      description:
-        "Honorários éticos, proporcionais e rigorosamente alinhados ao Código de Ética da OAB, sem letras miúdas ou custos inesperados para o cliente.",
+        "Atenção minuciosa, clareza didática nas explicações e constante tranquilidade repassada ao cliente em cada fase do processo, elogiada de forma unânime nas avaliações do Google.",
     },
     {
       icon: Star,
       title: "Nota Máxima 5,0 ★ Unânime no Google",
       description:
-        "Reconhecimento unânime de nossos clientes em 25 avaliações 5 estrelas no Google Meu Negócio, atestando a confiança e o prestígio de nossa advocacia.",
+        "Reconhecimento espontâneo de clientes com nota máxima de 5 estrelas no Google Meu Negócio, atestando a competência, a eficiência e a excelência de nossa advocacia.",
+    },
+    {
+      icon: MapPin,
+      title: "Sede Acolhedora & Atendimento Nacional",
+      description:
+        "Escritório estruturado na Travessa da Esmeralda, 45 A - São Sebastião em Matozinhos - MG, aliado a uma moderna advocacia digital conectada aos Tribunais de todo o Brasil.",
+    },
+    {
+      icon: Coins,
+      title: "Honorários Claros & Total Transparência",
+      description:
+        "Contratos redigidos com absoluta transparência e ética, estritamente alinhados ao Código de Ética e Disciplina da OAB, sem letras miúdas ou custos inesperados.",
     },
   ];
 
   // Situações comuns (Diagnóstico Rápido)
   const situacoesDiagnostico = [
     {
-      pergunta: "Teve seus direitos desrespeitados no trabalho ou sofreu demissão irregular?",
+      pergunta: "Possui imóvel sem escritura, terreno irregular ou precisa de usucapião?",
       orientacao:
-        "A Dra. Misley Nunes e equipe atuam com exatidão no cálculo de rescisões, horas extras, adicionais de insalubridade/periculosidade, acidentes de trabalho e reversão de justas causas abusivas.",
+        "A Dra. Tharin Miranda é especialista em regularização fundiária e imobiliária, conduzindo usucapião extrajudicial diretamente em cartório ou judicialmente para conferir segurança total ao seu patrimônio.",
+      cta: "Regularizar Meu Imóvel",
+      area: "Direito Imobiliário",
+    },
+    {
+      pergunta: "Teve seus direitos desrespeitados na empresa ou sofreu demissão irregular?",
+      orientacao:
+        "Análise rigorosa do seu contrato de trabalho, cálculo minucioso de verbas rescisórias, horas extras, adicionais de insalubridade/periculosidade e reversão de justas causas arbitrárias.",
       cta: "Analisar Meu Caso Trabalhista",
-      area: "Direito Trabalhista",
+      area: "Direito do Trabalho",
     },
     {
-      pergunta: "Está sendo lesado por bancos, cobranças indevidas ou negativação no SPC?",
+      pergunta: "Teve aposentadoria ou auxílio negado pelo INSS ou deseja planejar o benefício?",
       orientacao:
-        "Defendemos o consumidor contra fraudes bancárias, juros abusivos, golpes do Pix e negativações ilegais, buscando a exclusão imediata do nome dos cadastros de inadimplentes e indenização por danos morais.",
-      cta: "Limpar Nome / Exigir Indenização",
-      area: "Direito do Consumidor",
-    },
-    {
-      pergunta: "Precisa realizar o inventário de bens da família ou formalizar um divórcio?",
-      orientacao:
-        "Atuamos em inventários extrajudiciais em cartório (rápidos e menos onerosos) e judiciais, além de divórcios consensuais e litigiosos, garantindo uma divisão justa e a preservação do patrimônio familiar.",
-      cta: "Orientação em Inventário & Família",
-      area: "Família & Sucessões",
-    },
-    {
-      pergunta: "Teve benefício previdenciário negado pelo INSS ou planeja sua aposentadoria?",
-      orientacao:
-        "Analisamos seu tempo de contribuição, laudos médicos e histórico laboral para ingressar com pedidos administrativos e ações judiciais para concessão de aposentadorias, auxílio-doença e BPC/LOAS.",
+        "Realizamos o planejamento previdenciário minucioso e ingressamos com ações contra o INSS para concessão e restabelecimento de aposentadorias, auxílio-doença e BPC/LOAS com rapidez.",
       cta: "Consultar Benefício do INSS",
       area: "Direito Previdenciário",
+    },
+    {
+      pergunta: "Precisa realizar inventário de bens da família ou formalizar um divórcio?",
+      orientacao:
+        "Condução sensível e ágil de inventários em cartório (rápidos e menos onerosos) e partilhas judiciais, além de divórcios consensuais e ações de pensão alimentícia com proteção patrimonial justa.",
+      cta: "Orientação em Inventário & Família",
+      area: "Família & Sucessões",
     },
   ];
 
   // FAQ
   const faqs = [
     {
-      question: "Como funciona a primeira consulta jurídica com Nunes & Mota Advogados?",
+      question: "Como funciona a primeira consulta com a Dra. Tharin Miranda?",
       answer:
-        "A consulta inicial é um atendimento privativo, atencioso e detalhado. Pode ser realizado presencialmente em nossa sede no Centro de Januária - MG ou por chamada de vídeo/WhatsApp para qualquer região do Brasil. Analisamos sua documentação e explicamos com clareza a viabilidade e os melhores caminhos para o seu caso.",
+        "O primeiro atendimento é privativo, detalhado e humanizado. Pode ser realizado presencialmente em nosso escritório na Travessa da Esmeralda, 45 A em Matozinhos - MG ou de forma 100% digital por videochamada ou WhatsApp para qualquer cidade do Brasil. Analisamos sua documentação e explicamos de maneira clara as chances e os melhores caminhos para o seu caso.",
     },
     {
-      question: "Quais documentos devo separar para uma causa trabalhista?",
+      question: "O escritório atende apenas em Matozinhos ou em outras regiões?",
       answer:
-        "Para uma análise completa, é recomendável reunir: Carteira de Trabalho (física ou digital), holerites/contracheques, extrato analítico do FGTS, termo de rescisão (se já tiver sido desligado), comprovantes de mensagens ou e-mails e eventuais atestados médicos em caso de acidente ou doença do trabalho.",
+        "Atendemos presencialmente toda a região de Matozinhos, Sete Lagoas, Capim Branco, Prudente de Morais, Pedro Leopoldo, Vespasiano e Grande BH. Além disso, através do processo eletrônico (PJe), atuamos de forma digital com plena agilidade e segurança jurídica perante Tribunais em todo o território nacional.",
     },
     {
-      question: "O escritório atende apenas em Januária - MG ou em outras regiões?",
+      question: "Como funciona o processo de usucapião para regularizar um imóvel?",
       answer:
-        "Atendemos presencialmente toda a região de Januária e Norte de Minas Gerais, e de forma 100% digital em todo o Brasil. Através do processo eletrônico (PJe), atuamos perante os Tribunais Regionais do Trabalho, Tribunais de Justiça e Tribunais Superiores com máxima segurança e agilidade.",
+        "O usucapião permite obter a escritura definitiva de posse pacífica e prolongada de um imóvel urbano ou rural. Sempre que os requisitos legais forem preenchidos, podemos ingressar com o Usucapião Extrajudicial diretamente no Cartório de Registro de Imóveis, o que reduz consideravelmente o tempo e os custos em relação à via judicial.",
     },
     {
-      question: "O que fazer em caso de golpe financeiro ou cobrança indevida de bancos?",
+      question: "O que fazer se o INSS negou meu pedido de aposentadoria ou auxílio?",
       answer:
-        "Guarde todos os comprovantes, extratos bancários, prints de conversas e faça imediatamente o Boletim de Ocorrência. Em seguida, acione nosso escritório para ingressarmos com as medidas judiciais urgentes contra a instituição bancária responsável para bloqueio, restituição dos valores e reparação de danos morais.",
+        "Não se desespere, pois o indeferimento administrativo é muito comum. A Dra. Tharin Miranda analisa a carta de indeferimento, reúne os laudos médicos ou documentos de tempo de contribuição faltantes e ingressa com recurso administrativo ou ação judicial na Justiça Federal para garantir o benefício com retroativos desde a data do primeiro pedido.",
     },
     {
-      question: "O escritório possui acessibilidade para pessoas com deficiência ou mobilidade reduzida?",
+      question: "Quais documentos devo separar para uma análise de causa trabalhista?",
       answer:
-        "Sim! Nosso escritório na Av. Cônego Ramiro Leite, 20B foi planejado para acolher a todos com conforto e dignidade, contando com rampa de acesso externa para cadeirantes e pessoas com mobilidade reduzida, corredores amplos e recepção moderna.",
+        "Recomenda-se reunir: Carteira de Trabalho (física ou app CTPS Digital), últimos holerites ou extratos bancários de pagamento, extrato analítico do FGTS, termo de rescisão contratual (se já houver sido desligado) e eventuais conversas, e-mails ou atestados médicos pertinentes.",
     },
     {
-      question: "Como são combinados os honorários advocatícios?",
+      question: "Como são definidos os honorários da advocacia?",
       answer:
-        "Nossos contratos de honorários são 100% transparentes, éticos e pautados pelas diretrizes da Ordem dos Advogados do Brasil (OAB). Em muitas demandas (como causas trabalhistas), trabalhamos com condições facilitadas no êxito da causa, sem surpresas nem custos ocultos.",
+        "Trabalhamos com total clareza e previsibilidade. Nossos contratos de honorários seguem rigorosamente a tabela e o Código de Ética e Disciplina da OAB/MG. Em diversas demandas (como causas trabalhistas e previdenciárias), viabilizamos condições alinhadas ao êxito da causa, sem surpresas para o cliente.",
     },
   ];
 
   return (
     <MotionConfig reducedMotion="user">
-      <div className="relative min-h-screen bg-white font-sans text-slate-800 antialiased selection:bg-[#16365b] selection:text-white">
+      <div className="relative min-h-screen bg-white font-sans text-slate-800 antialiased selection:bg-[#d4a34b] selection:text-[#0b0c10]">
         {/* ========================================================================= */}
         {/* 1. TOP NOTICE / PRE-HEADER                                               */}
         {/* ========================================================================= */}
-        <div className="border-b border-[#1a3a5c] bg-gradient-to-r from-[#050e18] via-[#081626] to-[#0d2035] px-4 py-2 text-white">
+        <div className="border-b border-[#262118] bg-gradient-to-r from-[#08090d] via-[#10121a] to-[#151821] px-4 py-2 text-white">
           <div className="mx-auto flex w-full max-w-[1600px] flex-wrap items-center justify-between gap-2 px-4 sm:px-6 lg:px-8 xl:px-12 text-xs">
             <div className="flex items-center gap-2 font-medium">
-              <span className="flex size-2 rounded-full bg-[#cbd5e1] animate-pulse" />
-              <span className="text-[#f1f5f9] font-semibold">
-                Nunes &amp; Mota Advogados Associados &bull; Januária - MG
+              <span className="flex size-2 rounded-full bg-[#f5d77f] animate-pulse" />
+              <span className="text-[#fbf3d1] font-semibold">
+                Tharin Miranda Advocacia &bull; Matozinhos - MG
               </span>
-              <span className="hidden sm:inline text-slate-400">|</span>
+              <span className="hidden sm:inline text-amber-500/60">|</span>
               <span className="hidden sm:inline text-slate-300">
-                ⚖️ Há Mais de 7 Anos &bull; Trabalhista &bull; Cível &bull; Consumidor
+                ⚖️ Imobiliário &bull; Trabalhista &bull; Previdenciário &bull; Secretária Geral OAB Matozinhos
               </span>
             </div>
 
@@ -572,14 +498,14 @@ export default function Home() {
                   ))}
                 </div>
                 <span className="font-bold text-white">5,0 ★</span>
-                <span className="text-slate-300">(25 avaliações no Google)</span>
+                <span className="text-amber-200/80">(12 avaliações no Google)</span>
               </a>
 
               <a
                 href={getWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden md:flex items-center gap-1 font-semibold text-[#cbd5e1] hover:text-white transition-colors"
+                className="hidden md:flex items-center gap-1 font-semibold text-[#f5d77f] hover:text-white transition-colors"
               >
                 <WhatsAppIcon size={13} className="text-[#25D366]" />
                 <span>{PHONE_DISPLAY}</span>
@@ -594,23 +520,23 @@ export default function Home() {
         <header
           className={`sticky top-0 z-40 transition-all duration-300 ${
             isScrolled
-              ? "border-b border-slate-200 bg-white/95 shadow-md shadow-black/5 backdrop-blur-md"
-              : "border-b border-slate-100 bg-white/90 backdrop-blur-sm"
+              ? "border-b border-[#e7e0d3] bg-white/95 shadow-md shadow-black/5 backdrop-blur-md"
+              : "border-b border-[#f0ebe1] bg-white/90 backdrop-blur-sm"
           }`}
         >
           <div className="mx-auto flex w-full max-w-[1600px] items-center justify-between px-4 py-3 sm:px-6 lg:px-8 xl:px-12">
-            {/* Left: Logo (flex-1) */}
+            {/* Left: Logo */}
             <div className="flex flex-1 items-center justify-start min-w-0">
               <a
                 href="#inicio"
-                aria-label="Nunes & Mota Advogados Associados - Início"
+                aria-label="Tharin Miranda Advocacia - Início"
                 onClick={closeMenu}
                 className="flex shrink-0 items-center gap-3 transition-opacity hover:opacity-95"
               >
                 <div className="relative size-10 sm:size-11 lg:size-12 shrink-0">
                   <Image
                     src={LOGO_SYMBOL_SRC}
-                    alt="Nunes & Mota Advogados Associados"
+                    alt="Tharin Miranda Advocacia Monograma"
                     fill
                     priority
                     unoptimized
@@ -618,17 +544,17 @@ export default function Home() {
                   />
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-cinzel text-sm sm:text-base lg:text-lg font-extrabold tracking-[0.14em] text-[#081626] leading-tight whitespace-nowrap">
-                    NUNES &amp; MOTA
+                  <span className="font-cinzel text-sm sm:text-base lg:text-lg font-extrabold tracking-[0.14em] text-[#0e1017] leading-tight whitespace-nowrap">
+                    THARIN MIRANDA
                   </span>
-                  <span className="text-[8px] sm:text-[9px] lg:text-[10px] font-bold tracking-[0.2em] text-[#1a406c] uppercase mt-0.5 whitespace-nowrap">
-                    ADVOGADOS ASSOCIADOS &bull; JANUÁRIA - MG
+                  <span className="text-[8px] sm:text-[9px] lg:text-[10px] font-bold tracking-[0.22em] text-[#c88a2c] uppercase mt-0.5 whitespace-nowrap">
+                    ADVOCACIA &bull; MATOZINHOS - MG
                   </span>
                 </div>
               </a>
             </div>
 
-            {/* Center: Tópicos Rigorosamente Centralizados (flex-none) */}
+            {/* Center: Navigation Links */}
             <nav
               aria-label="Navegação principal"
               className="hidden lg:flex flex-none items-center justify-center gap-4 xl:gap-6 2xl:gap-8 whitespace-nowrap text-[11px] xl:text-xs font-semibold tracking-[0.08em] px-4"
@@ -637,7 +563,7 @@ export default function Home() {
                 Áreas de Atuação
               </a>
               <a className="nav-link" href="#sobre">
-                O Escritório
+                Dra. Tharin Miranda
               </a>
               <a className="nav-link hidden xl:inline-block" href="#diferenciais">
                 Diferenciais
@@ -653,17 +579,17 @@ export default function Home() {
               </a>
             </nav>
 
-            {/* Right: Botão CTA & Mobile Toggle (flex-1) */}
+            {/* Right: CTA Button & Mobile Toggle */}
             <div className="flex flex-1 items-center justify-end">
               <div className="hidden lg:flex items-center shrink-0">
                 <GlowingButton
-                  variant="silver"
+                  variant="gold"
                   size="sm"
                   href={getWhatsAppUrl()}
                   target="_blank"
                   className="shadow-sm whitespace-nowrap"
                 >
-                  <WhatsAppIcon size={14} className="text-[#050e18]" />
+                  <WhatsAppIcon size={14} className="text-[#1a0e03]" />
                   <span>Consulta no WhatsApp</span>
                 </GlowingButton>
               </div>
@@ -692,71 +618,71 @@ export default function Home() {
               >
                 <div className="flex flex-col gap-3.5 text-sm font-semibold tracking-wide">
                   <a
-                    className="py-1.5 text-slate-800 hover:text-[#215187]"
+                    className="py-1.5 text-slate-800 hover:text-[#c88a2c]"
                     href="#inicio"
                     onClick={closeMenu}
                   >
                     Início
                   </a>
                   <a
-                    className="py-1.5 text-slate-800 hover:text-[#215187]"
+                    className="py-1.5 text-slate-800 hover:text-[#c88a2c]"
                     href="#atuacao"
                     onClick={closeMenu}
                   >
                     Áreas de Atuação
                   </a>
                   <a
-                    className="py-1.5 text-slate-800 hover:text-[#215187]"
+                    className="py-1.5 text-slate-800 hover:text-[#c88a2c]"
                     href="#sobre"
                     onClick={closeMenu}
                   >
-                    Sobre o Escritório &amp; Sócios
+                    Sobre a Dra. Tharin Miranda
                   </a>
                   <a
-                    className="py-1.5 text-slate-800 hover:text-[#215187]"
+                    className="py-1.5 text-slate-800 hover:text-[#c88a2c]"
                     href="#diferenciais"
                     onClick={closeMenu}
                   >
                     Nossos Diferenciais
                   </a>
                   <a
-                    className="py-1.5 text-slate-800 hover:text-[#215187]"
+                    className="py-1.5 text-slate-800 hover:text-[#c88a2c]"
                     href="#avaliacoes"
                     onClick={closeMenu}
                   >
                     Avaliações no Google (5.0 ★)
                   </a>
                   <a
-                    className="py-1.5 text-slate-800 hover:text-[#215187]"
+                    className="py-1.5 text-slate-800 hover:text-[#c88a2c]"
                     href="#faq"
                     onClick={closeMenu}
                   >
                     Perguntas Frequentes
                   </a>
                   <a
-                    className="py-1.5 text-slate-800 hover:text-[#215187]"
+                    className="py-1.5 text-slate-800 hover:text-[#c88a2c]"
                     href="#contato"
                     onClick={closeMenu}
                   >
-                    Sede em Januária - MG &amp; Contato
+                    Sede em Matozinhos &amp; Contato
                   </a>
 
                   <div className="pt-3 border-t border-slate-100 flex flex-col gap-2.5">
                     <GlowingButton
-                      variant="silver"
+                      variant="gold"
                       size="md"
                       href={getWhatsAppUrl()}
                       target="_blank"
                       className="w-full justify-center"
                     >
-                      <WhatsAppIcon size={16} className="text-[#050e18]" />
+                      <WhatsAppIcon size={16} className="text-[#1a0e03]" />
                       <span>Falar no WhatsApp</span>
                     </GlowingButton>
                     <a
                       href={`tel:${WHATSAPP_NUMBER}`}
                       className="flex items-center justify-center gap-2 rounded-lg border border-slate-200 py-3 text-xs font-bold text-slate-700 hover:bg-slate-50"
                     >
-                      <Phone size={14} className="text-[#215187]" />
+                      <Phone size={14} className="text-[#c88a2c]" />
                       <span>Ligar: {PHONE_DISPLAY}</span>
                     </a>
                   </div>
@@ -771,12 +697,12 @@ export default function Home() {
         {/* ========================================================================= */}
         <section
           id="inicio"
-          className="relative overflow-hidden bg-gradient-to-b from-[#07192f] via-[#0c2440] to-[#081a2e] text-white py-14 sm:py-20 lg:py-24"
+          className="relative overflow-hidden bg-gradient-to-b from-[#08090d] via-[#10131b] to-[#0c0e14] text-white py-14 sm:py-20 lg:py-24"
         >
-          {/* Luminous Ambient Glow (Backlight for maximum text clarity) */}
-          <div className="pointer-events-none absolute -top-24 left-0 size-[650px] rounded-full bg-[#1b436d]/45 blur-[130px]" />
-          <div className="pointer-events-none absolute top-1/3 -left-20 size-[500px] rounded-full bg-[#163a61]/35 blur-[120px]" />
-          <div className="pointer-events-none absolute top-1/2 -right-40 size-96 rounded-full bg-[#1a406c]/40 blur-3xl" />
+          {/* Luminous Ambient Warm Gold Glow */}
+          <div className="pointer-events-none absolute -top-24 left-0 size-[650px] rounded-full bg-[#d4a34b]/15 blur-[140px]" />
+          <div className="pointer-events-none absolute top-1/3 -left-20 size-[500px] rounded-full bg-[#9d5b16]/15 blur-[130px]" />
+          <div className="pointer-events-none absolute top-1/2 -right-40 size-96 rounded-full bg-[#c88a2c]/20 blur-3xl" />
 
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
@@ -789,9 +715,9 @@ export default function Home() {
               >
                 {/* Eyebrow Badge */}
                 <motion.div variants={fadeInUp} className="mb-4">
-                  <div className="inline-flex items-center gap-2.5 rounded-full border border-white/40 bg-white/10 px-4 py-2 text-xs font-bold tracking-[0.16em] uppercase text-white shadow-lg backdrop-blur-md">
-                    <Scale size={14} className="text-[#38bdf8]" />
-                    <span>Nunes &amp; Mota Advogados &bull; Há mais de 7 Anos</span>
+                  <div className="inline-flex items-center gap-2.5 rounded-full border border-amber-300/40 bg-white/5 px-4 py-2 text-xs font-bold tracking-[0.16em] uppercase text-[#fbf3d1] shadow-lg backdrop-blur-md">
+                    <Scale size={14} className="text-[#f5d77f]" />
+                    <span>Tharin Miranda Advocacia &bull; Matozinhos - MG</span>
                   </div>
                 </motion.div>
 
@@ -800,9 +726,9 @@ export default function Home() {
                   variants={fadeInUp}
                   className="font-cinzel text-3xl font-extrabold leading-[1.18] tracking-tight sm:text-4xl md:text-5xl lg:text-[3.25rem] text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]"
                 >
-                  Defesa jurídica estratégica, ética e{" "}
-                  <span className="text-gradient-silver font-black drop-shadow-[0_2px_16px_rgba(255,255,255,0.4)]">
-                    altamente resolutiva
+                  Advocacia combativa, estratégica e de{" "}
+                  <span className="text-gradient-gold font-black drop-shadow-[0_2px_16px_rgba(212,163,75,0.4)]">
+                    alta precisão
                   </span>{" "}
                   para seus direitos.
                 </motion.h1>
@@ -812,15 +738,15 @@ export default function Home() {
                   variants={fadeInUp}
                   className="mt-6 text-base text-slate-100 sm:text-lg sm:leading-relaxed font-normal drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]"
                 >
-                  Atuação especializada e combativa em{" "}
-                  <strong className="text-white font-bold underline decoration-[#38bdf8]/50 underline-offset-4">
-                    Direito Trabalhista, Cível, Consumidor e Família
+                  Defesa especializada e resolutiva em{" "}
+                  <strong className="text-white font-bold underline decoration-[#d4a34b]/60 underline-offset-4">
+                    Direito Imobiliário, Trabalhista e Previdenciário
                   </strong>
                   . Conduzido pela{" "}
                   <strong className="text-white font-bold">
-                    Dra. Misley Nunes &amp; Dr. Mota
+                    Dra. Tharin Miranda
                   </strong>
-                  , com escritório moderno e acessível no Centro de Januária - MG e atendimento digital de excelência em todo o Brasil.
+                  , Secretária Geral da OAB de Matozinhos/MG, com atendimento humanizado, sede física em Matozinhos e alcance digital de excelência em todo o Brasil.
                 </motion.p>
 
                 {/* Authority Badges Checklist */}
@@ -828,36 +754,36 @@ export default function Home() {
                   variants={fadeInUp}
                   className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2 text-xs sm:text-sm text-white"
                 >
-                  <div className="flex items-center gap-2.5 rounded-lg bg-white/5 border border-white/10 px-3 py-2 backdrop-blur-xs">
-                    <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-[#25D366] border border-emerald-500/30">
+                  <div className="flex items-center gap-2.5 rounded-lg bg-white/5 border border-amber-400/20 px-3 py-2 backdrop-blur-xs">
+                    <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-amber-400/20 text-[#f5d77f] border border-amber-400/30">
                       <CheckCircle2 size={13} />
                     </div>
                     <span className="font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
-                      Nota máxima 5,0 ★ no Google (25 avaliações)
+                      Nota máxima 5,0 ★ no Google (12 avaliações)
                     </span>
                   </div>
-                  <div className="flex items-center gap-2.5 rounded-lg bg-white/5 border border-white/10 px-3 py-2 backdrop-blur-xs">
-                    <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-[#25D366] border border-emerald-500/30">
+                  <div className="flex items-center gap-2.5 rounded-lg bg-white/5 border border-amber-400/20 px-3 py-2 backdrop-blur-xs">
+                    <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-amber-400/20 text-[#f5d77f] border border-amber-400/30">
                       <CheckCircle2 size={13} />
                     </div>
                     <span className="font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
-                      Referência regional em causas trabalhistas
+                      Secretária Geral da OAB de Matozinhos/MG
                     </span>
                   </div>
-                  <div className="flex items-center gap-2.5 rounded-lg bg-white/5 border border-white/10 px-3 py-2 backdrop-blur-xs">
-                    <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-[#25D366] border border-emerald-500/30">
+                  <div className="flex items-center gap-2.5 rounded-lg bg-white/5 border border-amber-400/20 px-3 py-2 backdrop-blur-xs">
+                    <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-amber-400/20 text-[#f5d77f] border border-amber-400/30">
                       <CheckCircle2 size={13} />
                     </div>
                     <span className="font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
-                      Ambiente moderno com rampa de acessibilidade
+                      Especialista em Regularização de Imóveis &amp; Usucapião
                     </span>
                   </div>
-                  <div className="flex items-center gap-2.5 rounded-lg bg-white/5 border border-white/10 px-3 py-2 backdrop-blur-xs">
-                    <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-[#25D366] border border-emerald-500/30">
+                  <div className="flex items-center gap-2.5 rounded-lg bg-white/5 border border-amber-400/20 px-3 py-2 backdrop-blur-xs">
+                    <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-amber-400/20 text-[#f5d77f] border border-amber-400/30">
                       <CheckCircle2 size={13} />
                     </div>
                     <span className="font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
-                      Sede na Av. Cônego Ramiro Leite, 20B - Centro
+                      Sede: Travessa da Esmeralda, 45 A - Matozinhos
                     </span>
                   </div>
                 </motion.div>
@@ -868,19 +794,19 @@ export default function Home() {
                   className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:items-center"
                 >
                   <GlowingButton
-                    variant="silver"
+                    variant="gold"
                     size="lg"
                     href={getWhatsAppUrl()}
                     target="_blank"
                     className="shadow-2xl shadow-black/50"
                   >
-                    <WhatsAppIcon size={18} className="text-[#050e18]" />
-                    <span>Falar no WhatsApp com o Escritório</span>
+                    <WhatsAppIcon size={18} className="text-[#1a0e03]" />
+                    <span>Falar no WhatsApp com a Dra. Tharin</span>
                   </GlowingButton>
 
                   <a
                     href="#atuacao"
-                    className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-white/40 bg-white/10 px-6 py-4 text-xs font-bold uppercase tracking-[0.14em] text-white backdrop-blur-md transition-all hover:border-white hover:bg-white hover:text-[#081626] shadow-lg"
+                    className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-amber-400/40 bg-white/5 px-6 py-4 text-xs font-bold uppercase tracking-[0.14em] text-[#fbf3d1] backdrop-blur-md transition-all hover:border-[#f5d77f] hover:bg-[#d4a34b] hover:text-[#0b0c10] shadow-lg"
                   >
                     <span>Conhecer Áreas de Atuação</span>
                     <ArrowRight size={14} />
@@ -892,7 +818,7 @@ export default function Home() {
                   variants={fadeInUp}
                   className="mt-8 pt-6 border-t border-white/15 flex flex-wrap items-center gap-4 text-xs text-slate-100"
                 >
-                  <div className="flex items-center gap-2 rounded-lg bg-white/10 border border-white/20 px-3 py-1.5 backdrop-blur-xs">
+                  <div className="flex items-center gap-2 rounded-lg bg-white/10 border border-amber-400/30 px-3 py-1.5 backdrop-blur-xs">
                     <div className="flex">
                       {[...Array(5)].map((_, i) => (
                         <Star
@@ -905,13 +831,13 @@ export default function Home() {
                     <span className="font-bold text-white text-sm">5,0 de 5,0</span>
                   </div>
                   <span className="text-white/40">&bull;</span>
-                  <span className="font-medium text-white">25 avaliações no Google Meu Negócio</span>
+                  <span className="font-medium text-white">12 avaliações no Google Meu Negócio</span>
                   <span className="text-white/40">&bull;</span>
                   <a
                     href={GOOGLE_SEARCH_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-bold text-[#38bdf8] hover:text-white underline flex items-center gap-1 transition-colors"
+                    className="font-bold text-[#f5d77f] hover:text-white underline flex items-center gap-1 transition-colors"
                   >
                     <span>Ver no Google</span>
                     <ArrowUpRight size={13} />
@@ -919,7 +845,7 @@ export default function Home() {
                 </motion.div>
               </motion.div>
 
-              {/* Right Column: Partners Portrait Card */}
+              {/* Right Column: Dra. Tharin Miranda Portrait Card */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -928,31 +854,31 @@ export default function Home() {
               >
                 <div className="relative mx-auto max-w-sm sm:max-w-md lg:max-w-none">
                   {/* Decorative Glowing Frame */}
-                  <div className="absolute -inset-2 rounded-2xl bg-gradient-to-tr from-white/30 via-[#cbd5e1]/15 to-transparent blur-md" />
+                  <div className="absolute -inset-2 rounded-2xl bg-gradient-to-tr from-[#d4a34b]/40 via-[#f5d77f]/20 to-transparent blur-md" />
 
                   {/* Main Portrait Card */}
-                  <div className="relative overflow-hidden rounded-2xl border-2 border-white/60 bg-[#081626] shadow-2xl">
+                  <div className="relative overflow-hidden rounded-2xl border-2 border-amber-300/60 bg-[#0e1017] shadow-2xl">
                     <div className="relative aspect-[4/5] w-full overflow-hidden">
                       <Image
                         src={FOTO_HERO_SRC}
-                        alt="Dra. Misley Nunes e Dr. Mota - Nunes & Mota Advogados Associados"
+                        alt="Dra. Tharin Miranda - Tharin Miranda Advocacia em Matozinhos MG"
                         fill
                         priority
-                        className="object-cover object-top filter contrast-[1.02]"
+                        className="object-cover object-top filter contrast-[1.03]"
                       />
 
                       {/* Gradient Overlay for bottom text legibility */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#050e18] via-[#050e18]/20 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#08090d] via-[#08090d]/25 to-transparent" />
 
                       {/* Card Lower Badge */}
-                      <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-white/30 bg-[#050e18]/90 p-3.5 backdrop-blur-md">
+                      <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-amber-300/40 bg-[#08090d]/90 p-3.5 backdrop-blur-md">
                         <div className="flex items-center justify-between">
                           <div>
                             <p className="font-cinzel text-sm sm:text-base font-bold text-white tracking-wide">
-                              Dra. Misley Nunes &amp; Dr. Mota
+                              Dra. Tharin Miranda
                             </p>
-                            <p className="text-[10px] sm:text-xs font-semibold text-[#cbd5e1] uppercase tracking-wider mt-0.5">
-                              Nunes &amp; Mota Advogados Associados
+                            <p className="text-[10px] sm:text-xs font-semibold text-[#f5d77f] uppercase tracking-wider mt-0.5">
+                              Secretária Geral da OAB Matozinhos/MG
                             </p>
                           </div>
                           <div className="flex flex-col items-end">
@@ -966,7 +892,7 @@ export default function Home() {
                               ))}
                             </div>
                             <span className="text-[10px] font-bold text-white mt-0.5">
-                              5,0 ★ no Google (25)
+                              5,0 ★ no Google (12)
                             </span>
                           </div>
                         </div>
@@ -975,22 +901,22 @@ export default function Home() {
                   </div>
 
                   {/* Floating Trust Card Top-Right */}
-                  <div className="hidden sm:flex absolute -top-5 -right-5 items-center gap-2.5 rounded-xl border border-white/60 bg-[#050e18]/95 px-4 py-2.5 shadow-xl backdrop-blur-md">
-                    <div className="flex size-9 items-center justify-center rounded-lg bg-white/10 text-white">
+                  <div className="hidden sm:flex absolute -top-5 -right-5 items-center gap-2.5 rounded-xl border border-amber-300/60 bg-[#08090d]/95 px-4 py-2.5 shadow-xl backdrop-blur-md">
+                    <div className="flex size-9 items-center justify-center rounded-lg bg-amber-400/15 text-[#f5d77f]">
                       <Scale size={18} />
                     </div>
                     <div>
-                      <p className="text-[10px] font-bold uppercase tracking-wider text-[#cbd5e1]">
-                        Tradição
+                      <p className="text-[10px] font-bold uppercase tracking-wider text-[#e7cc99]">
+                        Institucional
                       </p>
                       <p className="text-xs font-bold text-white">
-                        Há Mais de 7 Anos
+                        OAB Matozinhos/MG
                       </p>
                     </div>
                   </div>
 
                   {/* Floating Trust Card Bottom-Left */}
-                  <div className="hidden sm:flex absolute -bottom-5 -left-5 items-center gap-2.5 rounded-xl border border-slate-700 bg-[#081626]/95 px-4 py-2.5 shadow-xl backdrop-blur-md">
+                  <div className="hidden sm:flex absolute -bottom-5 -left-5 items-center gap-2.5 rounded-xl border border-amber-400/30 bg-[#0e1017]/95 px-4 py-2.5 shadow-xl backdrop-blur-md">
                     <div className="flex size-9 items-center justify-center rounded-lg bg-[#25D366]/20 text-[#25D366]">
                       <WhatsAppIcon size={18} />
                     </div>
@@ -1012,57 +938,57 @@ export default function Home() {
         {/* ========================================================================= */}
         {/* 4. TRUST & AUTHORITY NUMBERS BAR                                         */}
         {/* ========================================================================= */}
-        <section className="border-y border-slate-200 bg-[#f8fafc] py-8 sm:py-10">
+        <section className="border-y border-[#e7e0d3] bg-[#faf8f5] py-8 sm:py-10">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-2 gap-6 md:grid-cols-4 lg:gap-8 text-center">
               <div className="flex flex-col items-center">
-                <div className="flex items-center gap-1 text-2xl sm:text-3xl font-extrabold text-[#081626]">
+                <div className="flex items-center gap-1 text-2xl sm:text-3xl font-extrabold text-[#0e1017]">
                   <span>5,0</span>
                   <div className="flex text-amber-500">
                     <Star size={18} className="fill-amber-400 text-amber-400" />
                   </div>
                 </div>
-                <p className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#215187] mt-1">
+                <p className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#c88a2c] mt-1">
                   Nota Máxima Google
                 </p>
-                <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5">
-                  25 avaliações 100% 5 estrelas
+                <p className="text-[11px] sm:text-xs text-slate-600 mt-0.5">
+                  12 avaliações 100% 5 estrelas
                 </p>
               </div>
 
               <div className="flex flex-col items-center">
-                <div className="text-2xl sm:text-3xl font-extrabold text-[#081626]">
-                  +07 Anos
+                <div className="text-2xl sm:text-3xl font-extrabold text-[#0e1017]">
+                  OAB/MG
                 </div>
-                <p className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#215187] mt-1">
-                  Atuação Consolidada
+                <p className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#c88a2c] mt-1">
+                  Secretária Geral
                 </p>
-                <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5">
-                  Solidez e tradição jurídica
+                <p className="text-[11px] sm:text-xs text-slate-600 mt-0.5">
+                  Subseção de Matozinhos/MG
                 </p>
               </div>
 
               <div className="flex flex-col items-center">
-                <div className="text-2xl sm:text-3xl font-extrabold text-[#081626]">
-                  Januária - MG
+                <div className="text-2xl sm:text-3xl font-extrabold text-[#0e1017]">
+                  Matozinhos - MG
                 </div>
-                <p className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#215187] mt-1">
-                  Sede com Acessibilidade
+                <p className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#c88a2c] mt-1">
+                  Sede Própria Acolhedora
                 </p>
-                <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5">
-                  Av. Cônego Ramiro Leite, 20B
+                <p className="text-[11px] sm:text-xs text-slate-600 mt-0.5">
+                  Travessa da Esmeralda, 45 A
                 </p>
               </div>
 
               <div className="flex flex-col items-center">
-                <div className="text-2xl sm:text-3xl font-extrabold text-[#081626]">
-                  Brasil
+                <div className="text-2xl sm:text-3xl font-extrabold text-[#0e1017]">
+                  Nacional
                 </div>
-                <p className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#215187] mt-1">
+                <p className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#c88a2c] mt-1">
                   Atendimento Digital
                 </p>
-                <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5">
-                  Alcance em todo o território nacional
+                <p className="text-[11px] sm:text-xs text-slate-600 mt-0.5">
+                  Atuação em todo o Brasil (PJe)
                 </p>
               </div>
             </div>
@@ -1075,15 +1001,15 @@ export default function Home() {
         <section className="py-14 sm:py-20 bg-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-              <div className="eyebrow-navy justify-center mb-3">
-                Diagnóstico Jurídico Estratégico
+              <div className="eyebrow-gold justify-center mb-3">
+                Diagnóstico Jurídico Especializado
               </div>
-              <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-bold text-[#081626]">
+              <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-bold text-[#0e1017]">
                 Você se identifica com alguma dessas situações jurídicas?
               </h2>
               <p className="mt-4 text-sm sm:text-base text-slate-600">
-                Não deixe seus direitos desprotegidos nem adie a solução de questões
-                que envolvem seu trabalho, sua família, seu nome ou seu patrimônio:
+                Não deixe seus direitos imobiliários, trabalhistas ou previdenciários desprotegidos.
+                Conte com orientação técnica e acolhedora desde o primeiro momento:
               </p>
             </div>
 
@@ -1091,14 +1017,14 @@ export default function Home() {
               {situacoesDiagnostico.map((sit, idx) => (
                 <div
                   key={idx}
-                  className="rounded-2xl border border-slate-200 bg-[#f8fafc] p-6 sm:p-8 transition-all hover:border-[#1a406c] hover:shadow-lg flex flex-col justify-between"
+                  className="rounded-2xl border border-[#e7e0d3] bg-[#faf8f5] p-6 sm:p-8 transition-all hover:border-[#c88a2c] hover:shadow-lg flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-start gap-3.5 mb-3">
-                      <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-[#1a406c]/10 text-[#1a406c]">
+                      <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-amber-500/10 text-[#c88a2c]">
                         <AlertCircle size={20} />
                       </div>
-                      <h3 className="font-cinzel text-lg sm:text-xl font-bold text-[#081626] leading-snug">
+                      <h3 className="font-cinzel text-lg sm:text-xl font-bold text-[#0e1017] leading-snug">
                         {sit.pergunta}
                       </h3>
                     </div>
@@ -1107,18 +1033,18 @@ export default function Home() {
                     </p>
                   </div>
 
-                  <div className="mt-6 pt-5 border-t border-slate-200/80 flex items-center justify-between">
+                  <div className="mt-6 pt-5 border-t border-[#e7e0d3] flex items-center justify-between">
                     <button
                       type="button"
                       onClick={() => openConsultModal(sit.area)}
-                      className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#215187] hover:text-[#081626] transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#c88a2c] hover:text-[#9d5b16] transition-colors cursor-pointer"
                     >
                       <span>{sit.cta}</span>
                       <ArrowRight size={14} />
                     </button>
 
                     <a
-                      href={getWhatsAppUrl(`Olá, Dra. Misley Nunes e Dr. Mota! ${sit.pergunta}`)}
+                      href={getWhatsAppUrl(`Olá, Dra. Tharin Miranda! ${sit.pergunta}`)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex size-9 items-center justify-center rounded-lg bg-[#25D366] text-white hover:brightness-110 transition-all shadow-xs"
@@ -1138,7 +1064,7 @@ export default function Home() {
         {/* ========================================================================= */}
         <section
           id="atuacao"
-          className="relative bg-gradient-to-b from-[#050e18] via-[#081626] to-[#0d2035] text-white py-16 sm:py-24"
+          className="relative bg-gradient-to-b from-[#08090d] via-[#10131b] to-[#151821] text-white py-16 sm:py-24"
         >
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
@@ -1149,8 +1075,8 @@ export default function Home() {
                 Como atuamos na defesa dos seus direitos
               </h2>
               <p className="mt-4 text-sm sm:text-base text-slate-300">
-                Atuação consultiva preventiva e contenciosa combativa em instâncias
-                judiciais e extrajudiciais, com técnica refinada, clareza e dedicação.
+                Atuação consultiva preventiva e contenciosa combativa em instâncias judiciais
+                e cartoriais com rigor técnico, clareza e dedicação absoluta.
               </p>
             </div>
 
@@ -1160,21 +1086,21 @@ export default function Home() {
                 return (
                   <div
                     key={area.id}
-                    className="group relative flex flex-col justify-between rounded-2xl border border-slate-700/80 bg-[#0d2035]/90 p-6 sm:p-8 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-white hover:shadow-2xl hover:shadow-white/10"
+                    className="group relative flex flex-col justify-between rounded-2xl border border-amber-400/20 bg-[#161a22]/90 p-6 sm:p-8 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-amber-300 hover:shadow-2xl hover:shadow-amber-500/10"
                   >
                     <div>
                       {/* Top Badges */}
                       <div className="flex items-center justify-between mb-5">
-                        <div className="flex size-12 items-center justify-center rounded-xl bg-gradient-to-br from-white/20 to-white/5 border border-white/30 text-white group-hover:scale-105 transition-transform">
+                        <div className="flex size-12 items-center justify-center rounded-xl bg-gradient-to-br from-amber-400/20 to-amber-500/5 border border-amber-400/30 text-[#f5d77f] group-hover:scale-105 transition-transform">
                           <IconComponent size={22} />
                         </div>
-                        <span className="rounded-full border border-white/40 bg-white/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#f1f5f9]">
+                        <span className="rounded-full border border-amber-300/40 bg-amber-400/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#fbf3d1]">
                           {area.badge}
                         </span>
                       </div>
 
                       {/* Card Title */}
-                      <h3 className="font-cinzel text-lg sm:text-xl font-bold text-white leading-snug group-hover:text-[#cbd5e1] transition-colors">
+                      <h3 className="font-cinzel text-lg sm:text-xl font-bold text-white leading-snug group-hover:text-[#f5d77f] transition-colors">
                         {area.title}
                       </h3>
 
@@ -1192,7 +1118,7 @@ export default function Home() {
                           >
                             <CheckCircle2
                               size={14}
-                              className="text-[#cbd5e1] shrink-0 mt-0.5"
+                              className="text-[#f5d77f] shrink-0 mt-0.5"
                             />
                             <span>{bullet}</span>
                           </div>
@@ -1206,7 +1132,7 @@ export default function Home() {
                         href={getWhatsAppUrl(area.whatsappMsg)}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-white/40 bg-white/5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[#f1f5f9] transition-all hover:bg-white hover:text-[#050e18] hover:border-white"
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-amber-400/40 bg-white/5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[#fbf3d1] transition-all hover:bg-[#d4a34b] hover:text-[#0b0c10] hover:border-[#f5d77f]"
                       >
                         <WhatsAppIcon size={14} />
                         <span>Consultar no WhatsApp</span>
@@ -1218,31 +1144,31 @@ export default function Home() {
             </div>
 
             {/* Central Consultation Banner */}
-            <div className="mt-14 rounded-2xl border-2 border-white/40 bg-gradient-to-r from-[#050e18] via-[#081626] to-[#0d2035] p-8 sm:p-10 shadow-2xl">
+            <div className="mt-14 rounded-2xl border-2 border-amber-300/40 bg-gradient-to-r from-[#08090d] via-[#10131b] to-[#161a22] p-8 sm:p-10 shadow-2xl">
               <div className="flex flex-col items-center justify-between gap-6 text-center lg:flex-row lg:text-left">
                 <div>
                   <div className="eyebrow-light mb-2">
                     Precisa de Orientação Imediata?
                   </div>
                   <h3 className="font-cinzel text-xl sm:text-2xl font-bold text-white">
-                    Fale diretamente com Nunes &amp; Mota Advogados
+                    Fale diretamente com a Dra. Tharin Miranda
                   </h3>
                   <p className="mt-1.5 text-xs sm:text-sm text-slate-300 max-w-2xl">
                     Envie uma mensagem resumindo sua necessidade. Analisamos seu caso com total sigilo
-                    e atenção para indicar o caminho jurídico mais seguro e eficaz.
+                    e atenção para indicar a estratégia jurídica mais segura e eficaz.
                   </p>
                 </div>
 
                 <GlowingButton
-                  variant="silver"
+                  variant="gold"
                   size="lg"
                   href={getWhatsAppUrl(
-                    "Olá, Dra. Misley Nunes e Dr. Mota! Gostaria de uma avaliação jurídica para entender o caminho mais adequado para o meu caso."
+                    "Olá, Dra. Tharin Miranda! Gostaria de uma avaliação jurídica para entender o caminho mais adequado para o meu caso."
                   )}
                   target="_blank"
                   className="shrink-0"
                 >
-                  <WhatsAppIcon size={17} className="text-[#050e18]" />
+                  <WhatsAppIcon size={17} className="text-[#1a0e03]" />
                   <span>Tirar Dúvida Agora</span>
                 </GlowingButton>
               </div>
@@ -1251,33 +1177,33 @@ export default function Home() {
         </section>
 
         {/* ========================================================================= */}
-        {/* 7. SOBRE O ESCRITÓRIO & ESTRUTURA MODERNA                                */}
+        {/* 7. SOBRE A ADVOGADA & ESTRUTURA                                           */}
         {/* ========================================================================= */}
         <section id="sobre" className="py-16 sm:py-24 bg-white overflow-hidden">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-              {/* Photo of Modern Reception on Left */}
+              {/* Photo of Dra. Tharin Miranda on Left */}
               <div className="relative lg:col-span-5">
                 <div className="relative mx-auto max-w-sm sm:max-w-md lg:max-w-none">
                   {/* Subtle Accent Glow */}
-                  <div className="absolute -inset-3 rounded-2xl bg-gradient-to-br from-[#1a406c]/20 to-transparent blur-lg" />
+                  <div className="absolute -inset-3 rounded-2xl bg-gradient-to-br from-[#d4a34b]/20 to-transparent blur-lg" />
 
-                  <div className="relative overflow-hidden rounded-2xl border-2 border-slate-200 bg-[#081626] shadow-2xl">
+                  <div className="relative overflow-hidden rounded-2xl border-2 border-[#e7e0d3] bg-[#08090d] shadow-2xl">
                     <div className="relative aspect-[4/5] w-full">
                       <Image
-                        src={FOTO_ESCRITORIO_SRC}
-                        alt="Recepção moderna de Nunes & Mota Advogados Associados em Januária - MG"
+                        src={FOTO_PERFIL_SRC}
+                        alt="Dra. Tharin Miranda - Especialista em Direito Imobiliário, Trabalho e Previdenciário"
                         fill
-                        className="object-cover object-center"
+                        className="object-cover object-top"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#050e18]/80 via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#08090d]/85 via-transparent to-transparent" />
 
-                      <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-white/20 bg-black/60 p-3.5 backdrop-blur-md text-white text-center">
+                      <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-amber-300/30 bg-black/60 p-3.5 backdrop-blur-md text-white text-center">
                         <p className="font-cinzel text-base font-bold text-white">
-                          Nossa Sede em Januária - MG
+                          Dra. Tharin Miranda
                         </p>
-                        <p className="text-[11px] text-slate-200 mt-0.5">
-                          Av. Cônego Ramiro Leite, 20B &bull; Estrutura Moderna &amp; Acessibilidade
+                        <p className="text-[11px] text-[#f5d77f] mt-0.5">
+                          Secretária Geral da OAB de Matozinhos/MG &bull; Especialista
                         </p>
                       </div>
                     </div>
@@ -1287,56 +1213,57 @@ export default function Home() {
 
               {/* Bio & Details on Right */}
               <div className="lg:col-span-7">
-                <div className="eyebrow-navy mb-3">Sobre o Escritório &amp; Sócios</div>
+                <div className="eyebrow-gold mb-3">Sobre a Advogada &amp; Atuação</div>
 
-                <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#081626] leading-tight">
-                  Mais de 7 anos de atuação séria, ambiente moderno e dedicação absoluta a cada cliente.
+                <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0e1017] leading-tight">
+                  Advocacia ética, acolhedora e com dedicação profunda a cada cliente em Matozinhos e em todo o Brasil.
                 </h2>
 
                 <div className="mt-6 space-y-4 text-sm sm:text-base text-slate-700 leading-relaxed">
                   <p>
-                    O escritório <strong className="text-[#081626]">Nunes &amp; Mota Advogados Associados</strong> nasceu
-                    com o propósito de oferecer uma advocacia moderna, técnica, combativa e profundamente comprometida
-                    com os anseios de quem busca justiça.
+                    A advocacia liderada pela <strong className="text-[#0e1017]">Dra. Tharin Miranda</strong> é
+                    pautada na união entre o rigor técnico aprofundado e um atendimento verdadeiramente humanizado,
+                    acolhendo quem busca resguardar seu patrimônio, seu trabalho ou seu benefício.
                   </p>
                   <p>
-                    Com sede própria localizada estrategicamente na <strong className="text-[#081626]">Av. Cônego Ramiro Leite, 20B - Centro, em Januária - MG</strong>,
-                    nosso espaço foi projetado para oferecer o máximo de conforto, sofisticação e discrição, contando inclusive com{" "}
-                    <strong className="text-[#081626]">rampa de acesso para pessoas com mobilidade reduzida</strong>, conforme elogiado por nossos clientes.
+                    Com expressiva atuação e credibilidade na comunidade jurídica, a Dra. Tharin Miranda exerce
+                    o cargo institucional de <strong className="text-[#0e1017]">Secretária Geral da Subseção da OAB de Matozinhos/MG</strong>,
+                    reforçando seu compromisso intransigente com a ética, a transparência e as prerrogativas da classe.
                   </p>
                   <p>
-                    Liderado pela <strong className="text-[#081626]">Dra. Misley Nunes</strong> (reconhecida por clientes como uma das mais expressivas referências em causas trabalhistas do Norte de Minas)
-                    e pelo <strong className="text-[#081626]">Dr. Mota</strong>, o escritório alia mais de 7 anos de experiência forense a um atendimento acolhedor, transparente e com nota máxima 5,0 ★ no Google.
+                    Com sede física estabelecida na <strong className="text-[#0e1017]">Travessa da Esmeralda, 45 A - São Sebastião, Matozinhos - MG</strong>,
+                    o escritório oferece um ambiente privativo, acolhedor e seguro para consultas presenciais, ao mesmo tempo em que disponibiliza
+                    uma moderna infraestrutura digital para atender clientes de qualquer região do Brasil com nota máxima 5,0 ★ no Google.
                   </p>
                 </div>
 
                 {/* Quote Box */}
-                <div className="mt-6 rounded-xl border-l-4 border-[#1a406c] bg-[#f8fafc] p-4 sm:p-5">
+                <div className="mt-6 rounded-xl border-l-4 border-[#c88a2c] bg-[#faf8f5] p-4 sm:p-5">
                   <p className="italic text-sm text-slate-800">
-                    &ldquo;Ambiente moderno, sofisticado e aconchegante para atender os clientes. Possui acesso com rampa para pessoas com mobilidade reduzida... Uma excelente profissional, resolveu meus problemas trabalhistas com exatidão! Equipe maravilhosa, altamente qualificados.&rdquo;
+                    &ldquo;A Dra. Tharin é uma profissional atenciosa, comprometida, competente e, sobretudo, ética... Ela é muito clara nas explicações e passa muita segurança durante todo o processo. Recomendo muito!&rdquo;
                   </p>
-                  <p className="mt-2 text-xs font-bold text-[#215187] uppercase tracking-wider">
-                    — Síntese dos depoimentos reais de clientes no Google Meu Negócio (Nota 5,0 ★ em 25 avaliações)
+                  <p className="mt-2 text-xs font-bold text-[#c88a2c] uppercase tracking-wider">
+                    — Síntese das avaliações verificadas de clientes no Google Meu Negócio (Nota Máxima 5,0 ★)
                   </p>
                 </div>
 
                 {/* Social & Contact Strip */}
                 <div className="mt-8 flex flex-wrap items-center gap-4">
                   <GlowingButton
-                    variant="silver"
+                    variant="gold"
                     size="md"
                     href={getWhatsAppUrl()}
                     target="_blank"
                   >
-                    <WhatsAppIcon size={16} className="text-[#050e18]" />
-                    <span>Falar Diretamente com os Sócios</span>
+                    <WhatsAppIcon size={16} className="text-[#1a0e03]" />
+                    <span>Falar Diretamente com a Dra. Tharin</span>
                   </GlowingButton>
 
                   <a
                     href={INSTAGRAM_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-5 py-3 text-xs font-bold uppercase tracking-wider text-slate-800 transition-colors hover:border-[#1a406c] hover:text-[#1a406c]"
+                    className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-5 py-3 text-xs font-bold uppercase tracking-wider text-slate-800 transition-colors hover:border-[#c88a2c] hover:text-[#c88a2c]"
                   >
                     <InstagramIcon size={16} className="text-[#E1306C]" />
                     <span>Instagram {INSTAGRAM_HANDLE}</span>
@@ -1346,7 +1273,7 @@ export default function Home() {
                     href={GOOGLE_SEARCH_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-5 py-3 text-xs font-bold uppercase tracking-wider text-slate-800 transition-colors hover:border-[#1a406c] hover:text-[#1a406c]"
+                    className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-5 py-3 text-xs font-bold uppercase tracking-wider text-slate-800 transition-colors hover:border-[#c88a2c] hover:text-[#c88a2c]"
                   >
                     <GoogleIcon size={16} />
                     <span>Google Meu Negócio</span>
@@ -1360,14 +1287,14 @@ export default function Home() {
         {/* ========================================================================= */}
         {/* 8. DIFERENCIAIS                                                           */}
         {/* ========================================================================= */}
-        <section id="diferenciais" className="py-16 sm:py-24 bg-[#f8fafc] border-t border-slate-200">
+        <section id="diferenciais" className="py-16 sm:py-24 bg-[#faf8f5] border-t border-[#e7e0d3]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
-              <div className="eyebrow-navy justify-center mb-3">
-                Por Que Escolher Nunes &amp; Mota
+              <div className="eyebrow-gold justify-center mb-3">
+                Por Que Escolher Tharin Miranda Advocacia
               </div>
-              <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#081626]">
-                Diferenciais que asseguram a satisfação absoluta dos nossos clientes
+              <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0e1017]">
+                Diferenciais que asseguram a satisfação absoluta de nossos clientes
               </h2>
               <p className="mt-4 text-sm sm:text-base text-slate-600">
                 Uma experiência jurídica com seriedade, clareza didática e dedicação autêntica.
@@ -1380,12 +1307,12 @@ export default function Home() {
                 return (
                   <div
                     key={idx}
-                    className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-xs transition-all hover:border-[#1a406c] hover:shadow-md"
+                    className="rounded-2xl border border-[#e7e0d3] bg-white p-6 sm:p-8 shadow-xs transition-all hover:border-[#c88a2c] hover:shadow-md"
                   >
-                    <div className="flex size-12 items-center justify-center rounded-xl bg-[#1a406c]/10 text-[#1a406c] mb-5">
+                    <div className="flex size-12 items-center justify-center rounded-xl bg-amber-500/10 text-[#c88a2c] mb-5">
                       <IconComp size={22} />
                     </div>
-                    <h3 className="font-cinzel text-lg font-bold text-[#081626]">
+                    <h3 className="font-cinzel text-lg font-bold text-[#0e1017]">
                       {dif.title}
                     </h3>
                     <p className="mt-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -1404,10 +1331,10 @@ export default function Home() {
         <section className="py-16 sm:py-24 bg-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
-              <div className="eyebrow-navy justify-center mb-3">
+              <div className="eyebrow-gold justify-center mb-3">
                 Processo Transparente e Seguro
               </div>
-              <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#081626]">
+              <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0e1017]">
                 Como funciona o seu atendimento jurídico
               </h2>
               <p className="mt-4 text-sm sm:text-base text-slate-600">
@@ -1416,67 +1343,67 @@ export default function Home() {
             </div>
 
             <div className="grid gap-6 md:grid-cols-4">
-              <div className="relative rounded-2xl border border-slate-200 bg-[#f8fafc] p-6 text-center">
-                <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-[#081626] text-white font-bold text-lg mb-4">
+              <div className="relative rounded-2xl border border-[#e7e0d3] bg-[#faf8f5] p-6 text-center">
+                <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-[#08090d] text-[#f5d77f] font-bold text-lg mb-4 border border-amber-400/40">
                   1
                 </div>
-                <h3 className="font-cinzel text-base font-bold text-[#081626]">
+                <h3 className="font-cinzel text-base font-bold text-[#0e1017]">
                   Primeiro Contato
                 </h3>
                 <p className="mt-2 text-xs text-slate-600 leading-relaxed">
                   Você nos envia uma mensagem no WhatsApp ou nos liga, resume sua situação e agendamos
-                  sua consulta presencial em Januária ou online.
+                  sua consulta presencial em Matozinhos ou online.
                 </p>
               </div>
 
-              <div className="relative rounded-2xl border border-slate-200 bg-[#f8fafc] p-6 text-center">
-                <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-[#081626] text-white font-bold text-lg mb-4">
+              <div className="relative rounded-2xl border border-[#e7e0d3] bg-[#faf8f5] p-6 text-center">
+                <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-[#08090d] text-[#f5d77f] font-bold text-lg mb-4 border border-amber-400/40">
                   2
                 </div>
-                <h3 className="font-cinzel text-base font-bold text-[#081626]">
+                <h3 className="font-cinzel text-base font-bold text-[#0e1017]">
                   Análise Técnica
                 </h3>
                 <p className="mt-2 text-xs text-slate-600 leading-relaxed">
-                  A equipe de advogados avalia minuciosamente contratos, rescisões, holerites ou documentos
-                  para estruturar a melhor estratégia.
+                  A Dra. Tharin Miranda avalia minuciosamente contratos, escrituras, laudos ou documentos
+                  para estruturar a melhor estratégia jurídica.
                 </p>
               </div>
 
-              <div className="relative rounded-2xl border border-slate-200 bg-[#f8fafc] p-6 text-center">
-                <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-[#081626] text-white font-bold text-lg mb-4">
+              <div className="relative rounded-2xl border border-[#e7e0d3] bg-[#faf8f5] p-6 text-center">
+                <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-[#08090d] text-[#f5d77f] font-bold text-lg mb-4 border border-amber-400/40">
                   3
                 </div>
-                <h3 className="font-cinzel text-base font-bold text-[#081626]">
+                <h3 className="font-cinzel text-base font-bold text-[#0e1017]">
                   Definição Estratégica
                 </h3>
                 <p className="mt-2 text-xs text-slate-600 leading-relaxed">
-                  Apresentamos o plano com total clareza quanto a prazos, honorários justos e os passos
-                  necessários para defender seus direitos.
+                  Apresentamos o plano com total clareza quanto a prazos, honorários justos e as etapas
+                  necessárias para defender seu direito com eficácia.
                 </p>
               </div>
 
-              <div className="relative rounded-2xl border border-slate-200 bg-[#f8fafc] p-6 text-center">
-                <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-[#081626] text-white font-bold text-lg mb-4">
+              <div className="relative rounded-2xl border border-[#e7e0d3] bg-[#faf8f5] p-6 text-center">
+                <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-[#08090d] text-[#f5d77f] font-bold text-lg mb-4 border border-amber-400/40">
                   4
                 </div>
-                <h3 className="font-cinzel text-base font-bold text-[#081626]">
+                <h3 className="font-cinzel text-base font-bold text-[#0e1017]">
                   Atuação &amp; Acompanhamento
                 </h3>
                 <p className="mt-2 text-xs text-slate-600 leading-relaxed">
-                  Execução diligente e combativa na Justiça do Trabalho, Fórum ou cartório, com atualizações periódicas
-                  diretamente com você.
+                  Execução diligente em cartórios, instâncias judiciais ou administrativas, com atualizações
+                  periódicas diretamente com você.
                 </p>
               </div>
             </div>
 
             <div className="mt-12 text-center">
               <GlowingButton
-                variant="silver"
+                variant="gold"
                 size="lg"
                 href={getWhatsAppUrl()}
                 target="_blank"
               >
-                <WhatsAppIcon size={17} className="text-[#050e18]" />
+                <WhatsAppIcon size={17} className="text-[#1a0e03]" />
                 <span>Iniciar Minha Consulta no WhatsApp</span>
               </GlowingButton>
             </div>
@@ -1488,7 +1415,7 @@ export default function Home() {
         {/* ========================================================================= */}
         <section
           id="avaliacoes"
-          className="py-16 sm:py-24 bg-gradient-to-b from-[#050e18] via-[#081626] to-[#0d2035] text-white"
+          className="py-16 sm:py-24 bg-gradient-to-b from-[#08090d] via-[#10131b] to-[#151821] text-white"
         >
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
@@ -1509,8 +1436,8 @@ export default function Home() {
                   ))}
                 </div>
                 <span className="text-xl font-bold text-white">5,0 de 5,0 estrelas</span>
-                <span className="text-sm text-slate-300">
-                  (25 avaliações verificadas no Google)
+                <span className="text-sm text-[#e7cc99]">
+                  (12 avaliações verificadas no Google)
                 </span>
               </div>
             </div>
@@ -1520,7 +1447,7 @@ export default function Home() {
               {depoimentosGoogle.map((dep, idx) => (
                 <div
                   key={idx}
-                  className="rounded-2xl border border-slate-700/80 bg-[#0d2035]/80 p-6 backdrop-blur-sm flex flex-col justify-between hover:border-white transition-all"
+                  className="rounded-2xl border border-amber-400/20 bg-[#161a22]/80 p-6 backdrop-blur-sm flex flex-col justify-between hover:border-amber-300 transition-all"
                 >
                   <div>
                     {/* Stars and Google Icon */}
@@ -1541,7 +1468,7 @@ export default function Home() {
                     </div>
 
                     {/* Highlight */}
-                    <p className="text-xs font-bold text-[#cbd5e1] mb-2 uppercase tracking-wider">
+                    <p className="text-xs font-bold text-[#f5d77f] mb-2 uppercase tracking-wider">
                       {dep.highlight}
                     </p>
 
@@ -1549,19 +1476,11 @@ export default function Home() {
                     <p className="text-xs sm:text-sm text-slate-200 leading-relaxed italic">
                       &ldquo;{dep.quote}&rdquo;
                     </p>
-
-                    {/* Owner reply snippet if available */}
-                    {dep.ownerReply && (
-                      <div className="mt-3.5 pt-3 border-t border-slate-800 text-[11px] text-slate-400 italic">
-                        <span className="font-semibold text-white not-italic">Resposta Nunes &amp; Mota: </span>
-                        &ldquo;{dep.ownerReply}&rdquo;
-                      </div>
-                    )}
                   </div>
 
                   {/* Author */}
                   <div className="mt-6 pt-4 border-t border-slate-700/60 flex items-center gap-3">
-                    <div className="flex size-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-xs font-bold text-white">
+                    <div className="flex size-9 shrink-0 items-center justify-center rounded-full bg-amber-500/20 text-xs font-bold text-[#f5d77f] border border-amber-400/30">
                       {dep.author.charAt(0)}
                     </div>
                     <div>
@@ -1583,10 +1502,10 @@ export default function Home() {
                 href={GOOGLE_SEARCH_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg border border-slate-600 bg-white/5 px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-white hover:border-white hover:bg-white/10 transition-colors"
+                className="inline-flex items-center gap-2 rounded-lg border border-amber-400/40 bg-white/5 px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-white hover:border-[#f5d77f] hover:bg-white/10 transition-colors"
               >
                 <GoogleIcon size={16} />
-                <span>Ver Todas as 25 Avaliações no Google Meu Negócio</span>
+                <span>Ver Avaliações no Google Meu Negócio</span>
                 <ArrowUpRight size={14} />
               </a>
             </div>
@@ -1599,14 +1518,14 @@ export default function Home() {
         <section id="faq" className="py-16 sm:py-24 bg-white">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12 sm:mb-16">
-              <div className="eyebrow-navy justify-center mb-3">
+              <div className="eyebrow-gold justify-center mb-3">
                 Dúvidas Frequentes
               </div>
-              <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#081626]">
+              <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0e1017]">
                 Perguntas Frequentes sobre Atuação &amp; Serviços
               </h2>
               <p className="mt-3 text-sm sm:text-base text-slate-600">
-                Respostas diretas e orientações claras sobre como conduzimos as causas de nossos clientes.
+                Respostas diretas e orientações claras sobre como conduzimos as demandas de nossos clientes.
               </p>
             </div>
 
@@ -1616,18 +1535,18 @@ export default function Home() {
                 return (
                   <div
                     key={idx}
-                    className="overflow-hidden rounded-2xl border border-slate-200 bg-[#f8fafc] transition-colors"
+                    className="overflow-hidden rounded-2xl border border-[#e7e0d3] bg-[#faf8f5] transition-colors"
                   >
                     <button
                       type="button"
                       onClick={() => setActiveFaq(isOpen ? null : idx)}
-                      className="flex w-full items-center justify-between p-5 text-left text-sm sm:text-base font-bold text-[#081626] hover:text-[#215187] transition-colors cursor-pointer"
+                      className="flex w-full items-center justify-between p-5 text-left text-sm sm:text-base font-bold text-[#0e1017] hover:text-[#c88a2c] transition-colors cursor-pointer"
                       aria-expanded={isOpen}
                     >
                       <span className="pr-4">{faq.question}</span>
                       <ChevronDown
                         size={18}
-                        className={`shrink-0 text-[#215187] transition-transform duration-200 ${
+                        className={`shrink-0 text-[#c88a2c] transition-transform duration-200 ${
                           isOpen ? "rotate-180" : ""
                         }`}
                       />
@@ -1639,7 +1558,7 @@ export default function Home() {
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
-                          className="border-t border-slate-200/80 px-5 pb-5 pt-3"
+                          className="border-t border-[#e7e0d3] px-5 pb-5 pt-3"
                         >
                           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                             {faq.answer}
@@ -1652,21 +1571,21 @@ export default function Home() {
               })}
             </div>
 
-            <div className="mt-12 rounded-2xl border border-slate-200 bg-[#f8fafc] p-6 text-center">
-              <p className="font-cinzel text-base font-bold text-[#081626]">
+            <div className="mt-12 rounded-2xl border border-[#e7e0d3] bg-[#faf8f5] p-6 text-center">
+              <p className="font-cinzel text-base font-bold text-[#0e1017]">
                 Ainda tem alguma dúvida sobre a sua situação específica?
               </p>
               <p className="mt-1 text-xs sm:text-sm text-slate-600">
-                A equipe de Nunes &amp; Mota Advogados está à disposição para esclarecer seu caso com ética, sigilo e rapidez.
+                A Dra. Tharin Miranda está à disposição para esclarecer seu caso com ética, sigilo e rapidez.
               </p>
               <div className="mt-4">
                 <GlowingButton
-                  variant="silver"
+                  variant="gold"
                   size="md"
-                  href={getWhatsAppUrl("Olá, Dra. Misley Nunes e Dr. Mota! Tenho uma dúvida sobre o meu caso e gostaria de orientação jurídica.")}
+                  href={getWhatsAppUrl("Olá, Dra. Tharin Miranda! Tenho uma dúvida sobre o meu caso e gostaria de orientação jurídica.")}
                   target="_blank"
                 >
-                  <WhatsAppIcon size={15} className="text-[#050e18]" />
+                  <WhatsAppIcon size={15} className="text-[#1a0e03]" />
                   <span>Tirar Dúvida no WhatsApp</span>
                 </GlowingButton>
               </div>
@@ -1675,43 +1594,43 @@ export default function Home() {
         </section>
 
         {/* ========================================================================= */}
-        {/* 12. CONTATO & SEDE EM JANUÁRIA - MG                                       */}
+        {/* 12. CONTATO & SEDE EM MATOZINHOS - MG                                     */}
         {/* ========================================================================= */}
-        <section id="contato" className="py-16 sm:py-24 bg-[#f8fafc] border-t border-slate-200">
+        <section id="contato" className="py-16 sm:py-24 bg-[#faf8f5] border-t border-[#e7e0d3]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
               {/* Contact Info Column */}
               <div className="lg:col-span-6 flex flex-col justify-between">
                 <div>
-                  <div className="eyebrow-navy mb-3">Atendimento &amp; Sede</div>
-                  <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#081626]">
+                  <div className="eyebrow-gold mb-3">Atendimento &amp; Sede</div>
+                  <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0e1017]">
                     Entre em contato e agende sua consulta
                   </h2>
                   <p className="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed">
-                    Atendimento presencial no Centro de Januária - MG ou 100% digital
-                    com atendimento ágil para clientes em todo o Brasil. Escolha o canal de sua preferência.
+                    Atendimento presencial em nossa sede em Matozinhos - MG ou 100% digital
+                    com atendimento ágil para clientes de todo o Brasil. Escolha o canal de sua preferência.
                   </p>
 
                   <div className="mt-8 space-y-4">
                     <div className="flex items-start gap-3.5">
-                      <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#1a406c]/10 text-[#1a406c]">
+                      <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-amber-500/10 text-[#c88a2c]">
                         <MapPin size={20} />
                       </div>
                       <div>
-                        <p className="text-xs font-bold text-[#081626] uppercase tracking-wider">
+                        <p className="text-xs font-bold text-[#0e1017] uppercase tracking-wider">
                           Endereço da Sede
                         </p>
                         <p className="text-sm text-slate-700 mt-0.5">
                           {ADDRESS_TEXT}
                         </p>
                         <p className="text-xs text-slate-500 mt-0.5">
-                          Com acesso e rampa para pessoas com mobilidade reduzida
+                          Matozinhos - Minas Gerais &bull; CEP 35720-000
                         </p>
                         <a
                           href={GOOGLE_MAPS_URL}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="mt-1 inline-flex items-center gap-1 text-xs font-bold text-[#215187] hover:underline"
+                          className="mt-1 inline-flex items-center gap-1 text-xs font-bold text-[#c88a2c] hover:underline"
                         >
                           <span>Como chegar no Google Maps</span>
                           <ArrowUpRight size={12} />
@@ -1720,18 +1639,18 @@ export default function Home() {
                     </div>
 
                     <div className="flex items-start gap-3.5">
-                      <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#1a406c]/10 text-[#1a406c]">
+                      <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-amber-500/10 text-[#c88a2c]">
                         <Phone size={20} />
                       </div>
                       <div>
-                        <p className="text-xs font-bold text-[#081626] uppercase tracking-wider">
+                        <p className="text-xs font-bold text-[#0e1017] uppercase tracking-wider">
                           Telefone &amp; WhatsApp
                         </p>
                         <a
                           href={getWhatsAppUrl()}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-sm font-semibold text-slate-800 hover:text-[#215187] mt-0.5 block"
+                          className="text-sm font-semibold text-slate-800 hover:text-[#c88a2c] mt-0.5 block"
                         >
                           {PHONE_DISPLAY}
                         </a>
@@ -1739,16 +1658,16 @@ export default function Home() {
                     </div>
 
                     <div className="flex items-start gap-3.5">
-                      <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#1a406c]/10 text-[#1a406c]">
+                      <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-amber-500/10 text-[#c88a2c]">
                         <Mail size={20} />
                       </div>
                       <div>
-                        <p className="text-xs font-bold text-[#081626] uppercase tracking-wider">
+                        <p className="text-xs font-bold text-[#0e1017] uppercase tracking-wider">
                           E-mail de Contato
                         </p>
                         <a
                           href={`mailto:${EMAIL_CONTACT}`}
-                          className="text-sm font-semibold text-slate-800 hover:text-[#215187] mt-0.5 block"
+                          className="text-sm font-semibold text-slate-800 hover:text-[#c88a2c] mt-0.5 block"
                         >
                           {EMAIL_CONTACT}
                         </a>
@@ -1756,18 +1675,18 @@ export default function Home() {
                     </div>
 
                     <div className="flex items-start gap-3.5">
-                      <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#1a406c]/10 text-[#1a406c]">
+                      <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-amber-500/10 text-[#c88a2c]">
                         <InstagramIcon size={20} />
                       </div>
                       <div>
-                        <p className="text-xs font-bold text-[#081626] uppercase tracking-wider">
+                        <p className="text-xs font-bold text-[#0e1017] uppercase tracking-wider">
                           Instagram Oficial
                         </p>
                         <a
                           href={INSTAGRAM_URL}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-sm font-semibold text-slate-800 hover:text-[#215187] mt-0.5 block"
+                          className="text-sm font-semibold text-slate-800 hover:text-[#c88a2c] mt-0.5 block"
                         >
                           {INSTAGRAM_HANDLE}
                         </a>
@@ -1775,15 +1694,15 @@ export default function Home() {
                     </div>
 
                     <div className="flex items-start gap-3.5">
-                      <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#1a406c]/10 text-[#1a406c]">
+                      <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-amber-500/10 text-[#c88a2c]">
                         <Clock size={20} />
                       </div>
                       <div>
-                        <p className="text-xs font-bold text-[#081626] uppercase tracking-wider">
+                        <p className="text-xs font-bold text-[#0e1017] uppercase tracking-wider">
                           Horário de Funcionamento
                         </p>
                         <p className="text-sm text-slate-700 mt-0.5">
-                          Segunda a Sexta das 08:00 às 17:30
+                          Segunda a Sexta das 08:00 às 16:00
                         </p>
                         <p className="text-xs text-slate-500">
                           Atendimento presencial e digital com agendamento prévio
@@ -1793,54 +1712,54 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-slate-200">
+                <div className="mt-8 pt-6 border-t border-[#e7e0d3]">
                   <GlowingButton
-                    variant="silver"
+                    variant="gold"
                     size="lg"
                     href={getWhatsAppUrl()}
                     target="_blank"
                     className="w-full justify-center"
                   >
-                    <WhatsAppIcon size={18} className="text-[#050e18]" />
+                    <WhatsAppIcon size={18} className="text-[#1a0e03]" />
                     <span>Falar no WhatsApp Agora</span>
                   </GlowingButton>
                 </div>
               </div>
 
-              {/* Map & Google Office Card Column */}
+              {/* Map & Office Card Column */}
               <div className="lg:col-span-6">
-                <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm">
+                <div className="rounded-2xl border border-[#e7e0d3] bg-white p-6 sm:p-8 shadow-sm">
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-2">
                       <div className="relative size-8 shrink-0">
                         <Image
                           src={LOGO_SYMBOL_SRC}
-                          alt="Nunes & Mota Advogados Associados"
+                          alt="Tharin Miranda Advocacia Monograma"
                           fill
                           className="object-contain"
                         />
                       </div>
                       <div>
-                        <p className="font-cinzel text-sm font-bold text-[#081626]">
-                          Nunes &amp; Mota Advogados Associados
+                        <p className="font-cinzel text-sm font-bold text-[#0e1017]">
+                          Tharin Miranda Advocacia
                         </p>
                         <p className="text-[10px] text-slate-500">
-                          Januária - MG
+                          Matozinhos - MG
                         </p>
                       </div>
                     </div>
 
                     <div className="flex items-center gap-1 rounded-md bg-amber-50 px-2 py-1 text-xs font-bold text-amber-700 border border-amber-200">
                       <Star size={12} className="fill-amber-400 text-amber-500" />
-                      <span>5,0 ★ Google (25)</span>
+                      <span>5,0 ★ Google (12)</span>
                     </div>
                   </div>
 
                   {/* Interactive Map Container */}
                   <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-slate-200 bg-slate-100">
                     <iframe
-                      title="Localização do Escritório Nunes & Mota Advogados Associados em Januária - MG"
-                      src="https://maps.google.com/maps?q=Av.+C%C3%B4nego+Ramiro+Leite,+20B+-+Centro,+Janu%C3%A1ria+-+MG,+39480-000&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                      title="Localização de Tharin Miranda Advocacia em Matozinhos - MG"
+                      src="https://maps.google.com/maps?q=Travessa+da+Esmeralda,+45+A+-+S%C3%A3o+Sebastiao,+Matozinhos+-+MG,+35720-000&t=&z=16&ie=UTF8&iwloc=&output=embed"
                       className="size-full border-0"
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
@@ -1848,12 +1767,12 @@ export default function Home() {
                   </div>
 
                   <div className="mt-4 flex items-center justify-between text-xs text-slate-600">
-                    <span>Av. Cônego Ramiro Leite, 20B - Centro, Januária - MG</span>
+                    <span>Travessa da Esmeralda, 45 A - Matozinhos - MG</span>
                     <a
                       href={GOOGLE_MAPS_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-bold text-[#215187] hover:underline flex items-center gap-1"
+                      className="font-bold text-[#c88a2c] hover:underline flex items-center gap-1"
                     >
                       <span>Abrir Rotas no GPS</span>
                       <ArrowUpRight size={12} />
@@ -1868,7 +1787,7 @@ export default function Home() {
         {/* ========================================================================= */}
         {/* 13. FOOTER                                                                */}
         {/* ========================================================================= */}
-        <footer className="border-t border-[#1a3a5c] bg-gradient-to-b from-[#050e18] to-[#02070e] text-white py-12 sm:py-16">
+        <footer className="border-t border-[#262118] bg-gradient-to-b from-[#08090d] to-[#040507] text-white py-12 sm:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-12 lg:gap-12 pb-12 border-b border-slate-800">
               {/* Brand Column */}
@@ -1880,17 +1799,17 @@ export default function Home() {
                   <div className="relative size-13 sm:size-14 shrink-0">
                     <Image
                       src={LOGO_SYMBOL_SRC}
-                      alt="Nunes & Mota Advogados Associados"
+                      alt="Tharin Miranda Advocacia Monograma"
                       fill
                       className="object-contain"
                     />
                   </div>
                   <div className="flex flex-col">
                     <span className="font-cinzel text-lg sm:text-xl font-extrabold tracking-[0.14em] text-white leading-tight">
-                      NUNES &amp; MOTA
+                      THARIN MIRANDA
                     </span>
-                    <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.22em] text-[#cbd5e1] uppercase mt-0.5">
-                      ADVOGADOS ASSOCIADOS &bull; JANUÁRIA - MG
+                    <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.22em] text-[#f5d77f] uppercase mt-0.5">
+                      ADVOCACIA &bull; MATOZINHOS - MG
                     </span>
                   </div>
                 </a>
@@ -1904,8 +1823,8 @@ export default function Home() {
                     href={INSTAGRAM_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex size-9 items-center justify-center rounded-lg border border-slate-700 bg-white/5 text-slate-300 transition-colors hover:border-white hover:text-white"
-                    aria-label="Instagram de Nunes & Mota Advogados Associados"
+                    className="flex size-9 items-center justify-center rounded-lg border border-slate-700 bg-white/5 text-slate-300 transition-colors hover:border-[#f5d77f] hover:text-[#f5d77f]"
+                    aria-label="Instagram de Tharin Miranda Advocacia"
                   >
                     <InstagramIcon size={16} />
                   </a>
@@ -1914,7 +1833,7 @@ export default function Home() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex size-9 items-center justify-center rounded-lg border border-slate-700 bg-white/5 text-slate-300 transition-colors hover:border-[#25D366] hover:text-[#25D366]"
-                    aria-label="WhatsApp de Nunes & Mota Advogados Associados"
+                    aria-label="WhatsApp de Tharin Miranda Advocacia"
                   >
                     <WhatsAppIcon size={16} />
                   </a>
@@ -1932,13 +1851,23 @@ export default function Home() {
 
               {/* Navigation Links */}
               <div className="lg:col-span-3">
-                <p className="font-cinzel text-xs font-bold uppercase tracking-[0.16em] text-[#cbd5e1] mb-4">
+                <p className="font-cinzel text-xs font-bold uppercase tracking-[0.16em] text-[#f5d77f] mb-4">
                   Áreas de Atuação
                 </p>
                 <ul className="space-y-2.5 text-xs text-slate-300">
                   <li>
                     <a className="footer-link" href="#atuacao">
-                      Direito Trabalhista
+                      Direito Imobiliário &amp; Usucapião
+                    </a>
+                  </li>
+                  <li>
+                    <a className="footer-link" href="#atuacao">
+                      Direito do Trabalho
+                    </a>
+                  </li>
+                  <li>
+                    <a className="footer-link" href="#atuacao">
+                      Direito Previdenciário (INSS)
                     </a>
                   </li>
                   <li>
@@ -1948,17 +1877,7 @@ export default function Home() {
                   </li>
                   <li>
                     <a className="footer-link" href="#atuacao">
-                      Direito do Consumidor
-                    </a>
-                  </li>
-                  <li>
-                    <a className="footer-link" href="#atuacao">
                       Família &amp; Sucessões (Inventários)
-                    </a>
-                  </li>
-                  <li>
-                    <a className="footer-link" href="#atuacao">
-                      Direito Previdenciário (INSS)
                     </a>
                   </li>
                   <li>
@@ -1971,12 +1890,12 @@ export default function Home() {
 
               {/* Legal & Office */}
               <div className="lg:col-span-4">
-                <p className="font-cinzel text-xs font-bold uppercase tracking-[0.16em] text-[#cbd5e1] mb-4">
+                <p className="font-cinzel text-xs font-bold uppercase tracking-[0.16em] text-[#f5d77f] mb-4">
                   Sede &amp; Contato
                 </p>
                 <div className="space-y-2.5 text-xs text-slate-300">
                   <p className="flex items-start gap-2">
-                    <MapPin size={14} className="text-[#cbd5e1] shrink-0 mt-0.5" />
+                    <MapPin size={14} className="text-[#f5d77f] shrink-0 mt-0.5" />
                     <span>{ADDRESS_TEXT}</span>
                   </p>
                   <p className="flex items-center gap-2">
@@ -1984,11 +1903,11 @@ export default function Home() {
                     <span>WhatsApp: {PHONE_DISPLAY}</span>
                   </p>
                   <p className="flex items-center gap-2">
-                    <Mail size={14} className="text-[#cbd5e1] shrink-0" />
+                    <Mail size={14} className="text-[#f5d77f] shrink-0" />
                     <span>{EMAIL_CONTACT}</span>
                   </p>
                   <p className="text-[11px] text-slate-400 mt-3 pt-3 border-t border-slate-800">
-                    Atendimento de Segunda a Sexta das 08:00 às 17:30.
+                    Atendimento de Segunda a Sexta das 08:00 às 16:00.
                   </p>
                 </div>
               </div>
@@ -1997,7 +1916,7 @@ export default function Home() {
             {/* Bottom Copyright & OAB Ethics Notice */}
             <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] text-slate-400 text-center md:text-left">
               <p>
-                &copy; {new Date().getFullYear()} Nunes &amp; Mota Advogados Associados.
+                &copy; {new Date().getFullYear()} Tharin Miranda Advocacia.
                 Todos os direitos reservados.
               </p>
               <p className="max-w-xl text-[10px] leading-relaxed">
@@ -2017,7 +1936,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             className="group relative flex items-center gap-2.5 rounded-full border-2 border-white/80 bg-[#25D366] px-4 py-3 text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-[#1ebe5d]"
-            aria-label="Falar com Nunes & Mota Advogados no WhatsApp"
+            aria-label="Falar com a Dra. Tharin Miranda no WhatsApp"
           >
             <span className="absolute -top-1 -right-1 flex size-3">
               <span className="absolute inline-flex size-full animate-ping rounded-full bg-white opacity-75" />
@@ -2041,14 +1960,14 @@ export default function Home() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={() => setModalOpen(false)}
-                className="fixed inset-0 bg-black/70 backdrop-blur-xs"
+                className="fixed inset-0 bg-black/75 backdrop-blur-xs"
               />
 
               <motion.div
                 initial={{ opacity: 0, scale: 0.95, y: 16 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 16 }}
-                className="relative z-10 w-full max-w-lg rounded-2xl border-2 border-white/60 bg-gradient-to-b from-[#050e18] to-[#081626] p-6 sm:p-8 text-white shadow-2xl"
+                className="relative z-10 w-full max-w-lg rounded-2xl border-2 border-amber-300/60 bg-gradient-to-b from-[#08090d] to-[#151821] p-6 sm:p-8 text-white shadow-2xl"
               >
                 <button
                   type="button"
@@ -2063,7 +1982,7 @@ export default function Home() {
                   <div className="relative size-10 shrink-0">
                     <Image
                       src={LOGO_SYMBOL_SRC}
-                      alt="Nunes & Mota Advogados Associados"
+                      alt="Tharin Miranda Advocacia Monograma"
                       fill
                       className="object-contain"
                     />
@@ -2072,7 +1991,7 @@ export default function Home() {
                     <h3 className="font-cinzel text-lg font-bold text-white">
                       Análise Jurídica Especializada
                     </h3>
-                    <p className="text-xs text-[#cbd5e1] font-semibold">
+                    <p className="text-xs text-[#f5d77f] font-semibold">
                       {modalArea}
                     </p>
                   </div>
@@ -2080,32 +1999,32 @@ export default function Home() {
 
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                   Para analisar sua demanda com sigilo, agilidade e rigor técnico, você será
-                  redirecionado ao atendimento oficial de{" "}
-                  <strong className="text-white">Nunes &amp; Mota Advogados Associados</strong>.
+                  redirecionado ao atendimento oficial da{" "}
+                  <strong className="text-white">Dra. Tharin Miranda</strong>.
                 </p>
 
-                <div className="mt-5 space-y-2 rounded-xl border border-slate-700 bg-white/5 p-4 text-xs text-slate-300">
-                  <p className="font-bold text-white uppercase tracking-wider text-[11px] text-[#cbd5e1]">
+                <div className="mt-5 space-y-2 rounded-xl border border-amber-400/20 bg-white/5 p-4 text-xs text-slate-300">
+                  <p className="font-bold text-white uppercase tracking-wider text-[11px] text-[#f5d77f]">
                     O que ter em mãos (se aplicável):
                   </p>
                   <ul className="space-y-1 pl-1">
                     <li>&bull; Nome completo e cidade onde reside</li>
-                    <li>&bull; Breve resumo da situação ou litígio</li>
-                    <li>&bull; Documentos, comprovantes ou contratos relativos ao caso</li>
+                    <li>&bull; Breve resumo da situação ou questão jurídica</li>
+                    <li>&bull; Documentos, contratos, certidões ou comprovantes do caso</li>
                   </ul>
                 </div>
 
                 <div className="mt-6 flex flex-col gap-2.5">
                   <GlowingButton
-                    variant="silver"
+                    variant="gold"
                     size="md"
                     href={getWhatsAppUrl(
-                      `Olá, Dra. Misley Nunes e Dr. Mota! Gostaria de uma avaliação jurídica sobre: ${modalArea}.`
+                      `Olá, Dra. Tharin Miranda! Gostaria de uma avaliação jurídica sobre: ${modalArea}.`
                     )}
                     target="_blank"
                     className="w-full justify-center"
                   >
-                    <WhatsAppIcon size={16} className="text-[#050e18]" />
+                    <WhatsAppIcon size={16} className="text-[#1a0e03]" />
                     <span>Prosseguir para o WhatsApp</span>
                   </GlowingButton>
 

@@ -10,9 +10,10 @@ interface GlowingButtonProps {
   className?: string;
   size?: "sm" | "md" | "lg";
   variant?:
+    | "gold"
+    | "champagne"
     | "silver"
     | "platinum"
-    | "gold"
     | "navy"
     | "dark"
     | "white"
@@ -28,7 +29,7 @@ export default function GlowingButton({
   onClick,
   className = "",
   size = "md",
-  variant = "silver",
+  variant = "gold",
 }: GlowingButtonProps) {
   const sizeClasses = {
     sm: "px-5 py-2.5 text-[10px] tracking-[0.14em]",
@@ -36,66 +37,73 @@ export default function GlowingButton({
     lg: "px-8 py-4 text-xs tracking-[0.15em]",
   }[size];
 
-  // High-contrast prestige styling (Polished 3D Platinum Silver, Deep Oceanic Navy & WhatsApp Emerald)
+  // High-contrast luxury styling calibrated directly to the 3D Metallic Gold Logo & Dra. Tharin Miranda's Brand
   const variantClasses = {
-    // Primary Signature: 3D Polished Metallic Platinum Silver (Nunes & Mota Advogados)
+    // Primary Signature: 3D Sculpted Metallic Radiant Gold (Tharin Miranda Advocacia)
+    gold:
+      "relative border border-[#fef08a]/90 bg-gradient-to-r from-[#c88a2c] via-[#f5d77f] to-[#df9e38] text-[#170e03] font-black tracking-[0.14em] " +
+      "shadow-[0_6px_24px_-2px_rgba(212,163,75,0.45),inset_0_1px_1px_rgba(255,255,255,0.95)] " +
+      "hover:-translate-y-0.5 hover:from-[#dca443] hover:via-[#fff1be] hover:to-[#cb8e30] hover:text-[#0d0701] " +
+      "hover:shadow-[0_10px_30px_rgba(223,158,56,0.6)] " +
+      "active:translate-y-0 active:shadow-[0_3px_10px_rgba(200,138,44,0.4)]",
+
+    champagne:
+      "relative border border-amber-200/90 bg-gradient-to-r from-[#dfbd78] via-[#fbf3d1] to-[#e7cc99] text-[#1a0e03] font-extrabold tracking-[0.14em] " +
+      "shadow-[0_6px_22px_-2px_rgba(223,189,120,0.45),inset_0_1px_1px_rgba(255,255,255,0.95)] " +
+      "hover:-translate-y-0.5 hover:from-[#fbf3d1] hover:via-[#ffffff] hover:to-[#dfbd78] hover:text-[#0d0701] " +
+      "hover:shadow-[0_10px_28px_rgba(251,243,209,0.55)] " +
+      "active:translate-y-0 active:shadow-[0_3px_10px_rgba(223,189,120,0.4)]",
+
+    // Backward-compatible alias to signature gold
     silver:
-      "relative border border-white/90 bg-gradient-to-r from-[#cbd5e1] via-[#ffffff] to-[#e2e8f0] text-[#050e18] font-extrabold tracking-[0.14em] " +
-      "shadow-[0_6px_22px_-2px_rgba(203,213,225,0.45),inset_0_1px_1px_rgba(255,255,255,0.95)] " +
-      "hover:-translate-y-0.5 hover:from-[#e2e8f0] hover:via-[#f8fafc] hover:to-[#cbd5e1] hover:text-[#050e18] " +
-      "hover:shadow-[0_10px_28px_rgba(255,255,255,0.5)] " +
-      "active:translate-y-0 active:shadow-[0_3px_10px_rgba(203,213,225,0.4)]",
+      "relative border border-[#fef08a]/90 bg-gradient-to-r from-[#c88a2c] via-[#f5d77f] to-[#df9e38] text-[#170e03] font-black tracking-[0.14em] " +
+      "shadow-[0_6px_24px_-2px_rgba(212,163,75,0.45),inset_0_1px_1px_rgba(255,255,255,0.95)] " +
+      "hover:-translate-y-0.5 hover:from-[#dca443] hover:via-[#fff1be] hover:to-[#cb8e30] hover:text-[#0d0701] " +
+      "hover:shadow-[0_10px_30px_rgba(223,158,56,0.6)] " +
+      "active:translate-y-0 active:shadow-[0_3px_10px_rgba(200,138,44,0.4)]",
 
     platinum:
-      "relative border border-white/90 bg-gradient-to-r from-[#cbd5e1] via-[#ffffff] to-[#e2e8f0] text-[#050e18] font-extrabold tracking-[0.14em] " +
-      "shadow-[0_6px_22px_-2px_rgba(203,213,225,0.45),inset_0_1px_1px_rgba(255,255,255,0.95)] " +
-      "hover:-translate-y-0.5 hover:from-[#e2e8f0] hover:via-[#f8fafc] hover:to-[#cbd5e1] hover:text-[#050e18] " +
-      "hover:shadow-[0_10px_28px_rgba(255,255,255,0.5)] " +
-      "active:translate-y-0 active:shadow-[0_3px_10px_rgba(203,213,225,0.4)]",
+      "relative border border-amber-200/90 bg-gradient-to-r from-[#dfbd78] via-[#fbf3d1] to-[#e7cc99] text-[#1a0e03] font-extrabold tracking-[0.14em] " +
+      "shadow-[0_6px_22px_-2px_rgba(223,189,120,0.45),inset_0_1px_1px_rgba(255,255,255,0.95)] " +
+      "hover:-translate-y-0.5 hover:from-[#fbf3d1] hover:via-[#ffffff] hover:to-[#dfbd78] hover:text-[#0d0701] " +
+      "hover:shadow-[0_10px_28px_rgba(251,243,209,0.55)] " +
+      "active:translate-y-0 active:shadow-[0_3px_10px_rgba(223,189,120,0.4)]",
 
-    // Backward-compatible alias to signature platinum
-    gold:
-      "relative border border-white/90 bg-gradient-to-r from-[#cbd5e1] via-[#ffffff] to-[#e2e8f0] text-[#050e18] font-extrabold tracking-[0.14em] " +
-      "shadow-[0_6px_22px_-2px_rgba(203,213,225,0.45),inset_0_1px_1px_rgba(255,255,255,0.95)] " +
-      "hover:-translate-y-0.5 hover:from-[#e2e8f0] hover:via-[#f8fafc] hover:to-[#cbd5e1] hover:text-[#050e18] " +
-      "hover:shadow-[0_10px_28px_rgba(255,255,255,0.5)] " +
-      "active:translate-y-0 active:shadow-[0_3px_10px_rgba(203,213,225,0.4)]",
-
-    // Secondary Accent: Deep Oceanic Navy with Silver Trim
+    // Rich Dark Navy Accent (harmonizing with Dra. Tharin's suit)
     navy:
-      "relative border border-[#cbd5e1]/40 bg-gradient-to-r from-[#050e18] via-[#0d2035] to-[#081626] text-white font-bold tracking-[0.14em] " +
-      "shadow-[0_6px_20px_-2px_rgba(5,14,24,0.6),inset_0_1px_1px_rgba(255,255,255,0.15)] " +
-      "hover:-translate-y-0.5 hover:from-[#081626] hover:via-[#16365b] hover:to-[#0d2035] hover:border-white " +
-      "hover:shadow-[0_10px_28px_-2px_rgba(203,213,225,0.3)] " +
-      "active:translate-y-0 active:shadow-[0_3px_10px_rgba(5,14,24,0.4)]",
+      "relative border border-[#d4a34b]/50 bg-gradient-to-r from-[#0d1624] via-[#16253a] to-[#0f1b2c] text-white font-bold tracking-[0.14em] " +
+      "shadow-[0_6px_20px_-2px_rgba(13,22,36,0.6),inset_0_1px_1px_rgba(212,163,75,0.3)] " +
+      "hover:-translate-y-0.5 hover:from-[#132035] hover:via-[#1c304d] hover:to-[#16253a] hover:border-[#f5d77f] " +
+      "hover:shadow-[0_10px_28px_-2px_rgba(212,163,75,0.35)] " +
+      "active:translate-y-0 active:shadow-[0_3px_10px_rgba(13,22,36,0.4)]",
 
-    // High-Contrast Solid Midnight Navy (ideal on Light folds)
+    // High-Contrast Solid Obsidian/Noir with Warm Gold Border
     dark:
-      "relative border border-[#16365b] bg-[#081626] text-white font-bold tracking-[0.13em] " +
-      "shadow-[0_6px_18px_rgba(5,14,24,0.3)] hover:-translate-y-0.5 hover:bg-[#0d2035] hover:border-[#cbd5e1] " +
-      "hover:shadow-[0_10px_24px_rgba(203,213,225,0.25)]",
+      "relative border border-[#d4a34b]/40 bg-[#0f1117] text-white font-bold tracking-[0.13em] " +
+      "shadow-[0_6px_18px_rgba(0,0,0,0.4)] hover:-translate-y-0.5 hover:bg-[#161a22] hover:border-[#f5d77f] " +
+      "hover:shadow-[0_10px_24px_rgba(212,163,75,0.25)]",
 
-    // High-Contrast Pure White (ideal on Dark folds)
+    // High-Contrast Pure White / Warm Alabaster (ideal on Dark folds)
     white:
-      "relative border border-white bg-white text-[#081626] font-bold tracking-[0.13em] " +
-      "shadow-[0_6px_20px_rgba(0,0,0,0.2)] hover:-translate-y-0.5 hover:bg-[#f8fafc] hover:border-[#cbd5e1] " +
-      "hover:shadow-[0_10px_26px_rgba(255,255,255,0.25)]",
+      "relative border border-[#d4a34b]/30 bg-white text-[#120a01] font-bold tracking-[0.13em] " +
+      "shadow-[0_6px_20px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 hover:bg-[#faf8f5] hover:border-[#c88a2c] " +
+      "hover:shadow-[0_10px_26px_rgba(212,163,75,0.2)]",
 
     // Outline on Dark Folds
     outline:
-      "relative border border-[#cbd5e1]/40 bg-white/5 text-[#f1f5f9] font-bold tracking-[0.13em] backdrop-blur-md " +
-      "hover:-translate-y-0.5 hover:border-white hover:bg-white/15 hover:text-white",
+      "relative border border-[#d4a34b]/50 bg-white/5 text-[#fbf3d1] font-bold tracking-[0.13em] backdrop-blur-md " +
+      "hover:-translate-y-0.5 hover:border-[#f5d77f] hover:bg-white/10 hover:text-white",
 
     // Outline on Light Folds
     "outline-dark":
-      "relative border border-[#16365b]/25 bg-white/95 text-[#081626] font-bold tracking-[0.13em] " +
-      "hover:-translate-y-0.5 hover:border-[#16365b] hover:text-[#050e18] hover:bg-[#f8fafc]",
+      "relative border border-[#c88a2c]/40 bg-white/95 text-[#14171f] font-bold tracking-[0.13em] " +
+      "hover:-translate-y-0.5 hover:border-[#c88a2c] hover:text-[#0b0c10] hover:bg-[#faf8f5]",
 
-    // WhatsApp Conversion Green CTA
+    // WhatsApp Official Emerald CTA
     emerald:
-      "relative border border-[#25D366]/70 bg-gradient-to-r from-[#0b3518] via-[#128C7E] to-[#075E54] text-white font-bold tracking-[0.14em] " +
-      "shadow-[0_6px_20px_-2px_rgba(37,211,102,0.4)] hover:-translate-y-0.5 hover:brightness-110 " +
-      "hover:shadow-[0_10px_26px_rgba(37,211,102,0.55)]",
+      "relative border border-[#25D366]/80 bg-gradient-to-r from-[#0d4420] via-[#128C7E] to-[#075E54] text-white font-bold tracking-[0.14em] " +
+      "shadow-[0_6px_20px_-2px_rgba(37,211,102,0.45)] hover:-translate-y-0.5 hover:brightness-110 " +
+      "hover:shadow-[0_10px_26px_rgba(37,211,102,0.6)]",
   }[variant];
 
   const classes =

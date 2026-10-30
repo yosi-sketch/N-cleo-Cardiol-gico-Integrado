@@ -1,45 +1,47 @@
-# NUNES & MOTA ADVOGADOS ASSOCIADOS
+# THARIN MIRANDA ADVOCACIA
 
-Documento de especificação de produto, identidade visual e diretrizes da landing page de alta conversão para **Nunes & Mota Advogados Associados**.
+Documento de especificação de produto, identidade visual e diretrizes da landing page de alta conversão para **Tharin Miranda Advocacia**.
 
 ---
 
 ## 1. DADOS CADASTRAIS & INFORMAÇÕES DE CONTATO
 
-- **Nome Institucional / Razão:** Nunes & Mota Advogados Associados
-- **Advogados Sócios:** Dra. Misley Nunes & Dr. Mota (OAB 43.878/GO e OAB 49.240/GO)
-- **Tempo de Atuação:** Mais de 7 Anos no mercado jurídico
-- **Sede Física / Endereço:** Av. Cônego Ramiro Leite, 20B - Centro, Januária - MG, CEP 39480-000, Brasil.
-- **Acessibilidade:** Estrutura moderna com rampa de acesso exclusiva para pessoas com mobilidade reduzida.
-- **Horário de Funcionamento:** Segunda a Sexta, das 08:00 às 17:30.
-- **Telefone / WhatsApp Comercial:** (38) 99948-0028 (`https://wa.me/5538999480028`).
-- **E-mail de Contato:** contato@nunesemotaadv.com.br
+- **Nome Institucional / Razão:** Tharin Miranda Advocacia
+- **Advogada Titular:** Dra. Tharin Miranda
+- **Cargo Institucional:** Secretária Geral da Subseção da OAB de Matozinhos/MG
+- **Especialidades:** Direito Imobiliário, Direito do Trabalho e Direito Previdenciário (INSS)
+- **Sede Física / Endereço:** Travessa da Esmeralda, 45 A - São Sebastião, Matozinhos - MG, CEP 35720-000, Brasil.
+- **Horário de Funcionamento:** Segunda a Sexta, das 08:00 às 16:00.
+- **Telefone / WhatsApp Comercial:** (31) 98838-5001 (`https://wa.me/5531988385001`).
+- **E-mail de Contato:** contato@tharinmiranda.adv.br
 - **Canais Oficiais:**
-  - Instagram: [@nunesemotaadv](https://www.instagram.com/nunesemotaadv/).
-  - WhatsApp: `https://wa.me/5538999480028`.
-- **Prova Social / Avaliações Google:** Nota Máxima 5,0 ★ em 25 avaliações reais no Google Meu Negócio ("Nunes & Mota Advogados Associados - Januária - MG").
+  - Instagram: [@tharin_miranda](https://www.instagram.com/tharin_miranda/).
+  - WhatsApp: `https://wa.me/5531988385001`.
+- **Prova Social / Avaliações Google:** Nota Máxima 5,0 ★ em 12 avaliações reais e unânimes no Google Meu Negócio ("Tharin Miranda Advocacia - Matozinhos · MG").
 
 ---
 
 ## 2. IDENTIDADE VISUAL & BRANDING
 
 ### Paleta de Cores Extraída do Novo Logo
-- **Azul Petróleo / Deep Oceanic Midnight Navy:**
-  - Base ultra-escura: `#050e18`, `#081626`, `#0d2035`
-  - Superfícies e cards: `#0d2035`, `#16365b`
-  - Bordas e divisores: `#1a3a5c`, `#215187`
-- **3D Sculpted Platinum & Chrome Silver:**
-  - Shimmer / Brilho especular: `#ffffff`, `#f8fafc`
-  - Platinum: `#f1f5f9`, `#e2e8f0`
-  - Prata metálica cromada: `#cbd5e1`, `#94a3b8`
-  - Aço escovado / Contornos: `#64748b`, `#334155`
-- **Iluminação Arquitetônica Quente (Office Glow):**
-  - Tons âmbar e dourado suave: `#fef3c7`, `#fde68a`, `#f59e0b`
+- **3D Sculpted Metallic Gold & Champagne Bronze:**
+  - Shimmer / Brilho especular: `#fdf8cf`, `#fbf3d1`
+  - Champagne Gold: `#f5d77f`, `#e7cc99`
+  - Ouro Radiante: `#d4a34b`, `#c88a2c`
+  - Âmbar / Ocre Dourado: `#b87b1c`, `#9d5b16`
+  - Bronze Antigo / Sombras: `#7c4f1d`, `#351801`, `#1c0e02`
+- **Luxury Obsidian Noir Base:**
+  - Base ultra-escura: `#08090d`, `#0e1017`, `#151821`
+  - Superfícies e cards: `#161a22`, `#1c212d`
+  - Bordas e divisores: `#282f3f`, `rgba(212, 163, 75, 0.35)`
+- **Luxury Light Base (Warm Alabaster):**
+  - Superfície: `#faf8f5`, `#ffffff`
+  - Bordas: `#e7e0d3`, `#d4a34b`
 - **WhatsApp Emerald Conversion:**
   - `#25D366`, `#128C7E`, `#075E54`
 
 ### Tipografia
-- **Títulos de Prestígio:** `Cinzel` & `Playfair Display` (serifas romanas clássicas, harmonizadas com a tipografia do brasão).
+- **Títulos de Prestígio:** `Cinzel` & `Cormorant Garamond` (serifas romanas clássicas e elegantes alinhadas ao monograma "T" e letreiro do logo).
 - **Corpo & Interface:** `Plus Jakarta Sans` (moderna, legível, proporções limpas).
 
 ---
@@ -47,18 +49,18 @@ Documento de especificação de produto, identidade visual e diretrizes da landi
 ## 3. ASSETS E ARQUIVOS NA PASTA PUBLIC
 
 - `public/logo.png`: Logo oficial em alta resolução (1024x512) com transparência.
-- `public/logo-symbol.png`: Brasão/emblema central isolado em alta resolução.
-- `public/hero-advogados.jpg` / `public/hero.jpg`: Retrato oficial dos sócios (Dra. Misley Nunes & Dr. Mota) em sua sala de reuniões.
-- `public/escritorio-recepcao.jpg` / `public/sobre.jpg`: Fotografia da recepção moderna, balcão de mármore e logo iluminado na parede azul petróleo.
-- `public/favicon.ico`, `public/favicon-32x32.png`, `public/favicon-16x16.png`, `public/icon.png`, `public/icon-512x512.png`, `public/apple-icon.png`: Ícones e favicons gerados diretamente do novo brasão da marca.
+- `public/logo-symbol.png`: Monograma "T" no frame dourado isolado em alta resolução (512x512).
+- `public/hero.jpg` / `public/dra-tharin-miranda.jpg`: Fotografia oficial de alta resolução da Dra. Tharin Miranda.
+- `public/og-image.jpg`: Imagem de OpenGraph otimizada (1200x630) para compartilhamento em redes sociais.
+- `public/favicon.ico`, `public/favicon-32x32.png`, `public/favicon-16x16.png`, `public/icon.png`, `public/icon-512x512.png`, `public/apple-icon.png`: Ícones e favicons gerados diretamente do monograma oficial da marca.
 
 ---
 
 ## 4. PILARES OFICIAIS DE ATUAÇÃO
 
-1. **Direito Trabalhista:** Destaque no Norte de Minas. Rescisão indireta, justa causa indevida, horas extras, insalubridade, periculosidade e acidentes de trabalho.
-2. **Direito Cível & Contratos:** Elaboração e análise de contratos, ações indenizatórias por danos morais e materiais, cobranças judiciais e conflitos patrimoniais.
-3. **Direito do Consumidor:** Negativações indevidas (SPC/Serasa), fraudes bancárias, golpes do Pix, cobranças abusivas e vícios ocultos.
-4. **Família & Sucessões:** Inventários extrajudiciais em cartório, inventários judiciais, partilha de herança, divórcios e pensão alimentícia.
-5. **Direito Previdenciário (INSS):** Concessão de aposentadorias, auxílio-doença, BPC/LOAS e recursos contra o INSS.
-6. **Consultoria Jurídica Estratégica:** Atendimento preventivo e contencioso com transparência total e acompanhamento direto pelos sócios.
+1. **Direito Imobiliário & Regularização:** Regularização fundiária de terrenos e imóveis sem escritura, usucapião judicial e extrajudicial em cartório, elaboração de contratos imobiliários e assessoria em condomínios.
+2. **Direito do Trabalho:** Defesa combativa dos direitos do trabalhador, rescisão indireta, justa causa indevida, horas extras, periculosidade, insalubridade e indenizações por assédio ou acidente do trabalho.
+3. **Direito Previdenciário (INSS):** Planejamento previdenciário, concessão e restabelecimento de aposentadorias (tempo, idade, especial), auxílio-doença, BPC/LOAS e recursos contra negativas do INSS.
+4. **Direito Cível & Contratos:** Elaboração, análise e blindagem contratual, reparações de danos materiais e morais, cobranças judiciais e execuções de títulos.
+5. **Família & Sucessões:** Inventário extrajudicial em cartório (rápido e econômico), inventários judiciais, partilhas de bens, divórcios e ações de alimentos.
+6. **Consultoria Estratégica:** Diagnóstico prévio transparente, análise preventiva de riscos e condução personalizada.

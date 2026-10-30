@@ -36,80 +36,81 @@ const bodyFont = Plus_Jakarta_Sans({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#050e18",
+  themeColor: "#0b0c10",
   colorScheme: "light dark",
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://nunesemotaadv.com.br"),
+  metadataBase: new URL("https://tharinmiranda.adv.br"),
   title:
-    "Nunes & Mota Advogados Associados | Advocacia em Januária - MG · Trabalhista, Cível e Consumidor",
+    "Tharin Miranda Advocacia | Advogada em Matozinhos - MG · Imobiliário, Trabalhista e Previdenciário",
   description:
-    "⚖️ Nunes & Mota Advogados Associados — Há mais de 7 anos prestando advocacia de excelência em Januária - MG e em todo o Brasil. Atuação especializada e resolutiva em Direito Trabalhista, Cível, Consumidor, Família e Previdenciário. Nota máxima 5,0 ★ no Google (25 avaliações). Sede na Av. Cônego Ramiro Leite, 20B - Centro, Januária - MG.",
+    "⚖️ Tharin Miranda Advocacia — Atuação jurídica combativa, ética e de alta precisão em Matozinhos - MG e em todo o Brasil. Dra. Tharin Miranda, Especialista em Direito Imobiliário, Trabalhista e Previdenciário. Secretária Geral da OAB de Matozinhos/MG. Nota máxima 5,0 ★ no Google (12 avaliações). Sede na Travessa da Esmeralda, 45 A - São Sebastião, Matozinhos - MG.",
   keywords: [
-    "Nunes & Mota Advogados Associados",
-    "Nunes e Mota Advogados",
-    "Dra. Misley Nunes",
-    "Dr. Mota Advogado",
-    "Advogado Januária MG",
-    "Advocacia Januária Minas Gerais",
-    "Advogado Trabalhista Januária MG",
-    "Causas Trabalhistas Januária",
-    "Direito Cível Januária MG",
-    "Direito do Consumidor Januária MG",
-    "Advogado Norte de Minas Gerais",
-    "nunesemotaadv",
-    "Escritório de Advocacia Januária",
-    "Advogado Centro Januária",
-    "Acessibilidade Januária MG",
-    "Advogado OAB GO Januária",
+    "Tharin Miranda Advocacia",
+    "Dra. Tharin Miranda",
+    "Tharin Miranda Advogada",
+    "Advogada Matozinhos MG",
+    "Advocacia Matozinhos Minas Gerais",
+    "Advogada Imobiliária Matozinhos",
+    "Direito Imobiliário Matozinhos MG",
+    "Advogada Trabalhista Matozinhos MG",
+    "Causas Trabalhistas Matozinhos",
+    "Direito Previdenciário Matozinhos",
+    "Aposentadoria INSS Matozinhos MG",
+    "Usucapião Matozinhos MG",
+    "Regularização de Imóveis Matozinhos",
+    "Secretária Geral OAB Matozinhos",
+    "Advogada OAB Matozinhos",
+    "Escritório de Advocacia Matozinhos",
+    "tharin_miranda",
   ],
   authors: [
-    { name: "Dra. Misley Nunes" },
-    { name: "Nunes & Mota Advogados Associados" },
+    { name: "Dra. Tharin Miranda" },
+    { name: "Tharin Miranda Advocacia" },
   ],
-  creator: "Nunes & Mota Advogados Associados",
-  publisher: "Nunes & Mota Advogados Associados",
+  creator: "Tharin Miranda Advocacia",
+  publisher: "Tharin Miranda Advocacia",
   formatDetection: {
     telephone: true,
     address: true,
   },
   icons: {
     icon: [
-      { url: "/favicon.ico?v=nm2", sizes: "any" },
-      { url: "/favicon-32x32.png?v=nm2", type: "image/png", sizes: "32x32" },
-      { url: "/favicon-16x16.png?v=nm2", type: "image/png", sizes: "16x16" },
-      { url: "/icon.png?v=nm2", type: "image/png", sizes: "192x192" },
-      { url: "/icon-512x512.png?v=nm2", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.ico?v=tm1", sizes: "any" },
+      { url: "/favicon-32x32.png?v=tm1", type: "image/png", sizes: "32x32" },
+      { url: "/favicon-16x16.png?v=tm1", type: "image/png", sizes: "16x16" },
+      { url: "/icon.png?v=tm1", type: "image/png", sizes: "192x192" },
+      { url: "/icon-512x512.png?v=tm1", type: "image/png", sizes: "512x512" },
     ],
-    shortcut: "/favicon.ico?v=nm2",
-    apple: [{ url: "/apple-icon.png?v=nm2", sizes: "180x180" }],
+    shortcut: "/favicon.ico?v=tm1",
+    apple: [{ url: "/apple-icon.png?v=tm1", sizes: "180x180" }],
   },
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://nunesemotaadv.com.br",
+    url: "https://tharinmiranda.adv.br",
     title:
-      "Nunes & Mota Advogados Associados | Advocacia em Januária - MG · Trabalhista, Cível e Consumidor",
+      "Tharin Miranda Advocacia | Advogada em Matozinhos - MG · Imobiliário, Trabalhista e Previdenciário",
     description:
-      "⚖️ Há mais de 7 anos dedicados à defesa combativa e estratégica dos seus direitos. Nota máxima 5,0 ★ no Google (25 avaliações). Sede na Av. Cônego Ramiro Leite, 20B - Centro, Januária - MG.",
-    siteName: "Nunes & Mota Advogados Associados",
+      "⚖️ Advocacia de excelência conduzida pela Dra. Tharin Miranda. Especialista em Direito Imobiliário, Trabalho e Previdenciário. Secretária Geral da OAB de Matozinhos/MG. Nota máxima 5,0 ★ no Google (12 avaliações).",
+    siteName: "Tharin Miranda Advocacia",
     images: [
       {
-        url: "/logo.png",
-        width: 1024,
-        height: 512,
-        alt: "Nunes & Mota Advogados Associados",
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Tharin Miranda Advocacia - Dra. Tharin Miranda",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "Nunes & Mota Advogados Associados | Advocacia em Januária - MG",
+      "Tharin Miranda Advocacia | Advogada em Matozinhos - MG",
     description:
-      "⚖️ Advocacia com rigor técnico, atendimento acolhedor e alta resolutividade. Nota 5,0 ★ no Google (25 avaliações). Sede na Av. Cônego Ramiro Leite, 20B - Centro, Januária - MG.",
-    images: ["/logo.png"],
+      "⚖️ Advocacia combativa e estratégica com rigor técnico e acolhimento. Nota máxima 5,0 ★ no Google. Dra. Tharin Miranda.",
+    images: ["/og-image.jpg"],
   },
 };
 
@@ -121,42 +122,44 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LegalService",
-    name: "Nunes & Mota Advogados Associados",
-    alternateName: "Nunes & Mota Advogados | Januária - MG",
-    legalName: "Nunes & Mota Advogados Associados",
-    telephone: "+55-38-99948-0028",
-    email: "contato@nunesemotaadv.com.br",
-    url: "https://nunesemotaadv.com.br",
+    name: "Tharin Miranda Advocacia",
+    alternateName: "Dra. Tharin Miranda Advocacia | Matozinhos - MG",
+    legalName: "Tharin Miranda Advocacia",
+    telephone: "+55-31-98838-5001",
+    email: "contato@tharinmiranda.adv.br",
+    url: "https://tharinmiranda.adv.br",
     image: "/logo.png",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Av. Cônego Ramiro Leite, 20B - Centro",
-      addressLocality: "Januária",
+      streetAddress: "Travessa da Esmeralda, 45 A - São Sebastião",
+      addressLocality: "Matozinhos",
       addressRegion: "MG",
-      postalCode: "39480-000",
+      postalCode: "35720-000",
       addressCountry: "BR",
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: "-15.4833",
-      longitude: "-44.3667",
+      latitude: "-19.5583",
+      longitude: "-44.0817",
     },
     priceRange: "$$",
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "5.0",
-      reviewCount: "25",
+      reviewCount: "12",
       bestRating: "5",
       worstRating: "1",
     },
     areaServed: [
-      "Januária",
-      "Montes Claros",
-      "São Francisco",
-      "Pedras de Maria da Cruz",
-      "Itacarambi",
-      "Manga",
-      "Norte de Minas Gerais",
+      "Matozinhos",
+      "Sete Lagoas",
+      "Capim Branco",
+      "Prudente de Morais",
+      "Pedro Leopoldo",
+      "Vespasiano",
+      "Confins",
+      "Belo Horizonte",
+      "Região Metropolitana de Belo Horizonte",
       "Minas Gerais",
       "Brasil",
     ],
@@ -171,12 +174,12 @@ export default function RootLayout({
           "Friday",
         ],
         opens: "08:00",
-        closes: "17:30",
+        closes: "16:00",
       },
     ],
     sameAs: [
-      "https://www.instagram.com/nunesemotaadv/",
-      "https://wa.me/5538999480028",
+      "https://www.instagram.com/tharin_miranda/",
+      "https://wa.me/5531988385001",
     ],
   };
 
@@ -186,20 +189,20 @@ export default function RootLayout({
       className={`${bodyFont.variable} ${displayFont.variable} ${playfairFont.variable} ${cinzelFont.variable} scroll-smooth dark`}
     >
       <head>
-        <link rel="icon" href="/favicon.ico?v=nm2" sizes="any" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=nm2" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=nm2" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/icon.png?v=nm2" />
-        <link rel="icon" type="image/png" sizes="512x512" href="/icon-512x512.png?v=nm2" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon.png?v=nm2" />
-        <link rel="shortcut icon" href="/favicon.ico?v=nm2" />
-        <meta name="theme-color" content="#050e18" />
+        <link rel="icon" href="/favicon.ico?v=tm1" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=tm1" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=tm1" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/icon.png?v=tm1" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/icon-512x512.png?v=tm1" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon.png?v=tm1" />
+        <link rel="shortcut icon" href="/favicon.ico?v=tm1" />
+        <meta name="theme-color" content="#0b0c10" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen overflow-x-clip bg-white font-sans text-slate-900 antialiased selection:bg-[#16365b] selection:text-white">
+      <body className="min-h-screen overflow-x-clip bg-white font-sans text-slate-900 antialiased selection:bg-[#d4a34b] selection:text-[#0b0c10]">
         {children}
       </body>
     </html>

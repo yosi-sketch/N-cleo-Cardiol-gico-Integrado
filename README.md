@@ -1,29 +1,30 @@
-# Nunes & Mota Advogados Associados
+# Tharin Miranda Advocacia
 
-Landing page e site institucional de altíssimo padrão desenvolvido em Next.js (App Router), Tailwind CSS v4 e Framer Motion para **Nunes & Mota Advogados Associados** em Januária - MG e com atendimento online em todo o Brasil.
+Landing page e site institucional de altíssimo padrão desenvolvido em Next.js (App Router), Tailwind CSS v4 e Framer Motion para **Tharin Miranda Advocacia** em Matozinhos - MG e com atendimento online em todo o Brasil.
 
-## ⚖️ Dados do Escritório / Sócios
+## ⚖️ Dados da Advogada & Escritório
 
-- **Nome Institucional:** Nunes & Mota Advogados Associados
-- **Sócios / Titulares:** Dra. Misley Nunes & Dr. Mota (OAB 43.878/GO e OAB 49.240/GO)
-- **Posicionamento & Slogan:** "Há mais de 7 anos prestando uma advocacia combativa, ética e altamente resolutiva para proteger seus direitos, seu trabalho e seu patrimônio."
-- **Localização:** Av. Cônego Ramiro Leite, 20B - Centro, Januária - MG, CEP 39480-000, Brasil (sede própria moderna com acessibilidade e rampa para pessoas com mobilidade reduzida)
-- **WhatsApp / Telefone:** (38) 99948-0028 (`https://wa.me/5538999480028`)
-- **E-mail:** contato@nunesemotaadv.com.br
-- **Horário de Atendimento:** Segunda a Sexta, das 08:00 às 17:30
-- **Avaliações:** Nota Máxima 5,0 ★ no Google Meu Negócio (25 avaliações reais 100% 5 estrelas)
-- **Instagram:** [@nunesemotaadv](https://www.instagram.com/nunesemotaadv/)
-- **Pilares de Atuação:** Direito Trabalhista (destaque regional no Norte de Minas), Direito Cível & Contratos, Direito do Consumidor, Família & Sucessões (Inventários), Direito Previdenciário (INSS) e Consultoria Estratégica.
+- **Nome Institucional:** Tharin Miranda Advocacia
+- **Advogada Titular:** Dra. Tharin Miranda
+- **Cargo Institucional:** Secretária Geral da Subseção da OAB de Matozinhos/MG
+- **Posicionamento & Slogan:** "Atuação jurídica especializada, ética e resolutiva em Direito Imobiliário, Trabalhista e Previdenciário em Matozinhos - MG e em todo o Brasil."
+- **Localização:** Travessa da Esmeralda, 45 A - São Sebastião, Matozinhos - MG, CEP 35720-000, Brasil (sede acolhedora e privativa)
+- **WhatsApp / Telefone:** (31) 98838-5001 (`https://wa.me/5531988385001`)
+- **E-mail:** contato@tharinmiranda.adv.br
+- **Horário de Atendimento:** Segunda a Sexta, das 08:00 às 16:00
+- **Avaliações:** Nota Máxima 5,0 ★ no Google Meu Negócio (12 avaliações reais 100% 5 estrelas)
+- **Instagram:** [@tharin_miranda](https://www.instagram.com/tharin_miranda/)
+- **Pilares de Atuação:** Direito Imobiliário (Usucapião e Regularização), Direito do Trabalho, Direito Previdenciário (INSS), Direito Cível & Contratos, Família & Sucessões e Consultoria Estratégica.
 
 ## 🎨 Identidade Visual (Baseada no Novo Logo)
 
 - **Paleta de Cores:**
-  - **Deep Oceanic Midnight Navy / Azul Petróleo:** `#050e18`, `#081626`, `#0d2035`, `#16365b`, `#1a406c`, `#215187`
-  - **3D Sculpted Platinum & Chrome Silver:** `#ffffff`, `#f8fafc`, `#f1f5f9`, `#e2e8f0`, `#cbd5e1`, `#94a3b8`, `#64748b`
-  - **Warm Architectural Lighting Accent:** `#fef3c7`, `#fde68a`, `#f59e0b` (luzes indiretas e arandelas do escritório)
+  - **3D Sculpted Metallic Gold & Champagne Bronze:** `#fdf8cf`, `#fbf3d1`, `#f5d77f`, `#e7cc99`, `#d4a34b`, `#c88a2c`, `#9d5b16`, `#7c4f1d`, `#351801`
+  - **Luxury Obsidian Noir Base:** `#08090d`, `#0e1017`, `#151821`, `#161a22`, `#282f3f`
+  - **Luxury Light Base (Warm Alabaster):** `#ffffff`, `#faf8f5`, `#f4efe6`, `#e7e0d3`
   - **WhatsApp Emerald Conversion:** `#25D366`, `#128C7E`, `#075E54`
 - **Tipografia:**
-  - **Títulos:** Cinzel (`font-cinzel`), Playfair Display (`font-serif`)
+  - **Títulos:** Cinzel (`font-cinzel`), Cormorant Garamond (`font-display`), Playfair Display (`font-serif`)
   - **Corpo & Interface:** Plus Jakarta Sans (`font-sans`)
 - **Assets:** Extraídos do logo oficial e organizados na pasta `public/` e `app/`.
 
