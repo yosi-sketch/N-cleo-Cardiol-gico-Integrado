@@ -36,80 +36,81 @@ const bodyFont = Plus_Jakarta_Sans({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#0b0c10",
+  themeColor: "#08090d",
   colorScheme: "light dark",
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://tharinmiranda.adv.br"),
+  metadataBase: new URL("https://rafaelnascimento.adv.br"),
   title:
-    "Tharin Miranda Advocacia | Advogada em Matozinhos - MG · Imobiliário, Trabalhista e Previdenciário",
+    "Rafael Nascimento Advocacia | Advogado Criminal e Cível em Itapecerica - MG",
   description:
-    "⚖️ Tharin Miranda Advocacia — Atuação jurídica combativa, ética e de alta precisão em Matozinhos - MG e em todo o Brasil. Dra. Tharin Miranda, Especialista em Direito Imobiliário, Trabalhista e Previdenciário. Secretária Geral da OAB de Matozinhos/MG. Nota máxima 5,0 ★ no Google (12 avaliações). Sede na Travessa da Esmeralda, 45 A - São Sebastião, Matozinhos - MG.",
+    "⚖️ Rafael Nascimento Advocacia — Defesa Criminal Estratégica e Soluções Cíveis de alta precisão técnica em Itapecerica - MG e em todo o Brasil. Dr. Rafael Nascimento, Especialista em Ciências Criminais pela PUC Minas. Nota máxima 5,0 ★ no Google (11 avaliações). Sede: R. Cônego Cesário, 282 - Sl 04 - Centro, Itapecerica - MG.",
   keywords: [
-    "Tharin Miranda Advocacia",
-    "Dra. Tharin Miranda",
-    "Tharin Miranda Advogada",
-    "Advogada Matozinhos MG",
-    "Advocacia Matozinhos Minas Gerais",
-    "Advogada Imobiliária Matozinhos",
-    "Direito Imobiliário Matozinhos MG",
-    "Advogada Trabalhista Matozinhos MG",
-    "Causas Trabalhistas Matozinhos",
-    "Direito Previdenciário Matozinhos",
-    "Aposentadoria INSS Matozinhos MG",
-    "Usucapião Matozinhos MG",
-    "Regularização de Imóveis Matozinhos",
-    "Secretária Geral OAB Matozinhos",
-    "Advogada OAB Matozinhos",
-    "Escritório de Advocacia Matozinhos",
-    "tharin_miranda",
+    "Rafael Nascimento Advogado",
+    "Rafael Nascimento Advocacia",
+    "Dr. Rafael Nascimento",
+    "Advogado Itapecerica MG",
+    "Advocacia Itapecerica Minas Gerais",
+    "Advogado Criminal Itapecerica",
+    "Advogado Criminalista Itapecerica MG",
+    "Advogado Criminalista Minas Gerais",
+    "Especialista em Ciências Criminais PUC Minas",
+    "Advogado Cível Itapecerica MG",
+    "Direito Criminal Itapecerica",
+    "Audiência de Custódia Itapecerica MG",
+    "Flagrante Delito Itapecerica",
+    "Habeas Corpus Minas Gerais",
+    "Inventário Itapecerica MG",
+    "Contratos e Indenizações Itapecerica",
+    "Escritório de Advocacia Itapecerica",
+    "advrafaelnascimento",
   ],
   authors: [
-    { name: "Dra. Tharin Miranda" },
-    { name: "Tharin Miranda Advocacia" },
+    { name: "Dr. Rafael Nascimento" },
+    { name: "Rafael Nascimento Advocacia" },
   ],
-  creator: "Tharin Miranda Advocacia",
-  publisher: "Tharin Miranda Advocacia",
+  creator: "Rafael Nascimento Advocacia",
+  publisher: "Rafael Nascimento Advocacia",
   formatDetection: {
     telephone: true,
     address: true,
   },
   icons: {
     icon: [
-      { url: "/favicon.ico?v=tm1", sizes: "any" },
-      { url: "/favicon-32x32.png?v=tm1", type: "image/png", sizes: "32x32" },
-      { url: "/favicon-16x16.png?v=tm1", type: "image/png", sizes: "16x16" },
-      { url: "/icon.png?v=tm1", type: "image/png", sizes: "192x192" },
-      { url: "/icon-512x512.png?v=tm1", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.ico?v=rn2", sizes: "any" },
+      { url: "/favicon-32x32.png?v=rn2", type: "image/png", sizes: "32x32" },
+      { url: "/favicon-16x16.png?v=rn2", type: "image/png", sizes: "16x16" },
+      { url: "/icon.png?v=rn2", type: "image/png", sizes: "192x192" },
+      { url: "/icon-512x512.png?v=rn2", type: "image/png", sizes: "512x512" },
     ],
-    shortcut: "/favicon.ico?v=tm1",
-    apple: [{ url: "/apple-icon.png?v=tm1", sizes: "180x180" }],
+    shortcut: "/favicon.ico?v=rn2",
+    apple: [{ url: "/apple-icon.png?v=rn2", sizes: "180x180" }],
   },
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://tharinmiranda.adv.br",
+    url: "https://rafaelnascimento.adv.br",
     title:
-      "Tharin Miranda Advocacia | Advogada em Matozinhos - MG · Imobiliário, Trabalhista e Previdenciário",
+      "Rafael Nascimento Advocacia | Advogado Criminal e Cível em Itapecerica - MG",
     description:
-      "⚖️ Advocacia de excelência conduzida pela Dra. Tharin Miranda. Especialista em Direito Imobiliário, Trabalho e Previdenciário. Secretária Geral da OAB de Matozinhos/MG. Nota máxima 5,0 ★ no Google (12 avaliações).",
-    siteName: "Tharin Miranda Advocacia",
+      "⚖️ Advocacia de excelência conduzida pelo Dr. Rafael Nascimento. Especialista em Ciências Criminais pela PUC Minas · Atuação criminal e cível com nota máxima 5,0 ★ no Google (11 avaliações).",
+    siteName: "Rafael Nascimento Advocacia",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Tharin Miranda Advocacia - Dra. Tharin Miranda",
+        alt: "Rafael Nascimento Advocacia - Dr. Rafael Nascimento",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "Tharin Miranda Advocacia | Advogada em Matozinhos - MG",
+      "Rafael Nascimento Advocacia | Advogado Criminal e Cível em Itapecerica - MG",
     description:
-      "⚖️ Advocacia combativa e estratégica com rigor técnico e acolhimento. Nota máxima 5,0 ★ no Google. Dra. Tharin Miranda.",
+      "⚖️ Defesa criminal estratégica e soluções cíveis de alta precisão. Dr. Rafael Nascimento — Especialista em Ciências Criminais pela PUC Minas. Nota máxima 5,0 ★ no Google.",
     images: ["/og-image.jpg"],
   },
 };
@@ -122,44 +123,43 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LegalService",
-    name: "Tharin Miranda Advocacia",
-    alternateName: "Dra. Tharin Miranda Advocacia | Matozinhos - MG",
-    legalName: "Tharin Miranda Advocacia",
-    telephone: "+55-31-98838-5001",
-    email: "contato@tharinmiranda.adv.br",
-    url: "https://tharinmiranda.adv.br",
+    name: "Rafael Nascimento Advocacia",
+    alternateName: "Dr. Rafael Nascimento Advocacia | Itapecerica - MG",
+    legalName: "Rafael Nascimento Advocacia",
+    telephone: "+55-37-99137-3661",
+    email: "contato@rafaelnascimento.adv.br",
+    url: "https://rafaelnascimento.adv.br",
     image: "/logo.png",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Travessa da Esmeralda, 45 A - São Sebastião",
-      addressLocality: "Matozinhos",
+      streetAddress: "R. Cônego Cesário, 282 - Sl 04 - Centro",
+      addressLocality: "Itapecerica",
       addressRegion: "MG",
-      postalCode: "35720-000",
+      postalCode: "35550-000",
       addressCountry: "BR",
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: "-19.5583",
-      longitude: "-44.0817",
+      latitude: "-20.4736",
+      longitude: "-45.1244",
     },
     priceRange: "$$",
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "5.0",
-      reviewCount: "12",
+      reviewCount: "11",
       bestRating: "5",
       worstRating: "1",
     },
     areaServed: [
-      "Matozinhos",
-      "Sete Lagoas",
-      "Capim Branco",
-      "Prudente de Morais",
-      "Pedro Leopoldo",
-      "Vespasiano",
-      "Confins",
-      "Belo Horizonte",
-      "Região Metropolitana de Belo Horizonte",
+      "Itapecerica",
+      "Divinópolis",
+      "Formiga",
+      "Oliveira",
+      "Cláudio",
+      "Camacho",
+      "São Sebastião do Oeste",
+      "Centro-Oeste de Minas Gerais",
       "Minas Gerais",
       "Brasil",
     ],
@@ -174,12 +174,13 @@ export default function RootLayout({
           "Friday",
         ],
         opens: "08:00",
-        closes: "16:00",
+        closes: "17:00",
       },
     ],
     sameAs: [
-      "https://www.instagram.com/tharin_miranda/",
-      "https://wa.me/5531988385001",
+      "https://www.instagram.com/advrafaelnascimento/",
+      "https://linktr.ee/rafaelnascimentoadv",
+      "https://wa.me/5537991373661",
     ],
   };
 
@@ -189,14 +190,14 @@ export default function RootLayout({
       className={`${bodyFont.variable} ${displayFont.variable} ${playfairFont.variable} ${cinzelFont.variable} scroll-smooth dark`}
     >
       <head>
-        <link rel="icon" href="/favicon.ico?v=tm1" sizes="any" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=tm1" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=tm1" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/icon.png?v=tm1" />
-        <link rel="icon" type="image/png" sizes="512x512" href="/icon-512x512.png?v=tm1" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon.png?v=tm1" />
-        <link rel="shortcut icon" href="/favicon.ico?v=tm1" />
-        <meta name="theme-color" content="#0b0c10" />
+        <link rel="icon" href="/favicon.ico?v=rn2" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=rn2" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=rn2" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/icon.png?v=rn2" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/icon-512x512.png?v=rn2" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon.png?v=rn2" />
+        <link rel="shortcut icon" href="/favicon.ico?v=rn2" />
+        <meta name="theme-color" content="#08090d" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

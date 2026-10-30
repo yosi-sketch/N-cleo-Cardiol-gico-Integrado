@@ -37,9 +37,9 @@ export default function GlowingButton({
     lg: "px-8 py-4 text-xs tracking-[0.15em]",
   }[size];
 
-  // High-contrast luxury styling calibrated directly to the 3D Metallic Gold Logo & Dra. Tharin Miranda's Brand
+  // High-contrast luxury styling calibrated directly to the 3D Metallic Gold Logo & Dr. Rafael Nascimento's Brand
   const variantClasses = {
-    // Primary Signature: 3D Sculpted Metallic Radiant Gold (Tharin Miranda Advocacia)
+    // Primary Signature: 3D Sculpted Metallic Radiant Gold (Rafael Nascimento Advocacia)
     gold:
       "relative border border-[#fef08a]/90 bg-gradient-to-r from-[#c88a2c] via-[#f5d77f] to-[#df9e38] text-[#170e03] font-black tracking-[0.14em] " +
       "shadow-[0_6px_24px_-2px_rgba(212,163,75,0.45),inset_0_1px_1px_rgba(255,255,255,0.95)] " +
@@ -69,7 +69,7 @@ export default function GlowingButton({
       "hover:shadow-[0_10px_28px_rgba(251,243,209,0.55)] " +
       "active:translate-y-0 active:shadow-[0_3px_10px_rgba(223,189,120,0.4)]",
 
-    // Rich Dark Navy Accent (harmonizing with Dra. Tharin's suit)
+    // Rich Dark Slate Accent
     navy:
       "relative border border-[#d4a34b]/50 bg-gradient-to-r from-[#0d1624] via-[#16253a] to-[#0f1b2c] text-white font-bold tracking-[0.14em] " +
       "shadow-[0_6px_20px_-2px_rgba(13,22,36,0.6),inset_0_1px_1px_rgba(212,163,75,0.3)] " +

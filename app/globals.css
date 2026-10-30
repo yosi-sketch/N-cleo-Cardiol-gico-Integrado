@@ -3,7 +3,7 @@
 :root {
   color-scheme: light dark;
   
-  /* Primary Luxury Obsidian & Warm Noir Base (Tharin Miranda Advocacia) */
+  /* Primary Luxury Obsidian & Warm Noir Base (Rafael Nascimento Advocacia) */
   --color-black-pure: #08090d;
   --color-black-surface: #0e1017;
   --color-black-card: #151821;
@@ -15,7 +15,7 @@
   --color-white-card: #ffffff;
   --color-white-muted: #f4efe6;
 
-  /* Primary Logo Accent: 3D Sculpted Metallic Gold & Champagne Bronze */
+  /* Primary Logo Accent: 3D Sculpted Metallic Gold & Champagne Platinum */
   --brand-gold-specular: #fdf8cf;
   --brand-gold-champagne: #fbf3d1;
   --brand-gold-light: #f5d77f;
@@ -27,12 +27,12 @@
   --brand-gold-bronze: #7c4f1d;
   --brand-gold-shadow: #351801;
 
-  /* Deep Oceanic Slate & Navy Tones (matching Dra. Tharin's suit) */
-  --brand-navy-accent: #5a7ea8;
-  --brand-navy-light: #2b4568;
-  --brand-navy-primary: #18283e;
-  --brand-navy-deep: #101c2c;
-  --brand-navy-midnight: #0b131f;
+  /* Deep Slate & Charcoal Tones */
+  --brand-slate-accent: #64748b;
+  --brand-slate-light: #334155;
+  --brand-slate-primary: #1e293b;
+  --brand-slate-deep: #0f172a;
+  --brand-slate-midnight: #080d1a;
 }
 
 @theme inline {
@@ -155,8 +155,8 @@ body {
 .nav-link {
   position: relative;
   padding-block: 0.5rem;
-  color: #334155;
-  font-size: 0.7rem;
+  color: #cbd5e1;
+  font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -177,7 +177,7 @@ body {
   bottom: 0;
   left: 0;
   height: 2px;
-  background: #c88a2c;
+  background: #f5d77f;
   content: "";
   transform: scaleX(0);
   transform-origin: center;
@@ -185,7 +185,7 @@ body {
 }
 
 .nav-link:hover {
-  color: #c88a2c;
+  color: #f5d77f;
 }
 
 .nav-link:hover::after {
@@ -203,7 +203,7 @@ body {
   transform: translateX(2px);
 }
 
-/* 3D Sculpted Metallic Gold Text Gradients Calibrated to the Tharin Miranda Logo */
+/* 3D Sculpted Metallic Gold Text Gradients Calibrated to the Rafael Nascimento Logo */
 .text-gradient-gold {
   background: linear-gradient(135deg, #ffffff 0%, #fdf8cf 25%, #f5d77f 55%, #df9e38 85%, #9d5b16 100%);
   -webkit-background-clip: text;

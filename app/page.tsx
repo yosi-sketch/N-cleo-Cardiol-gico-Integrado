@@ -21,52 +21,53 @@ import {
   X,
   ChevronDown,
   Users,
-  Building2,
   Briefcase,
   AlertCircle,
   Gavel,
   Coins,
-  BadgeCheck,
   Award,
   Home as HomeIcon,
+  ShieldAlert,
+  GraduationCap,
 } from "lucide-react";
 import GlowingButton from "./components/GlowingButton";
 
-const WHATSAPP_NUMBER = "5531988385001";
-const PHONE_DISPLAY = "(31) 98838-5001";
-const EMAIL_CONTACT = "contato@tharinmiranda.adv.br";
-const INSTAGRAM_URL = "https://www.instagram.com/tharin_miranda/";
-const INSTAGRAM_HANDLE = "@tharin_miranda";
+const WHATSAPP_NUMBER = "5537991373661";
+const PHONE_DISPLAY = "(37) 99137-3661";
+const EMAIL_CONTACT = "contato@rafaelnascimento.adv.br";
+const INSTAGRAM_URL = "https://www.instagram.com/advrafaelnascimento/";
+const INSTAGRAM_HANDLE = "@advrafaelnascimento";
+const LINKTREE_URL = "https://linktr.ee/rafaelnascimentoadv";
 
-const FIRM_NAME = "Tharin Miranda Advocacia";
-const FIRM_SHORT_NAME = "Tharin Miranda";
+const FIRM_NAME = "Rafael Nascimento Advocacia";
+const FIRM_SHORT_NAME = "Rafael Nascimento";
 const FIRM_SLOGAN =
-  "Atuação jurídica especializada, ética e resolutiva em Direito Imobiliário, Trabalhista e Previdenciário em Matozinhos - MG e em todo o Brasil.";
-const LAWYER_NAME = "Dra. Tharin Miranda";
+  "Defesa Criminal Estratégica e Soluções Cíveis de alta precisão técnica. Atendimento presencial em Itapecerica - MG e digital em todo o Brasil.";
+const LAWYER_NAME = "Dr. Rafael Nascimento";
 const LAWYER_TITLE =
-  "Especialista em Direito Imobiliário, Trabalho e Previdenciário · Secretária Geral da OAB de Matozinhos/MG";
+  "Advogado Criminal e Cível · Especialista em Ciências Criminais (PUC Minas)";
 
 const ADDRESS_TEXT =
-  "Travessa da Esmeralda, 45 A - São Sebastião, Matozinhos - MG, 35720-000";
+  "R. Cônego Cesário, 282 - Sl 04 - Centro, Itapecerica - MG, 35550-000";
 const REGION_TEXT =
-  "Matozinhos · Região Metropolitana de BH & Atendimento Digital em Todo o Brasil";
+  "Itapecerica · Centro-Oeste Mineiro & Atendimento Digital em Todo o Brasil";
 
 const GOOGLE_SEARCH_URL =
-  "https://www.google.com/search?q=Tharin+Miranda+Advocacia%0AMatozinhos+%C2%B7+MG&sourceid=chrome&ie=UTF-8#";
+  "https://www.google.com/search?q=Rafael+Nascimento+%E2%80%94+Advogado%0AItapecerica+%C2%B7+MG&sourceid=chrome&ie=UTF-8#";
 const GOOGLE_MAPS_URL =
-  "https://www.google.com/maps/search/?api=1&query=Travessa+da+Esmeralda%2C+45+A+-+S%C3%A3o+Sebastiao%2C+Matozinhos+-+MG%2C+35720-000";
+  "https://www.google.com/maps/search/?api=1&query=R.+C%C3%B4nego+Ces%C3%A1rio%2C+282+-+Sl+04+-+Centro%2C+Itapecerica+-+MG%2C+35550-000";
 
 const LOGO_SRC = "/logo.png";
 const LOGO_SYMBOL_SRC = "/logo-symbol.png";
-const FOTO_HERO_SRC = "/hero.jpg";
-const FOTO_PERFIL_SRC = "/dra-tharin-miranda.jpg";
+const FOTO_HERO_SRC = "/dr-rafael-nascimento.jpg";
+const FOTO_PERFIL_SRC = "/dr-rafael-nascimento.jpg";
 
 function getWhatsAppUrl(
   message?: string,
   number: string = WHATSAPP_NUMBER
 ) {
   const defaultText =
-    "Olá, Dra. Tharin Miranda! Gostaria de agendar uma consulta jurídica e conversar sobre o meu caso.";
+    "Olá, Dr. Rafael Nascimento! Gostaria de agendar uma consulta jurídica e conversar sobre o meu caso.";
   return `https://wa.me/${number}?text=${encodeURIComponent(
     message || defaultText
   )}`;
@@ -192,238 +193,241 @@ export default function Home() {
 
   const closeMenu = () => setIsMenuOpen(false);
 
-  // Pilares Oficiais de Atuação de Tharin Miranda Advocacia
+  // Pilares Oficiais de Atuação de Rafael Nascimento Advocacia
   const areasAtuacao = [
     {
-      id: "direito-imobiliario",
-      icon: HomeIcon,
-      title: "Direito Imobiliário & Regularização",
+      id: "direito-criminal",
+      icon: ShieldAlert,
+      title: "Direito Criminal & Defesa Penal Estratégica",
       shortDesc:
-        "Especialização de referência em Matozinhos e região. Segurança jurídica e patrimonial na regularização de imóveis, usucapião e contratos de alto valor.",
+        "Especialização central conduzida pelo Dr. Rafael Nascimento (PUC Minas). Atuação combativa e técnica em flagrantes, inquéritos e ações penais com urgência e sigilo absoluto.",
       bullets: [
-        "Usucapião extrajudicial em cartório (rápido e econômico) e judicial",
-        "Regularização fundiária de terrenos, lotes urbanos e rurais sem escritura",
-        "Elaboração, análise e blindagem de contratos de compra, venda e locação",
-        "Assessoria em distratos imobiliários, condomínios e posse de imóveis",
+        "Audiências de custódia e flagrantes com atendimento imediato 24 horas",
+        "Acompanhamento em inquéritos policiais, delegacias e oitivas",
+        "Habeas Corpus, revogação de prisão preventiva e liberdade provisória",
+        "Defesa perante o Tribunal do Júri e sustentações em Tribunais (TJMG, STJ e STF)",
+        "Execução Penal: progressão de regime, livramento condicional e remição de pena",
       ],
-      tag: "Imobiliário",
+      tag: "Penal",
       badge: "Especialidade Principal",
       whatsappMsg:
-        "Olá, Dra. Tharin Miranda! Gostaria de uma consultoria jurídica sobre Direito Imobiliário / Regularização de Imóvel / Usucapião.",
-    },
-    {
-      id: "direito-do-trabalho",
-      icon: Briefcase,
-      title: "Direito do Trabalho",
-      shortDesc:
-        "Atuação combativa e estratégica em causas trabalhistas. Defesa rigorosa dos direitos do trabalhador com exatidão em cálculos e máxima agilidade.",
-      bullets: [
-        "Rescisão indireta do contrato e reversão de justa causa indevida",
-        "Cálculo e cobrança de horas extras, intervalos e adicional noturno",
-        "Adicionais de insalubridade, periculosidade e desvio de função",
-        "Indenizações por acidente de trabalho, doenças ocupacionais e assédio moral",
-      ],
-      tag: "Trabalhista",
-      badge: "Defesa Combativa",
-      whatsappMsg:
-        "Olá, Dra. Tharin Miranda! Preciso de orientação jurídica especializada sobre causa trabalhista e meus direitos.",
-    },
-    {
-      id: "direito-previdenciario",
-      icon: FileText,
-      title: "Direito Previdenciário (INSS)",
-      shortDesc:
-        "Planejamento previdenciário e atuação resolutiva contra indeferimentos do INSS, assegurando a concessão do melhor benefício possível.",
-      bullets: [
-        "Planejamento previdenciário completo para aposentadoria no valor máximo",
-        "Aposentadoria por idade, tempo de contribuição e aposentadoria especial",
-        "Benefício de Prestação Continuada (BPC / LOAS) para idosos e PCDs",
-        "Auxílio por incapacidade temporária (auxílio-doença) e pensão por morte",
-      ],
-      tag: "Previdenciário",
-      badge: "Benefícios do INSS",
-      whatsappMsg:
-        "Olá, Dra. Tharin Miranda! Gostaria de consultoria sobre Benefício do INSS / Aposentadoria / BPC LOAS.",
+        "Olá, Dr. Rafael Nascimento! Preciso de orientação jurídica com urgência sobre causa Criminal / Flagrante / Inquérito.",
     },
     {
       id: "direito-civel",
       icon: Scale,
-      title: "Direito Cível & Contratos",
+      title: "Direito Cível & Reparação de Danos",
       shortDesc:
-        "Solidez na redação de instrumentos contratuais, reparações de danos materiais e morais, execuções e resolução estratégica de litígios.",
+        "Atuação resolutiva e estratégica em ações indenizatórias, cobranças judiciais e defesa patrimonial, garantindo a recomposição justa dos seus direitos.",
       bullets: [
-        "Elaboração, revisão minuciosa e execução de contratos cíveis e comerciais",
-        "Ações indenizatórias por danos morais, materiais e descumprimento de acordos",
-        "Cobrança judicial e extrajudicial de títulos e créditos em aberto",
-        "Resolução de conflitos patrimoniais com foco na preservação de bens",
+        "Ações de indenização por danos materiais, morais e lucros cessantes",
+        "Cobrança judicial e extrajudicial de títulos, dívidas e contratos inadimplidos",
+        "Ações de execução, embargos à execução e defesa técnica de patrimônio",
+        "Resolução contenciosa e preventiva de litígios civis e obrigações de fazer",
       ],
       tag: "Cível",
-      badge: "Segurança Jurídica",
+      badge: "Defesa Patrimonial",
       whatsappMsg:
-        "Olá, Dra. Tharin Miranda! Gostaria de orientação jurídica sobre Direito Cível / Contratos / Indenização.",
+        "Olá, Dr. Rafael Nascimento! Gostaria de consultoria jurídica sobre Direito Cível / Indenização / Cobrança.",
+    },
+    {
+      id: "contratos-negocios",
+      icon: FileText,
+      title: "Contratos & Segurança Jurídica",
+      shortDesc:
+        "Elaboração, análise e blindagem técnica de instrumentos contratuais para pessoas físicas e empresas, prevenindo riscos financeiros e litígios futuros.",
+      bullets: [
+        "Redação minuciosa e revisão de contratos civis, comerciais e de serviços",
+        "Blindagem de cláusulas rescisórias, multas e garantias contratuais",
+        "Assessoria em distratos amigáveis e renegociação extrajudicial de acordos",
+        "Notificações extrajudiciais formais para resguardo legal imediato",
+      ],
+      tag: "Contratos",
+      badge: "Prevenção de Litígios",
+      whatsappMsg:
+        "Olá, Dr. Rafael Nascimento! Gostaria de orientações para elaboração / revisão de um contrato.",
     },
     {
       id: "familia-sucessoes",
       icon: Users,
-      title: "Família & Sucessões",
+      title: "Família & Planejamento Sucessório",
       shortDesc:
-        "Condução técnica, acolhedora e segura em inventários em cartório, partilha de herança, divórcios consensuais e ações de alimentos.",
+        "Condução técnica, ética e humanizada em inventários em cartório, partilha de herança, divórcios e questões patrimoniais de família.",
       bullets: [
-        "Inventário extrajudicial em cartório rápido, econômico e sem desgaste",
-        "Inventários judiciais e partilha transparente e justa de bens familiares",
-        "Divórcio consensual e litigioso com proteção patrimonial equilibrada",
-        "Fixação, revisão e execução de pensão alimentícia e regulamentação de guarda",
+        "Inventário extrajudicial em cartório: solução rápida, econômica e sem desgaste",
+        "Inventários judiciais e partilha equilibrada e transparente de bens",
+        "Divórcio consensual e litigioso com proteção ao patrimônio familiar",
+        "Ações de alimentos (fixação, revisão e execução de pensão) e guarda de filhos",
       ],
       tag: "Família",
       badge: "Inventários & Partilhas",
       whatsappMsg:
-        "Olá, Dra. Tharin Miranda! Preciso de orientação sobre Inventário / Partilha de Bens / Família.",
+        "Olá, Dr. Rafael Nascimento! Gostaria de informações sobre Inventário / Partilha de Bens / Família.",
+    },
+    {
+      id: "direito-imobiliario",
+      icon: HomeIcon,
+      title: "Direito Imobiliário & Possessório",
+      shortDesc:
+        "Segurança jurídica na proteção de terrenos, posse e patrimônio imobiliário em Itapecerica e em toda a região de Minas Gerais.",
+      bullets: [
+        "Ações possessórias: reintegração de posse, manutenção e interdito proibitório",
+        "Ações de usucapião judicial e extrajudicial diretamente em cartório",
+        "Regularização fundiária de terrenos, glebas urbanas e rurais sem escritura",
+        "Assessoria em litígios de vizinhança, locações comerciais e contratos de compra e venda",
+      ],
+      tag: "Imobiliário",
+      badge: "Regularização & Posse",
+      whatsappMsg:
+        "Olá, Dr. Rafael Nascimento! Preciso de orientação jurídica sobre Usucapião / Posse / Regularização de Imóvel.",
     },
     {
       id: "consultoria-estrategica",
       icon: Gavel,
-      title: "Consultoria Jurídica Estratégica",
+      title: "Consultoria Jurídica Estratégica & Digital",
       shortDesc:
-        "Atendimento personalizado na sede física em Matozinhos ou 100% digital em todo o Brasil. Diagnóstico honesto e plano de ação transparente.",
+        "Atendimento personalizado na sede física no Centro de Itapecerica - MG ou 100% digital com alcance nacional. Diagnóstico transparente e plano de ação claro.",
       bullets: [
-        "Diagnóstico jurídico realista com avaliação prévia de viabilidade",
-        "Atendimento acolhedor na Travessa da Esmeralda, 45 A ou por videochamada",
-        "Negociação qualificada para acordos extrajudiciais rápidos e vantajosos",
-        "Acompanhamento direto pela Dra. Tharin Miranda em todas as fases",
+        "Consulta privativa com sigilo absoluto e avaliação realista de viabilidade",
+        "Atendimento presencial na R. Cônego Cesário, 282 - Sala 04 ou por videochamada",
+        "Acompanhamento direto e contínuo pelo Dr. Rafael Nascimento em todas as fases",
+        "Atuação ágil via processo eletrônico (PJe) nos Tribunais de todo o Brasil",
       ],
       tag: "Consultoria",
-      badge: "Atendimento Exclusivo",
+      badge: "Atendimento Direto",
       whatsappMsg:
-        "Olá, Dra. Tharin Miranda! Gostaria de agendar uma consulta para avaliar minha situação jurídica.",
+        "Olá, Dr. Rafael Nascimento! Gostaria de agendar uma consulta jurídica para avaliar minha situação.",
     },
   ];
 
-  // Avaliações Reais do Google Meu Negócio de Tharin Miranda Advocacia (Nota Máxima 5,0 ★)
+  // Avaliações Reais do Google Meu Negócio de Rafael Nascimento Advocacia (Nota Máxima 5,0 ★ unânime)
   const depoimentosGoogle = [
     {
-      author: "Marcela Dias",
-      detail: "8 avaliações · 3 fotos no Google",
-      stars: 5,
-      date: "Avaliação verificada no Google",
-      quote:
-        "Uma excelente profissional e muito competente em seu trabalho! Super indico o trabalho dela como advogada e tenham certeza na boa escolha em contrata-la.",
-      highlight: "Excelente profissional e muito competente em seu trabalho",
-    },
-    {
-      author: "Angélica Cupertino ODONTO",
-      detail: "6 avaliações no Google",
-      stars: 5,
-      date: "Avaliação verificada no Google",
-      quote:
-        "A Dra. Tharin é uma profissional atenciosa, comprometida, competente e, sobretudo, ética. Recomendo o eficiente trabalho dela!",
-      highlight: "Atenciosa, comprometida, competente e ética",
-    },
-    {
-      author: "Júlia Azevedo",
+      author: "Sidney Neves",
       detail: "2 avaliações no Google",
       stars: 5,
       date: "Avaliação verificada no Google",
-      quote:
-        "Profissional excelente! Ela é muito atenciosa, clara nas explicações e passa muita segurança durante todo o processo. Recomendo muito!",
-      highlight: "Muito atenciosa, clara nas explicações e passa muita segurança",
+      quote: "Ótimo profissional. Recomendo a todos.",
+      highlight: "Ótimo profissional, recomendo a todos",
     },
     {
-      author: "Felipe Miranda",
+      author: "INDÚSTRIA BRASILEIRA DE BECAS",
+      detail: "3 avaliações · 1 foto no Google",
+      stars: 5,
+      date: "Avaliação verificada no Google",
+      quote: "Excelente profissional! Recomendamos!",
+      highlight: "Excelente profissional! Recomendamos!",
+    },
+    {
+      author: "Denize Camargos",
       detail: "2 avaliações no Google",
       stars: 5,
       date: "Avaliação verificada no Google",
-      quote:
-        "A melhor advogada da região!!",
-      highlight: "A melhor advogada da região",
+      quote: "Excelente! Resolução rápida. Super recomendo.",
+      highlight: "Excelente! Resolução rápida",
     },
     {
-      author: "Leonardo Rodrigues",
+      author: "Renata Bueno",
       detail: "1 avaliação no Google",
       stars: 5,
       date: "Avaliação verificada no Google",
-      quote:
-        "Excelente profissional.",
-      highlight: "Excelente profissional",
+      quote: "Rafael é um excelente advogado meus parabéns 👏 jesus te abençoe 🙏",
+      highlight: "Excelente advogado, parabéns pelo trabalho",
     },
     {
-      author: "Lucia Andrade",
+      author: "Professor Wilson Diniz",
       detail: "1 avaliação no Google",
       stars: 5,
       date: "Avaliação verificada no Google",
-      quote:
-        "Ótima advogada, atendimento com muito respeito e dedicação.",
-      highlight: "Ótima advocacia com respeito e dedicação",
+      quote: "Excelente profissional!!! Sério, comprometido e competente! 🙏",
+      highlight: "Sério, comprometido e competente!",
+    },
+    {
+      author: "Milena Santos",
+      detail: "3 avaliações no Google",
+      stars: 5,
+      date: "Avaliação verificada no Google",
+      quote: "Super recomendo. Muito atencioso!",
+      highlight: "Super recomendo, muito atencioso!",
+    },
+    {
+      author: "Julia Cunha",
+      detail: "2 avaliações no Google",
+      stars: 5,
+      date: "Avaliação verificada no Google",
+      quote: "Ótimo profissional!",
+      highlight: "Ótimo profissional, dedicação exemplar",
     },
   ];
 
-  // Diferenciais Competitivos de Tharin Miranda Advocacia
+  // Diferenciais Competitivos de Rafael Nascimento Advocacia
   const diferenciais = [
     {
-      icon: Award,
-      title: "Liderança Institucional na OAB",
+      icon: GraduationCap,
+      title: "Especialista em Ciências Criminais (PUC Minas)",
       description:
-        "A Dra. Tharin Miranda exerce a função de Secretária Geral da Subseção da OAB de Matozinhos/MG, assegurando rigor ético inegociável, prestígio institucional e credibilidade comprovada.",
+        "O Dr. Rafael Nascimento possui especialização de excelência em Ciências Criminais pela PUC Minas, garantindo fundamentação dogmática rigorosa, técnica processual apurada e estratégia penal defensiva de vanguarda.",
     },
     {
-      icon: HomeIcon,
-      title: "Tríplice Especialização Estratégica",
+      icon: Shield,
+      title: "Atuação Criminal Combativa & Plantão Urgente",
       description:
-        "Conhecimento técnico aprofundado em Direito Imobiliário, Direito do Trabalho e Direito Previdenciário, oferecendo soluções jurídicas completas e integradas para cada cliente.",
-    },
-    {
-      icon: HeartHandshake,
-      title: "Atendimento Humanizado & Seguro",
-      description:
-        "Atenção minuciosa, clareza didática nas explicações e constante tranquilidade repassada ao cliente em cada fase do processo, elogiada de forma unânime nas avaliações do Google.",
+        "Prontidão para atuar em flagrantes, audiências de custódia e medidas urgentes de liberdade (Habeas Corpus), resguardando com firmeza as garantias constitucionais do cidadão.",
     },
     {
       icon: Star,
       title: "Nota Máxima 5,0 ★ Unânime no Google",
       description:
-        "Reconhecimento espontâneo de clientes com nota máxima de 5 estrelas no Google Meu Negócio, atestando a competência, a eficiência e a excelência de nossa advocacia.",
+        "Reconhecimento espontâneo de clientes com 100% de avaliações 5 estrelas no Google Meu Negócio, atestando a competência, a seriedade e a rapidez nas resoluções jurídicas.",
+    },
+    {
+      icon: HeartHandshake,
+      title: "Atendimento Humanizado, Direto & Sigiloso",
+      description:
+        "O cliente conversa e traça a estratégia diretamente com o Dr. Rafael Nascimento. Atendimento com sigilo profissional inviolável, empatia e clareza didática sem juridiquês desnecessário.",
     },
     {
       icon: MapPin,
-      title: "Sede Acolhedora & Atendimento Nacional",
+      title: "Sede Central em Itapecerica & Alcance Nacional",
       description:
-        "Escritório estruturado na Travessa da Esmeralda, 45 A - São Sebastião em Matozinhos - MG, aliado a uma moderna advocacia digital conectada aos Tribunais de todo o Brasil.",
+        "Escritório estruturado na R. Cônego Cesário, 282 - Sala 04 - Centro, em Itapecerica - MG, aliado a uma advocacia digital conectada aos Tribunais de Minas Gerais e de todo o Brasil.",
     },
     {
       icon: Coins,
-      title: "Honorários Claros & Total Transparência",
+      title: "Honorários Transparentes & Rigor Ético",
       description:
-        "Contratos redigidos com absoluta transparência e ética, estritamente alinhados ao Código de Ética e Disciplina da OAB, sem letras miúdas ou custos inesperados.",
+        "Contratos claros, transparentes e alinhados às diretrizes do Código de Ética e Disciplina da OAB, proporcionando segurança, previsibilidade e confiança mútua.",
     },
   ];
 
   // Situações comuns (Diagnóstico Rápido)
   const situacoesDiagnostico = [
     {
-      pergunta: "Possui imóvel sem escritura, terreno irregular ou precisa de usucapião?",
+      pergunta: "Está diante de uma urgência criminal, flagrante, custódia ou intimação?",
       orientacao:
-        "A Dra. Tharin Miranda é especialista em regularização fundiária e imobiliária, conduzindo usucapião extrajudicial diretamente em cartório ou judicialmente para conferir segurança total ao seu patrimônio.",
-      cta: "Regularizar Meu Imóvel",
-      area: "Direito Imobiliário",
+        "O Dr. Rafael Nascimento atua de forma imediata e técnica para assegurar seus direitos constitucionais, acompanhar depoimentos em delegacia, formular pedidos de liberdade provisória ou impetrar Habeas Corpus.",
+      cta: "Buscar Defesa Criminal Urgente",
+      area: "Direito Criminal",
     },
     {
-      pergunta: "Teve seus direitos desrespeitados na empresa ou sofreu demissão irregular?",
+      pergunta: "Possui valores a receber, títulos inadimplidos ou disputas contratuais?",
       orientacao:
-        "Análise rigorosa do seu contrato de trabalho, cálculo minucioso de verbas rescisórias, horas extras, adicionais de insalubridade/periculosidade e reversão de justas causas arbitrárias.",
-      cta: "Analisar Meu Caso Trabalhista",
-      area: "Direito do Trabalho",
+        "Atuação ágil na cobrança judicial e extrajudicial de créditos, cheques, notas promissórias e contratos, além de ações indenizatórias por descumprimento de obrigações e danos patrimoniais.",
+      cta: "Analisar Meu Caso Cível",
+      area: "Direito Cível",
     },
     {
-      pergunta: "Teve aposentadoria ou auxílio negado pelo INSS ou deseja planejar o benefício?",
+      pergunta: "Precisa redigir, revisar ou blindar um contrato comercial ou de prestação?",
       orientacao:
-        "Realizamos o planejamento previdenciário minucioso e ingressamos com ações contra o INSS para concessão e restabelecimento de aposentadorias, auxílio-doença e BPC/LOAS com rapidez.",
-      cta: "Consultar Benefício do INSS",
-      area: "Direito Previdenciário",
+        "Construção de instrumentos contratuais sólidos com cláusulas preventivas de salvaguarda, mitigando passivos e assegurando que sua vontade seja integralmente respeitada perante a Justiça.",
+      cta: "Revisar / Blindar Contrato",
+      area: "Contratos & Negócios",
     },
     {
-      pergunta: "Precisa realizar inventário de bens da família ou formalizar um divórcio?",
+      pergunta: "Precisa realizar inventário de bens da família ou resolver partilha de herança?",
       orientacao:
-        "Condução sensível e ágil de inventários em cartório (rápidos e menos onerosos) e partilhas judiciais, além de divórcios consensuais e ações de pensão alimentícia com proteção patrimonial justa.",
-      cta: "Orientação em Inventário & Família",
+        "Condução sensível e célere de inventários em cartório (extrajudiciais, muito mais rápidos e com menor custo) ou judiciais, divórcios e fixação/execução de pensão alimentícia.",
+      cta: "Consultar Inventário & Família",
       area: "Família & Sucessões",
     },
   ];
@@ -431,34 +435,34 @@ export default function Home() {
   // FAQ
   const faqs = [
     {
-      question: "Como funciona a primeira consulta com a Dra. Tharin Miranda?",
+      question: "Como funciona o primeiro atendimento com o Dr. Rafael Nascimento?",
       answer:
-        "O primeiro atendimento é privativo, detalhado e humanizado. Pode ser realizado presencialmente em nosso escritório na Travessa da Esmeralda, 45 A em Matozinhos - MG ou de forma 100% digital por videochamada ou WhatsApp para qualquer cidade do Brasil. Analisamos sua documentação e explicamos de maneira clara as chances e os melhores caminhos para o seu caso.",
+        "O primeiro atendimento é privativo, seguro e detalhado. Pode ser realizado presencialmente em nosso escritório na R. Cônego Cesário, 282 - Sala 04 - Centro, em Itapecerica - MG, ou de forma 100% digital por WhatsApp ou videochamada para qualquer localidade. Analisamos detalhadamente a documentação e os fatos, indicando com honestidade e clareza os melhores caminhos jurídicos.",
     },
     {
-      question: "O escritório atende apenas em Matozinhos ou em outras regiões?",
+      question: "O que fazer em caso de prisão em flagrante ou intimação para comparecer à delegacia?",
       answer:
-        "Atendemos presencialmente toda a região de Matozinhos, Sete Lagoas, Capim Branco, Prudente de Morais, Pedro Leopoldo, Vespasiano e Grande BH. Além disso, através do processo eletrônico (PJe), atuamos de forma digital com plena agilidade e segurança jurídica perante Tribunais em todo o território nacional.",
+        "O cidadão tem o direito constitucional de ser assistido por um advogado antes e durante qualquer declaração à autoridade policial. Entre em contato imediatamente com o Dr. Rafael Nascimento para que a defesa técnica acompanhe o procedimento desde o primeiro instante, evitando abusos e viabilizando o pedido de liberdade na audiência de custódia.",
     },
     {
-      question: "Como funciona o processo de usucapião para regularizar um imóvel?",
+      question: "O escritório atende apenas em Itapecerica ou em outras comarcas?",
       answer:
-        "O usucapião permite obter a escritura definitiva de posse pacífica e prolongada de um imóvel urbano ou rural. Sempre que os requisitos legais forem preenchidos, podemos ingressar com o Usucapião Extrajudicial diretamente no Cartório de Registro de Imóveis, o que reduz consideravelmente o tempo e os custos em relação à via judicial.",
+        "Atendemos presencialmente toda a comarca de Itapecerica e cidades do Centro-Oeste de Minas (como Divinópolis, Formiga, Oliveira, Cláudio, Camacho e região). Além disso, graças à digitalização integral dos processos (PJe, Projudi e e-Proc), atuamos com a mesma presteza e eficiência perante os Tribunais de todo o Brasil.",
     },
     {
-      question: "O que fazer se o INSS negou meu pedido de aposentadoria ou auxílio?",
+      question: "Como funciona o inventário extrajudicial em cartório?",
       answer:
-        "Não se desespere, pois o indeferimento administrativo é muito comum. A Dra. Tharin Miranda analisa a carta de indeferimento, reúne os laudos médicos ou documentos de tempo de contribuição faltantes e ingressa com recurso administrativo ou ação judicial na Justiça Federal para garantir o benefício com retroativos desde a data do primeiro pedido.",
+        "Quando todos os herdeiros forem maiores, capazes e houver consenso na partilha dos bens (e na ausência de testamento com exigência judicial), o inventário pode ser realizado diretamente em Cartório de Notas por meio de escritura pública. É um procedimento muito mais rápido, econômico e sem o desgaste de uma ação judicial prolongada.",
     },
     {
-      question: "Quais documentos devo separar para uma análise de causa trabalhista?",
+      question: "Como o escritório atua em cobranças judiciais e disputas cíveis?",
       answer:
-        "Recomenda-se reunir: Carteira de Trabalho (física ou app CTPS Digital), últimos holerites ou extratos bancários de pagamento, extrato analítico do FGTS, termo de rescisão contratual (se já houver sido desligado) e eventuais conversas, e-mails ou atestados médicos pertinentes.",
+        "Iniciamos com uma abordagem estratégica de notificação e negociação extrajudicial para viabilizar acordos rápidos. Caso não haja composição amigável, ingressamos imediatamente com a ação judicial cabível (execução de título, ação monitória ou cobrança), utilizando ferramentas modernas de localização de bens para assegurar a efetividade do crédito.",
     },
     {
-      question: "Como são definidos os honorários da advocacia?",
+      question: "Como são estabelecidos os honorários da advocacia?",
       answer:
-        "Trabalhamos com total clareza e previsibilidade. Nossos contratos de honorários seguem rigorosamente a tabela e o Código de Ética e Disciplina da OAB/MG. Em diversas demandas (como causas trabalhistas e previdenciárias), viabilizamos condições alinhadas ao êxito da causa, sem surpresas para o cliente.",
+        "Trabalhamos com absoluta transparência contratual, em conformidade com as diretrizes da Ordem dos Advogados do Brasil (OAB/MG). Cada contrato detalha claramente o escopo de atuação, prazos e condições de pagamento, assegurando que o cliente tenha previsibilidade financeira total desde o início.",
     },
   ];
 
@@ -473,11 +477,11 @@ export default function Home() {
             <div className="flex items-center gap-2 font-medium">
               <span className="flex size-2 rounded-full bg-[#f5d77f] animate-pulse" />
               <span className="text-[#fbf3d1] font-semibold">
-                Tharin Miranda Advocacia &bull; Matozinhos - MG
+                Rafael Nascimento Advocacia &bull; Itapecerica - MG
               </span>
               <span className="hidden sm:inline text-amber-500/60">|</span>
               <span className="hidden sm:inline text-slate-300">
-                ⚖️ Imobiliário &bull; Trabalhista &bull; Previdenciário &bull; Secretária Geral OAB Matozinhos
+                ⚖️ Advogado Criminal e Cível &bull; Especialista em Ciências Criminais (PUC Minas)
               </span>
             </div>
 
@@ -498,7 +502,7 @@ export default function Home() {
                   ))}
                 </div>
                 <span className="font-bold text-white">5,0 ★</span>
-                <span className="text-amber-200/80">(12 avaliações no Google)</span>
+                <span className="text-amber-200/80">(11 avaliações no Google)</span>
               </a>
 
               <a
@@ -520,58 +524,48 @@ export default function Home() {
         <header
           className={`sticky top-0 z-40 transition-all duration-300 ${
             isScrolled
-              ? "border-b border-[#e7e0d3] bg-white/95 shadow-md shadow-black/5 backdrop-blur-md"
-              : "border-b border-[#f0ebe1] bg-white/90 backdrop-blur-sm"
+              ? "border-b border-amber-400/20 bg-[#08090d]/98 shadow-xl shadow-black/40 backdrop-blur-md"
+              : "border-b border-[#262118] bg-[#08090d]/92 backdrop-blur-md"
           }`}
         >
-          <div className="mx-auto flex w-full max-w-[1600px] items-center justify-between px-4 py-3 sm:px-6 lg:px-8 xl:px-12">
-            {/* Left: Logo */}
-            <div className="flex flex-1 items-center justify-start min-w-0">
-              <a
-                href="#inicio"
-                aria-label="Tharin Miranda Advocacia - Início"
-                onClick={closeMenu}
-                className="flex shrink-0 items-center gap-3 transition-opacity hover:opacity-95"
-              >
-                <div className="relative size-10 sm:size-11 lg:size-12 shrink-0">
-                  <Image
-                    src={LOGO_SYMBOL_SRC}
-                    alt="Tharin Miranda Advocacia Monograma"
-                    fill
-                    priority
-                    unoptimized
-                    className="object-contain"
-                  />
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-cinzel text-sm sm:text-base lg:text-lg font-extrabold tracking-[0.14em] text-[#0e1017] leading-tight whitespace-nowrap">
-                    THARIN MIRANDA
-                  </span>
-                  <span className="text-[8px] sm:text-[9px] lg:text-[10px] font-bold tracking-[0.22em] text-[#c88a2c] uppercase mt-0.5 whitespace-nowrap">
-                    ADVOCACIA &bull; MATOZINHOS - MG
-                  </span>
-                </div>
-              </a>
-            </div>
+          <div className="mx-auto flex w-full max-w-[1600px] items-center justify-between gap-6 px-4 py-3 sm:px-6 lg:px-8 xl:px-12">
+            {/* Left: Official Logo */}
+            <a
+              href="#inicio"
+              aria-label="Rafael Nascimento Advocacia - Início"
+              onClick={closeMenu}
+              className="flex shrink-0 items-center transition-opacity hover:opacity-90"
+            >
+              <div className="relative h-10 sm:h-12 w-44 sm:w-56 shrink-0">
+                <Image
+                  src={LOGO_SRC}
+                  alt="Rafael Nascimento Advocacia"
+                  fill
+                  priority
+                  unoptimized
+                  className="object-contain object-left"
+                />
+              </div>
+            </a>
 
             {/* Center: Navigation Links */}
             <nav
               aria-label="Navegação principal"
-              className="hidden lg:flex flex-none items-center justify-center gap-4 xl:gap-6 2xl:gap-8 whitespace-nowrap text-[11px] xl:text-xs font-semibold tracking-[0.08em] px-4"
+              className="hidden xl:flex items-center gap-6 2xl:gap-8 whitespace-nowrap text-xs font-semibold tracking-wider text-slate-300"
             >
               <a className="nav-link" href="#atuacao">
                 Áreas de Atuação
               </a>
               <a className="nav-link" href="#sobre">
-                Dra. Tharin Miranda
+                Dr. Rafael Nascimento
               </a>
-              <a className="nav-link hidden xl:inline-block" href="#diferenciais">
+              <a className="nav-link" href="#diferenciais">
                 Diferenciais
               </a>
               <a className="nav-link" href="#avaliacoes">
                 Avaliações (5.0 ★)
               </a>
-              <a className="nav-link hidden 2xl:inline-block" href="#faq">
+              <a className="nav-link" href="#faq">
                 Dúvidas
               </a>
               <a className="nav-link" href="#contato">
@@ -580,8 +574,8 @@ export default function Home() {
             </nav>
 
             {/* Right: CTA Button & Mobile Toggle */}
-            <div className="flex flex-1 items-center justify-end">
-              <div className="hidden lg:flex items-center shrink-0">
+            <div className="flex items-center gap-3 shrink-0">
+              <div className="hidden sm:flex items-center shrink-0">
                 <GlowingButton
                   variant="gold"
                   size="sm"
@@ -598,7 +592,7 @@ export default function Home() {
               <button
                 type="button"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="inline-flex items-center justify-center rounded-lg p-2 text-slate-700 hover:bg-slate-100 lg:hidden"
+                className="inline-flex items-center justify-center rounded-lg p-2 text-slate-300 hover:bg-white/10 xl:hidden cursor-pointer"
                 aria-label="Abrir menu de navegação"
                 aria-expanded={isMenuOpen}
               >
@@ -614,60 +608,60 @@ export default function Home() {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                className="border-b border-slate-200 bg-white px-5 py-5 lg:hidden shadow-xl"
+                className="border-b border-[#262118] bg-[#0c0e14] px-5 py-5 xl:hidden shadow-2xl text-white"
               >
                 <div className="flex flex-col gap-3.5 text-sm font-semibold tracking-wide">
                   <a
-                    className="py-1.5 text-slate-800 hover:text-[#c88a2c]"
+                    className="py-1.5 text-slate-200 hover:text-[#f5d77f]"
                     href="#inicio"
                     onClick={closeMenu}
                   >
                     Início
                   </a>
                   <a
-                    className="py-1.5 text-slate-800 hover:text-[#c88a2c]"
+                    className="py-1.5 text-slate-200 hover:text-[#f5d77f]"
                     href="#atuacao"
                     onClick={closeMenu}
                   >
                     Áreas de Atuação
                   </a>
                   <a
-                    className="py-1.5 text-slate-800 hover:text-[#c88a2c]"
+                    className="py-1.5 text-slate-200 hover:text-[#f5d77f]"
                     href="#sobre"
                     onClick={closeMenu}
                   >
-                    Sobre a Dra. Tharin Miranda
+                    Sobre o Dr. Rafael Nascimento
                   </a>
                   <a
-                    className="py-1.5 text-slate-800 hover:text-[#c88a2c]"
+                    className="py-1.5 text-slate-200 hover:text-[#f5d77f]"
                     href="#diferenciais"
                     onClick={closeMenu}
                   >
                     Nossos Diferenciais
                   </a>
                   <a
-                    className="py-1.5 text-slate-800 hover:text-[#c88a2c]"
+                    className="py-1.5 text-slate-200 hover:text-[#f5d77f]"
                     href="#avaliacoes"
                     onClick={closeMenu}
                   >
                     Avaliações no Google (5.0 ★)
                   </a>
                   <a
-                    className="py-1.5 text-slate-800 hover:text-[#c88a2c]"
+                    className="py-1.5 text-slate-200 hover:text-[#f5d77f]"
                     href="#faq"
                     onClick={closeMenu}
                   >
                     Perguntas Frequentes
                   </a>
                   <a
-                    className="py-1.5 text-slate-800 hover:text-[#c88a2c]"
+                    className="py-1.5 text-slate-200 hover:text-[#f5d77f]"
                     href="#contato"
                     onClick={closeMenu}
                   >
-                    Sede em Matozinhos &amp; Contato
+                    Sede em Itapecerica &amp; Contato
                   </a>
 
-                  <div className="pt-3 border-t border-slate-100 flex flex-col gap-2.5">
+                  <div className="pt-3 border-t border-slate-800 flex flex-col gap-2.5">
                     <GlowingButton
                       variant="gold"
                       size="md"
@@ -680,9 +674,9 @@ export default function Home() {
                     </GlowingButton>
                     <a
                       href={`tel:${WHATSAPP_NUMBER}`}
-                      className="flex items-center justify-center gap-2 rounded-lg border border-slate-200 py-3 text-xs font-bold text-slate-700 hover:bg-slate-50"
+                      className="flex items-center justify-center gap-2 rounded-lg border border-slate-700 py-3 text-xs font-bold text-slate-200 hover:bg-white/5"
                     >
-                      <Phone size={14} className="text-[#c88a2c]" />
+                      <Phone size={14} className="text-[#f5d77f]" />
                       <span>Ligar: {PHONE_DISPLAY}</span>
                     </a>
                   </div>
@@ -717,7 +711,7 @@ export default function Home() {
                 <motion.div variants={fadeInUp} className="mb-4">
                   <div className="inline-flex items-center gap-2.5 rounded-full border border-amber-300/40 bg-white/5 px-4 py-2 text-xs font-bold tracking-[0.16em] uppercase text-[#fbf3d1] shadow-lg backdrop-blur-md">
                     <Scale size={14} className="text-[#f5d77f]" />
-                    <span>Tharin Miranda Advocacia &bull; Matozinhos - MG</span>
+                    <span>Rafael Nascimento Advocacia &bull; Itapecerica - MG</span>
                   </div>
                 </motion.div>
 
@@ -726,11 +720,11 @@ export default function Home() {
                   variants={fadeInUp}
                   className="font-cinzel text-3xl font-extrabold leading-[1.18] tracking-tight sm:text-4xl md:text-5xl lg:text-[3.25rem] text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]"
                 >
-                  Advocacia combativa, estratégica e de{" "}
+                  Defesa Criminal Estratégica e Soluções Cíveis de{" "}
                   <span className="text-gradient-gold font-black drop-shadow-[0_2px_16px_rgba(212,163,75,0.4)]">
-                    alta precisão
-                  </span>{" "}
-                  para seus direitos.
+                    alta precisão técnica
+                  </span>
+                  .
                 </motion.h1>
 
                 {/* Subtitle */}
@@ -738,15 +732,11 @@ export default function Home() {
                   variants={fadeInUp}
                   className="mt-6 text-base text-slate-100 sm:text-lg sm:leading-relaxed font-normal drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]"
                 >
-                  Defesa especializada e resolutiva em{" "}
+                  Atuação jurídica combativa, ética e resolutiva conduzida pelo{" "}
                   <strong className="text-white font-bold underline decoration-[#d4a34b]/60 underline-offset-4">
-                    Direito Imobiliário, Trabalhista e Previdenciário
+                    Dr. Rafael Nascimento
                   </strong>
-                  . Conduzido pela{" "}
-                  <strong className="text-white font-bold">
-                    Dra. Tharin Miranda
-                  </strong>
-                  , Secretária Geral da OAB de Matozinhos/MG, com atendimento humanizado, sede física em Matozinhos e alcance digital de excelência em todo o Brasil.
+                  , Especialista em Ciências Criminais pela PUC Minas. Atendimento presencial na sede própria em Itapecerica - MG e digital com máxima agilidade para clientes de todo o Brasil.
                 </motion.p>
 
                 {/* Authority Badges Checklist */}
@@ -759,7 +749,7 @@ export default function Home() {
                       <CheckCircle2 size={13} />
                     </div>
                     <span className="font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
-                      Nota máxima 5,0 ★ no Google (12 avaliações)
+                      Nota máxima 5,0 ★ no Google (11 avaliações)
                     </span>
                   </div>
                   <div className="flex items-center gap-2.5 rounded-lg bg-white/5 border border-amber-400/20 px-3 py-2 backdrop-blur-xs">
@@ -767,7 +757,7 @@ export default function Home() {
                       <CheckCircle2 size={13} />
                     </div>
                     <span className="font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
-                      Secretária Geral da OAB de Matozinhos/MG
+                      Especialista em Ciências Criminais (PUC Minas)
                     </span>
                   </div>
                   <div className="flex items-center gap-2.5 rounded-lg bg-white/5 border border-amber-400/20 px-3 py-2 backdrop-blur-xs">
@@ -775,7 +765,7 @@ export default function Home() {
                       <CheckCircle2 size={13} />
                     </div>
                     <span className="font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
-                      Especialista em Regularização de Imóveis &amp; Usucapião
+                      Advogado Criminal e Cível de Alta Performance
                     </span>
                   </div>
                   <div className="flex items-center gap-2.5 rounded-lg bg-white/5 border border-amber-400/20 px-3 py-2 backdrop-blur-xs">
@@ -783,7 +773,7 @@ export default function Home() {
                       <CheckCircle2 size={13} />
                     </div>
                     <span className="font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
-                      Sede: Travessa da Esmeralda, 45 A - Matozinhos
+                      Sede: R. Cônego Cesário, 282 - Centro, Itapecerica
                     </span>
                   </div>
                 </motion.div>
@@ -801,7 +791,7 @@ export default function Home() {
                     className="shadow-2xl shadow-black/50"
                   >
                     <WhatsAppIcon size={18} className="text-[#1a0e03]" />
-                    <span>Falar no WhatsApp com a Dra. Tharin</span>
+                    <span>Falar no WhatsApp com o Dr. Rafael</span>
                   </GlowingButton>
 
                   <a
@@ -831,7 +821,7 @@ export default function Home() {
                     <span className="font-bold text-white text-sm">5,0 de 5,0</span>
                   </div>
                   <span className="text-white/40">&bull;</span>
-                  <span className="font-medium text-white">12 avaliações no Google Meu Negócio</span>
+                  <span className="font-medium text-white">11 avaliações no Google Meu Negócio</span>
                   <span className="text-white/40">&bull;</span>
                   <a
                     href={GOOGLE_SEARCH_URL}
@@ -845,7 +835,7 @@ export default function Home() {
                 </motion.div>
               </motion.div>
 
-              {/* Right Column: Dra. Tharin Miranda Portrait Card */}
+              {/* Right Column: Dr. Rafael Nascimento Portrait Card */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -861,9 +851,10 @@ export default function Home() {
                     <div className="relative aspect-[4/5] w-full overflow-hidden">
                       <Image
                         src={FOTO_HERO_SRC}
-                        alt="Dra. Tharin Miranda - Tharin Miranda Advocacia em Matozinhos MG"
+                        alt="Dr. Rafael Nascimento - Rafael Nascimento Advocacia em Itapecerica MG"
                         fill
                         priority
+                        unoptimized
                         className="object-cover object-top filter contrast-[1.03]"
                       />
 
@@ -875,10 +866,10 @@ export default function Home() {
                         <div className="flex items-center justify-between">
                           <div>
                             <p className="font-cinzel text-sm sm:text-base font-bold text-white tracking-wide">
-                              Dra. Tharin Miranda
+                              Dr. Rafael Nascimento
                             </p>
                             <p className="text-[10px] sm:text-xs font-semibold text-[#f5d77f] uppercase tracking-wider mt-0.5">
-                              Secretária Geral da OAB Matozinhos/MG
+                              Especialista em Ciências Criminais &bull; PUC Minas
                             </p>
                           </div>
                           <div className="flex flex-col items-end">
@@ -892,7 +883,7 @@ export default function Home() {
                               ))}
                             </div>
                             <span className="text-[10px] font-bold text-white mt-0.5">
-                              5,0 ★ no Google (12)
+                              5,0 ★ no Google (11)
                             </span>
                           </div>
                         </div>
@@ -903,14 +894,14 @@ export default function Home() {
                   {/* Floating Trust Card Top-Right */}
                   <div className="hidden sm:flex absolute -top-5 -right-5 items-center gap-2.5 rounded-xl border border-amber-300/60 bg-[#08090d]/95 px-4 py-2.5 shadow-xl backdrop-blur-md">
                     <div className="flex size-9 items-center justify-center rounded-lg bg-amber-400/15 text-[#f5d77f]">
-                      <Scale size={18} />
+                      <GraduationCap size={18} />
                     </div>
                     <div>
                       <p className="text-[10px] font-bold uppercase tracking-wider text-[#e7cc99]">
-                        Institucional
+                        Pós-Graduação
                       </p>
                       <p className="text-xs font-bold text-white">
-                        OAB Matozinhos/MG
+                        PUC Minas &bull; Penal
                       </p>
                     </div>
                   </div>
@@ -952,31 +943,31 @@ export default function Home() {
                   Nota Máxima Google
                 </p>
                 <p className="text-[11px] sm:text-xs text-slate-600 mt-0.5">
-                  12 avaliações 100% 5 estrelas
+                  11 avaliações 100% 5 estrelas
                 </p>
               </div>
 
               <div className="flex flex-col items-center">
                 <div className="text-2xl sm:text-3xl font-extrabold text-[#0e1017]">
-                  OAB/MG
+                  PUC Minas
                 </div>
                 <p className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#c88a2c] mt-1">
-                  Secretária Geral
+                  Ciências Criminais
                 </p>
                 <p className="text-[11px] sm:text-xs text-slate-600 mt-0.5">
-                  Subseção de Matozinhos/MG
+                  Especialização e rigor técnico
                 </p>
               </div>
 
               <div className="flex flex-col items-center">
                 <div className="text-2xl sm:text-3xl font-extrabold text-[#0e1017]">
-                  Matozinhos - MG
+                  Itapecerica - MG
                 </div>
                 <p className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#c88a2c] mt-1">
-                  Sede Própria Acolhedora
+                  Sede Central Própria
                 </p>
                 <p className="text-[11px] sm:text-xs text-slate-600 mt-0.5">
-                  Travessa da Esmeralda, 45 A
+                  R. Cônego Cesário, 282 - Sl 04
                 </p>
               </div>
 
@@ -1008,8 +999,8 @@ export default function Home() {
                 Você se identifica com alguma dessas situações jurídicas?
               </h2>
               <p className="mt-4 text-sm sm:text-base text-slate-600">
-                Não deixe seus direitos imobiliários, trabalhistas ou previdenciários desprotegidos.
-                Conte com orientação técnica e acolhedora desde o primeiro momento:
+                Não enfrente acusações, riscos à sua liberdade ou prejuízos patrimoniais sem o respaldo de um especialista.
+                Conte com assessoria combativa e técnica desde o primeiro momento:
               </p>
             </div>
 
@@ -1044,7 +1035,7 @@ export default function Home() {
                     </button>
 
                     <a
-                      href={getWhatsAppUrl(`Olá, Dra. Tharin Miranda! ${sit.pergunta}`)}
+                      href={getWhatsAppUrl(`Olá, Dr. Rafael Nascimento! ${sit.pergunta}`)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex size-9 items-center justify-center rounded-lg bg-[#25D366] text-white hover:brightness-110 transition-all shadow-xs"
@@ -1069,14 +1060,14 @@ export default function Home() {
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
               <div className="eyebrow-light justify-center mb-3">
-                Pilares de Atuação &bull; Advocacia de Excelência
+                Pilares de Atuação &bull; Advocacia de Alta Performance
               </div>
               <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white">
-                Como atuamos na defesa dos seus direitos
+                Como atuamos na defesa intransigente dos seus direitos
               </h2>
               <p className="mt-4 text-sm sm:text-base text-slate-300">
-                Atuação consultiva preventiva e contenciosa combativa em instâncias judiciais
-                e cartoriais com rigor técnico, clareza e dedicação absoluta.
+                Atuação criminal especializada e soluções cíveis estratégicas em instâncias judiciais
+                e administrativas com fundamentação jurídica de excelência, sigilo e combatividade.
               </p>
             </div>
 
@@ -1151,11 +1142,11 @@ export default function Home() {
                     Precisa de Orientação Imediata?
                   </div>
                   <h3 className="font-cinzel text-xl sm:text-2xl font-bold text-white">
-                    Fale diretamente com a Dra. Tharin Miranda
+                    Fale diretamente com o Dr. Rafael Nascimento
                   </h3>
                   <p className="mt-1.5 text-xs sm:text-sm text-slate-300 max-w-2xl">
                     Envie uma mensagem resumindo sua necessidade. Analisamos seu caso com total sigilo
-                    e atenção para indicar a estratégia jurídica mais segura e eficaz.
+                    e presteza técnica para indicar a estratégia jurídica mais adequada e segura.
                   </p>
                 </div>
 
@@ -1163,7 +1154,7 @@ export default function Home() {
                   variant="gold"
                   size="lg"
                   href={getWhatsAppUrl(
-                    "Olá, Dra. Tharin Miranda! Gostaria de uma avaliação jurídica para entender o caminho mais adequado para o meu caso."
+                    "Olá, Dr. Rafael Nascimento! Gostaria de uma avaliação jurídica para entender o caminho mais adequado para o meu caso."
                   )}
                   target="_blank"
                   className="shrink-0"
@@ -1177,12 +1168,12 @@ export default function Home() {
         </section>
 
         {/* ========================================================================= */}
-        {/* 7. SOBRE A ADVOGADA & ESTRUTURA                                           */}
+        {/* 7. SOBRE O ADVOGADO & ESTRUTURA                                           */}
         {/* ========================================================================= */}
         <section id="sobre" className="py-16 sm:py-24 bg-white overflow-hidden">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-              {/* Photo of Dra. Tharin Miranda on Left */}
+              {/* Photo of Dr. Rafael Nascimento on Left */}
               <div className="relative lg:col-span-5">
                 <div className="relative mx-auto max-w-sm sm:max-w-md lg:max-w-none">
                   {/* Subtle Accent Glow */}
@@ -1192,18 +1183,19 @@ export default function Home() {
                     <div className="relative aspect-[4/5] w-full">
                       <Image
                         src={FOTO_PERFIL_SRC}
-                        alt="Dra. Tharin Miranda - Especialista em Direito Imobiliário, Trabalho e Previdenciário"
+                        alt="Dr. Rafael Nascimento - Advogado Criminal e Cível em Itapecerica MG"
                         fill
+                        unoptimized
                         className="object-cover object-top"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#08090d]/85 via-transparent to-transparent" />
 
                       <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-amber-300/30 bg-black/60 p-3.5 backdrop-blur-md text-white text-center">
                         <p className="font-cinzel text-base font-bold text-white">
-                          Dra. Tharin Miranda
+                          Dr. Rafael Nascimento
                         </p>
                         <p className="text-[11px] text-[#f5d77f] mt-0.5">
-                          Secretária Geral da OAB de Matozinhos/MG &bull; Especialista
+                          Especialista em Ciências Criminais &bull; PUC Minas
                         </p>
                       </div>
                     </div>
@@ -1213,37 +1205,37 @@ export default function Home() {
 
               {/* Bio & Details on Right */}
               <div className="lg:col-span-7">
-                <div className="eyebrow-gold mb-3">Sobre a Advogada &amp; Atuação</div>
+                <div className="eyebrow-gold mb-3">Sobre o Advogado &amp; Atuação</div>
 
                 <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0e1017] leading-tight">
-                  Advocacia ética, acolhedora e com dedicação profunda a cada cliente em Matozinhos e em todo o Brasil.
+                  Advocacia ética, combativa e com dedicação incansável a cada cliente em Itapecerica e em todo o Brasil.
                 </h2>
 
                 <div className="mt-6 space-y-4 text-sm sm:text-base text-slate-700 leading-relaxed">
                   <p>
-                    A advocacia liderada pela <strong className="text-[#0e1017]">Dra. Tharin Miranda</strong> é
-                    pautada na união entre o rigor técnico aprofundado e um atendimento verdadeiramente humanizado,
-                    acolhendo quem busca resguardar seu patrimônio, seu trabalho ou seu benefício.
+                    A advocacia liderada pelo <strong className="text-[#0e1017]">Dr. Rafael Nascimento</strong> é
+                    fundamentada na união entre o profundo rigor dogmático, a combatividade processual e o compromisso
+                    intransigente com os direitos de cada pessoa que nos confia sua causa.
                   </p>
                   <p>
-                    Com expressiva atuação e credibilidade na comunidade jurídica, a Dra. Tharin Miranda exerce
-                    o cargo institucional de <strong className="text-[#0e1017]">Secretária Geral da Subseção da OAB de Matozinhos/MG</strong>,
-                    reforçando seu compromisso intransigente com a ética, a transparência e as prerrogativas da classe.
+                    Pós-graduado e <strong className="text-[#0e1017]">Especialista em Ciências Criminais pela Pontifícia Universidade Católica de Minas Gerais (PUC Minas)</strong>,
+                    o Dr. Rafael Nascimento une sólido embasamento acadêmico à experiência prática nas esferas Criminal e Cível,
+                    atuando com maestria em flagrantes, audiências de custódia, tribunal do júri, execuções e litígios cíveis complexos.
                   </p>
                   <p>
-                    Com sede física estabelecida na <strong className="text-[#0e1017]">Travessa da Esmeralda, 45 A - São Sebastião, Matozinhos - MG</strong>,
-                    o escritório oferece um ambiente privativo, acolhedor e seguro para consultas presenciais, ao mesmo tempo em que disponibiliza
-                    uma moderna infraestrutura digital para atender clientes de qualquer região do Brasil com nota máxima 5,0 ★ no Google.
+                    Com sede física estruturada na <strong className="text-[#0e1017]">R. Cônego Cesário, 282 - Sala 04 - Centro, Itapecerica - MG</strong>,
+                    o escritório oferece um ambiente moderno, privativo e seguro para consultas presenciais, ao mesmo tempo em que disponibiliza
+                    uma eficiente infraestrutura digital para atender clientes em qualquer comarca de Minas Gerais e do território nacional com nota máxima 5,0 ★ no Google.
                   </p>
                 </div>
 
                 {/* Quote Box */}
                 <div className="mt-6 rounded-xl border-l-4 border-[#c88a2c] bg-[#faf8f5] p-4 sm:p-5">
                   <p className="italic text-sm text-slate-800">
-                    &ldquo;A Dra. Tharin é uma profissional atenciosa, comprometida, competente e, sobretudo, ética... Ela é muito clara nas explicações e passa muita segurança durante todo o processo. Recomendo muito!&rdquo;
+                    &ldquo;Excelente profissional!!! Sério, comprometido e competente! Resolução rápida e dedicação absoluta em cada etapa... Super recomendo a todos!&rdquo;
                   </p>
                   <p className="mt-2 text-xs font-bold text-[#c88a2c] uppercase tracking-wider">
-                    — Síntese das avaliações verificadas de clientes no Google Meu Negócio (Nota Máxima 5,0 ★)
+                    — Síntese das avaliações verificadas de clientes no Google Meu Negócio (Nota Máxima 5,0 ★ unânime)
                   </p>
                 </div>
 
@@ -1256,7 +1248,7 @@ export default function Home() {
                     target="_blank"
                   >
                     <WhatsAppIcon size={16} className="text-[#1a0e03]" />
-                    <span>Falar Diretamente com a Dra. Tharin</span>
+                    <span>Falar Diretamente com o Dr. Rafael</span>
                   </GlowingButton>
 
                   <a
@@ -1291,13 +1283,13 @@ export default function Home() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
               <div className="eyebrow-gold justify-center mb-3">
-                Por Que Escolher Tharin Miranda Advocacia
+                Por Que Escolher Rafael Nascimento Advocacia
               </div>
               <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0e1017]">
                 Diferenciais que asseguram a satisfação absoluta de nossos clientes
               </h2>
               <p className="mt-4 text-sm sm:text-base text-slate-600">
-                Uma experiência jurídica com seriedade, clareza didática e dedicação autêntica.
+                Uma experiência jurídica com seriedade inegociável, clareza didática e dedicação autêntica.
               </p>
             </div>
 
@@ -1351,8 +1343,8 @@ export default function Home() {
                   Primeiro Contato
                 </h3>
                 <p className="mt-2 text-xs text-slate-600 leading-relaxed">
-                  Você nos envia uma mensagem no WhatsApp ou nos liga, resume sua situação e agendamos
-                  sua consulta presencial em Matozinhos ou online.
+                  Você nos envia uma mensagem no WhatsApp ou liga, resume sua situação e agendamos
+                  sua consulta presencial em Itapecerica ou online.
                 </p>
               </div>
 
@@ -1364,8 +1356,8 @@ export default function Home() {
                   Análise Técnica
                 </h3>
                 <p className="mt-2 text-xs text-slate-600 leading-relaxed">
-                  A Dra. Tharin Miranda avalia minuciosamente contratos, escrituras, laudos ou documentos
-                  para estruturar a melhor estratégia jurídica.
+                  O Dr. Rafael Nascimento avalia minuciosamente o inquérito, intimação, contratos ou provas
+                  para estruturar a melhor estratégia defensiva.
                 </p>
               </div>
 
@@ -1378,7 +1370,7 @@ export default function Home() {
                 </h3>
                 <p className="mt-2 text-xs text-slate-600 leading-relaxed">
                   Apresentamos o plano com total clareza quanto a prazos, honorários justos e as etapas
-                  necessárias para defender seu direito com eficácia.
+                  necessárias para defender seus direitos com máxima eficácia.
                 </p>
               </div>
 
@@ -1390,8 +1382,8 @@ export default function Home() {
                   Atuação &amp; Acompanhamento
                 </h3>
                 <p className="mt-2 text-xs text-slate-600 leading-relaxed">
-                  Execução diligente em cartórios, instâncias judiciais ou administrativas, com atualizações
-                  periódicas diretamente com você.
+                  Execução diligente perante delegacias, fóruns, tribunais ou cartórios, com atualizações
+                  periódicas e contato direto com você.
                 </p>
               </div>
             </div>
@@ -1437,7 +1429,7 @@ export default function Home() {
                 </div>
                 <span className="text-xl font-bold text-white">5,0 de 5,0 estrelas</span>
                 <span className="text-sm text-[#e7cc99]">
-                  (12 avaliações verificadas no Google)
+                  (11 avaliações verificadas no Google)
                 </span>
               </div>
             </div>
@@ -1576,13 +1568,13 @@ export default function Home() {
                 Ainda tem alguma dúvida sobre a sua situação específica?
               </p>
               <p className="mt-1 text-xs sm:text-sm text-slate-600">
-                A Dra. Tharin Miranda está à disposição para esclarecer seu caso com ética, sigilo e rapidez.
+                O Dr. Rafael Nascimento está à disposição para esclarecer seu caso com ética, sigilo e rapidez.
               </p>
               <div className="mt-4">
                 <GlowingButton
                   variant="gold"
                   size="md"
-                  href={getWhatsAppUrl("Olá, Dra. Tharin Miranda! Tenho uma dúvida sobre o meu caso e gostaria de orientação jurídica.")}
+                  href={getWhatsAppUrl("Olá, Dr. Rafael Nascimento! Tenho uma dúvida sobre o meu caso e gostaria de orientação jurídica.")}
                   target="_blank"
                 >
                   <WhatsAppIcon size={15} className="text-[#1a0e03]" />
@@ -1594,7 +1586,7 @@ export default function Home() {
         </section>
 
         {/* ========================================================================= */}
-        {/* 12. CONTATO & SEDE EM MATOZINHOS - MG                                     */}
+        {/* 12. CONTATO & SEDE EM ITAPECERICA - MG                                     */}
         {/* ========================================================================= */}
         <section id="contato" className="py-16 sm:py-24 bg-[#faf8f5] border-t border-[#e7e0d3]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -1607,7 +1599,7 @@ export default function Home() {
                     Entre em contato e agende sua consulta
                   </h2>
                   <p className="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed">
-                    Atendimento presencial em nossa sede em Matozinhos - MG ou 100% digital
+                    Atendimento presencial em nossa sede no Centro de Itapecerica - MG ou 100% digital
                     com atendimento ágil para clientes de todo o Brasil. Escolha o canal de sua preferência.
                   </p>
 
@@ -1624,7 +1616,7 @@ export default function Home() {
                           {ADDRESS_TEXT}
                         </p>
                         <p className="text-xs text-slate-500 mt-0.5">
-                          Matozinhos - Minas Gerais &bull; CEP 35720-000
+                          Itapecerica - Minas Gerais &bull; CEP 35550-000
                         </p>
                         <a
                           href={GOOGLE_MAPS_URL}
@@ -1688,7 +1680,7 @@ export default function Home() {
                           rel="noopener noreferrer"
                           className="text-sm font-semibold text-slate-800 hover:text-[#c88a2c] mt-0.5 block"
                         >
-                          {INSTAGRAM_HANDLE}
+                          {INSTAGRAM_HANDLE} (Rafael Nascimento)
                         </a>
                       </div>
                     </div>
@@ -1702,7 +1694,7 @@ export default function Home() {
                           Horário de Funcionamento
                         </p>
                         <p className="text-sm text-slate-700 mt-0.5">
-                          Segunda a Sexta das 08:00 às 16:00
+                          Segunda a Sexta das 08:00 às 17:00
                         </p>
                         <p className="text-xs text-slate-500">
                           Atendimento presencial e digital com agendamento prévio
@@ -1734,32 +1726,33 @@ export default function Home() {
                       <div className="relative size-8 shrink-0">
                         <Image
                           src={LOGO_SYMBOL_SRC}
-                          alt="Tharin Miranda Advocacia Monograma"
+                          alt="Rafael Nascimento Advocacia Emblema"
                           fill
+                          unoptimized
                           className="object-contain"
                         />
                       </div>
                       <div>
                         <p className="font-cinzel text-sm font-bold text-[#0e1017]">
-                          Tharin Miranda Advocacia
+                          Rafael Nascimento Advocacia
                         </p>
                         <p className="text-[10px] text-slate-500">
-                          Matozinhos - MG
+                          Itapecerica - MG &bull; Centro
                         </p>
                       </div>
                     </div>
 
                     <div className="flex items-center gap-1 rounded-md bg-amber-50 px-2 py-1 text-xs font-bold text-amber-700 border border-amber-200">
                       <Star size={12} className="fill-amber-400 text-amber-500" />
-                      <span>5,0 ★ Google (12)</span>
+                      <span>5,0 ★ Google (11)</span>
                     </div>
                   </div>
 
                   {/* Interactive Map Container */}
                   <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-slate-200 bg-slate-100">
                     <iframe
-                      title="Localização de Tharin Miranda Advocacia em Matozinhos - MG"
-                      src="https://maps.google.com/maps?q=Travessa+da+Esmeralda,+45+A+-+S%C3%A3o+Sebastiao,+Matozinhos+-+MG,+35720-000&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                      title="Localização de Rafael Nascimento Advocacia em Itapecerica - MG"
+                      src="https://maps.google.com/maps?q=R.+C%C3%B4nego+Ces%C3%A1rio,+282+-+Sl+04+-+Centro,+Itapecerica+-+MG,+35550-000&t=&z=16&ie=UTF8&iwloc=&output=embed"
                       className="size-full border-0"
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
@@ -1767,7 +1760,7 @@ export default function Home() {
                   </div>
 
                   <div className="mt-4 flex items-center justify-between text-xs text-slate-600">
-                    <span>Travessa da Esmeralda, 45 A - Matozinhos - MG</span>
+                    <span>R. Cônego Cesário, 282 - Sl 04 - Centro, Itapecerica - MG</span>
                     <a
                       href={GOOGLE_MAPS_URL}
                       target="_blank"
@@ -1794,23 +1787,16 @@ export default function Home() {
               <div className="lg:col-span-5">
                 <a
                   href="#inicio"
-                  className="flex items-center gap-3.5 transition-opacity hover:opacity-95"
+                  className="flex items-center transition-opacity hover:opacity-95"
                 >
-                  <div className="relative size-13 sm:size-14 shrink-0">
+                  <div className="relative h-14 sm:h-16 w-56 sm:w-64 shrink-0">
                     <Image
-                      src={LOGO_SYMBOL_SRC}
-                      alt="Tharin Miranda Advocacia Monograma"
+                      src={LOGO_SRC}
+                      alt="Rafael Nascimento Advocacia"
                       fill
-                      className="object-contain"
+                      unoptimized
+                      className="object-contain object-left"
                     />
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="font-cinzel text-lg sm:text-xl font-extrabold tracking-[0.14em] text-white leading-tight">
-                      THARIN MIRANDA
-                    </span>
-                    <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.22em] text-[#f5d77f] uppercase mt-0.5">
-                      ADVOCACIA &bull; MATOZINHOS - MG
-                    </span>
                   </div>
                 </a>
 
@@ -1824,7 +1810,7 @@ export default function Home() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex size-9 items-center justify-center rounded-lg border border-slate-700 bg-white/5 text-slate-300 transition-colors hover:border-[#f5d77f] hover:text-[#f5d77f]"
-                    aria-label="Instagram de Tharin Miranda Advocacia"
+                    aria-label="Instagram de Rafael Nascimento Advocacia"
                   >
                     <InstagramIcon size={16} />
                   </a>
@@ -1833,7 +1819,7 @@ export default function Home() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex size-9 items-center justify-center rounded-lg border border-slate-700 bg-white/5 text-slate-300 transition-colors hover:border-[#25D366] hover:text-[#25D366]"
-                    aria-label="WhatsApp de Tharin Miranda Advocacia"
+                    aria-label="WhatsApp de Rafael Nascimento Advocacia"
                   >
                     <WhatsAppIcon size={16} />
                   </a>
@@ -1857,27 +1843,27 @@ export default function Home() {
                 <ul className="space-y-2.5 text-xs text-slate-300">
                   <li>
                     <a className="footer-link" href="#atuacao">
-                      Direito Imobiliário &amp; Usucapião
+                      Direito Criminal &amp; Defesa Penal
                     </a>
                   </li>
                   <li>
                     <a className="footer-link" href="#atuacao">
-                      Direito do Trabalho
+                      Direito Cível &amp; Indenizações
                     </a>
                   </li>
                   <li>
                     <a className="footer-link" href="#atuacao">
-                      Direito Previdenciário (INSS)
-                    </a>
-                  </li>
-                  <li>
-                    <a className="footer-link" href="#atuacao">
-                      Direito Cível &amp; Contratos
+                      Contratos &amp; Blindagem Jurídica
                     </a>
                   </li>
                   <li>
                     <a className="footer-link" href="#atuacao">
                       Família &amp; Sucessões (Inventários)
+                    </a>
+                  </li>
+                  <li>
+                    <a className="footer-link" href="#atuacao">
+                      Direito Imobiliário &amp; Posse
                     </a>
                   </li>
                   <li>
@@ -1907,7 +1893,7 @@ export default function Home() {
                     <span>{EMAIL_CONTACT}</span>
                   </p>
                   <p className="text-[11px] text-slate-400 mt-3 pt-3 border-t border-slate-800">
-                    Atendimento de Segunda a Sexta das 08:00 às 16:00.
+                    Atendimento de Segunda a Sexta das 08:00 às 17:00.
                   </p>
                 </div>
               </div>
@@ -1916,7 +1902,7 @@ export default function Home() {
             {/* Bottom Copyright & OAB Ethics Notice */}
             <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] text-slate-400 text-center md:text-left">
               <p>
-                &copy; {new Date().getFullYear()} Tharin Miranda Advocacia.
+                &copy; {new Date().getFullYear()} Rafael Nascimento Advocacia.
                 Todos os direitos reservados.
               </p>
               <p className="max-w-xl text-[10px] leading-relaxed">
@@ -1936,7 +1922,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             className="group relative flex items-center gap-2.5 rounded-full border-2 border-white/80 bg-[#25D366] px-4 py-3 text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-[#1ebe5d]"
-            aria-label="Falar com a Dra. Tharin Miranda no WhatsApp"
+            aria-label="Falar com o Dr. Rafael Nascimento no WhatsApp"
           >
             <span className="absolute -top-1 -right-1 flex size-3">
               <span className="absolute inline-flex size-full animate-ping rounded-full bg-white opacity-75" />
@@ -1982,8 +1968,9 @@ export default function Home() {
                   <div className="relative size-10 shrink-0">
                     <Image
                       src={LOGO_SYMBOL_SRC}
-                      alt="Tharin Miranda Advocacia Monograma"
+                      alt="Rafael Nascimento Advocacia Emblema"
                       fill
+                      unoptimized
                       className="object-contain"
                     />
                   </div>
@@ -1999,8 +1986,8 @@ export default function Home() {
 
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                   Para analisar sua demanda com sigilo, agilidade e rigor técnico, você será
-                  redirecionado ao atendimento oficial da{" "}
-                  <strong className="text-white">Dra. Tharin Miranda</strong>.
+                  redirecionado ao atendimento oficial do{" "}
+                  <strong className="text-white">Dr. Rafael Nascimento</strong>.
                 </p>
 
                 <div className="mt-5 space-y-2 rounded-xl border border-amber-400/20 bg-white/5 p-4 text-xs text-slate-300">
@@ -2010,7 +1997,7 @@ export default function Home() {
                   <ul className="space-y-1 pl-1">
                     <li>&bull; Nome completo e cidade onde reside</li>
                     <li>&bull; Breve resumo da situação ou questão jurídica</li>
-                    <li>&bull; Documentos, contratos, certidões ou comprovantes do caso</li>
+                    <li>&bull; Documentos, intimações, certidões ou comprovantes do caso</li>
                   </ul>
                 </div>
 
@@ -2019,7 +2006,7 @@ export default function Home() {
                     variant="gold"
                     size="md"
                     href={getWhatsAppUrl(
-                      `Olá, Dra. Tharin Miranda! Gostaria de uma avaliação jurídica sobre: ${modalArea}.`
+                      `Olá, Dr. Rafael Nascimento! Gostaria de uma avaliação jurídica sobre: ${modalArea}.`
                     )}
                     target="_blank"
                     className="w-full justify-center"
