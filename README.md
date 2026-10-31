@@ -1,29 +1,33 @@
-# Mariana Madeira — Registro de Marcas e Advocacia Empresarial
+# SIS — Saúde Integrada Sarzedo
 
-Landing page e site institucional de altíssimo padrão desenvolvido em Next.js (App Router), Tailwind CSS v4 e Framer Motion para **Mariana Madeira Registro de Marcas e Advocacia Empresarial** em Itapecerica - MG e com atendimento online em todo o Brasil.
+Landing page e site institucional de alta conversão desenvolvido em Next.js (App Router), Tailwind CSS v4 e Framer Motion para a clínica **SIS — Saúde Integrada Sarzedo** (clínica médica, odontológica e multidisciplinar).
 
-## Dados do Escritório
-- **Nome Institucional:** Mariana Madeira Registro de Marcas e Advocacia Empresarial
-- **Nome Fantasia:** Mariana Madeira Marcas
-- **Advogada Titular:** Dra. Mariana Madeira
-- **Especialidade:** Registro de Marcas no INPI, Advocacia para Negócios Digitais e Contratos Empresariais
-- **Posicionamento & Slogan:** "Proteção jurídica para quem empreende. Registro de Marcas no INPI, Contratos e Negócios Digitais. Atendimento presencial em Itapecerica - MG e digital em todo o Brasil."
-- **Localização:** Av. Severo Augusto Ribeiro, 179 - Centro, Itapecerica - MG, CEP 35550-000, Brasil
-- **Telefone / WhatsApp:** (37) 99809-0441 (`https://wa.me/5537998090441`)
-- **E-mail:** contato@marianamadeira.adv.br
-- **Horário de Atendimento:** Segunda a Sexta, das 08:30 às 17:00
-- **Instagram:** [@marianamadeira.adv](https://www.instagram.com/marianamadeira.adv/) (2.316 seguidores, 232 posts)
-- **Prova Social Google:** Nota Máxima 5,0 ★ unânime em 10 avaliações no Google Meu Negócio ("Mariana Madeira Registro de Marcas e Advocacia Empresarial").
-- **Autoridade:** +500 marcas conduzidas e protegidas perante o INPI.
+## Dados da Clínica
+- **Nome Institucional:** SIS — Saúde Integrada Sarzedo (Clínica médica e odontológica)
+- **Nome Comercial:** SIS Saúde Integrada Sarzedo
+- **Slogan:** "Cuidando da sua saúde e bem-estar" / "Cuidando de você sempre"
+- **Endereço:** Rod. MG 040, 122 MARGINAL - Santa Rosa de Lima, Sarzedo - MG, 32450-000, Brasil
+- **Telefone / WhatsApp de Agendamentos:** (31) 99684-3808
+- **Telefone Fixo:** (31) 3136-3808
+- **Instagram:** [@sissarzedo](https://www.instagram.com/sissarzedo/) (4.664 seguidores)
+- **Avaliações no Google:** 4,8 ★★★★★ (+340 avaliações reais)
+- **Horário:** Seg a Sex: 08:00 às 18:00 | Sáb: 08:00 às 12:00
 
-## Estrutura de Assets
-- `public/logo.png`: Logo oficial em alta resolução com transparência.
-- `public/logo-symbol.png`: Emblema estrela/bússola estilizado isolado em alta resolução (512x512).
-- `public/mariana-madeira.jpg`: Fotografia oficial de alta resolução da Dra. Mariana Madeira.
-- `public/mariana-madeira-portrait.jpg`: Enquadramento 4:5 otimizado para o Hero e seção Sobre.
-- `public/mariana-madeira-avatar.jpg`: Avatar quadrado de alta resolução.
-- `public/og-image.jpg`: Imagem de OpenGraph (1200x630) para compartilhamento em redes sociais e WhatsApp.
-- `public/favicon.ico`, `favicon-32x32.png`, `favicon-16x16.png`, `icon.png`, `icon-512x512.png`, `apple-icon.png`: Favicons gerados diretamente do emblema oficial da marca com alto contraste para guias de navegadores.
+## Especialidades
+- Oftalmologia Avançada & SAME (exames de vista, refração, pressão ocular)
+- Odontologia Completa & Ortodontia (clínica geral, próteses, clareamento, odontopediatria)
+- Studio de Pilates & Fisioterapia (postura, alívio de dores, reabilitação)
+- Psicologia & Saúde Mental (terapia infantil, adolescentes e adultos)
+- Nutrição & Reeducação Alimentar (planos nutricionais individualizados)
+- Medicina Especializada & Check-ups preventivos
+
+## Assets do Projeto
+- `public/logo.png`: Logo oficial em alta resolução com fundo transparente.
+- `public/logo-symbol.png`: Emblema da cruz médica e arco verde em 512x512.
+- `public/fachada-clinica.jpg`: Foto da fachada moderna na Rod. MG 040 em Sarzedo.
+- `public/recepcao-clinica.jpg`: Foto do ambiente de recepção e espera acolhedor.
+- `public/og-image.jpg`: Imagem de compartilhamento social 1200x630.
+- `public/favicon.ico`, `app/favicon.ico`: Favicon oficial com o símbolo da clínica.
 
 ## Comandos do Projeto
 ```bash

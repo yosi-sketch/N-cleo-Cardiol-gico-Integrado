@@ -1,113 +1,97 @@
 import type { Metadata, Viewport } from "next";
-import {
-  Cinzel,
-  Playfair_Display,
-  Cormorant_Garamond,
-  Plus_Jakarta_Sans,
-} from "next/font/google";
+import { Plus_Jakarta_Sans, Outfit } from "next/font/google";
 import "./globals.css";
 
-const cinzelFont = Cinzel({
-  variable: "--font-cinzel",
+const outfitFont = Outfit({
+  variable: "--font-heading",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
-  display: "swap",
-});
-
-const playfairFont = Playfair_Display({
-  variable: "--font-serif",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-  display: "swap",
-});
-
-const displayFont = Cormorant_Garamond({
-  variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
 const bodyFont = Plus_Jakarta_Sans({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
 export const viewport: Viewport = {
-  themeColor: "#090a0d",
-  colorScheme: "light dark",
+  themeColor: "#0078d8",
+  colorScheme: "light",
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://marianamadeira.adv.br"),
+  metadataBase: new URL("https://sissarzedo.com.br"),
   title:
-    "Mariana Madeira | Registro de Marcas & Advocacia Empresarial | Itapecerica - MG",
+    "SIS — Saúde Integrada Sarzedo | Clínica Médica, Odontologia & Oftalmologia em Sarzedo - MG",
   description:
-    "⚖️ Mariana Madeira Registro de Marcas e Advocacia Empresarial — Proteção jurídica para quem empreende. Especialista em Registro de Marcas no INPI, Contratos e Negócios Digitais. +500 marcas protegidas. Nota máxima 5,0 ★ no Google (10 avaliações). Sede: Av. Severo Augusto Ribeiro, 179 - Centro, Itapecerica - MG.",
+    "🏥 SIS Saúde Integrada Sarzedo — Cuidando da sua saúde e bem-estar. Clínica médica e odontológica completa: Oftalmologia (SAME), Odontologia e Ortodontia, Studio de Pilates, Psicologia e Nutrição. Mais de 340 avaliações com nota 4,8 ★ no Google. Atendimento acolhedor na Rod. MG 040, 122 Marginal - Santa Rosa de Lima, Sarzedo - MG. Agende sua consulta pelo WhatsApp: (31) 99684-3808.",
   keywords: [
-    "Mariana Madeira",
-    "Mariana Madeira Marcas",
-    "Mariana Madeira Advocacia Empresarial",
-    "Registro de Marcas Itapecerica MG",
-    "Advogada Empresarial Itapecerica",
-    "Registro de Marca INPI",
-    "Pesquisa de Viabilidade Marca INPI",
-    "Advogada Negócios Digitais",
-    "Contratos para Negócios Digitais",
-    "Blindagem Jurídica de Empresas",
-    "Combate à Pirataria e Concorrência Desleal",
-    "Monitoramento de Marcas INPI",
-    "Advogada Itapecerica Minas Gerais",
-    "Oposição de Marca INPI",
-    "marianamadeira.adv",
+    "SIS Sarzedo",
+    "SIS Saúde Integrada Sarzedo",
+    "Clínica Médica Sarzedo",
+    "Dentista em Sarzedo MG",
+    "Oftalmologista Sarzedo SAME",
+    "Exame de Vista Sarzedo",
+    "Pilates Sarzedo MG",
+    "Studio de Pilates Sarzedo",
+    "Fisioterapia Sarzedo",
+    "Psicologia Sarzedo",
+    "Nutricionista Sarzedo",
+    "Odontopediatria Sarzedo",
+    "Clínica Odontológica Sarzedo MG",
+    "SAME Oftalmologia Sarzedo",
+    "Dra Larissa Ferreira Oftalmologista",
+    "Dra Laura Dentista Sarzedo",
+    "Fisioterapeuta Emilly Pilates",
+    "sissarzedo",
   ],
   authors: [
-    { name: "Mariana Madeira" },
-    { name: "Mariana Madeira Registro de Marcas e Advocacia Empresarial" },
+    { name: "SIS — Saúde Integrada Sarzedo" },
+    { name: "Grupo SIS Saúde Sarzedo" },
   ],
-  creator: "Mariana Madeira Registro de Marcas e Advocacia Empresarial",
-  publisher: "Mariana Madeira Registro de Marcas e Advocacia Empresarial",
+  creator: "SIS — Saúde Integrada Sarzedo",
+  publisher: "SIS — Saúde Integrada Sarzedo",
   formatDetection: {
     telephone: true,
     address: true,
   },
   icons: {
     icon: [
-      { url: "/favicon.ico?v=mm1", sizes: "any" },
-      { url: "/favicon-32x32.png?v=mm1", type: "image/png", sizes: "32x32" },
-      { url: "/favicon-16x16.png?v=mm1", type: "image/png", sizes: "16x16" },
-      { url: "/icon.png?v=mm1", type: "image/png", sizes: "192x192" },
-      { url: "/icon-512x512.png?v=mm1", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.ico?v=sis2", sizes: "any" },
+      { url: "/favicon-32x32.png?v=sis2", type: "image/png", sizes: "32x32" },
+      { url: "/favicon-16x16.png?v=sis2", type: "image/png", sizes: "16x16" },
+      { url: "/icon.png?v=sis2", type: "image/png", sizes: "192x192" },
+      { url: "/icon-512x512.png?v=sis2", type: "image/png", sizes: "512x512" },
     ],
-    shortcut: "/favicon.ico?v=mm1",
-    apple: [{ url: "/apple-icon.png?v=mm1", sizes: "180x180" }],
+    shortcut: "/favicon.ico?v=sis2",
+    apple: [{ url: "/apple-icon.png?v=sis2", sizes: "180x180" }],
   },
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://marianamadeira.adv.br",
+    url: "https://sissarzedo.com.br",
     title:
-      "Mariana Madeira | Registro de Marcas & Advocacia Empresarial | Itapecerica - MG",
+      "SIS — Saúde Integrada Sarzedo | Clínica Médica, Odontológica & Oftalmologia",
     description:
-      "⚖️ Proteção jurídica para quem empreende. Especialista em Registro de Marcas no INPI, Contratos e Negócios Digitais. +500 marcas protegidas. Nota máxima 5,0 ★ no Google (10 avaliações).",
-    siteName: "Mariana Madeira Registro de Marcas e Advocacia Empresarial",
+      "🏥 Cuidado completo e humanizado no coração de Sarzedo. Oftalmologia (SAME), Odontologia, Pilates, Psicologia e Nutrição. Avaliação 4,8 ★ no Google (+340 reviews). Agende via WhatsApp: (31) 99684-3808.",
+    siteName: "SIS — Saúde Integrada Sarzedo",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Mariana Madeira Registro de Marcas e Advocacia Empresarial",
+        alt: "SIS — Saúde Integrada Sarzedo - Clínica Médica e Odontológica",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "Mariana Madeira | Registro de Marcas & Advocacia Empresarial | Itapecerica - MG",
+      "SIS — Saúde Integrada Sarzedo | Clínica Médica & Odontológica em Sarzedo - MG",
     description:
-      "⚖️ Registro de marcas no INPI, contratos estratégicos e assessoria para negócios digitais. +500 marcas protegidas. Nota máxima 5,0 ★ no Google.",
+      "🏥 Oftalmologia, Odontologia, Studio de Pilates, Nutrição e Psicologia. Atendimento humanizado e estrutura moderna. 4,8 ★ no Google.",
     images: ["/og-image.jpg"],
   },
 };
@@ -119,85 +103,87 @@ export default function RootLayout({
 }>) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "LegalService",
-    name: "Mariana Madeira Registro de Marcas e Advocacia Empresarial",
-    alternateName: "Mariana Madeira Marcas",
-    legalName: "Mariana Madeira Registro de Marcas e Advocacia Empresarial",
-    telephone: "+55-37-99809-0441",
-    email: "contato@marianamadeira.adv.br",
-    url: "https://marianamadeira.adv.br",
-    image: "/logo.png",
+    "@type": "MedicalClinic",
+    name: "SIS — Saúde Integrada Sarzedo",
+    alternateName: "SIS Saúde Integrada",
+    legalName: "SIS - Saúde Integrada Sarzedo (Clínica médica e odontológica)",
+    telephone: "+55-31-99684-3808",
+    email: "contato@sissarzedo.com.br",
+    url: "https://sissarzedo.com.br",
+    logo: "https://sissarzedo.com.br/logo.png",
+    image: "https://sissarzedo.com.br/fachada-clinica.jpg",
+    description:
+      "Clínica multidisciplinar com médicos especialistas, oftalmologia SAME, odontologia completa, studio de pilates, fisioterapia, nutrição e psicologia em Sarzedo, MG.",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Av. Severo Augusto Ribeiro, 179 - Centro",
-      addressLocality: "Itapecerica",
+      streetAddress: "Rod. MG 040, 122 MARGINAL - Santa Rosa de Lima",
+      addressLocality: "Sarzedo",
       addressRegion: "MG",
-      postalCode: "35550-000",
+      postalCode: "32450-000",
       addressCountry: "BR",
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: "-20.4716",
-      longitude: "-45.1278",
+      latitude: "-20.0354",
+      longitude: "-44.1432",
     },
     priceRange: "$$",
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "5.0",
-      reviewCount: "10",
+      ratingValue: "4.8",
+      reviewCount: "344",
       bestRating: "5",
       worstRating: "1",
     },
-    areaServed: [
-      "Itapecerica",
-      "Divinópolis",
-      "Formiga",
-      "Oliveira",
-      "Cláudio",
-      "Belo Horizonte",
-      "Minas Gerais",
-      "Brasil",
+    medicalSpecialty: [
+      "Ophthalmology",
+      "Dentistry",
+      "Physiotherapy",
+      "DietNutrition",
+      "ClinicalPsychology",
+      "GeneralPractice",
     ],
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-        ],
-        opens: "08:30",
-        closes: "17:00",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "08:00",
+        closes: "18:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Saturday"],
+        opens: "08:00",
+        closes: "12:00",
       },
     ],
     sameAs: [
-      "https://www.instagram.com/marianamadeira.adv/",
-      "https://wa.me/5537998090441",
+      "https://www.instagram.com/sissarzedo/",
+      "https://wa.me/5531996843808",
+      "https://linktr.ee/sissarzedoo",
     ],
   };
 
   return (
     <html
       lang="pt-BR"
-      className={`${bodyFont.variable} ${displayFont.variable} ${playfairFont.variable} ${cinzelFont.variable} scroll-smooth dark`}
+      className={`${bodyFont.variable} ${outfitFont.variable} scroll-smooth`}
     >
       <head>
-        <link rel="icon" href="/favicon.ico?v=mm1" sizes="any" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=mm1" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=mm1" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/icon.png?v=mm1" />
-        <link rel="icon" type="image/png" sizes="512x512" href="/icon-512x512.png?v=mm1" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon.png?v=mm1" />
-        <link rel="shortcut icon" href="/favicon.ico?v=mm1" />
-        <meta name="theme-color" content="#090a0d" />
+        <link rel="icon" href="/favicon.ico?v=sis2" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=sis2" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=sis2" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/icon.png?v=sis2" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/icon-512x512.png?v=sis2" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon.png?v=sis2" />
+        <link rel="shortcut icon" href="/favicon.ico?v=sis2" />
+        <meta name="theme-color" content="#0078d8" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen overflow-x-clip bg-white font-sans text-slate-900 antialiased selection:bg-[#b8874d] selection:text-white">
+      <body className="min-h-screen overflow-x-clip bg-white font-sans text-slate-800 antialiased selection:bg-[#0078d8] selection:text-white">
         {children}
       </body>
     </html>

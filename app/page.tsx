@@ -2,82 +2,68 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { AnimatePresence, motion, type Variants, MotionConfig } from "framer-motion";
+import { AnimatePresence, motion, type Variants } from "framer-motion";
 import {
   ArrowRight,
   ArrowUpRight,
+  Calendar,
   CheckCircle2,
   Clock,
+  Eye,
   HeartHandshake,
-  Mail,
   MapPin,
   Menu,
   Phone,
-  Scale,
+  Smile,
   Sparkles,
   Star,
-  Shield,
-  FileText,
+  Activity,
+  UserCheck,
   X,
   ChevronDown,
-  Users,
-  Briefcase,
-  AlertCircle,
+  Car,
   Award,
-  Globe,
-  Lock,
-  Search,
-  Eye,
-  BadgeCheck,
-  ShieldCheck,
-  Building2,
-  Laptop,
+  Stethoscope,
+  Apple,
+  Brain,
 } from "lucide-react";
 import GlowingButton from "./components/GlowingButton";
 
-const WHATSAPP_NUMBER = "5537998090441";
-const PHONE_DISPLAY = "(37) 99809-0441";
-const EMAIL_CONTACT = "contato@marianamadeira.adv.br";
-const INSTAGRAM_URL = "https://www.instagram.com/marianamadeira.adv/";
-const INSTAGRAM_HANDLE = "@marianamadeira.adv";
+// Contatos & Dados Cadastrais Oficiais da Clínica SIS
+const WHATSAPP_NUMBER = "5531996843808";
+const PHONE_DISPLAY = "(31) 99684-3808";
+const PHONE_FIXO_DISPLAY = "(31) 3136-3808";
+const EMAIL_CONTACT = "contato@sissarzedo.com.br";
+const INSTAGRAM_URL = "https://www.instagram.com/sissarzedo/";
+const INSTAGRAM_HANDLE = "@sissarzedo";
 
-const FIRM_NAME = "Mariana Madeira Registro de Marcas e Advocacia Empresarial";
-const FIRM_SHORT_NAME = "Mariana Madeira Marcas";
-const FIRM_SLOGAN =
-  "Proteção jurídica para quem empreende. Registro de Marcas no INPI, Contratos e Negócios Digitais. Atendimento presencial em Itapecerica - MG e digital em todo o Brasil.";
-const LAWYER_NAME = "Dra. Mariana Madeira";
-const LAWYER_TITLE =
-  "Advogada Empresarial · Especialista em Registro de Marcas & Negócios Digitais";
+const CLINIC_NAME = "SIS — Saúde Integrada Sarzedo";
 
 const ADDRESS_TEXT =
-  "Av. Severo Augusto Ribeiro, 179 - Centro, Itapecerica - MG, 35550-000";
-const REGION_TEXT =
-  "Itapecerica · Minas Gerais & Atendimento Digital em Todo o Brasil";
+  "Rod. MG 040, 122 MARGINAL - Santa Rosa de Lima, Sarzedo - MG, 32450-000";
 
-const GOOGLE_SEARCH_URL =
-  "https://www.google.com/search?q=Mariana+Madeira+%E2%80%94+Advocacia+Empresarial%0AItapecerica+%C2%B7+MG&sourceid=chrome&ie=UTF-8#";
+const GOOGLE_REVIEWS_URL =
+  "https://www.google.com/search?sca_esv=a259f6be7e763dcd&q=sis+sarzedo+avalia%C3%A7%C3%B5es&ludocid=15239446991974706534";
 const GOOGLE_MAPS_URL =
-  "https://www.google.com/maps/search/?api=1&query=Av.+Severo+Augusto+Ribeiro%2C+179+-+Centro%2C+Itapecerica+-+MG%2C+35550-000";
+  "https://www.google.com/maps/search/?api=1&query=Rod.+MG+040%2C+122+MARGINAL+-+Santa+Rosa+de+Lima%2C+Sarzedo+-+MG%2C+32450-000";
 
 const LOGO_SRC = "/logo.png";
-const LOGO_SYMBOL_SRC = "/logo-symbol.png";
-const FOTO_HERO_SRC = "/mariana-madeira-portrait.jpg";
-const FOTO_PERFIL_SRC = "/mariana-madeira.jpg";
-const FOTO_AVATAR_SRC = "/mariana-madeira-avatar.jpg";
+const FACHADA_SRC = "/fachada-clinica.jpg";
+const RECEPCAO_SRC = "/recepcao-clinica.jpg";
 
 function getWhatsAppUrl(
   message?: string,
   number: string = WHATSAPP_NUMBER
 ) {
   const defaultText =
-    "Olá, Dra. Mariana Madeira! Gostaria de uma avaliação para registrar minha marca e proteger meu negócio.";
+    "Olá! Gostaria de agendar uma consulta na clínica SIS — Saúde Integrada Sarzedo.";
   return `https://wa.me/${number}?text=${encodeURIComponent(
     message || defaultText
   )}`;
 }
 
 function WhatsAppIcon({
-  size = 17,
+  size = 18,
   className = "",
 }: {
   size?: number;
@@ -98,7 +84,7 @@ function WhatsAppIcon({
 }
 
 function InstagramIcon({
-  size = 17,
+  size = 18,
   className = "",
 }: {
   size?: number;
@@ -113,7 +99,7 @@ function InstagramIcon({
       fill="currentColor"
       className={className}
     >
-      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069ZM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0ZM12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8ZM18.406 4.155a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881Z" />
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
     </svg>
   );
 }
@@ -131,24 +117,23 @@ function GoogleIcon({
       width={size}
       height={size}
       viewBox="0 0 24 24"
-      fill="currentColor"
       className={className}
     >
       <path
-        fill="#EA4335"
-        d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.7 14.8 1 12 1 7.5 1 3.7 3.6 1.9 7.3l3.7 2.9C6.5 7.4 9 5 12 5z"
-      />
-      <path
         fill="#4285F4"
-        d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.8z"
-      />
-      <path
-        fill="#FBBC05"
-        d="M5.6 14.8c-.2-.7-.4-1.5-.4-2.3s.2-1.5.4-2.3L1.9 7.3C.7 9.7 0 10.8 0 12s.7 2.3 1.9 4.7l3.7-2.9z"
+        d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
       />
       <path
         fill="#34A853"
-        d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3 0-5.5-2.4-6.4-5.2L1.9 16c1.8 3.7 5.6 7 10.1 7z"
+        d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+      />
+      <path
+        fill="#FBBC05"
+        d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"
+      />
+      <path
+        fill="#EA4335"
+        d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"
       />
     </svg>
   );
@@ -159,7 +144,7 @@ const fadeInUp: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
   },
 };
 
@@ -169,767 +154,693 @@ const staggerContainer: Variants = {
     opacity: 1,
     transition: {
       staggerChildren: 0.08,
-      delayChildren: 0.05,
+      delayChildren: 0.1,
     },
   },
 };
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeFaq, setActiveFaq] = useState<number | null>(null);
+  const [activeFaq, setActiveFaq] = useState<number | null>(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-  const [modalArea, setModalArea] = useState<string>("Registro de Marcas no INPI");
+  const [modalSpecialty, setModalSpecialty] = useState<string>("Oftalmologia (SAME)");
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
+      setIsScrolled(window.scrollY > 30);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const openConsultModal = (areaName = "Registro de Marcas no INPI") => {
-    setModalArea(areaName);
+  const openConsultModal = (specialtyName = "Oftalmologia (SAME)") => {
+    setModalSpecialty(specialtyName);
     setModalOpen(true);
   };
 
   const closeMenu = () => setIsMenuOpen(false);
 
-  // Pilares Oficiais de Atuação de Mariana Madeira
-  const areasAtuacao = [
+  // Especialidades e Tratamentos Oficiais
+  const especialidades = [
     {
-      id: "registro-marcas-inpi",
-      icon: BadgeCheck,
-      title: "Registro de Marcas no INPI",
-      shortDesc:
-        "Exclusividade nacional de 10 anos garantida por lei. Pesquisa prévia de viabilidade, depósito correto, acompanhamento da RPI e entrega do certificado oficial de registro (®).",
-      bullets: [
-        "Pesquisa aprofundada de viabilidade marcária (evita indeferimentos e perdas financeiras)",
-        "Classificação técnica precisa nas classes de Nice para proteção abrangente",
-        "Acompanhamento semanal de cada despacho na Revista da Propriedade Industrial (RPI)",
-        "Defesa técnica perante oposições de terceiros, recursos e cumprimento de exigências",
-        "Concessão do Certificado Oficial de Registro de Marca válido em todo o Brasil",
-      ],
-      tag: "INPI",
-      badge: "Especialidade Principal",
-      whatsappMsg:
-        "Olá, Dra. Mariana Madeira! Gostaria de fazer a pesquisa de viabilidade para registrar minha marca no INPI.",
-    },
-    {
-      id: "negocios-digitais",
-      icon: Laptop,
-      title: "Advocacia para Negócios Digitais",
-      shortDesc:
-        "Segurança jurídica para infoprodutores, agências, criadores de conteúdo, e-commerces e startups que faturam no digital e precisam de blindagem sólida.",
-      bullets: [
-        "Termos de Uso e Políticas de Privacidade em total conformidade com a LGPD",
-        "Contratos de coprodução, prestação de serviços digitais, afiliados e parcerias",
-        "Proteção de cursos, mentorias, infoprodutos e propriedade intelectual",
-        "Atuação contra pirataria, plágio e remoção de perfis fakes em redes sociais",
-      ],
-      tag: "Digital",
-      badge: "Negócios Digitais",
-      whatsappMsg:
-        "Olá, Dra. Mariana Madeira! Preciso de assessoria jurídica especializada para meu negócio digital / infoproduto.",
-    },
-    {
-      id: "contratos-empresariais",
-      icon: FileText,
-      title: "Contratos Empresariais Estratégicos",
-      shortDesc:
-        "Elaboração, análise e blindagem minuciosa de instrumentos contratuais para empresas físicas e digitais, prevenindo litígios, calotes e passivos financeiros.",
-      bullets: [
-        "Redação e revisão customizada de contratos comerciais com clientes e fornecedores",
-        "Acordos de sócios (Memorandos de Entendimento / MoUs) e regras societárias claras",
-        "Termos de Confidencialidade (NDA) e não-concorrência para blindagem de know-how",
-        "Notificações extrajudiciais formais e cobrança jurídica de inadimplentes",
-      ],
-      tag: "Contratos",
-      badge: "Blindagem Jurídica",
-      whatsappMsg:
-        "Olá, Dra. Mariana Madeira! Gostaria de orientações para elaboração ou revisão de contratos da minha empresa.",
-    },
-    {
-      id: "pirataria-concorrencia",
-      icon: ShieldCheck,
-      title: "Combate à Pirataria & Concorrência Desleal",
-      shortDesc:
-        "Medidas rápidas e enérgicas contra quem tenta se apropriar indevidamente do nome, da reputação, do conteúdo ou da clientela da sua empresa.",
-      bullets: [
-        "Notificações extrajudiciais imediatas para cessação de uso indevido de marca",
-        "Ações judiciais de abstenção de uso de marca cumuladas com pedidos indenizatórios",
-        "Derrubada ágil de contas clonadas, anúncios fraudulentos e marketplaces piratas",
-        "Defesa de segredo comercial e proteção do patrimônio intangível do negócio",
-      ],
-      tag: "Proteção",
-      badge: "Defesa Patrimonial",
-      whatsappMsg:
-        "Olá, Dra. Mariana Madeira! Identifiquei terceiros usando indevidamente o nome da minha marca / conteúdo.",
-    },
-    {
-      id: "assessoria-pmes",
-      icon: Building2,
-      title: "Assessoria Jurídica Contínua para PMEs",
-      shortDesc:
-        "Retaguarda jurídica preventiva mensal para o empresário tomar decisões comerciais com segurança, previsibilidade e apoio direto da Dra. Mariana Madeira.",
-      bullets: [
-        "Consultoria mensal preventiva para empresas em expansão no presencial e digital",
-        "Análise de riscos comerciais, negociações contratuais e pareceres ágeis",
-        "Atendimento direto e sem burocracia para resolver as dúvidas do dia a dia",
-        "Tranquilidade para o empresário focar em faturar e escalar sem medo de processos",
-      ],
-      tag: "Assessoria",
-      badge: "Suporte Mensal",
-      whatsappMsg:
-        "Olá, Dra. Mariana Madeira! Gostaria de saber mais sobre a assessoria jurídica mensal contínua para empresas.",
-    },
-    {
-      id: "monitoramento-vigilancia",
+      id: "oftalmologia",
+      tag: "Saúde Ocular & SAME",
+      name: "Oftalmologia Avançada",
       icon: Eye,
-      title: "Vigilância & Monitoramento Ativo no INPI",
-      shortDesc:
-        "Sua marca não pode ficar desprotegida após o registro. Monitoramos semanalmente novas tentativas de cópia para barrar concorrentes de imediato.",
-      bullets: [
-        "Vigilância contínua da Revista da Propriedade Industrial (RPI) semana a semana",
-        "Alertas imediatos caso terceiros tentem depositar marcas similares ou idênticas",
-        "Protocolo célere de Oposição Administrativa dentro do prazo legal do INPI",
-        "Manutenção ativa da exclusividade conquistada no mercado nacional",
+      color: "from-sky-500 to-blue-600",
+      accentBg: "bg-sky-50 border-sky-200 text-sky-700",
+      description:
+        "Consultas oftalmológicas detalhadas, exames de refração computadorizada para óculos e lentes, tonometria e mapeamento preventivo.",
+      professionals: "Corpo Clínico SAME: Dra. Larissa Ferreira e Dra. Érica",
+      highlights: [
+        "Exame de vista completo e computadorizado",
+        "Medição de pressão intraocular (glaucoma)",
+        "Mapeamento de retina e fundo de olho",
+        "Atendimento com tempo de dedicação de 40 a 50min",
       ],
-      tag: "Vigilância",
-      badge: "Vigilância Ativa",
       whatsappMsg:
-        "Olá, Dra. Mariana Madeira! Quero contratar o serviço de vigilância e monitoramento contínuo da minha marca no INPI.",
+        "Olá! Gostaria de agendar uma consulta oftalmológica / exame de vista na clínica SIS.",
+    },
+    {
+      id: "odontologia",
+      tag: "Sorriso & Família",
+      name: "Odontologia & Ortodontia",
+      icon: Smile,
+      color: "from-blue-600 to-indigo-600",
+      accentBg: "bg-blue-50 border-blue-200 text-blue-700",
+      description:
+        "Atendimento odontológico humanizado e multidisciplinar para adultos e crianças, com carinho especial para transformar a ida ao dentista em um momento leve.",
+      professionals: "Dra. Laura (Odontopediatria e Clínica) & Dr. Leandro",
+      highlights: [
+        "Odontopediatria acolhedora sem traumas infantis",
+        "Aparelhos ortodônticos modernos e alinhadores",
+        "Clareamento dental, próteses e estética do sorriso",
+        "Limpeza profunda (profilaxia), restaurações e canal",
+      ],
+      whatsappMsg:
+        "Olá! Gostaria de agendar uma avaliação odontológica na clínica SIS Sarzedo.",
+    },
+    {
+      id: "pilates",
+      tag: "Movimento & Coluna",
+      name: "Studio de Pilates & Fisioterapia",
+      icon: Activity,
+      color: "from-lime-500 to-emerald-600",
+      accentBg: "bg-emerald-50 border-emerald-200 text-emerald-800",
+      description:
+        "Aulas de Pilates em aparelhos com acompanhamento individualizado e fisioterapêutico para alívio de dores, postura e fortalecimento do corpo.",
+      professionals: "Fisioterapeuta Emilly",
+      highlights: [
+        "Aparelhos de Pilates completos e higienizados",
+        "Tratamento e prevenção de dores na coluna e hérnias",
+        "Aumento de flexibilidade, força e equilíbrio",
+        "Aulas motivadoras com atenção paciente a cada movimento",
+      ],
+      whatsappMsg:
+        "Olá! Gostaria de informações e agendamento para aulas de Pilates na SIS com a Fisioterapeuta Emilly.",
+    },
+    {
+      id: "psicologia",
+      tag: "Saúde Mental & Acolhimento",
+      name: "Psicologia Clínica",
+      icon: Brain,
+      color: "from-teal-500 to-cyan-600",
+      accentBg: "bg-teal-50 border-teal-200 text-teal-800",
+      description:
+        "Espaço seguro, sigiloso e acolhedor para você cuidar das suas emoções, com acompanhamento terapêutico para crianças, jovens e adultos.",
+      professionals: "Psicólogas especialistas com acompanhamento contínuo",
+      highlights: [
+        "Manejo de ansiedade, estresse e depressão",
+        "Psicoterapia infantil e orientação familiar",
+        "Desenvolvimento pessoal e inteligência emocional",
+        "Consultas com escuta atenta e respeito ao seu tempo",
+      ],
+      whatsappMsg:
+        "Olá! Gostaria de agendar uma sessão com a equipe de Psicologia da clínica SIS.",
+    },
+    {
+      id: "nutricao",
+      tag: "Alimentação & Vida Saudável",
+      name: "Nutrição Clínica & Metabólica",
+      icon: Apple,
+      color: "from-emerald-500 to-green-600",
+      accentBg: "bg-green-50 border-green-200 text-green-800",
+      description:
+        "Planos alimentares adaptados à sua rotina real, promovendo emagrecimento saudável, disposição e prevenção de doenças crônicas.",
+      professionals: "Nutricionistas clínicas dedicadas",
+      highlights: [
+        "Avaliação de composição corporal e histórico de hábitos",
+        "Estratégias nutricionais sustentáveis sem radicalismos",
+        "Acompanhamento para controle de diabetes e colesterol",
+        "Reeducação alimentar para todas as fases da vida",
+      ],
+      whatsappMsg:
+        "Olá! Gostaria de agendar uma consulta nutricional na clínica SIS Sarzedo.",
+    },
+    {
+      id: "clinica-medica",
+      tag: "Check-up & Prevenção",
+      name: "Clínica Geral & Especialidades",
+      icon: Stethoscope,
+      color: "from-sky-600 to-blue-700",
+      accentBg: "bg-sky-50 border-sky-200 text-sky-800",
+      description:
+        "Consultas médicas de rotina, avaliação de exames diagnósticos e acompanhamento integrado de saúde no mesmo lugar.",
+      professionals: "Corpo Clínico Integrado SIS Sarzedo",
+      highlights: [
+        "Check-up preventivo para toda a família",
+        "Eletrocardiograma e encaminhamentos especializados",
+        "Atendimento ágil com preço justo e acessível",
+        "Encaminhamento interno rápido entre as especialidades",
+      ],
+      whatsappMsg:
+        "Olá! Gostaria de agendar uma consulta com clínico geral / exames na SIS Sarzedo.",
     },
   ];
 
-  // Avaliações Reais do Google Meu Negócio de Mariana Madeira (Nota Máxima 5,0 ★ unânime)
+  // Depoimentos Reais retirados diretamente das avaliações do Google Meu Negócio da SIS Sarzedo
   const depoimentosGoogle = [
     {
-      author: "Lara Nascimento Santos Lopes",
-      detail: "2 avaliações no Google",
-      stars: 5,
-      date: "3 meses atrás · Avaliação verificada",
-      quote:
-        "Profissional super competente e justa. Desde a pesquisa de viabilidade da marca até a sua concessão, se mostra super solícita. Preço justo pelos serviços prestados e muito clara em cada etapa que o registro de marca requer.",
-      highlight: "Super competente e justa, clareza em cada etapa do registro",
+      name: "Mirielly Samire",
+      rating: 5,
+      date: "4 meses atrás",
+      text: "Amei o atendimento que recebi hoje! Desde a chegada na recepção até a consulta médica (com oftalmologista) todos foram muito educados, simpáticos e atenciosos. O ambiente é limpo, agradável e acolhedor, o que faz toda a diferença. Parabéns a todos! ❤️🙏",
+      detail: "Consulta Oftalmológica & Recepção",
     },
     {
-      author: "Lavinia Dini",
-      detail: "1 avaliação no Google",
-      stars: 5,
-      date: "3 meses atrás · Avaliação verificada",
-      quote:
-        "Profissional excelente!!! Super atenciosa e prestativa. Não tenho preocupação com minha marca hoje graças a ela, que registrou tudo 🙏🏼 Obrigada, Mariana!!",
-      highlight: "Não tenho preocupação com minha marca hoje graças a ela",
+      name: "Elida Luciana",
+      rating: 5,
+      date: "4 meses atrás",
+      text: "Deixo aqui meu agradecimento à Dra. Laura, pelo excelente trabalho como dentista. Sempre tão gentil, educada e carinhosa com as crianças. A clínica está de parabéns! Desde a recepção, quanto aos atendimentos. Dr. Leandro também é um ótimo profissional.",
+      detail: "Odontopediatria com Dra. Laura & Dr. Leandro",
     },
     {
-      author: "Isabela Gondim Wulf",
-      detail: "3 avaliações no Google",
-      stars: 5,
-      date: "3 meses atrás · Avaliação verificada",
-      quote:
-        "Excelente profissional! Confio de olhos fechados. Extremamente atenciosa e dedicada.",
-      highlight: "Confio de olhos fechados, extremamente atenciosa e dedicada",
+      name: "Michele Beatriz (Bia)",
+      rating: 5,
+      date: "11 meses atrás",
+      text: "Gostaria de expressar minha profunda gratidão à clínica SIS e a todos os profissionais incríveis. Desde o primeiro atendimento, fui recebida com carinho, atenção e profissionalismo. Um agradecimento especial às aulas de Pilates, que têm sido fundamentais para meu bem-estar físico e emocional, e à fisioterapeuta Emilly, que é um verdadeiro amor de pessoa! Dedicação, paciência e alegria tornam cada aula leve e acolhedora.",
+      detail: "Pilates com Fisioterapeuta Emilly",
     },
     {
-      author: "Ariane Medeiros Santos",
-      detail: "6 avaliações · 3 fotos no Google",
-      stars: 5,
-      date: "3 meses atrás · Avaliação verificada",
-      quote: "Excelente profissional! Recomendo de olhos fechados.",
-      highlight: "Excelente profissional, recomendo de olhos fechados",
+      name: "Bianca Galgani",
+      rating: 5,
+      date: "1 ano atrás",
+      text: "Gostaria de registrar meu agradecimento e elogio pelo excelente atendimento recebido na clínica. Fui tratada com atenção, respeito e cordialidade. Quero destacar o profissionalismo e o cuidado da médica Larissa Ferreira, oftalmologista, que foi extremamente atenciosa, clara nas explicações e acolhedora. Parabéns a toda a equipe pelo trabalho humanizado e eficiente!",
+      detail: "Oftalmologia com Dra. Larissa Ferreira",
     },
     {
-      author: "Marcelo Cotta",
-      detail: "6 avaliações no Google",
-      stars: 5,
-      date: "3 meses atrás · Avaliação verificada",
-      quote: "Excelente profissional!!",
-      highlight: "Excelente profissional, dedicação e seriedade",
+      name: "Rosilene Vieira",
+      rating: 5,
+      date: "1 mês atrás",
+      text: "Recepção super atenciosa e acolhedora! Dra. Érica (oftalmologista) é um amor e uma excelente profissional. Adorei o atendimento!",
+      detail: "Oftalmologia com Dra. Érica",
     },
     {
-      author: "Cristiane Lamounier Costa",
-      detail: "3 avaliações no Google",
-      stars: 5,
-      date: "3 meses atrás · Avaliação verificada",
-      quote: "Pontualidade e confiança",
-      highlight: "Pontualidade e confiança absoluta em cada processo",
+      name: "Flavia Moreira",
+      rating: 5,
+      date: "1 ano atrás",
+      text: "Eu e minha família fizemos um tratamento odontológico e ficamos super satisfeitos, sempre fomos muito bem recebidos pela equipe. Um elogio especial à secretária Juliana, que sempre esteve disposta a nos ajudar, e ela é uma pessoa muito simpática e gentil com todos os pacientes.",
+      detail: "Tratamento Odontológico Familiar",
+    },
+    {
+      name: "Anderson Alves Teixeira",
+      rating: 5,
+      date: "7 meses atrás",
+      badge: "Local Guide",
+      text: "Além do preço justo, o atendimento desde a recepção até o consultório é excepcional.",
+      detail: "Atendimento Geral & Custo-benefício",
+    },
+    {
+      name: "Lua Pow",
+      rating: 5,
+      date: "1 ano atrás",
+      text: "Ótimo atendimento! Profissionais maravilhosos, sempre muito receptivos e atenciosos com os clientes. Faço acompanhamento com a psicóloga há meses e sempre fui muito bem atendida. As consultas são excelentes e a equipe é extremamente prestativa. Recomendo muito!",
+      detail: "Acompanhamento em Psicologia",
+    },
+    {
+      name: "Sara Patrícia",
+      rating: 5,
+      date: "10 meses atrás",
+      text: "Minha experiência tem sido a melhor possível. Sempre muito bem recebida, desde a recepção até o atendimento. Iara e Laura estão de parabéns, excelente atendimento. Faço tratamento meu e dos meus filhos. Gratidão a todos vocês!",
+      detail: "Atendimento da Família",
     },
   ];
 
-  // Diferenciais Competitivos de Mariana Madeira
+  // Diferenciais da SIS Saúde Integrada Sarzedo
   const diferenciais = [
     {
-      icon: Award,
-      title: "+500 Marcas Conduzidas e Protegidas",
-      description:
-        "Ampla vivência prática e expertise consolidada em processos no INPI para empresas de diversos nichos e portes, tanto no mercado tradicional quanto nos negócios digitais em todo o Brasil.",
-    },
-    {
-      icon: Star,
-      title: "Nota Máxima 5,0 ★ Unânime no Google",
-      description:
-        "Reconhecimento espontâneo de clientes com 100% de avaliações 5 estrelas no Google Meu Negócio, atestando a competência, a pontualidade, a clareza didática e a dedicação personalizada.",
-    },
-    {
-      icon: Laptop,
-      title: "Especialista em Negócios Digitais & Startups",
-      description:
-        "Domínio das dinâmicas ágeis de infoprodutos, e-commerces, plataformas e criadores. Contratos de coprodução, termos LGPD e defesa contra pirataria digital pensados para a velocidade da internet.",
-    },
-    {
       icon: HeartHandshake,
-      title: "Atendimento Direto, Humanizado & Sem Juridiquês",
-      description:
-        "Você alinha suas estratégias e tira dúvidas diretamente com a Dra. Mariana Madeira. Comunicação clara, honesta, sem termos herméticos e com suporte solícito em cada fase do processo.",
+      title: "Atendimento Verdadeiramente Humano",
+      desc: "Você não é apenas uma ficha. Nossa equipe escuta com atenção, esclarece todas as dúvidas com paciência e trata você e seus filhos com genuíno carinho e respeito.",
     },
     {
-      icon: MapPin,
-      title: "Sede Central em Itapecerica & Alcance Nacional",
-      description:
-        "Escritório presencial na Av. Severo Augusto Ribeiro, 179 - Centro, Itapecerica - MG, aliado a um fluxo 100% digital e seguro para atender clientes de qualquer estado do país.",
+      icon: Activity,
+      title: "Saúde Integrada em um Só Lugar",
+      desc: "Oftalmologia SAME, Odontologia, Studio de Pilates, Psicologia e Nutrição sob o mesmo teto, facilitando a rotina e o cuidado preventivo de toda a família.",
     },
     {
-      icon: Shield,
-      title: "Honorários Claros, Preço Justo & Rigor Ético",
-      description:
-        "Transparência absoluta sobre custos, taxas oficiais do INPI e cronograma de trabalho. Contratos transparentes alinhados ao Código de Ética e Disciplina da OAB.",
+      icon: Car,
+      title: "Fácil Acesso & Estacionamento Próprio",
+      desc: "Localizada às margens da Marginal da MG-040 em Sarzedo, com vagas confortáveis bem na porta da clínica para gestantes, idosos e motoristas.",
+    },
+    {
+      icon: Award,
+      title: "Excelência Reconhecida no Google (4,8 ★)",
+      desc: "Mais de 340 avaliações de pacientes de Sarzedo e cidades vizinhas confirmando a qualidade dos especialistas, a limpeza impecável e a recepção acolhedora.",
+    },
+    {
+      icon: Clock,
+      title: "Horários Amplos & Pontualidade",
+      desc: "Atendimento de segunda a sexta das 08h às 18h e aos sábados das 08h às 12h, com agendamento organizado para valorizar o seu tempo.",
+    },
+    {
+      icon: UserCheck,
+      title: "Preço Justo & Acessibilidade",
+      desc: "Medicina e odontologia de alto nível ao alcance da população de Sarzedo, com planos de pagamento facilitados e transparência total.",
     },
   ];
 
-  // Situações comuns (Diagnóstico Rápido)
-  const situacoesDiagnostico = [
-    {
-      pergunta: "Sua empresa já investe em nome, logo e fachada, mas você ainda não registrou no INPI?",
-      orientacao:
-        "No Brasil, o direito sobre a marca pertence a quem registra primeiro no INPI. Sem o registro, você corre o risco de ser impedido de usar seu próprio nome, perder seguidores, ter que trocar de fachada e ainda pagar indenização a terceiros.",
-      cta: "Fazer Pesquisa de Viabilidade Gratuita",
-      area: "Registro de Marcas no INPI",
-    },
-    {
-      pergunta: "Descobriu alguém copiando seu logotipo, nome comercial, fotos ou infoprodutos?",
-      orientacao:
-        "A Dra. Mariana Madeira atua prontamente com notificações extrajudiciais formais para cessação imediata do uso indevido e, quando necessário, ingresso com medidas judiciais de abstenção de uso e indenização por perdas e danos.",
-      cta: "Combater Uso Indevido da Marca",
-      area: "Combate à Pirataria",
-    },
-    {
-      pergunta: "Está fechando parcerias, entrando em sociedade ou contratando sem um documento blindado?",
-      orientacao:
-        "Estruturamos Acordos de Sócios (MoUs), contratos de prestação de serviços e termos de confidencialidade (NDA) customizados para mitigar riscos, alinhar expectativas e evitar litígios que sangrem seu negócio.",
-      cta: "Blindar Meus Contratos Comerciais",
-      area: "Contratos Empresariais",
-    },
-    {
-      pergunta: "Atua no mercado digital (cursos, infoprodutos, e-commerce) e precisa de estrutura jurídica segura?",
-      orientacao:
-        "Elaboração de Termos de Uso, Políticas de Privacidade alinhadas à LGPD, contratos de coprodução e estratégias completas de blindagem para você vender na internet com tranquilidade institucional.",
-      cta: "Consultar Advocacia para o Digital",
-      area: "Negócios Digitais",
-    },
-  ];
-
-  // FAQ
+  // Perguntas Frequentes Reais da Clínica SIS Sarzedo
   const faqs = [
     {
-      question: "Por que ter o CNPJ ou registro na Junta Comercial não protege minha marca?",
-      answer:
-        "O CNPJ e a Junta Comercial garantem apenas o registro do nome empresarial na sua junta estadual. Eles NÃO concedem exclusividade comercial sobre a marca nem sobre o logotipo. Apenas o registro concedido pelo INPI (Instituto Nacional da Propriedade Industrial) confere o direito exclusivo de uso da marca em todo o território nacional e o direito de usar o símbolo ®.",
+      q: "Onde a clínica SIS está localizada e qual é o ponto de referência?",
+      a: "A clínica está situada na Rodovia MG 040, 122 MARGINAL - Santa Rosa de Lima, Sarzedo - MG (CEP 32450-000). Ficamos exatamente às margens da pista marginal da MG-040, em ponto de fácil visualização e acesso rápido para quem vem de Sarzedo centro, Ibirité, Brumadinho ou Mário Campos. Contamos com estacionamento próprio na porta.",
     },
     {
-      question: "Como funciona a pesquisa prévia de viabilidade da marca?",
-      answer:
-        "A pesquisa de viabilidade é o passo mais estratégico antes de iniciar o processo. Analisamos detalhadamente a base de dados do INPI para verificar se já existem marcas idênticas ou semelhantes registradas ou em trâmite no mesmo segmento mercadológico. Isso evita que você gaste taxas em um pedido com alto risco de indeferimento.",
+      q: "Como faço para agendar uma consulta médica, odontológica ou aula de Pilates?",
+      a: "O agendamento é rápido e prático diretamente pelo nosso WhatsApp oficial (31) 99684-3808 ou pelo telefone fixo (31) 3136-3808. Nossa equipe da recepção atende com agilidade e tira todas as suas dúvidas sobre horários e preparos.",
     },
     {
-      question: "Quanto tempo dura o processo no INPI e qual a validade do registro?",
-      answer:
-        "Atualmente, um processo de registro de marca no INPI costuma levar em média de 8 a 14 meses quando não há oposições complexas de terceiros. Uma vez concedido, o Certificado de Registro tem validade de 10 anos em todo o Brasil e pode ser renovado indefinidamente por períodos iguais.",
+      q: "Quais especialidades médicas e de saúde a clínica SIS oferece?",
+      a: "Oferecemos Oftalmologia completa (SAME), Odontologia e Odontopediatria, Ortodontia, Studio de Pilates com aparelhos, Fisioterapia, Psicologia clínica, Nutrição e Clínica Médica geral.",
     },
     {
-      question: "O escritório atende apenas presencialmente em Itapecerica ou em todo o Brasil?",
-      answer:
-        "Atendemos com muito prazer de forma presencial em nosso escritório na Av. Severo Augusto Ribeiro, 179 - Centro, em Itapecerica - MG. E, como o sistema do INPI e a gestão contratual são 100% digitais, atendemos com a mesma agilidade, proximidade e excelência clientes de qualquer cidade ou estado do Brasil.",
+      q: "Como funciona o atendimento de oftalmologia (SAME) na SIS Sarzedo?",
+      a: "Nosso núcleo oftalmológico conta com médicas conceituadas (como Dra. Larissa Ferreira e Dra. Érica). Realizamos exames de vista computadorizados completos para óculos e lentes de contato, aferição da pressão dos olhos e exames preventivos com dedicação e explicação clara.",
     },
     {
-      question: "O que acontece se eu receber uma notificação extrajudicial para parar de usar meu nome?",
-      answer:
-        "Se outra empresa possui a marca registrada antes de você no INPI, ela pode exigir que você pare de utilizá-la imediatamente e cobrar indenizações pelo uso indevido. Caso você tenha recebido uma notificação, entre em contato imediatamente com a Dra. Mariana Madeira para analisarmos a validade do documento e traçarmos a melhor estratégia defensiva.",
+      q: "A clínica atende crianças na odontologia (odontopediatria)?",
+      a: "Sim! Somos muito elogiados pelo carinho com os pequenos. A Dra. Laura é especialista em odontopediatria e transforma a consulta em uma experiência divertida, sem medo e sem traumas, orientando pais e crianças desde cedo.",
     },
     {
-      question: "Como funcionam os honorários e as taxas oficiais do INPI?",
-      answer:
-        "Trabalhamos com absoluta transparência. Informamos com clareza quais são as taxas oficiais obrigatórias do Governo Federal (INPI) — que possuem descontos de até 60% para MEI, ME, EPP e pessoas físicas — e detalhamos nossos honorários em contrato formal, com condições facilitadas de pagamento.",
+      q: "Como são estruturadas as aulas no Studio de Pilates?",
+      a: "As aulas são ministradas pela fisioterapeuta Emilly em equipamentos modernos e completos de Pilates. As turmas são reduzidas para garantir acompanhamento personalizado a cada movimento, sendo ideais para alívio de dores nas costas, melhora da postura e flexibilidade.",
+    },
+    {
+      q: "Quais são os dias e horários de funcionamento da clínica?",
+      a: "Funcionamos de segunda a sexta-feira, das 08:00 às 18:00, e aos sábados, das 08:00 às 12:00.",
     },
   ];
 
   return (
-    <MotionConfig reducedMotion="user">
-      <div className="relative min-h-screen bg-white font-sans text-slate-800 antialiased selection:bg-[#b8874d] selection:text-white">
-        {/* ========================================================================= */}
-        {/* 1. TOP NOTICE / PRE-HEADER                                               */}
-        {/* ========================================================================= */}
-        <div className="border-b border-[#262c3a] bg-gradient-to-r from-[#090a0d] via-[#101218] to-[#14171e] px-4 py-2 text-white">
-          <div className="mx-auto flex w-full max-w-[1600px] flex-wrap items-center justify-between gap-2 px-4 sm:px-6 lg:px-8 xl:px-12 text-xs">
-            <div className="flex items-center gap-2 font-medium">
-              <span className="flex size-2 rounded-full bg-[#d9aa69] animate-pulse" />
-              <span className="text-[#f7edd7] font-semibold">
-                Mariana Madeira &bull; Registro de Marcas &amp; Advocacia Empresarial
-              </span>
-              <span className="hidden sm:inline text-amber-500/50">|</span>
-              <span className="hidden sm:inline text-slate-300">
-                🛡️ +500 marcas protegidas &bull; Itapecerica - MG e todo o Brasil
-              </span>
-            </div>
+    <div className="relative min-h-screen bg-white text-slate-800 font-sans selection:bg-[#0078d8] selection:text-white">
+      {/* 1. TOP BAR INSTITUCIONAL DE CONTATO RÁPIDO */}
+      <div className="border-b border-sky-100 bg-gradient-to-r from-sky-900 via-[#0055a5] to-[#0078d8] text-white text-[11px] sm:text-xs">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-y-1.5 px-4 py-2 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sky-100">
+            <span className="inline-flex items-center gap-1.5 font-medium">
+              <MapPin className="h-3.5 w-3.5 text-lime-400" />
+              <span>Rod. MG 040, 122 Marginal - Sarzedo / MG</span>
+            </span>
+            <span className="hidden md:inline-block text-sky-300">•</span>
+            <span className="hidden md:inline-flex items-center gap-1.5 font-medium">
+              <Clock className="h-3.5 w-3.5 text-lime-400" />
+              <span>Seg a Sex: 08h às 18h | Sáb: 08h às 12h</span>
+            </span>
+          </div>
 
-            <div className="flex items-center gap-4 text-[11px] sm:text-xs">
-              <a
-                href={GOOGLE_SEARCH_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-amber-300 transition-colors hover:text-white"
-              >
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      size={12}
-                      className="fill-amber-400 text-amber-400"
-                    />
-                  ))}
-                </div>
-                <span className="font-bold text-white">5,0 ★</span>
-                <span className="text-amber-200/80">(10 avaliações no Google)</span>
-              </a>
-
-              <a
-                href={getWhatsAppUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hidden md:flex items-center gap-1.5 font-semibold text-[#e8caa0] hover:text-white transition-colors"
-              >
-                <WhatsAppIcon size={13} className="text-[#25D366]" />
-                <span>{PHONE_DISPLAY}</span>
-              </a>
-            </div>
+          <div className="flex items-center gap-4 font-semibold">
+            <a
+              href="tel:3131363808"
+              className="hidden sm:inline-flex items-center gap-1 text-white hover:text-lime-300 transition-colors"
+            >
+              <Phone className="h-3.5 w-3.5" />
+              <span>{PHONE_FIXO_DISPLAY}</span>
+            </a>
+            <a
+              href={getWhatsAppUrl("Olá! Gostaria de falar com a recepção da SIS Sarzedo.")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-white hover:text-lime-300 transition-colors font-bold"
+            >
+              <WhatsAppIcon size={14} className="text-lime-400" />
+              <span>WhatsApp: {PHONE_DISPLAY}</span>
+            </a>
           </div>
         </div>
+      </div>
 
-        {/* ========================================================================= */}
-        {/* 2. NAVBAR                                                                 */}
-        {/* ========================================================================= */}
-        <header
-          className={`sticky top-0 z-40 transition-all duration-300 ${
-            isScrolled
-              ? "border-b border-[#b8874d]/30 bg-[#090a0d]/98 shadow-xl shadow-black/40 backdrop-blur-md"
-              : "border-b border-[#262c3a] bg-[#090a0d]/92 backdrop-blur-md"
-          }`}
-        >
-          <div className="mx-auto flex w-full max-w-[1600px] items-center justify-between gap-6 px-4 py-3 sm:px-6 lg:px-8 xl:px-12">
-            {/* Left: Official Logo */}
+      {/* 2. HEADER & NAVBAR */}
+      <header
+        className={`sticky top-0 z-40 transition-all duration-300 ${
+          isScrolled
+            ? "border-b border-slate-200/90 bg-white/95 shadow-md backdrop-blur-md"
+            : "border-b border-slate-100 bg-white"
+        }`}
+      >
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+          {/* Logo SIS */}
+          <a href="#inicio" className="group flex items-center gap-3">
+            <div className="relative h-11 w-40 sm:h-12 sm:w-48 transition-transform group-hover:scale-[1.02]">
+              <Image
+                src={LOGO_SRC}
+                alt="SIS — Saúde Integrada Sarzedo"
+                fill
+                priority
+                sizes="(max-width: 640px) 160px, 192px"
+                className="object-contain object-left"
+              />
+            </div>
+          </a>
+
+          {/* Navigation Links Desktop */}
+          <nav className="hidden lg:flex items-center gap-7">
+            <a href="#especialidades" className="nav-link">
+              Especialidades
+            </a>
+            <a href="#sobre" className="nav-link">
+              A Clínica
+            </a>
+            <a href="#diferenciais" className="nav-link">
+              Diferenciais
+            </a>
+            <a href="#avaliacoes" className="nav-link">
+              Avaliações Google
+            </a>
+            <a href="#faq" className="nav-link">
+              Dúvidas
+            </a>
+            <a href="#contato" className="nav-link">
+              Localização
+            </a>
+          </nav>
+
+          {/* Action CTAs Desktop */}
+          <div className="hidden sm:flex items-center gap-3">
             <a
-              href="#inicio"
-              aria-label="Mariana Madeira Marcas - Início"
-              onClick={closeMenu}
-              className="flex shrink-0 items-center transition-opacity hover:opacity-90"
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram da SIS Sarzedo"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-600 hover:border-sky-300 hover:bg-sky-50 hover:text-[#0078d8] transition-all"
             >
-              <div className="relative h-11 sm:h-12 w-48 sm:w-60 shrink-0">
-                <Image
-                  src={LOGO_SRC}
-                  alt="Mariana Madeira Marcas e Advocacia Empresarial"
-                  fill
-                  priority
-                  unoptimized
-                  className="object-contain object-left"
-                />
-              </div>
+              <InstagramIcon size={18} />
             </a>
 
-            {/* Center: Navigation Links */}
-            <nav
-              aria-label="Navegação principal"
-              className="hidden xl:flex items-center gap-6 2xl:gap-8 whitespace-nowrap text-xs font-semibold tracking-wider text-slate-300"
+            <GlowingButton
+              onClick={() => openConsultModal("Geral")}
+              variant="blue"
+              size="sm"
+              className="shadow-sm font-semibold"
             >
-              <a className="nav-link" href="#atuacao">
-                Serviços &amp; INPI
-              </a>
-              <a className="nav-link" href="#sobre">
-                Dra. Mariana Madeira
-              </a>
-              <a className="nav-link" href="#diferenciais">
-                Diferenciais (+500 marcas)
-              </a>
-              <a className="nav-link" href="#metodologia">
-                Como Funciona
-              </a>
-              <a className="nav-link" href="#avaliacoes">
-                Avaliações (5.0 ★)
-              </a>
-              <a className="nav-link" href="#faq">
-                Dúvidas
-              </a>
-              <a className="nav-link" href="#contato">
-                Contato &amp; Sede
-              </a>
-            </nav>
-
-            {/* Right: CTA Button & Mobile Toggle */}
-            <div className="flex items-center gap-3 shrink-0">
-              <div className="hidden sm:flex items-center shrink-0">
-                <GlowingButton
-                  variant="gold"
-                  size="sm"
-                  href={getWhatsAppUrl()}
-                  target="_blank"
-                  className="shadow-sm whitespace-nowrap"
-                >
-                  <WhatsAppIcon size={14} className="text-[#1e1305]" />
-                  <span>Consulta no WhatsApp</span>
-                </GlowingButton>
-              </div>
-
-              {/* Mobile Menu Button */}
-              <button
-                type="button"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="inline-flex items-center justify-center rounded-lg p-2 text-slate-300 hover:bg-white/10 xl:hidden cursor-pointer"
-                aria-label="Abrir menu de navegação"
-                aria-expanded={isMenuOpen}
-              >
-                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
-            </div>
+              <Calendar className="h-4 w-4" />
+              <span>Agendar Consulta</span>
+            </GlowingButton>
           </div>
 
-          {/* Mobile Drawer */}
-          <AnimatePresence>
-            {isMenuOpen && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                className="border-b border-[#262c3a] bg-[#0e1015] px-5 py-5 xl:hidden shadow-2xl text-white"
+          {/* Mobile Menu Button */}
+          <button
+            type="button"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-100"
+            aria-label="Abrir menu"
+          >
+            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
+
+        {/* Mobile Dropdown Menu */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="lg:hidden border-b border-slate-200 bg-white px-4 pt-2 pb-6 space-y-3"
+            >
+              <a
+                href="#especialidades"
+                onClick={closeMenu}
+                className="block py-2 text-slate-700 font-medium hover:text-[#0078d8]"
               >
-                <div className="flex flex-col gap-3.5 text-sm font-semibold tracking-wide">
-                  <a
-                    className="py-1.5 text-slate-200 hover:text-[#e8caa0]"
-                    href="#inicio"
-                    onClick={closeMenu}
-                  >
-                    Início
-                  </a>
-                  <a
-                    className="py-1.5 text-slate-200 hover:text-[#e8caa0]"
-                    href="#atuacao"
-                    onClick={closeMenu}
-                  >
-                    Serviços &amp; Registro no INPI
-                  </a>
-                  <a
-                    className="py-1.5 text-slate-200 hover:text-[#e8caa0]"
-                    href="#sobre"
-                    onClick={closeMenu}
-                  >
-                    Sobre a Dra. Mariana Madeira
-                  </a>
-                  <a
-                    className="py-1.5 text-slate-200 hover:text-[#e8caa0]"
-                    href="#diferenciais"
-                    onClick={closeMenu}
-                  >
-                    Nossos Diferenciais
-                  </a>
-                  <a
-                    className="py-1.5 text-slate-200 hover:text-[#e8caa0]"
-                    href="#metodologia"
-                    onClick={closeMenu}
-                  >
-                    Como Funciona o Registro
-                  </a>
-                  <a
-                    className="py-1.5 text-slate-200 hover:text-[#e8caa0]"
-                    href="#avaliacoes"
-                    onClick={closeMenu}
-                  >
-                    Avaliações no Google (5.0 ★)
-                  </a>
-                  <a
-                    className="py-1.5 text-slate-200 hover:text-[#e8caa0]"
-                    href="#faq"
-                    onClick={closeMenu}
-                  >
-                    Perguntas Frequentes
-                  </a>
-                  <a
-                    className="py-1.5 text-slate-200 hover:text-[#e8caa0]"
-                    href="#contato"
-                    onClick={closeMenu}
-                  >
-                    Sede em Itapecerica &amp; Contato
-                  </a>
+                Especialidades
+              </a>
+              <a
+                href="#sobre"
+                onClick={closeMenu}
+                className="block py-2 text-slate-700 font-medium hover:text-[#0078d8]"
+              >
+                A Clínica SIS
+              </a>
+              <a
+                href="#diferenciais"
+                onClick={closeMenu}
+                className="block py-2 text-slate-700 font-medium hover:text-[#0078d8]"
+              >
+                Diferenciais
+              </a>
+              <a
+                href="#avaliacoes"
+                onClick={closeMenu}
+                className="block py-2 text-slate-700 font-medium hover:text-[#0078d8]"
+              >
+                Avaliações de Pacientes
+              </a>
+              <a
+                href="#faq"
+                onClick={closeMenu}
+                className="block py-2 text-slate-700 font-medium hover:text-[#0078d8]"
+              >
+                Perguntas Frequentes
+              </a>
+              <a
+                href="#contato"
+                onClick={closeMenu}
+                className="block py-2 text-slate-700 font-medium hover:text-[#0078d8]"
+              >
+                Localização & Contato
+              </a>
 
-                  <div className="pt-3 border-t border-slate-800 flex flex-col gap-2.5">
-                    <GlowingButton
-                      variant="gold"
-                      size="md"
-                      href={getWhatsAppUrl()}
-                      target="_blank"
-                      className="w-full justify-center"
-                    >
-                      <WhatsAppIcon size={16} className="text-[#1e1305]" />
-                      <span>Falar no WhatsApp</span>
-                    </GlowingButton>
-                    <a
-                      href={`tel:${WHATSAPP_NUMBER}`}
-                      className="flex items-center justify-center gap-2 rounded-lg border border-slate-700 py-3 text-xs font-bold text-slate-200 hover:bg-white/5"
-                    >
-                      <Phone size={14} className="text-[#e8caa0]" />
-                      <span>Ligar: {PHONE_DISPLAY}</span>
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </header>
+              <div className="pt-2 border-t border-slate-100 space-y-2">
+                <GlowingButton
+                  href={getWhatsAppUrl("Olá! Gostaria de agendar uma consulta na SIS Sarzedo.")}
+                  target="_blank"
+                  variant="whatsapp"
+                  size="md"
+                  className="w-full"
+                >
+                  <WhatsAppIcon size={18} />
+                  <span>WhatsApp de Agendamento</span>
+                </GlowingButton>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </header>
 
-        {/* ========================================================================= */}
-        {/* 3. HERO SECTION                                                          */}
-        {/* ========================================================================= */}
+      <main>
+        {/* 3. HERO SECTION */}
         <section
           id="inicio"
-          className="relative overflow-hidden bg-gradient-to-b from-[#090a0d] via-[#12141c] to-[#0c0e14] text-white py-14 sm:py-20 lg:py-24"
+          className="relative overflow-hidden bg-gradient-to-b from-sky-50/70 via-white to-white pt-8 pb-16 sm:pt-14 sm:pb-24 lg:pt-16"
         >
-          {/* Luminous Ambient Warm Gold Glow */}
-          <div className="pointer-events-none absolute -top-24 left-0 size-[650px] rounded-full bg-[#b8874d]/15 blur-[140px]" />
-          <div className="pointer-events-none absolute top-1/3 -left-20 size-[500px] rounded-full bg-[#8c5d28]/15 blur-[130px]" />
-          <div className="pointer-events-none absolute top-1/2 -right-40 size-96 rounded-full bg-[#c89658]/20 blur-3xl" />
+          {/* Decorative glowing blobs */}
+          <div className="pointer-events-none absolute -top-24 right-0 h-96 w-96 rounded-full bg-sky-200/40 blur-3xl" />
+          <div className="pointer-events-none absolute top-1/2 -left-32 h-96 w-96 rounded-full bg-lime-100/40 blur-3xl" />
 
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-              {/* Left Column: Copy & CTAs */}
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+              {/* Left Column: Headlines & CTA */}
               <motion.div
                 initial="hidden"
                 animate="visible"
                 variants={staggerContainer}
-                className="lg:col-span-7"
+                className="lg:col-span-7 space-y-6 text-center lg:text-left"
               >
-                {/* Eyebrow Badge */}
-                <motion.div variants={fadeInUp} className="mb-4">
-                  <div className="inline-flex items-center gap-2.5 rounded-full border border-amber-300/40 bg-white/5 px-4 py-2 text-xs font-bold tracking-[0.16em] uppercase text-[#f7edd7] shadow-lg backdrop-blur-md">
-                    <ShieldCheck size={14} className="text-[#e8caa0]" />
-                    <span>Mariana Madeira &bull; Advocacia para Empresas e Negócios Digitais</span>
+                {/* Badge de Credibilidade Médica */}
+                <motion.div variants={fadeInUp} className="inline-flex">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-700 shadow-sm">
+                    <span className="flex h-2 w-2 rounded-full bg-[#88d830]" />
+                    <span className="text-[#0066cc] font-bold">Clínica Multidisciplinar</span>
+                    <span className="text-slate-400">•</span>
+                    <span>Sarzedo / MG</span>
                   </div>
                 </motion.div>
 
                 {/* H1 Headline */}
                 <motion.h1
                   variants={fadeInUp}
-                  className="font-cinzel text-3xl font-extrabold leading-[1.18] tracking-tight sm:text-4xl md:text-5xl lg:text-[3.25rem] text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]"
+                  className="font-heading text-3xl font-black tracking-tight text-slate-900 sm:text-4xl md:text-5xl lg:text-[44px] xl:text-[50px] leading-[1.12]"
                 >
-                  Sua Marca é Seu Maior Patrimônio: Garanta{" "}
-                  <span className="text-gradient-gold font-black drop-shadow-[0_2px_16px_rgba(184,135,77,0.4)]">
-                    Exclusividade no INPI
+                  Cuidado completo,{" "}
+                  <span className="bg-gradient-to-r from-[#0066cc] via-[#0078d8] to-[#0098f0] bg-clip-text text-transparent">
+                    acolhedor e humanizado
                   </span>{" "}
-                  &amp; Blindagem Jurídica.
+                  para você e sua família.
                 </motion.h1>
 
-                {/* Subtitle */}
+                {/* Proposta de Valor / Subtitle */}
                 <motion.p
                   variants={fadeInUp}
-                  className="mt-6 text-base text-slate-100 sm:text-lg sm:leading-relaxed font-normal drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]"
+                  className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed"
                 >
-                  Proteção jurídica de alta precisão técnica conduzida pela{" "}
-                  <strong className="text-white font-bold underline decoration-[#b8874d]/70 underline-offset-4">
-                    Dra. Mariana Madeira
-                  </strong>
-                  . Da pesquisa prévia de viabilidade até a concessão definitiva do registro pelo INPI,
-                  contratos estratégicos e assessoria completa para empresas físicas e negócios digitais.
-                  Mais de 500 marcas protegidas e nota máxima 5,0 ★ no Google.
+                  Atendimento médico especializado, <strong>Oftalmologia (SAME)</strong>,{" "}
+                  <strong>Odontologia Completa</strong>, <strong>Studio de Pilates</strong>,{" "}
+                  <strong>Psicologia</strong> e <strong>Nutrição</strong>. Um espaço moderno,
+                  confortável e de fácil estacionamento às margens da MG-040 em Sarzedo.
                 </motion.p>
 
-                {/* Authority Badges Checklist */}
+                {/* Trust Points Badges */}
                 <motion.div
                   variants={fadeInUp}
-                  className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2 text-xs sm:text-sm text-white"
+                  className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-left"
                 >
-                  <div className="flex items-center gap-2.5 rounded-lg bg-white/5 border border-amber-400/20 px-3 py-2 backdrop-blur-xs">
-                    <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-amber-400/20 text-[#e8caa0] border border-amber-400/30">
-                      <CheckCircle2 size={13} />
+                  <div className="flex items-center gap-2.5 rounded-xl border border-slate-200/80 bg-white/90 p-2.5 shadow-sm">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-sky-100 text-[#0078d8]">
+                      <GoogleIcon size={18} />
                     </div>
-                    <span className="font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
-                      +500 Marcas Confiam no Escritório (®)
-                    </span>
+                    <div>
+                      <div className="flex items-center gap-1 text-xs font-bold text-slate-900">
+                        <span>4,8</span>
+                        <div className="flex text-amber-400">
+                          {"★★★★★".slice(0, 5)}
+                        </div>
+                      </div>
+                      <p className="text-[11px] text-slate-500 font-medium">
+                        +340 avaliações no Google
+                      </p>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2.5 rounded-lg bg-white/5 border border-amber-400/20 px-3 py-2 backdrop-blur-xs">
-                    <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-amber-400/20 text-[#e8caa0] border border-amber-400/30">
-                      <CheckCircle2 size={13} />
+
+                  <div className="flex items-center gap-2.5 rounded-xl border border-slate-200/80 bg-white/90 p-2.5 shadow-sm">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-100 text-emerald-700">
+                      <HeartHandshake className="h-4 w-4" />
                     </div>
-                    <span className="font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
-                      Nota Máxima 5,0 ★ no Google (10 avaliações)
-                    </span>
+                    <div>
+                      <p className="text-xs font-bold text-slate-900">
+                        Atendimento Acolhedor
+                      </p>
+                      <p className="text-[11px] text-slate-500 font-medium">
+                        Da recepção ao consultório
+                      </p>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2.5 rounded-lg bg-white/5 border border-amber-400/20 px-3 py-2 backdrop-blur-xs">
-                    <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-amber-400/20 text-[#e8caa0] border border-amber-400/30">
-                      <CheckCircle2 size={13} />
+
+                  <div className="flex items-center gap-2.5 rounded-xl border border-slate-200/80 bg-white/90 p-2.5 shadow-sm">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-blue-100 text-[#0066cc]">
+                      <Car className="h-4 w-4" />
                     </div>
-                    <span className="font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
-                      Especialista em Marcas &amp; Negócios Digitais
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2.5 rounded-lg bg-white/5 border border-amber-400/20 px-3 py-2 backdrop-blur-xs">
-                    <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-amber-400/20 text-[#e8caa0] border border-amber-400/30">
-                      <CheckCircle2 size={13} />
+                    <div>
+                      <p className="text-xs font-bold text-slate-900">
+                        Fácil Estacionamento
+                      </p>
+                      <p className="text-[11px] text-slate-500 font-medium">
+                        Marginal da Rod. MG-040
+                      </p>
                     </div>
-                    <span className="font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
-                      Sede: Av. Severo Augusto Ribeiro, 179 - Centro
-                    </span>
                   </div>
                 </motion.div>
 
-                {/* CTAs */}
+                {/* CTAs Principais */}
                 <motion.div
                   variants={fadeInUp}
-                  className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:items-center"
+                  className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2"
                 >
                   <GlowingButton
-                    variant="gold"
-                    size="lg"
                     href={getWhatsAppUrl(
-                      "Olá, Dra. Mariana Madeira! Quero verificar a viabilidade da minha marca para registrar no INPI."
+                      "Olá! Gostaria de agendar uma consulta na clínica SIS Saúde Integrada Sarzedo."
                     )}
                     target="_blank"
-                    className="shadow-2xl shadow-black/50"
+                    variant="whatsapp"
+                    size="lg"
+                    className="w-full sm:w-auto shadow-md"
                   >
-                    <WhatsAppIcon size={18} className="text-[#1e1305]" />
-                    <span>Consultar Viabilidade da Marca</span>
+                    <WhatsAppIcon size={20} />
+                    <span>Agendar pelo WhatsApp</span>
                   </GlowingButton>
 
-                  <a
-                    href="#atuacao"
-                    className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-amber-400/40 bg-white/5 px-6 py-4 text-xs font-bold uppercase tracking-[0.14em] text-[#f7edd7] backdrop-blur-md transition-all hover:border-[#e8caa0] hover:bg-[#b8874d] hover:text-[#090a0d] shadow-lg"
+                  <GlowingButton
+                    href="#especialidades"
+                    variant="outline"
+                    size="lg"
+                    className="w-full sm:w-auto"
                   >
-                    <span>Conhecer Nossos Serviços</span>
-                    <ArrowRight size={14} />
-                  </a>
+                    <span>Ver Especialidades</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </GlowingButton>
                 </motion.div>
 
-                {/* Micro Proof Footer */}
-                <motion.div
+                {/* Mini Aviso de Apoio */}
+                <motion.p
                   variants={fadeInUp}
-                  className="mt-8 pt-6 border-t border-white/15 flex flex-wrap items-center gap-4 text-xs text-slate-100"
+                  className="text-xs text-slate-500 flex items-center justify-center lg:justify-start gap-1.5 pt-1"
                 >
-                  <div className="flex items-center gap-2 rounded-lg bg-white/10 border border-amber-400/30 px-3 py-1.5 backdrop-blur-xs">
-                    <div className="flex">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          size={14}
-                          className="fill-amber-400 text-amber-400"
-                        />
-                      ))}
-                    </div>
-                    <span className="font-bold text-white text-sm">5,0 de 5,0</span>
-                  </div>
-                  <span className="text-white/40">&bull;</span>
-                  <span className="font-medium text-white">10 avaliações no Google Meu Negócio</span>
-                  <span className="text-white/40">&bull;</span>
-                  <a
-                    href={GOOGLE_SEARCH_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-bold text-[#e8caa0] hover:text-white underline flex items-center gap-1 transition-colors"
-                  >
-                    <span>Ver no Google</span>
-                    <ArrowUpRight size={13} />
-                  </a>
-                </motion.div>
+                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
+                  <span>
+                    Agendamento simples e sem burocracia. Resposta rápida da nossa equipe.
+                  </span>
+                </motion.p>
               </motion.div>
 
-              {/* Right Column: Dra. Mariana Madeira Portrait Card */}
+              {/* Right Column: Hero Real Visual Showcase */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative lg:col-span-5"
+                transition={{ duration: 0.7, ease: "easeOut" }}
+                className="lg:col-span-5 relative"
               >
-                <div className="relative mx-auto max-w-sm sm:max-w-md lg:max-w-none">
-                  {/* Decorative Glowing Frame */}
-                  <div className="absolute -inset-2 rounded-2xl bg-gradient-to-tr from-[#b8874d]/40 via-[#e8caa0]/20 to-transparent blur-md" />
-
-                  {/* Main Portrait Card */}
-                  <div className="relative overflow-hidden rounded-2xl border-2 border-amber-300/60 bg-[#0e1015] shadow-2xl">
-                    <div className="relative aspect-[4/5] w-full overflow-hidden">
+                <div className="relative mx-auto max-w-md lg:max-w-none">
+                  {/* Card Principal: Fachada da Clínica */}
+                  <div className="group relative overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-3 shadow-2xl transition-all duration-300 hover:shadow-sky-100/60">
+                    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-slate-100">
                       <Image
-                        src={FOTO_HERO_SRC}
-                        alt="Dra. Mariana Madeira - Registro de Marcas e Advocacia Empresarial"
+                        src={FACHADA_SRC}
+                        alt="Fachada moderna da Clínica SIS Saúde Integrada em Sarzedo MG"
                         fill
                         priority
-                        unoptimized
-                        className="object-cover object-top filter contrast-[1.03]"
+                        sizes="(max-width: 768px) 100vw, 500px"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
 
-                      {/* Gradient Overlay for bottom text legibility */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#090a0d] via-[#090a0d]/25 to-transparent" />
+                      {/* Pill sobre a imagem */}
+                      <div className="absolute top-3 left-3 rounded-full bg-white/95 px-3 py-1 text-xs font-bold text-slate-800 shadow-md backdrop-blur-md flex items-center gap-1.5">
+                        <span className="flex h-2 w-2 rounded-full bg-[#0078d8]" />
+                        <span>Sede Própria em Sarzedo</span>
+                      </div>
 
-                      {/* Card Lower Badge */}
-                      <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-amber-300/40 bg-[#090a0d]/90 p-3.5 backdrop-blur-md">
-                        <div className="flex items-center justify-between">
-                          <div>
-                            <p className="font-cinzel text-sm sm:text-base font-bold text-white tracking-wide">
-                              Dra. Mariana Madeira
-                            </p>
-                            <p className="text-[10px] sm:text-xs font-semibold text-[#e8caa0] uppercase tracking-wider mt-0.5">
-                              Registro de Marcas &bull; Advocacia Empresarial
-                            </p>
-                          </div>
-                          <div className="flex flex-col items-end">
-                            <div className="flex gap-0.5">
-                              {[...Array(5)].map((_, i) => (
-                                <Star
-                                  key={i}
-                                  size={11}
-                                  className="fill-amber-400 text-amber-400"
-                                />
-                              ))}
-                            </div>
-                            <span className="text-[10px] font-bold text-white mt-0.5">
-                              5,0 ★ no Google (10)
-                            </span>
-                          </div>
-                        </div>
+                      <div className="absolute bottom-3 left-3 right-3 text-white">
+                        <p className="text-xs font-medium text-slate-200">
+                          Rodovia MG-040, 122 Marginal
+                        </p>
+                        <p className="text-sm font-bold text-white">
+                          Santa Rosa de Lima · Sarzedo / MG
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Mini Card Sobreposto: Interior / Recepção Acolhedora */}
+                    <div className="mt-3 flex items-center gap-3.5 rounded-xl border border-slate-100 bg-sky-50/70 p-3">
+                      <div className="relative h-14 w-20 shrink-0 overflow-hidden rounded-lg bg-slate-200">
+                        <Image
+                          src={RECEPCAO_SRC}
+                          alt="Recepção acolhedora e climatizada da Clínica SIS"
+                          fill
+                          sizes="80px"
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <p className="text-xs font-bold text-slate-900 truncate">
+                          Recepção Ampla e Climatizada
+                        </p>
+                        <p className="text-[11px] text-slate-600 line-clamp-1">
+                          Ambiente limpo, seguro e planejado para o conforto da sua família.
+                        </p>
+                        <span className="inline-flex items-center gap-1 text-[10px] font-bold text-[#0066cc] mt-0.5">
+                          <span>Ambiente 100% humanizado</span>
+                          <CheckCircle2 className="h-3 w-3 text-emerald-600" />
+                        </span>
                       </div>
                     </div>
                   </div>
 
-                  {/* Floating Trust Card Top-Right */}
-                  <div className="hidden sm:flex absolute -top-5 -right-5 items-center gap-2.5 rounded-xl border border-amber-300/60 bg-[#090a0d]/95 px-4 py-2.5 shadow-xl backdrop-blur-md z-20">
-                    <div className="flex size-9 items-center justify-center rounded-lg bg-amber-400/15 text-[#e8caa0]">
-                      <BadgeCheck size={18} />
-                    </div>
-                    <div>
-                      <p className="text-[10px] font-bold uppercase tracking-wider text-[#d9aa69]">
-                        Autoridade INPI
-                      </p>
-                      <p className="text-xs font-bold text-white whitespace-nowrap">
-                        +500 Marcas Atendidas
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Floating Trust Card Left (repositioned to mid-left so it never covers the bottom text) */}
-                  <div className="hidden sm:flex absolute top-28 -left-5 lg:-left-6 items-center gap-2.5 rounded-xl border border-amber-400/30 bg-[#0e1015]/95 px-4 py-2.5 shadow-xl backdrop-blur-md z-20">
-                    <div className="flex size-9 items-center justify-center rounded-lg bg-[#25D366]/20 text-[#25D366]">
-                      <WhatsAppIcon size={18} />
-                    </div>
-                    <div>
-                      <p className="text-[10px] font-bold uppercase tracking-wider text-slate-300">
-                        Atendimento Ágil
-                      </p>
-                      <p className="text-xs font-bold text-white whitespace-nowrap">
-                        Presencial &amp; Digital
-                      </p>
+                  {/* Floating Badge Google 4,8 */}
+                  <div className="absolute -bottom-5 -left-4 sm:-bottom-6 sm:-left-6 rounded-2xl border border-slate-200 bg-white p-3.5 shadow-xl">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-50 text-amber-500">
+                        <Star className="h-5 w-5 fill-amber-400 text-amber-400" />
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-1 font-extrabold text-slate-900 text-sm">
+                          <span>4,8 no Google</span>
+                          <span className="text-amber-500">★★★★★</span>
+                        </div>
+                        <p className="text-[11px] font-medium text-slate-500">
+                          Reconhecida pelo carinho e atenção
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -938,389 +849,315 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ========================================================================= */}
-        {/* 4. TRUST & AUTHORITY NUMBERS BAR                                         */}
-        {/* ========================================================================= */}
-        <section className="border-y border-[#e8e2d8] bg-[#faf8f5] py-8 sm:py-10">
+        {/* 4. STATS & CONFIANÇA BANNER */}
+        <section className="border-y border-slate-200 bg-slate-50 py-8">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 gap-6 md:grid-cols-4 lg:gap-8 text-center">
-              <div className="flex flex-col items-center">
-                <div className="flex items-center gap-1 text-2xl sm:text-3xl font-extrabold text-[#0e1015]">
-                  <span>5,0</span>
-                  <div className="flex text-amber-500">
-                    <Star size={18} className="fill-amber-400 text-amber-400" />
-                  </div>
-                </div>
-                <p className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#b8874d] mt-1">
-                  Nota Máxima Google
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-center divide-y lg:divide-y-0 lg:divide-x divide-slate-200">
+              <div className="pt-4 lg:pt-0">
+                <p className="font-heading text-3xl sm:text-4xl font-black text-[#0066cc]">
+                  4,8 ★
                 </p>
-                <p className="text-[11px] sm:text-xs text-slate-600 mt-0.5">
-                  100% de avaliações 5 estrelas
+                <p className="text-xs sm:text-sm font-bold text-slate-800 mt-1">
+                  Nota no Google Maps
+                </p>
+                <p className="text-xs text-slate-500 mt-0.5">
+                  Mais de 340 avaliações de pacientes
                 </p>
               </div>
 
-              <div className="flex flex-col items-center">
-                <div className="text-2xl sm:text-3xl font-extrabold text-[#0e1015]">
-                  +500 Marcas
-                </div>
-                <p className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#b8874d] mt-1">
-                  Protegidas &amp; Vigiadas
+              <div className="pt-4 lg:pt-0">
+                <p className="font-heading text-3xl sm:text-4xl font-black text-emerald-600">
+                  6+
                 </p>
-                <p className="text-[11px] sm:text-xs text-slate-600 mt-0.5">
-                  Empresas físicas e negócios digitais
+                <p className="text-xs sm:text-sm font-bold text-slate-800 mt-1">
+                  Áreas Integradas
                 </p>
-              </div>
-
-              <div className="flex flex-col items-center">
-                <div className="text-2xl sm:text-3xl font-extrabold text-[#0e1015]">
-                  Itapecerica - MG
-                </div>
-                <p className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#b8874d] mt-1">
-                  Sede Central Própria
-                </p>
-                <p className="text-[11px] sm:text-xs text-slate-600 mt-0.5">
-                  Av. Severo Augusto Ribeiro, 179
+                <p className="text-xs text-slate-500 mt-0.5">
+                  Oftalmo, Odonto, Pilates, Psico, Nutrição e Médicos
                 </p>
               </div>
 
-              <div className="flex flex-col items-center">
-                <div className="text-2xl sm:text-3xl font-extrabold text-[#0e1015]">
-                  Nacional
-                </div>
-                <p className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#b8874d] mt-1">
-                  Atendimento Digital
+              <div className="pt-4 lg:pt-0">
+                <p className="font-heading text-3xl sm:text-4xl font-black text-[#0078d8]">
+                  SAME
                 </p>
-                <p className="text-[11px] sm:text-xs text-slate-600 mt-0.5">
-                  Proteção em todo o Brasil (INPI)
+                <p className="text-xs sm:text-sm font-bold text-slate-800 mt-1">
+                  Núcleo de Oftalmologia
+                </p>
+                <p className="text-xs text-slate-500 mt-0.5">
+                  Exames de vista computadorizados completos
+                </p>
+              </div>
+
+              <div className="pt-4 lg:pt-0">
+                <p className="font-heading text-3xl sm:text-4xl font-black text-slate-900">
+                  100%
+                </p>
+                <p className="text-xs sm:text-sm font-bold text-slate-800 mt-1">
+                  Foco no Paciente
+                </p>
+                <p className="text-xs text-slate-500 mt-0.5">
+                  Pontualidade, carinho e respeito ao seu tempo
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ========================================================================= */}
-        {/* 5. DIAGNÓSTICO JURÍDICO RÁPIDO ("VOCÊ SE IDENTIFICA?")                    */}
-        {/* ========================================================================= */}
-        <section className="py-14 sm:py-20 bg-white">
+        {/* 5. ESPECIALIDADES / TRATAMENTOS / EXAMES */}
+        <section id="especialidades" className="py-16 sm:py-24 bg-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-              <div className="eyebrow-gold justify-center mb-3">
-                Diagnóstico Rápido de Proteção
-              </div>
-              <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-bold text-[#0e1015]">
-                Você se identifica com algum destes cenários no seu negócio?
+            <div className="text-center max-w-3xl mx-auto space-y-3">
+              <span className="eyebrow-blue justify-center">
+                Especialidades &amp; Tratamentos
+              </span>
+              <h2 className="font-heading text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+                Tudo o que a sua saúde precisa em um só lugar.
               </h2>
-              <p className="mt-4 text-sm sm:text-base text-slate-600">
-                Não espere uma notificação extrajudicial ou a perda definitiva do seu nome para agir.
-                Garanta a segurança jurídica da sua marca desde o primeiro momento:
+              <p className="text-slate-600 text-base sm:text-lg">
+                Esqueça a necessidade de ir a várias clínicas ou cidades diferentes. Na SIS
+                você conta com acompanhamento preventivo, diagnóstico e reabilitação integrados.
               </p>
             </div>
 
-            <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
-              {situacoesDiagnostico.map((sit, idx) => (
-                <div
-                  key={idx}
-                  className="rounded-2xl border border-[#e8e2d8] bg-[#faf8f5] p-6 sm:p-8 transition-all hover:border-[#b8874d] hover:shadow-lg flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="flex items-start gap-3.5 mb-3">
-                      <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-amber-500/10 text-[#b8874d]">
-                        <AlertCircle size={20} />
-                      </div>
-                      <h3 className="font-cinzel text-lg sm:text-xl font-bold text-[#0e1015] leading-snug">
-                        {sit.pergunta}
-                      </h3>
-                    </div>
-                    <p className="text-sm text-slate-600 leading-relaxed pl-12">
-                      {sit.orientacao}
-                    </p>
-                  </div>
-
-                  <div className="mt-6 pt-5 border-t border-[#e8e2d8] flex items-center justify-between">
-                    <button
-                      type="button"
-                      onClick={() => openConsultModal(sit.area)}
-                      className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#b8874d] hover:text-[#8c5d28] transition-colors cursor-pointer"
-                    >
-                      <span>{sit.cta}</span>
-                      <ArrowRight size={14} />
-                    </button>
-
-                    <a
-                      href={getWhatsAppUrl(`Olá, Dra. Mariana Madeira! ${sit.pergunta}`)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex size-9 items-center justify-center rounded-lg bg-[#25D366] text-white hover:brightness-110 transition-all shadow-xs"
-                      aria-label="Falar no WhatsApp sobre este diagnóstico"
-                    >
-                      <WhatsAppIcon size={16} />
-                    </a>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================================= */}
-        {/* 6. PILARES DE ATUAÇÃO / SERVIÇOS ESPECIALIZADOS                           */}
-        {/* ========================================================================= */}
-        <section
-          id="atuacao"
-          className="relative bg-gradient-to-b from-[#090a0d] via-[#10131b] to-[#14171e] text-white py-16 sm:py-24"
-        >
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
-              <div className="eyebrow-light justify-center mb-3">
-                Pilares de Atuação &bull; Proteção Jurídica para Empreendedores
-              </div>
-              <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white">
-                Como atuamos na blindagem e no crescimento do seu negócio
-              </h2>
-              <p className="mt-4 text-sm sm:text-base text-slate-300">
-                Soluções estratégicas em Registro de Marcas, Advocacia Digital e Contratos Comerciais
-                conduzidas com profundidade técnica, ética e foco na viabilidade do seu negócio.
-              </p>
-            </div>
-
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-              {areasAtuacao.map((area) => {
-                const IconComponent = area.icon;
+            <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {especialidades.map((esp) => {
+                const IconComponent = esp.icon;
                 return (
-                  <div
-                    key={area.id}
-                    className="group relative flex flex-col justify-between rounded-2xl border border-amber-400/20 bg-[#161a22]/90 p-6 sm:p-8 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-amber-300 hover:shadow-2xl hover:shadow-amber-500/10"
+                  <motion.div
+                    key={esp.id}
+                    whileHover={{ y: -4 }}
+                    transition={{ duration: 0.2 }}
+                    className="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:border-sky-300 hover:shadow-md transition-all"
                   >
                     <div>
-                      {/* Top Badges */}
-                      <div className="flex items-center justify-between mb-5">
-                        <div className="flex size-12 items-center justify-center rounded-xl bg-gradient-to-br from-amber-400/20 to-amber-500/5 border border-amber-400/30 text-[#e8caa0] group-hover:scale-105 transition-transform">
-                          <IconComponent size={22} />
-                        </div>
-                        <span className="rounded-full border border-amber-300/40 bg-amber-400/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#f7edd7]">
-                          {area.badge}
+                      {/* Badge / Tag */}
+                      <div className="flex items-center justify-between gap-2 mb-4">
+                        <span
+                          className={`inline-block rounded-full px-2.5 py-0.5 text-[11px] font-bold border ${esp.accentBg}`}
+                        >
+                          {esp.tag}
                         </span>
+                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-50 text-[#0078d8]">
+                          <IconComponent className="h-5 w-5" />
+                        </div>
                       </div>
 
-                      {/* Card Title */}
-                      <h3 className="font-cinzel text-lg sm:text-xl font-bold text-white leading-snug group-hover:text-[#e8caa0] transition-colors">
-                        {area.title}
+                      {/* Nome da Especialidade */}
+                      <h3 className="font-heading text-xl font-bold text-slate-900 mb-2">
+                        {esp.name}
                       </h3>
 
-                      {/* Short Description */}
-                      <p className="mt-3 text-xs sm:text-sm text-slate-300 leading-relaxed">
-                        {area.shortDesc}
+                      {/* Descrição */}
+                      <p className="text-sm text-slate-600 leading-relaxed mb-4">
+                        {esp.description}
                       </p>
 
-                      {/* Bullets */}
-                      <div className="mt-5 space-y-2 border-t border-slate-700/60 pt-5">
-                        {area.bullets.map((bullet, bIdx) => (
-                          <div
-                            key={bIdx}
-                            className="flex items-start gap-2 text-xs text-slate-300"
-                          >
-                            <CheckCircle2
-                              size={14}
-                              className="text-[#e8caa0] shrink-0 mt-0.5"
-                            />
-                            <span>{bullet}</span>
-                          </div>
-                        ))}
+                      {/* Profissionais citados com carinho */}
+                      <div className="mb-4 rounded-lg bg-slate-50 p-2.5 text-xs text-slate-700 font-medium">
+                        <span className="font-bold text-slate-900 block mb-0.5">
+                          Corpo Clínico &amp; Especialistas:
+                        </span>
+                        {esp.professionals}
                       </div>
+
+                      {/* Lista de Procedimentos */}
+                      <ul className="space-y-2 mb-6">
+                        {esp.highlights.map((h, i) => (
+                          <li
+                            key={i}
+                            className="flex items-start gap-2 text-xs text-slate-600"
+                          >
+                            <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                            <span>{h}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
 
-                    {/* Bottom CTA Button */}
-                    <div className="mt-8 pt-5 border-t border-slate-700/60">
+                    {/* Botão de Agendamento da Especialidade */}
+                    <div className="pt-2 border-t border-slate-100">
                       <a
-                        href={getWhatsAppUrl(area.whatsappMsg)}
+                        href={getWhatsAppUrl(esp.whatsappMsg)}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-amber-400/40 bg-white/5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[#f7edd7] transition-all hover:bg-[#b8874d] hover:text-[#090a0d] hover:border-[#e8caa0]"
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-sky-200 bg-sky-50/60 py-2.5 text-xs font-bold text-[#0066cc] hover:bg-[#0078d8] hover:text-white transition-colors"
                       >
-                        <WhatsAppIcon size={14} />
-                        <span>Consultar no WhatsApp</span>
+                        <WhatsAppIcon size={15} />
+                        <span>Agendar {esp.name}</span>
                       </a>
                     </div>
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>
 
-            {/* Central Consultation Banner */}
-            <div className="mt-14 rounded-2xl border-2 border-amber-300/40 bg-gradient-to-r from-[#090a0d] via-[#12141c] to-[#161a22] p-8 sm:p-10 shadow-2xl">
-              <div className="flex flex-col items-center justify-between gap-6 text-center lg:flex-row lg:text-left">
-                <div>
-                  <div className="eyebrow-light mb-2">
-                    Deseja Registrar Sua Marca com Segurança?
-                  </div>
-                  <h3 className="font-cinzel text-xl sm:text-2xl font-bold text-white">
-                    Fale diretamente com a Dra. Mariana Madeira
-                  </h3>
-                  <p className="mt-1.5 text-xs sm:text-sm text-slate-300 max-w-2xl">
-                    Envie o nome do seu negócio para realizarmos a pesquisa de viabilidade no INPI.
-                    Analisamos sua marca com rapidez e sigilo para você empreender sem medo.
-                  </p>
-                </div>
-
-                <GlowingButton
-                  variant="gold"
-                  size="lg"
-                  href={getWhatsAppUrl(
-                    "Olá, Dra. Mariana Madeira! Gostaria de uma avaliação para registrar minha marca e entender as etapas no INPI."
-                  )}
-                  target="_blank"
-                  className="shrink-0"
-                >
-                  <WhatsAppIcon size={17} className="text-[#1e1305]" />
-                  <span>Iniciar Pesquisa de Marca</span>
-                </GlowingButton>
+            {/* Banner de Consulta Integrada */}
+            <div className="mt-12 rounded-2xl border border-sky-200 bg-gradient-to-r from-sky-50 via-white to-emerald-50 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="space-y-1 text-center md:text-left">
+                <h4 className="font-heading text-lg sm:text-xl font-bold text-slate-900">
+                  Dúvida sobre qual especialista consultar?
+                </h4>
+                <p className="text-sm text-slate-600 max-w-xl">
+                  Converse diretamente com a nossa recepção via WhatsApp. Nós orientamos você
+                  sobre o melhor atendimento para o seu sintoma ou necessidade.
+                </p>
               </div>
+              <GlowingButton
+                href={getWhatsAppUrl("Olá! Gostaria de uma orientação sobre qual especialista agendar na clínica SIS.")}
+                target="_blank"
+                variant="whatsapp"
+                size="md"
+                className="shrink-0"
+              >
+                <WhatsAppIcon size={18} />
+                <span>Falar com a Recepção</span>
+              </GlowingButton>
             </div>
           </div>
         </section>
 
-        {/* ========================================================================= */}
-        {/* 7. SOBRE A ADVOGADA & ESTRUTURA                                           */}
-        {/* ========================================================================= */}
-        <section id="sobre" className="py-16 sm:py-24 bg-white overflow-hidden">
+        {/* 6. SOBRE A CLÍNICA & ESTRUTURA FÍSICA */}
+        <section id="sobre" className="py-16 sm:py-24 bg-slate-50 overflow-hidden">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-              {/* Photo of Dra. Mariana Madeira on Left */}
-              <div className="relative lg:col-span-5">
-                <div className="relative mx-auto max-w-sm sm:max-w-md lg:max-w-none">
-                  {/* Subtle Accent Glow */}
-                  <div className="absolute -inset-3 rounded-2xl bg-gradient-to-br from-[#b8874d]/20 to-transparent blur-lg" />
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+              {/* Imagens Reais da Estrutura */}
+              <div className="lg:col-span-6 space-y-4">
+                <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md">
+                  <Image
+                    src={RECEPCAO_SRC}
+                    alt="Recepção moderna e aconchegante da Clínica SIS Sarzedo"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 600px"
+                    className="object-cover"
+                  />
+                  <div className="absolute bottom-3 left-3 rounded-full bg-slate-900/80 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
+                    Recepção &amp; Sala de Espera Climatizada
+                  </div>
+                </div>
 
-                  <div className="relative overflow-hidden rounded-2xl border-2 border-[#e8e2d8] bg-[#090a0d] shadow-2xl">
-                    <div className="relative aspect-[4/5] w-full">
-                      <Image
-                        src={FOTO_PERFIL_SRC}
-                        alt="Dra. Mariana Madeira - Advogada Empresarial e Especialista em Registro de Marcas"
-                        fill
-                        unoptimized
-                        className="object-cover object-center"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#090a0d]/85 via-transparent to-transparent" />
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+                    <Image
+                      src={FACHADA_SRC}
+                      alt="Fachada na Marginal MG 040 em Sarzedo"
+                      fill
+                      sizes="300px"
+                      className="object-cover"
+                    />
+                    <div className="absolute bottom-2 left-2 rounded bg-slate-900/80 px-2 py-0.5 text-[10px] font-semibold text-white">
+                      Fachada &amp; Estacionamento
+                    </div>
+                  </div>
 
-                      <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-amber-300/30 bg-black/60 p-3.5 backdrop-blur-md text-white text-center">
-                        <p className="font-cinzel text-base font-bold text-white">
-                          Dra. Mariana Madeira
-                        </p>
-                        <p className="text-[11px] text-[#e8caa0] mt-0.5">
-                          Advogada Empresarial &bull; Registro de Marcas no INPI
-                        </p>
-                      </div>
+                  <div className="flex flex-col justify-center rounded-xl border border-sky-200 bg-white p-4 shadow-sm">
+                    <div className="flex items-center gap-1.5 text-xs font-bold text-[#0066cc] mb-1">
+                      <Sparkles className="h-4 w-4 text-lime-500" />
+                      <span>Estrutura Moderna</span>
+                    </div>
+                    <p className="text-xs text-slate-600 leading-snug">
+                      Ambiente planejado com acessibilidade, consultórios equipados e
+                      assepsia rigorosa para o seu conforto.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Textos Sobre a SIS Saúde Integrada */}
+              <div className="lg:col-span-6 space-y-6">
+                <div className="space-y-3">
+                  <span className="eyebrow-blue">Sobre a Clínica SIS</span>
+                  <h2 className="font-heading text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+                    Nascida com um propósito: cuidar da sua saúde com respeito, ciência e afeto.
+                  </h2>
+                </div>
+
+                <p className="text-base text-slate-600 leading-relaxed">
+                  A <strong>SIS — Saúde Integrada Sarzedo</strong> foi concebida para oferecer
+                  aos moradores de Sarzedo e de toda a região metropolitana uma experiência de
+                  saúde acolhedora e resolutiva. Acreditamos que a ida ao médico ou ao dentista
+                  não deve ser fria ou estressante.
+                </p>
+
+                <p className="text-base text-slate-600 leading-relaxed">
+                  Aqui, cada paciente é acolhido com atenção desde o primeiro “bom dia” na
+                  recepção. Nossos consultórios reúnem médicos oftalmologistas conceituados
+                  (núcleo SAME), dentistas carinhosos dedicados à odontopediatria e ortodontia,
+                  fisioterapeuta experiente no studio de Pilates e psicólogos preparados para
+                  ouvir.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                  <div className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-3.5">
+                    <CheckCircle2 className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
+                    <div>
+                      <p className="text-sm font-bold text-slate-900">
+                        Atendimento Sem Pressa
+                      </p>
+                      <p className="text-xs text-slate-500">
+                        Tempo de consulta dedicado para esclarecer suas dúvidas.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-3.5">
+                    <CheckCircle2 className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
+                    <div>
+                      <p className="text-sm font-bold text-slate-900">
+                        Para Toda a Família
+                      </p>
+                      <p className="text-xs text-slate-500">
+                        Cuidado dos bebês e crianças aos avós e gestantes.
+                      </p>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Bio & Details on Right */}
-              <div className="lg:col-span-7">
-                <div className="eyebrow-gold mb-3">Sobre a Profissional &amp; Filosofia</div>
-
-                <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0e1015] leading-tight">
-                  Proteção jurídica de vanguarda para quem empreende no físico e no digital.
-                </h2>
-
-                <div className="mt-6 space-y-4 text-sm sm:text-base text-slate-700 leading-relaxed">
-                  <p>
-                    A advocacia liderada pela <strong className="text-[#0e1015]">Dra. Mariana Madeira</strong> nasceu
-                    com um propósito claro: garantir que empresários, criadores de conteúdo e negócios inovadores
-                    tenham a segurança jurídica necessária para crescer e faturar sem receio de disputas ou perdas patrimoniais.
-                  </p>
-                  <p>
-                    Com vasta atuação e <strong className="text-[#0e1015]">+500 marcas conduzidas e protegidas perante o INPI</strong>,
-                    a Dra. Mariana Madeira alia rigor técnico em Propriedade Industrial à compreensão prática do mercado atual,
-                    atuando com desenvoltura em contratos para infoprodutos, plataformas online, e-commerces e empresas físicas em expansão.
-                  </p>
-                  <p>
-                    Com escritório presencial estruturado na <strong className="text-[#0e1015]">Av. Severo Augusto Ribeiro, 179 - Centro, em Itapecerica - MG</strong>,
-                    oferece um atendimento acolhedor, transparente e ético, ao mesmo tempo em que dispõe de uma infraestrutura 100% digital
-                    para conduzir processos de clientes de todas as regiões do Brasil com nota máxima 5,0 ★ no Google.
-                  </p>
-                </div>
-
-                {/* Quote Box */}
-                <div className="mt-6 rounded-xl border-l-4 border-[#b8874d] bg-[#faf8f5] p-4 sm:p-5">
-                  <p className="italic text-sm text-slate-800">
-                    &ldquo;Profissional super competente e justa. Desde a pesquisa de viabilidade da marca até a sua concessão, se mostra super solícita. Preço justo e muito clara em cada etapa... Não tenho preocupação com minha marca hoje graças a ela!&rdquo;
-                  </p>
-                  <p className="mt-2 text-xs font-bold text-[#b8874d] uppercase tracking-wider">
-                    — Depoimentos reais de clientes no Google Meu Negócio (Nota Máxima 5,0 ★ unânime)
-                  </p>
-                </div>
-
-                {/* Social & Contact Strip */}
-                <div className="mt-8 flex flex-wrap items-center gap-4">
+                <div className="pt-2">
                   <GlowingButton
-                    variant="gold"
+                    onClick={() => openConsultModal("Geral")}
+                    variant="blue"
                     size="md"
-                    href={getWhatsAppUrl()}
-                    target="_blank"
                   >
-                    <WhatsAppIcon size={16} className="text-[#1e1305]" />
-                    <span>Falar com a Dra. Mariana Madeira</span>
+                    <span>Conheça Nossos Serviços</span>
+                    <ArrowRight className="h-4 w-4" />
                   </GlowingButton>
-
-                  <a
-                    href={INSTAGRAM_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-5 py-3 text-xs font-bold uppercase tracking-wider text-slate-800 transition-colors hover:border-[#b8874d] hover:text-[#b8874d]"
-                  >
-                    <InstagramIcon size={16} className="text-[#E1306C]" />
-                    <span>Instagram {INSTAGRAM_HANDLE}</span>
-                  </a>
-
-                  <a
-                    href={GOOGLE_SEARCH_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-5 py-3 text-xs font-bold uppercase tracking-wider text-slate-800 transition-colors hover:border-[#b8874d] hover:text-[#b8874d]"
-                  >
-                    <GoogleIcon size={16} />
-                    <span>Avaliações Google (5.0 ★)</span>
-                  </a>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ========================================================================= */}
-        {/* 8. DIFERENCIAIS COMPETITIVOS                                              */}
-        {/* ========================================================================= */}
-        <section id="diferenciais" className="py-16 sm:py-24 bg-[#faf8f5] border-t border-[#e8e2d8]">
+        {/* 7. DIFERENCIAIS DA CLÍNICA */}
+        <section id="diferenciais" className="py-16 sm:py-24 bg-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
-              <div className="eyebrow-gold justify-center mb-3">
-                Por Que Escolher Mariana Madeira Marcas
-              </div>
-              <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0e1015]">
-                Diferenciais que garantem a segurança definitiva da sua empresa
+            <div className="text-center max-w-3xl mx-auto space-y-3">
+              <span className="eyebrow-green justify-center">Por Que Escolher a SIS</span>
+              <h2 className="font-heading text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+                Diferenciais que você sente desde a recepção ao consultório.
               </h2>
-              <p className="mt-4 text-sm sm:text-base text-slate-600">
-                Uma assessoria que combina transparência, agilidade técnica e comprometimento real com cada cliente.
+              <p className="text-slate-600 text-base sm:text-lg">
+                Combinamos técnica médica de ponta, infraestrutura moderna e um acolhimento
+                verdadeiramente humano.
               </p>
             </div>
 
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+            <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {diferenciais.map((dif, idx) => {
                 const IconComp = dif.icon;
                 return (
                   <div
                     key={idx}
-                    className="rounded-2xl border border-[#e8e2d8] bg-white p-6 sm:p-8 shadow-xs transition-all hover:border-[#b8874d] hover:shadow-md"
+                    className="rounded-2xl border border-slate-200/90 bg-slate-50/50 p-6 sm:p-7 hover:bg-white hover:border-sky-300 hover:shadow-md transition-all"
                   >
-                    <div className="flex size-12 items-center justify-center rounded-xl bg-amber-500/10 text-[#b8874d] mb-5">
-                      <IconComp size={22} />
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-sky-100 text-[#0066cc] mb-5">
+                      <IconComp className="h-6 w-6" />
                     </div>
-                    <h3 className="font-cinzel text-lg font-bold text-[#0e1015]">
+                    <h3 className="font-heading text-lg font-bold text-slate-900 mb-2">
                       {dif.title}
                     </h3>
-                    <p className="mt-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                      {dif.description}
+                    <p className="text-sm text-slate-600 leading-relaxed">
+                      {dif.desc}
                     </p>
                   </div>
                 );
@@ -1329,246 +1166,233 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ========================================================================= */}
-        {/* 9. METODOLOGIA EM 4 PASSOS (COMO FUNCIONA O REGISTRO NO INPI)            */}
-        {/* ========================================================================= */}
-        <section id="metodologia" className="py-16 sm:py-24 bg-white">
+        {/* 8. PROVA SOCIAL & DEPOIMENTOS GOOGLE (4,8 ★) */}
+        <section id="avaliacoes" className="py-16 sm:py-24 bg-sky-50/60 border-y border-sky-100">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
-              <div className="eyebrow-gold justify-center mb-3">
-                Metodologia Estruturada &bull; INPI
+            {/* Header da Prova Social */}
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-12 border-b border-sky-200/80">
+              <div className="space-y-2 text-center md:text-left">
+                <span className="eyebrow-blue">Avaliações Reais no Google</span>
+                <h2 className="font-heading text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+                  O que os nossos pacientes dizem sobre a SIS.
+                </h2>
+                <p className="text-slate-600 text-base max-w-xl">
+                  Mais de 340 avaliações de famílias de Sarzedo e região confirmando nosso
+                  compromisso com a saúde e o atendimento carinhoso.
+                </p>
               </div>
-              <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0e1015]">
-                Como funciona o registro da sua marca passo a passo
+
+              {/* Big Google Score Badge */}
+              <div className="flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 shadow-sm shrink-0">
+                <GoogleIcon size={36} />
+                <div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="font-heading text-2xl font-black text-slate-900">
+                      4,8
+                    </span>
+                    <div className="flex text-amber-400 text-base">
+                      {"★★★★★"}
+                    </div>
+                  </div>
+                  <p className="text-xs font-semibold text-slate-500">
+                    +340 avaliações no Google Maps
+                  </p>
+                  <a
+                    href={GOOGLE_REVIEWS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-[11px] font-bold text-[#0066cc] hover:underline mt-1"
+                  >
+                    <span>Conferir no Google</span>
+                    <ArrowUpRight className="h-3 w-3" />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Grid com Depoimentos Reais */}
+            <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {depoimentosGoogle.map((dep, idx) => (
+                <div
+                  key={idx}
+                  className="flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div>
+                    {/* Estrelas & Data */}
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex text-amber-400 text-sm">
+                        {"★★★★★".slice(0, dep.rating)}
+                      </div>
+                      <span className="text-[11px] text-slate-400 font-medium">
+                        {dep.date}
+                      </span>
+                    </div>
+
+                    {/* Texto da Avaliação */}
+                    <p className="text-sm text-slate-700 leading-relaxed italic mb-4">
+                      &ldquo;{dep.text}&rdquo;
+                    </p>
+                  </div>
+
+                  {/* Autor e Especialidade */}
+                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                    <div>
+                      <p className="text-xs font-bold text-slate-900">
+                        {dep.name}
+                      </p>
+                      <p className="text-[11px] text-sky-700 font-medium">
+                        {dep.detail}
+                      </p>
+                    </div>
+                    {dep.badge && (
+                      <span className="rounded bg-sky-100 px-2 py-0.5 text-[10px] font-bold text-[#0066cc]">
+                        {dep.badge}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA Depoimentos */}
+            <div className="mt-12 text-center">
+              <a
+                href={GOOGLE_REVIEWS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-3 text-xs font-bold text-slate-700 hover:bg-slate-50 hover:text-[#0078d8] transition-colors shadow-sm"
+              >
+                <GoogleIcon size={16} />
+                <span>Ver todas as 340+ avaliações no Google Meu Negócio</span>
+                <ArrowUpRight className="h-4 w-4" />
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* 9. JORNADA DO PACIENTE / COMO AGENDAR */}
+        <section className="py-16 sm:py-24 bg-white">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto space-y-3">
+              <span className="eyebrow-blue justify-center">Simples &amp; Sem Burocracia</span>
+              <h2 className="font-heading text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+                Como agendar sua consulta na Clínica SIS
               </h2>
-              <p className="mt-4 text-sm sm:text-base text-slate-600">
-                Um processo seguro, transparente e acompanhado de perto em cada etapa oficial:
+              <p className="text-slate-600 text-base sm:text-lg">
+                Em poucos passos você tem seu horário marcado e a garantia de um atendimento
+                pontual e atencioso.
               </p>
             </div>
 
-            <div className="grid gap-6 md:grid-cols-4">
-              <div className="relative rounded-2xl border border-[#e8e2d8] bg-[#faf8f5] p-6 text-center">
-                <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-[#090a0d] text-[#e8caa0] font-bold text-lg mb-4 border border-amber-400/40">
+            <div className="mt-14 grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-center">
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-600 text-white font-black text-lg mb-4">
                   1
                 </div>
-                <h3 className="font-cinzel text-base font-bold text-[#0e1015]">
-                  Pesquisa de Viabilidade
+                <h3 className="font-heading text-base font-bold text-slate-900 mb-2">
+                  Mensagem no WhatsApp
                 </h3>
-                <p className="mt-2 text-xs text-slate-600 leading-relaxed">
-                  Realizamos uma varredura aprofundada na base do INPI para atestar se sua marca está livre
-                  e possui chances reais de deferimento sem riscos.
+                <p className="text-xs text-slate-600">
+                  Clique no botão de agendamento e envie sua mensagem. Nossa recepção responde
+                  rapidamente.
                 </p>
               </div>
 
-              <div className="relative rounded-2xl border border-[#e8e2d8] bg-[#faf8f5] p-6 text-center">
-                <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-[#090a0d] text-[#e8caa0] font-bold text-lg mb-4 border border-amber-400/40">
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-center">
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-600 text-white font-black text-lg mb-4">
                   2
                 </div>
-                <h3 className="font-cinzel text-base font-bold text-[#0e1015]">
-                  Protocolo &amp; Depósito
+                <h3 className="font-heading text-base font-bold text-slate-900 mb-2">
+                  Escolha de Dia e Horário
                 </h3>
-                <p className="mt-2 text-xs text-slate-600 leading-relaxed">
-                  Definição correta das classes de produtos e serviços, pagamento das taxas oficiais e protocolo
-                  imediato do pedido no INPI.
+                <p className="text-xs text-slate-600">
+                  Defina o melhor dia e horário na nossa agenda semanal ou aos sábados.
                 </p>
               </div>
 
-              <div className="relative rounded-2xl border border-[#e8e2d8] bg-[#faf8f5] p-6 text-center">
-                <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-[#090a0d] text-[#e8caa0] font-bold text-lg mb-4 border border-amber-400/40">
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-center">
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-600 text-white font-black text-lg mb-4">
                   3
                 </div>
-                <h3 className="font-cinzel text-base font-bold text-[#0e1015]">
-                  Acompanhamento RPI
+                <h3 className="font-heading text-base font-bold text-slate-900 mb-2">
+                  Chegada &amp; Recepção
                 </h3>
-                <p className="mt-2 text-xs text-slate-600 leading-relaxed">
-                  Vigilância semanal das publicações oficiais, cumprimento ágil de eventuais exigências
-                  e resposta técnica a qualquer oposição de concorrentes.
+                <p className="text-xs text-slate-600">
+                  Estacione em frente à clínica na MG-040 e seja recebido com carinho e conforto.
                 </p>
               </div>
 
-              <div className="relative rounded-2xl border border-[#e8e2d8] bg-[#faf8f5] p-6 text-center">
-                <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-[#090a0d] text-[#e8caa0] font-bold text-lg mb-4 border border-amber-400/40">
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-center">
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-[#88d830] text-slate-950 font-black text-lg mb-4">
                   4
                 </div>
-                <h3 className="font-cinzel text-base font-bold text-[#0e1015]">
-                  Concessão &amp; Certificado (®)
+                <h3 className="font-heading text-base font-bold text-slate-900 mb-2">
+                  Cuidado Especializado
                 </h3>
-                <p className="mt-2 text-xs text-slate-600 leading-relaxed">
-                  Emissão do Certificado Oficial de Registro de Marca, garantindo exclusividade de uso em todo o Brasil
-                  pelo prazo de 10 anos renováveis.
+                <p className="text-xs text-slate-600">
+                  Consulta minuciosa, exames claros e plano de tratamento feito sob medida.
                 </p>
               </div>
             </div>
 
             <div className="mt-12 text-center">
               <GlowingButton
-                variant="gold"
-                size="lg"
-                href={getWhatsAppUrl(
-                  "Olá, Dra. Mariana Madeira! Gostaria de fazer a pesquisa de viabilidade da minha marca para iniciarmos o processo no INPI."
-                )}
+                href={getWhatsAppUrl("Olá! Gostaria de agendar meu atendimento na clínica SIS Sarzedo.")}
                 target="_blank"
+                variant="whatsapp"
+                size="lg"
               >
-                <WhatsAppIcon size={17} className="text-[#1e1305]" />
-                <span>Solicitar Minha Pesquisa de Viabilidade</span>
+                <WhatsAppIcon size={20} />
+                <span>Agendar Atendimento Agora</span>
               </GlowingButton>
             </div>
           </div>
         </section>
 
-        {/* ========================================================================= */}
-        {/* 10. AVALIAÇÕES REAIS DO GOOGLE (PROVA SOCIAL)                             */}
-        {/* ========================================================================= */}
-        <section
-          id="avaliacoes"
-          className="py-16 sm:py-24 bg-gradient-to-b from-[#090a0d] via-[#10131b] to-[#14171e] text-white"
-        >
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
-              <div className="eyebrow-light justify-center mb-3">
-                Prova Social Verificada &bull; Google Meu Negócio
-              </div>
-              <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white">
-                O que dizem os clientes no Google
-              </h2>
-              <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      size={20}
-                      className="fill-amber-400 text-amber-400"
-                    />
-                  ))}
-                </div>
-                <span className="text-xl font-bold text-white">5,0 de 5,0 estrelas</span>
-                <span className="text-sm text-[#d9aa69]">
-                  (10 avaliações verificadas no Google)
-                </span>
-              </div>
-            </div>
-
-            {/* Grid of Reviews */}
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {depoimentosGoogle.map((dep, idx) => (
-                <div
-                  key={idx}
-                  className="rounded-2xl border border-amber-400/20 bg-[#161a22]/80 p-6 backdrop-blur-sm flex flex-col justify-between hover:border-amber-300 transition-all"
-                >
-                  <div>
-                    {/* Stars and Google Icon */}
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex gap-0.5">
-                        {[...Array(dep.stars)].map((_, i) => (
-                          <Star
-                            key={i}
-                            size={14}
-                            className="fill-amber-400 text-amber-400"
-                          />
-                        ))}
-                      </div>
-                      <div className="flex items-center gap-1 text-[11px] text-slate-400">
-                        <GoogleIcon size={14} />
-                        <span>Google Review</span>
-                      </div>
-                    </div>
-
-                    {/* Highlight */}
-                    <p className="text-xs font-bold text-[#e8caa0] mb-2 uppercase tracking-wider">
-                      {dep.highlight}
-                    </p>
-
-                    {/* Quote */}
-                    <p className="text-xs sm:text-sm text-slate-200 leading-relaxed italic">
-                      &ldquo;{dep.quote}&rdquo;
-                    </p>
-                  </div>
-
-                  {/* Author */}
-                  <div className="mt-6 pt-4 border-t border-slate-700/60 flex items-center gap-3">
-                    <div className="flex size-9 shrink-0 items-center justify-center rounded-full bg-amber-500/20 text-xs font-bold text-[#e8caa0] border border-amber-400/30">
-                      {dep.author.charAt(0)}
-                    </div>
-                    <div>
-                      <p className="font-bold text-xs sm:text-sm text-white">
-                        {dep.author}
-                      </p>
-                      <p className="text-[11px] text-slate-400">
-                        {dep.detail}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Link to view on Google */}
-            <div className="mt-12 text-center">
-              <a
-                href={GOOGLE_SEARCH_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg border border-amber-400/40 bg-white/5 px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-white hover:border-[#e8caa0] hover:bg-white/10 transition-colors"
-              >
-                <GoogleIcon size={16} />
-                <span>Ver Avaliações no Google Meu Negócio</span>
-                <ArrowUpRight size={14} />
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================================= */}
-        {/* 11. FAQ                                                                   */}
-        {/* ========================================================================= */}
-        <section id="faq" className="py-16 sm:py-24 bg-white">
+        {/* 10. FAQ (PERGUNTAS FREQUENTES) */}
+        <section id="faq" className="py-16 sm:py-24 bg-slate-50 border-t border-slate-200">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12 sm:mb-16">
-              <div className="eyebrow-gold justify-center mb-3">
-                Dúvidas Frequentes
-              </div>
-              <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0e1015]">
-                Perguntas Frequentes sobre Registro de Marcas &amp; Advocacia
+            <div className="text-center space-y-3 mb-12">
+              <span className="eyebrow-blue justify-center">Perguntas Frequentes</span>
+              <h2 className="font-heading text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+                Tire suas dúvidas sobre a Clínica SIS Sarzedo
               </h2>
-              <p className="mt-3 text-sm sm:text-base text-slate-600">
-                Respostas diretas e esclarecedoras sobre como protegemos o patrimônio de quem empreende.
+              <p className="text-slate-600 text-base">
+                Reunimos as respostas para as perguntas mais comuns de nossos pacientes.
               </p>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-3.5">
               {faqs.map((faq, idx) => {
                 const isOpen = activeFaq === idx;
                 return (
                   <div
                     key={idx}
-                    className="overflow-hidden rounded-2xl border border-[#e8e2d8] bg-[#faf8f5] transition-colors"
+                    className="rounded-2xl border border-slate-200 bg-white overflow-hidden transition-all shadow-sm"
                   >
                     <button
                       type="button"
                       onClick={() => setActiveFaq(isOpen ? null : idx)}
-                      className="flex w-full items-center justify-between p-5 text-left text-sm sm:text-base font-bold text-[#0e1015] hover:text-[#b8874d] transition-colors cursor-pointer"
-                      aria-expanded={isOpen}
+                      className="flex w-full items-center justify-between p-5 sm:p-6 text-left"
                     >
-                      <span className="pr-4">{faq.question}</span>
+                      <span className="font-heading text-base sm:text-lg font-bold text-slate-900 pr-4">
+                        {faq.q}
+                      </span>
                       <ChevronDown
-                        size={18}
-                        className={`shrink-0 text-[#b8874d] transition-transform duration-200 ${
-                          isOpen ? "rotate-180" : ""
+                        className={`h-5 w-5 text-slate-500 shrink-0 transition-transform duration-200 ${
+                          isOpen ? "rotate-180 text-[#0078d8]" : ""
                         }`}
                       />
                     </button>
-
                     <AnimatePresence>
                       {isOpen && (
                         <motion.div
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
-                          className="border-t border-[#e8e2d8] px-5 pb-5 pt-3"
+                          className="px-5 sm:px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4"
                         >
-                          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                            {faq.answer}
-                          </p>
+                          {faq.a}
                         </motion.div>
                       )}
                     </AnimatePresence>
@@ -1577,473 +1401,409 @@ export default function Home() {
               })}
             </div>
 
-            <div className="mt-12 rounded-2xl border border-[#e8e2d8] bg-[#faf8f5] p-6 text-center">
-              <p className="font-cinzel text-base font-bold text-[#0e1015]">
-                Ainda tem alguma dúvida sobre a proteção da sua marca ou negócio?
+            <div className="mt-10 rounded-2xl border border-sky-200 bg-white p-6 text-center space-y-3">
+              <p className="text-sm font-semibold text-slate-700">
+                Ainda tem alguma dúvida específica?
               </p>
-              <p className="mt-1 text-xs sm:text-sm text-slate-600">
-                A Dra. Mariana Madeira está à disposição para analisar seu caso com atenção, ética e presteza.
-              </p>
-              <div className="mt-4">
-                <GlowingButton
-                  variant="gold"
-                  size="md"
-                  href={getWhatsAppUrl(
-                    "Olá, Dra. Mariana Madeira! Tenho uma dúvida sobre a proteção da minha marca e gostaria de orientação."
-                  )}
-                  target="_blank"
-                >
-                  <WhatsAppIcon size={15} className="text-[#1e1305]" />
-                  <span>Tirar Dúvida no WhatsApp</span>
-                </GlowingButton>
-              </div>
+              <GlowingButton
+                href={getWhatsAppUrl("Olá! Tenho uma dúvida sobre os serviços da clínica SIS.")}
+                target="_blank"
+                variant="blue"
+                size="sm"
+              >
+                <WhatsAppIcon size={16} />
+                <span>Perguntar no WhatsApp</span>
+              </GlowingButton>
             </div>
           </div>
         </section>
 
-        {/* ========================================================================= */}
-        {/* 12. CONTATO & SEDE EM ITAPECERICA - MG                                     */}
-        {/* ========================================================================= */}
-        <section id="contato" className="py-16 sm:py-24 bg-[#faf8f5] border-t border-[#e8e2d8]">
+        {/* 11. LOCALIZAÇÃO, MAPA & CONTATO */}
+        <section id="contato" className="py-16 sm:py-24 bg-white border-t border-slate-200">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-              {/* Contact Info Column */}
-              <div className="lg:col-span-6 flex flex-col justify-between">
-                <div>
-                  <div className="eyebrow-gold mb-3">Atendimento &amp; Sede</div>
-                  <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0e1015]">
-                    Fale conosco e proteja seu maior patrimônio
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+              {/* Informações de Contato */}
+              <div className="lg:col-span-5 space-y-6">
+                <div className="space-y-3">
+                  <span className="eyebrow-blue">Localização &amp; Contato</span>
+                  <h2 className="font-heading text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+                    Fácil de chegar. Fácil de estacionar.
                   </h2>
-                  <p className="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed">
-                    Atendimento presencial em nossa sede no Centro de Itapecerica - MG ou 100% digital
-                    com atendimento ágil para empreendedores de todo o Brasil. Escolha o canal de sua preferência.
+                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                    Estamos localizados na marginal da Rodovia MG-040, com vagas de
+                    estacionamento na porta para maior conforto de gestantes, crianças e idosos.
                   </p>
+                </div>
 
-                  <div className="mt-8 space-y-4">
-                    <div className="flex items-start gap-3.5">
-                      <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-amber-500/10 text-[#b8874d]">
-                        <MapPin size={20} />
+                <div className="space-y-4 text-sm">
+                  <div className="flex items-start gap-3.5 rounded-xl border border-slate-200 bg-slate-50 p-4">
+                    <MapPin className="h-5 w-5 text-[#0078d8] shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-bold text-slate-900">Endereço:</p>
+                      <p className="text-slate-600">{ADDRESS_TEXT}</p>
+                      <span className="text-[11px] text-emerald-700 font-semibold block mt-0.5">
+                        Marginal da MG-040 com estacionamento em frente
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3.5 rounded-xl border border-slate-200 bg-slate-50 p-4">
+                    <Clock className="h-5 w-5 text-[#0078d8] shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-bold text-slate-900">Horário de Funcionamento:</p>
+                      <p className="text-slate-600">
+                        Segunda a Sexta: <strong>08:00 às 18:00</strong>
+                      </p>
+                      <p className="text-slate-600">
+                        Sábado: <strong>08:00 às 12:00</strong>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3.5 rounded-xl border border-slate-200 bg-slate-50 p-4">
+                    <Phone className="h-5 w-5 text-[#0078d8] shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-bold text-slate-900">Telefones para Agendamento:</p>
+                      <p className="text-slate-600">
+                        WhatsApp: <strong>{PHONE_DISPLAY}</strong>
+                      </p>
+                      <p className="text-slate-600">
+                        Fixo: <strong>{PHONE_FIXO_DISPLAY}</strong>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3.5 rounded-xl border border-slate-200 bg-slate-50 p-4">
+                    <InstagramIcon size={20} className="text-[#0078d8] shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-bold text-slate-900">Redes Sociais Oficiais:</p>
+                      <a
+                        href={INSTAGRAM_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#0066cc] font-semibold hover:underline"
+                      >
+                        Instagram: {INSTAGRAM_HANDLE}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-3 pt-2">
+                  <GlowingButton
+                    href={GOOGLE_MAPS_URL}
+                    target="_blank"
+                    variant="blue"
+                    size="md"
+                  >
+                    <MapPin className="h-4 w-4" />
+                    <span>Abrir no Google Maps</span>
+                  </GlowingButton>
+
+                  <GlowingButton
+                    href={getWhatsAppUrl("Olá! Gostaria de agendar uma consulta na clínica SIS.")}
+                    target="_blank"
+                    variant="whatsapp"
+                    size="md"
+                  >
+                    <WhatsAppIcon size={18} />
+                    <span>WhatsApp</span>
+                  </GlowingButton>
+                </div>
+              </div>
+
+              {/* Card Visual / Mapa Fachada */}
+              <div className="lg:col-span-7">
+                <div className="overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-xl">
+                  <div className="relative aspect-[16/11] w-full">
+                    <Image
+                      src={FACHADA_SRC}
+                      alt="Localização e fachada da SIS Saúde Integrada Sarzedo"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 700px"
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
+
+                    <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
+                      <div className="inline-flex items-center gap-2 rounded-full bg-[#0078d8] px-3.5 py-1 text-xs font-bold text-white shadow-md">
+                        <MapPin className="h-3.5 w-3.5" />
+                        <span>Rodovia MG 040, 122 Marginal</span>
                       </div>
-                      <div>
-                        <p className="text-xs font-bold text-[#0e1015] uppercase tracking-wider">
-                          Endereço da Sede
-                        </p>
-                        <p className="text-sm text-slate-700 mt-0.5">
-                          {ADDRESS_TEXT}
-                        </p>
-                        <p className="text-xs text-slate-500 mt-0.5">
-                          Itapecerica - Minas Gerais &bull; CEP 35550-000
-                        </p>
+                      <h3 className="font-heading text-xl sm:text-2xl font-black text-white">
+                        SIS — Saúde Integrada Sarzedo
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-200 max-w-lg">
+                        Próximo à marginal de Sarzedo, com acesso facilitado e vagas na porta.
+                      </p>
+                      <div className="pt-2 flex flex-wrap gap-3">
                         <a
                           href={GOOGLE_MAPS_URL}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="mt-1 inline-flex items-center gap-1 text-xs font-bold text-[#b8874d] hover:underline"
+                          className="inline-flex items-center gap-1.5 rounded-lg bg-white px-3.5 py-2 text-xs font-bold text-slate-900 hover:bg-slate-100 transition-colors shadow"
                         >
-                          <span>Como chegar no Google Maps</span>
-                          <ArrowUpRight size={12} />
+                          <GoogleIcon size={16} />
+                          <span>Como Chegar (GPS)</span>
                         </a>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-3.5">
-                      <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-amber-500/10 text-[#b8874d]">
-                        <Phone size={20} />
-                      </div>
-                      <div>
-                        <p className="text-xs font-bold text-[#0e1015] uppercase tracking-wider">
-                          Telefone &amp; WhatsApp
-                        </p>
                         <a
-                          href={getWhatsAppUrl()}
+                          href="https://waze.com/ul?q=Rod.+MG+040+122+Sarzedo"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-sm font-semibold text-slate-800 hover:text-[#b8874d] mt-0.5 block"
+                          className="inline-flex items-center gap-1.5 rounded-lg bg-white/20 backdrop-blur-md px-3.5 py-2 text-xs font-bold text-white hover:bg-white/30 transition-colors"
                         >
-                          {PHONE_DISPLAY}
+                          <span>Abrir no Waze</span>
                         </a>
                       </div>
                     </div>
-
-                    <div className="flex items-start gap-3.5">
-                      <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-amber-500/10 text-[#b8874d]">
-                        <Mail size={20} />
-                      </div>
-                      <div>
-                        <p className="text-xs font-bold text-[#0e1015] uppercase tracking-wider">
-                          E-mail de Contato
-                        </p>
-                        <a
-                          href={`mailto:${EMAIL_CONTACT}`}
-                          className="text-sm font-semibold text-slate-800 hover:text-[#b8874d] mt-0.5 block"
-                        >
-                          {EMAIL_CONTACT}
-                        </a>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-3.5">
-                      <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-amber-500/10 text-[#b8874d]">
-                        <InstagramIcon size={20} />
-                      </div>
-                      <div>
-                        <p className="text-xs font-bold text-[#0e1015] uppercase tracking-wider">
-                          Instagram Oficial
-                        </p>
-                        <a
-                          href={INSTAGRAM_URL}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm font-semibold text-slate-800 hover:text-[#b8874d] mt-0.5 block"
-                        >
-                          {INSTAGRAM_HANDLE} (Mariana Madeira)
-                        </a>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-3.5">
-                      <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-amber-500/10 text-[#b8874d]">
-                        <Clock size={20} />
-                      </div>
-                      <div>
-                        <p className="text-xs font-bold text-[#0e1015] uppercase tracking-wider">
-                          Horário de Funcionamento
-                        </p>
-                        <p className="text-sm text-slate-700 mt-0.5">
-                          Segunda a Sexta das 08:30 às 17:00
-                        </p>
-                        <p className="text-xs text-slate-500">
-                          Atendimento presencial e digital com agendamento prévio
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-8 pt-6 border-t border-[#e8e2d8]">
-                  <GlowingButton
-                    variant="gold"
-                    size="lg"
-                    href={getWhatsAppUrl()}
-                    target="_blank"
-                    className="w-full justify-center"
-                  >
-                    <WhatsAppIcon size={18} className="text-[#1e1305]" />
-                    <span>Falar no WhatsApp Agora</span>
-                  </GlowingButton>
-                </div>
-              </div>
-
-              {/* Map & Office Card Column */}
-              <div className="lg:col-span-6">
-                <div className="rounded-2xl border border-[#e8e2d8] bg-white p-6 sm:p-8 shadow-sm">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-2.5">
-                      <div className="relative size-9 shrink-0">
-                        <Image
-                          src={LOGO_SYMBOL_SRC}
-                          alt="Mariana Madeira Marcas Emblema"
-                          fill
-                          unoptimized
-                          className="object-contain"
-                        />
-                      </div>
-                      <div>
-                        <p className="font-cinzel text-sm font-bold text-[#0e1015]">
-                          Mariana Madeira Registro de Marcas
-                        </p>
-                        <p className="text-[10px] text-slate-500">
-                          Av. Severo Augusto Ribeiro, 179 - Centro &bull; Itapecerica - MG
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center gap-1 rounded-md bg-amber-50 px-2.5 py-1 text-xs font-bold text-amber-800 border border-amber-200">
-                      <Star size={12} className="fill-amber-400 text-amber-500" />
-                      <span>5,0 ★ (10)</span>
-                    </div>
-                  </div>
-
-                  {/* Interactive Map Container */}
-                  <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-slate-200 bg-slate-100">
-                    <iframe
-                      title="Localização de Mariana Madeira Registro de Marcas e Advocacia Empresarial em Itapecerica - MG"
-                      src="https://maps.google.com/maps?q=Av.+Severo+Augusto+Ribeiro,+179+-+Centro,+Itapecerica+-+MG,+35550-000&t=&z=16&ie=UTF8&iwloc=&output=embed"
-                      className="size-full border-0"
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                    />
-                  </div>
-
-                  <div className="mt-4 flex items-center justify-between text-xs text-slate-600">
-                    <span>Av. Severo Augusto Ribeiro, 179 - Centro, Itapecerica - MG</span>
-                    <a
-                      href={GOOGLE_MAPS_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-bold text-[#b8874d] hover:underline flex items-center gap-1"
-                    >
-                      <span>Abrir Rotas no GPS</span>
-                      <ArrowUpRight size={12} />
-                    </a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
+      </main>
 
-        {/* ========================================================================= */}
-        {/* 13. FOOTER                                                                */}
-        {/* ========================================================================= */}
-        <footer className="border-t border-[#262c3a] bg-gradient-to-b from-[#090a0d] to-[#040507] text-white py-12 sm:py-16">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-12 lg:gap-12 pb-12 border-b border-slate-800">
-              {/* Brand Column */}
-              <div className="lg:col-span-5">
+      {/* 12. FOOTER COMPLETO */}
+      <footer className="border-t border-slate-200 bg-slate-900 text-slate-300 text-sm">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
+            {/* Coluna 1: Marca & Bio */}
+            <div className="lg:col-span-5 space-y-4">
+              <div className="relative h-12 w-48">
+                <Image
+                  src={LOGO_SRC}
+                  alt="SIS — Saúde Integrada Sarzedo"
+                  fill
+                  sizes="200px"
+                  className="object-contain object-left brightness-0 invert"
+                />
+              </div>
+              <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
+                Clínica Médica e Odontológica multidisciplinar em Sarzedo / MG. Cuidando da sua
+                saúde e bem-estar com corpo clínico qualificado, infraestrutura moderna e
+                atendimento humanizado.
+              </p>
+              <div className="flex items-center gap-3 pt-2">
                 <a
-                  href="#inicio"
-                  className="flex items-center transition-opacity hover:opacity-95"
+                  href={INSTAGRAM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram da SIS"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-800 text-slate-300 hover:bg-[#0078d8] hover:text-white transition-colors"
                 >
-                  <div className="relative h-14 sm:h-16 w-56 sm:w-64 shrink-0">
-                    <Image
-                      src={LOGO_SRC}
-                      alt="Mariana Madeira Marcas"
-                      fill
-                      unoptimized
-                      className="object-contain object-left"
-                    />
-                  </div>
+                  <InstagramIcon size={16} />
                 </a>
-
-                <p className="mt-4 text-xs sm:text-sm text-slate-300 leading-relaxed max-w-md">
-                  {FIRM_SLOGAN}
-                </p>
-
-                <div className="mt-6 flex items-center gap-3">
-                  <a
-                    href={INSTAGRAM_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex size-9 items-center justify-center rounded-lg border border-slate-700 bg-white/5 text-slate-300 transition-colors hover:border-[#e8caa0] hover:text-[#e8caa0]"
-                    aria-label="Instagram de Mariana Madeira Advocacia"
-                  >
-                    <InstagramIcon size={16} />
-                  </a>
-                  <a
-                    href={getWhatsAppUrl()}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex size-9 items-center justify-center rounded-lg border border-slate-700 bg-white/5 text-slate-300 transition-colors hover:border-[#25D366] hover:text-[#25D366]"
-                    aria-label="WhatsApp de Mariana Madeira Advocacia"
-                  >
-                    <WhatsAppIcon size={16} />
-                  </a>
-                  <a
-                    href={GOOGLE_SEARCH_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex size-9 items-center justify-center rounded-lg border border-slate-700 bg-white/5 text-slate-300 transition-colors hover:border-amber-400 hover:text-amber-400"
-                    aria-label="Perfil no Google Meu Negócio"
-                  >
-                    <GoogleIcon size={16} />
-                  </a>
-                </div>
-              </div>
-
-              {/* Navigation Links */}
-              <div className="lg:col-span-3">
-                <p className="font-cinzel text-xs font-bold uppercase tracking-[0.16em] text-[#e8caa0] mb-4">
-                  Áreas de Atuação
-                </p>
-                <ul className="space-y-2.5 text-xs text-slate-300">
-                  <li>
-                    <a className="footer-link" href="#atuacao">
-                      Registro de Marcas no INPI
-                    </a>
-                  </li>
-                  <li>
-                    <a className="footer-link" href="#atuacao">
-                      Advocacia para Negócios Digitais
-                    </a>
-                  </li>
-                  <li>
-                    <a className="footer-link" href="#atuacao">
-                      Contratos Empresariais Estratégicos
-                    </a>
-                  </li>
-                  <li>
-                    <a className="footer-link" href="#atuacao">
-                      Combate à Pirataria &amp; Plágio
-                    </a>
-                  </li>
-                  <li>
-                    <a className="footer-link" href="#atuacao">
-                      Assessoria Jurídica para PMEs
-                    </a>
-                  </li>
-                  <li>
-                    <a className="footer-link" href="#atuacao">
-                      Vigilância Ativa de Marcas no INPI
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Legal & Office */}
-              <div className="lg:col-span-4">
-                <p className="font-cinzel text-xs font-bold uppercase tracking-[0.16em] text-[#e8caa0] mb-4">
-                  Sede &amp; Contato
-                </p>
-                <div className="space-y-2.5 text-xs text-slate-300">
-                  <p className="flex items-start gap-2">
-                    <MapPin size={14} className="text-[#e8caa0] shrink-0 mt-0.5" />
-                    <span>{ADDRESS_TEXT}</span>
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <WhatsAppIcon size={14} className="text-[#25D366] shrink-0" />
-                    <span>WhatsApp: {PHONE_DISPLAY}</span>
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <Mail size={14} className="text-[#e8caa0] shrink-0" />
-                    <span>{EMAIL_CONTACT}</span>
-                  </p>
-                  <p className="text-[11px] text-slate-400 mt-3 pt-3 border-t border-slate-800">
-                    Atendimento de Segunda a Sexta das 08:30 às 17:00.
-                  </p>
-                </div>
+                <a
+                  href={getWhatsAppUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="WhatsApp da SIS"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-800 text-slate-300 hover:bg-emerald-600 hover:text-white transition-colors"
+                >
+                  <WhatsAppIcon size={16} />
+                </a>
+                <a
+                  href={GOOGLE_REVIEWS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Google Maps"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-800 text-slate-300 hover:bg-blue-600 hover:text-white transition-colors"
+                >
+                  <GoogleIcon size={16} />
+                </a>
               </div>
             </div>
 
-            {/* Bottom Copyright & OAB Ethics Notice */}
-            <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] text-slate-400 text-center md:text-left">
-              <p>
-                &copy; {new Date().getFullYear()} Mariana Madeira Registro de Marcas e Advocacia Empresarial.
-                Todos os direitos reservados.
+            {/* Coluna 2: Especialidades */}
+            <div className="lg:col-span-3 space-y-3">
+              <p className="font-heading text-sm font-bold text-white uppercase tracking-wider">
+                Especialidades
               </p>
-              <p className="max-w-xl text-[10px] leading-relaxed">
-                Este site possui finalidade informativa e institucional, em estrita observância
-                às normas do Código de Ética e Disciplina da Ordem dos Advogados do Brasil (OAB).
+              <ul className="space-y-2 text-xs text-slate-400">
+                <li>
+                  <a href="#especialidades" className="hover:text-white transition-colors">
+                    Oftalmologia SAME (Exames de Vista)
+                  </a>
+                </li>
+                <li>
+                  <a href="#especialidades" className="hover:text-white transition-colors">
+                    Odontologia &amp; Odontopediatria
+                  </a>
+                </li>
+                <li>
+                  <a href="#especialidades" className="hover:text-white transition-colors">
+                    Ortodontia &amp; Aparelhos
+                  </a>
+                </li>
+                <li>
+                  <a href="#especialidades" className="hover:text-white transition-colors">
+                    Studio de Pilates &amp; Fisioterapia
+                  </a>
+                </li>
+                <li>
+                  <a href="#especialidades" className="hover:text-white transition-colors">
+                    Psicologia Clínica
+                  </a>
+                </li>
+                <li>
+                  <a href="#especialidades" className="hover:text-white transition-colors">
+                    Nutrição &amp; Reeducação Alimentar
+                  </a>
+                </li>
+                <li>
+                  <a href="#especialidades" className="hover:text-white transition-colors">
+                    Clínica Médica Geral &amp; Check-ups
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Coluna 3: Atendimento & Horário */}
+            <div className="lg:col-span-4 space-y-3">
+              <p className="font-heading text-sm font-bold text-white uppercase tracking-wider">
+                Contato &amp; Funcionamento
               </p>
+              <div className="space-y-2 text-xs text-slate-400">
+                <p>
+                  📍 <strong className="text-slate-200">Endereço:</strong> {ADDRESS_TEXT}
+                </p>
+                <p>
+                  📞 <strong className="text-slate-200">Fixo:</strong> {PHONE_FIXO_DISPLAY}
+                </p>
+                <p>
+                  📲 <strong className="text-slate-200">WhatsApp:</strong> {PHONE_DISPLAY}
+                </p>
+                <p>
+                  ✉️ <strong className="text-slate-200">E-mail:</strong> {EMAIL_CONTACT}
+                </p>
+                <div className="pt-2 border-t border-slate-800 text-slate-400">
+                  <p className="font-semibold text-slate-300">Horário:</p>
+                  <p>Segunda a Sexta: 08:00 às 18:00</p>
+                  <p>Sábado: 08:00 às 12:00</p>
+                </div>
+              </div>
             </div>
           </div>
-        </footer>
 
-        {/* ========================================================================= */}
-        {/* 14. FLOATING WHATSAPP BUTTON                                              */}
-        {/* ========================================================================= */}
-        <div className="fixed bottom-5 right-5 z-50 flex items-center gap-2">
-          <a
-            href={getWhatsAppUrl()}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative flex items-center gap-2.5 rounded-full border-2 border-white/80 bg-[#25D366] px-4 py-3 text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-[#1ebe5d]"
-            aria-label="Falar com a Dra. Mariana Madeira no WhatsApp"
-          >
-            <span className="absolute -top-1 -right-1 flex size-3">
-              <span className="absolute inline-flex size-full animate-ping rounded-full bg-white opacity-75" />
-              <span className="relative inline-flex size-3 rounded-full bg-white" />
-            </span>
-            <WhatsAppIcon size={22} className="text-white" />
-            <span className="hidden sm:inline text-xs font-bold tracking-wide uppercase">
-              Falar no WhatsApp
-            </span>
-          </a>
+          {/* Linha de Copyright & Ética Médica */}
+          <div className="mt-12 pt-8 border-t border-slate-800 text-center sm:flex sm:items-center sm:justify-between text-[11px] text-slate-500">
+            <p>
+              © {new Date().getFullYear()} {CLINIC_NAME}. Todos os direitos reservados.
+            </p>
+            <p className="mt-2 sm:mt-0">
+              Clínica médica, odontológica e multidisciplinar em Sarzedo / MG.
+            </p>
+          </div>
         </div>
+      </footer>
 
-        {/* ========================================================================= */}
-        {/* 15. MODAL DE CONSULTA RÁPIDA                                              */}
-        {/* ========================================================================= */}
-        <AnimatePresence>
-          {modalOpen && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
+      {/* 13. FLOATING WHATSAPP CTA BUTTON */}
+      <aside aria-label="Atendimento rápido no WhatsApp" className="fixed bottom-5 right-5 z-50">
+        <a
+          href={getWhatsAppUrl("Olá! Gostaria de agendar uma consulta na SIS Sarzedo.")}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex items-center gap-2.5 rounded-full bg-[#25D366] px-4 py-3 text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-[#20ba5a] pulse-whatsapp"
+          aria-label="Abrir WhatsApp para agendar consulta"
+        >
+          <WhatsAppIcon size={24} className="text-white" />
+          <span className="hidden sm:inline font-bold text-xs tracking-wide uppercase">
+            Agendar Consulta
+          </span>
+        </a>
+      </aside>
+
+      {/* 14. MODAL INTERATIVO DE AGENDAMENTO RÁPIDO */}
+      <AnimatePresence>
+        {modalOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setModalOpen(false)}
+              className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
+            />
+
+            {/* Modal Dialog */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 16 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 16 }}
+              className="relative w-full max-w-lg overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-2xl z-10"
+            >
+              <button
+                type="button"
                 onClick={() => setModalOpen(false)}
-                className="fixed inset-0 bg-black/75 backdrop-blur-xs"
-              />
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95, y: 16 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95, y: 16 }}
-                className="relative z-10 w-full max-w-lg rounded-2xl border-2 border-amber-300/60 bg-gradient-to-b from-[#090a0d] to-[#14171e] p-6 sm:p-8 text-white shadow-2xl"
+                className="absolute top-5 right-5 inline-flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200"
               >
+                <X className="h-4 w-4" />
+              </button>
+
+              <div className="space-y-2 mb-6">
+                <span className="eyebrow-blue">Agendamento de Consulta</span>
+                <h3 className="font-heading text-2xl font-bold text-slate-900">
+                  Como podemos ajudar você hoje?
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600">
+                  Selecione a especialidade desejada para ser atendido(a) no WhatsApp com agilidade.
+                </p>
+              </div>
+
+              <div className="space-y-3 mb-6">
+                {[
+                  "Oftalmologia (SAME) - Exames de Vista",
+                  "Odontologia & Odontopediatria (Dra. Laura)",
+                  "Studio de Pilates & Fisioterapia (Dra. Emilly)",
+                  "Psicologia Clínica",
+                  "Nutrição & Reeducação Alimentar",
+                  "Clínica Geral & Check-up",
+                ].map((item) => (
+                  <button
+                    key={item}
+                    type="button"
+                    onClick={() => setModalSpecialty(item)}
+                    className={`flex w-full items-center justify-between rounded-xl border p-3.5 text-left text-xs font-semibold transition-all ${
+                      modalSpecialty === item
+                        ? "border-[#0078d8] bg-sky-50 text-[#0066cc]"
+                        : "border-slate-200 text-slate-700 hover:bg-slate-50"
+                    }`}
+                  >
+                    <span>{item}</span>
+                    {modalSpecialty === item && (
+                      <CheckCircle2 className="h-4 w-4 text-[#0078d8]" />
+                    )}
+                  </button>
+                ))}
+              </div>
+
+              <div className="flex flex-col gap-2.5">
+                <a
+                  href={getWhatsAppUrl(
+                    `Olá! Gostaria de agendar uma consulta de ${modalSpecialty} na clínica SIS — Saúde Integrada Sarzedo.`
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] py-3.5 text-xs font-bold text-white uppercase tracking-wider hover:bg-[#20ba5a] transition-colors shadow-md"
+                >
+                  <WhatsAppIcon size={18} />
+                  <span>Continuar no WhatsApp</span>
+                </a>
+
                 <button
                   type="button"
                   onClick={() => setModalOpen(false)}
-                  className="absolute top-4 right-4 rounded-lg p-1.5 text-slate-400 hover:bg-white/10 hover:text-white cursor-pointer"
-                  aria-label="Fechar janela"
+                  className="py-2 text-xs font-semibold text-slate-500 hover:text-slate-800"
                 >
-                  <X size={20} />
+                  Fechar janela
                 </button>
-
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="relative size-10 shrink-0">
-                    <Image
-                      src={LOGO_SYMBOL_SRC}
-                      alt="Mariana Madeira Marcas Emblema"
-                      fill
-                      unoptimized
-                      className="object-contain"
-                    />
-                  </div>
-                  <div>
-                    <h3 className="font-cinzel text-lg font-bold text-white">
-                      Análise Jurídica Especializada
-                    </h3>
-                    <p className="text-xs text-[#e8caa0] font-semibold">
-                      {modalArea}
-                    </p>
-                  </div>
-                </div>
-
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Para analisar a proteção da sua marca ou negócio com sigilo, rapidez e rigor técnico, você será
-                  redirecionado ao atendimento oficial da{" "}
-                  <strong className="text-white">Dra. Mariana Madeira</strong>.
-                </p>
-
-                <div className="mt-5 space-y-2 rounded-xl border border-amber-400/20 bg-white/5 p-4 text-xs text-slate-300">
-                  <p className="font-bold text-white uppercase tracking-wider text-[11px] text-[#e8caa0]">
-                    O que ter em mãos (se aplicável):
-                  </p>
-                  <ul className="space-y-1 pl-1">
-                    <li>&bull; Nome da marca / logotipo que você deseja registrar</li>
-                    <li>&bull; Ramo de atuação e segmento de mercado do seu negócio</li>
-                    <li>&bull; Cidade/Estado onde atua e se vende no ambiente físico ou digital</li>
-                  </ul>
-                </div>
-
-                <div className="mt-6 flex flex-col gap-2.5">
-                  <GlowingButton
-                    variant="gold"
-                    size="md"
-                    href={getWhatsAppUrl(
-                      `Olá, Dra. Mariana Madeira! Gostaria de uma avaliação jurídica sobre: ${modalArea}.`
-                    )}
-                    target="_blank"
-                    className="w-full justify-center"
-                  >
-                    <WhatsAppIcon size={16} className="text-[#1e1305]" />
-                    <span>Prosseguir para o WhatsApp</span>
-                  </GlowingButton>
-
-                  <button
-                    type="button"
-                    onClick={() => setModalOpen(false)}
-                    className="rounded-lg py-2 text-xs font-semibold text-slate-400 hover:text-white cursor-pointer"
-                  >
-                    Voltar ao site
-                  </button>
-                </div>
-              </motion.div>
-            </div>
-          )}
-        </AnimatePresence>
-      </div>
-    </MotionConfig>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }

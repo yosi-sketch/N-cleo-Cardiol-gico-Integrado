@@ -1,236 +1,187 @@
 @import "tailwindcss";
 
 :root {
-  color-scheme: light dark;
-  
-  /* Primary Luxury Obsidian & Warm Noir Base */
-  --color-black-pure: #090a0d;
-  --color-black-surface: #0e1015;
-  --color-black-card: #14171e;
-  --color-black-hover: #1b202a;
-  --color-black-border: #262c3a;
+  color-scheme: light;
 
-  --color-white-pure: #ffffff;
-  --color-white-surface: #faf8f5;
-  --color-white-card: #ffffff;
-  --color-white-muted: #f4efe7;
-  --color-cashmere-border: #e8e2d8;
+  /* Primary SIS Medical Palette (Extracted directly from SIS Logo) */
+  --color-sis-blue: #0078d8;
+  --color-sis-blue-dark: #0055a5;
+  --color-sis-blue-navy: #0a2540;
+  --color-sis-blue-light: #0098f0;
+  --color-sis-blue-cyan: #0284c7;
+  --color-sis-blue-soft: #e0f2fe;
+  --color-sis-blue-ice: #f0f9ff;
 
-  /* Primary Logo Accent: Warm Metallic Bronze Gold & Champagne Amber (Mariana Madeira Marcas) */
-  --brand-gold-specular: #fcf6e9;
-  --brand-gold-champagne: #f7edd7;
-  --brand-gold-light: #e8caa0;
-  --brand-gold-accent: #d9aa69;
-  --brand-gold-primary: #b8874d; /* Extracted directly from Mariana Madeira logo */
-  --brand-gold-radiant: #c89658;
-  --brand-gold-amber: #aa773b;
-  --brand-gold-deep: #8c5d28;
-  --brand-gold-bronze: #684116;
-  --brand-gold-shadow: #2d1904;
+  /* Secondary Vitality & Health Lime Green (From Crescent & Subtitle) */
+  --color-sis-green: #88d830;
+  --color-sis-green-dark: #65a30d;
+  --color-sis-green-light: #9ef048;
+  --color-sis-green-soft: #dcfce7;
+  --color-sis-green-bg: #f0fdf4;
 
-  /* Deep Slate & Charcoal Tones */
-  --brand-slate-accent: #64748b;
-  --brand-slate-light: #334155;
-  --brand-slate-primary: #1e293b;
-  --brand-slate-deep: #0f172a;
-  --brand-slate-midnight: #090e17;
+  /* Warm Wood & Reception Sand Accent */
+  --color-sis-wood: #b8874d;
+  --color-sis-wood-soft: #fdfbf7;
+  --color-sis-wood-border: #e8dfc8;
+
+  /* Neutral Hospital Clean Base */
+  --color-white: #ffffff;
+  --color-surface-clean: #f8fafc;
+  --color-surface-soft: #f1f5f9;
+  --color-slate-text: #0f172a;
+  --color-slate-muted: #64748b;
+  --color-border-clean: #e2e8f0;
 }
 
 @theme inline {
-  --font-serif: var(--font-serif), var(--font-display), "Playfair Display", "Cormorant Garamond", serif;
-  --font-cinzel: var(--font-cinzel), "Cinzel", "Playfair Display", serif;
   --font-sans: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
-  
-  --color-gold-50: #fdfaf4;
-  --color-gold-100: #fbf4e8;
-  --color-gold-200: #f7edd7;
-  --color-gold-300: #e8caa0;
-  --color-gold-400: #d9aa69;
-  --color-gold-500: #b8874d;
-  --color-gold-600: #c89658;
-  --color-gold-700: #aa773b;
-  --color-gold-800: #8c5d28;
-  --color-gold-900: #684116;
-  --color-gold-950: #2d1904;
+  --font-heading: var(--font-heading), "Outfit", "Plus Jakarta Sans", sans-serif;
 
-  --color-noir-50: #f8fafc;
-  --color-noir-100: #f1f5f9;
-  --color-noir-200: #e2e8f0;
-  --color-noir-300: #cbd5e1;
-  --color-noir-400: #94a3b8;
-  --color-noir-500: #64748b;
-  --color-noir-600: #334155;
-  --color-noir-700: #1e293b;
-  --color-noir-800: #14171e;
-  --color-noir-900: #0e1015;
-  --color-noir-950: #090a0d;
+  --color-sis-blue: #0078d8;
+  --color-sis-blue-50: #f0f9ff;
+  --color-sis-blue-100: #e0f2fe;
+  --color-sis-blue-200: #bae6fd;
+  --color-sis-blue-300: #7dd3fc;
+  --color-sis-blue-400: #38bdf8;
+  --color-sis-blue-500: #0078d8;
+  --color-sis-blue-600: #0284c7;
+  --color-sis-blue-700: #0369a1;
+  --color-sis-blue-800: #0055a5;
+  --color-sis-blue-900: #0a2540;
+  --color-sis-blue-950: #061626;
+
+  --color-sis-green: #88d830;
+  --color-sis-green-50: #f0fdf4;
+  --color-sis-green-100: #dcfce7;
+  --color-sis-green-200: #bbf7d0;
+  --color-sis-green-300: #86efac;
+  --color-sis-green-400: #9ef048;
+  --color-sis-green-500: #88d830;
+  --color-sis-green-600: #65a30d;
+  --color-sis-green-700: #4d7c0f;
+  --color-sis-green-800: #3f6212;
+  --color-sis-green-900: #365314;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 7.5rem;
+  scroll-padding-top: 6rem;
   background-color: #ffffff;
 }
 
 body {
   background: #ffffff;
-  color: #14171f;
+  color: #0f172a;
   font-family: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
-  caret-color: #b8874d;
+  caret-color: #0078d8;
+  -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: #b8874d;
+  background: #0078d8;
   color: #ffffff;
 }
 
-.font-cinzel {
-  font-family: var(--font-cinzel), "Cinzel", "Playfair Display", serif;
+.font-heading {
+  font-family: var(--font-heading), "Outfit", "Plus Jakarta Sans", sans-serif;
 }
 
-.eyebrow-gold,
-.eyebrow-navy,
-.eyebrow-dark,
-.eyebrow-light,
-.eyebrow-amber,
-.eyebrow-silver {
-  display: flex;
+/* Eyebrows for medical badges */
+.eyebrow-blue,
+.eyebrow-green,
+.eyebrow-dark {
+  display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  font-size: 0.68rem;
-  font-weight: 700;
+  gap: 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 800;
   line-height: 1.4;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
-.eyebrow-gold {
-  color: #b8874d;
+.eyebrow-blue {
+  color: #0078d8;
 }
 
-.eyebrow-navy {
-  color: #1e293b;
+.eyebrow-green {
+  color: #65a30d;
 }
 
 .eyebrow-dark {
-  color: #2d1904;
+  color: #0a2540;
 }
 
-.eyebrow-light {
-  color: #e8caa0;
-}
-
-.eyebrow-amber {
-  color: #c89658;
-}
-
-.eyebrow-silver {
-  color: #b8874d;
-}
-
-.eyebrow-gold::before,
-.eyebrow-navy::before,
-.eyebrow-dark::before,
-.eyebrow-light::before,
-.eyebrow-amber::before,
-.eyebrow-silver::before {
-  width: 1.75rem;
-  height: 1.5px;
+.eyebrow-blue::before,
+.eyebrow-green::before,
+.eyebrow-dark::before {
+  width: 1.25rem;
+  height: 2px;
   flex: none;
   background: currentColor;
   content: "";
+  border-radius: 9999px;
 }
 
+/* Nav links */
 .nav-link {
   position: relative;
   padding-block: 0.5rem;
-  color: #cbd5e1;
-  font-size: 0.72rem;
+  color: #475569;
+  font-size: 0.85rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  transition: color 200ms ease;
-}
-
-@media (min-width: 1280px) {
-  .nav-link {
-    font-size: 0.74rem;
-    letter-spacing: 0.12em;
-  }
-}
-
-.nav-link::after {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 2px;
-  background: #d9aa69;
-  content: "";
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 200ms ease;
+  transition: color 0.2s ease;
 }
 
 .nav-link:hover {
-  color: #e8caa0;
+  color: #0078d8;
 }
 
-.nav-link:hover::after {
-  transform: scaleX(1);
+.nav-link.active {
+  color: #0078d8;
+  font-weight: 700;
 }
 
-.footer-link {
-  color: #cbd5e1;
-  transition: color 150ms ease, transform 150ms ease;
-  display: inline-block;
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #0078d8;
+  transition: width 0.2s ease-in-out;
+  border-radius: 9999px;
 }
 
-.footer-link:hover {
-  color: #e8caa0;
-  transform: translateX(2px);
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
 }
 
-/* Warm Metallic Gold Text Gradients Calibrated to Mariana Madeira Logo */
-.text-gradient-gold {
-  background: linear-gradient(135deg, #ffffff 0%, #fcf6e9 25%, #e8caa0 55%, #c89658 85%, #8c5d28 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Subtle glow animations for high-converting elements */
+@keyframes subtle-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 120, 216, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(0, 120, 216, 0);
+  }
 }
 
-.text-gradient-champagne {
-  background: linear-gradient(135deg, #ffffff 0%, #f7edd7 40%, #e8caa0 75%, #b8874d 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.pulse-medical {
+  animation: subtle-pulse 3s infinite;
 }
 
-.text-gradient-bronze {
-  background: linear-gradient(135deg, #e8caa0 0%, #b8874d 35%, #8c5d28 75%, #482e16 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+@keyframes green-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
+  }
 }
 
-.text-gradient-dark {
-  background: linear-gradient(135deg, #090a0d 0%, #14171e 50%, #262c3a 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.text-gradient-silver {
-  background: linear-gradient(135deg, #ffffff 0%, #fcf6e9 30%, #e8caa0 65%, #c89658 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.text-gradient-platinum {
-  background: linear-gradient(135deg, #ffffff 0%, #f7edd7 45%, #d9aa69 75%, #b8874d 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.text-gradient-amber {
-  background: linear-gradient(135deg, #fcf6e9 0%, #e8caa0 35%, #c89658 70%, #8c5d28 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.pulse-whatsapp {
+  animation: green-pulse 2.5s infinite;
 }
