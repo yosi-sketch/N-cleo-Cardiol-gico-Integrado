@@ -3,26 +3,32 @@
 :root {
   color-scheme: light;
 
-  /* Primary SIS Medical Palette (Extracted directly from SIS Logo) */
-  --color-sis-blue: #0078d8;
-  --color-sis-blue-dark: #0055a5;
-  --color-sis-blue-navy: #0a2540;
-  --color-sis-blue-light: #0098f0;
-  --color-sis-blue-cyan: #0284c7;
-  --color-sis-blue-soft: #e0f2fe;
-  --color-sis-blue-ice: #f0f9ff;
+  /* Primary Medical Blue Palette (Extracted directly from 'NÚCLEO' in Logo) */
+  --color-nucleo-blue: #01499a;
+  --color-nucleo-blue-dark: #013b7e;
+  --color-nucleo-blue-navy: #071d3d;
+  --color-nucleo-blue-light: #0260cc;
+  --color-nucleo-blue-cyan: #0284c7;
+  --color-nucleo-blue-soft: #e0f0fe;
+  --color-nucleo-blue-ice: #f0f7ff;
 
-  /* Secondary Vitality & Health Lime Green (From Crescent & Subtitle) */
-  --color-sis-green: #88d830;
-  --color-sis-green-dark: #65a30d;
-  --color-sis-green-light: #9ef048;
-  --color-sis-green-soft: #dcfce7;
-  --color-sis-green-bg: #f0fdf4;
+  /* Cardiology Life & Heart Vitality Palette (Extracted directly from Heart in Logo) */
+  --color-nucleo-red: #dd0101;
+  --color-nucleo-red-dark: #b91c1c;
+  --color-nucleo-red-deep: #991b1b;
+  --color-nucleo-red-light: #ef4444;
+  --color-nucleo-red-soft: #fee2e2;
+  --color-nucleo-red-ice: #fef2f2;
 
-  /* Warm Wood & Reception Sand Accent */
-  --color-sis-wood: #b8874d;
-  --color-sis-wood-soft: #fdfbf7;
-  --color-sis-wood-border: #e8dfc8;
+  /* Diagnostic ECG Metallic Gray & Slate (From ECG trace in Logo) */
+  --color-nucleo-gray: #706f6f;
+  --color-nucleo-gray-light: #94a3b8;
+  --color-nucleo-gray-dark: #334155;
+
+  /* Warm Reception & Clinic Interior Accent */
+  --color-nucleo-wood: #b8874d;
+  --color-nucleo-wood-soft: #fdfbf7;
+  --color-nucleo-wood-border: #e8dfc8;
 
   /* Neutral Hospital Clean Base */
   --color-white: #ffffff;
@@ -37,30 +43,31 @@
   --font-sans: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
   --font-heading: var(--font-heading), "Outfit", "Plus Jakarta Sans", sans-serif;
 
-  --color-sis-blue: #0078d8;
-  --color-sis-blue-50: #f0f9ff;
-  --color-sis-blue-100: #e0f2fe;
-  --color-sis-blue-200: #bae6fd;
-  --color-sis-blue-300: #7dd3fc;
-  --color-sis-blue-400: #38bdf8;
-  --color-sis-blue-500: #0078d8;
-  --color-sis-blue-600: #0284c7;
-  --color-sis-blue-700: #0369a1;
-  --color-sis-blue-800: #0055a5;
-  --color-sis-blue-900: #0a2540;
-  --color-sis-blue-950: #061626;
+  --color-nucleo-blue: #01499a;
+  --color-nucleo-blue-50: #f0f7ff;
+  --color-nucleo-blue-100: #e0f0fe;
+  --color-nucleo-blue-200: #bae6fd;
+  --color-nucleo-blue-300: #7dd3fc;
+  --color-nucleo-blue-400: #38bdf8;
+  --color-nucleo-blue-500: #0284c7;
+  --color-nucleo-blue-600: #0260cc;
+  --color-nucleo-blue-700: #01499a;
+  --color-nucleo-blue-800: #013b7e;
+  --color-nucleo-blue-900: #0c2b57;
+  --color-nucleo-blue-950: #071d3d;
 
-  --color-sis-green: #88d830;
-  --color-sis-green-50: #f0fdf4;
-  --color-sis-green-100: #dcfce7;
-  --color-sis-green-200: #bbf7d0;
-  --color-sis-green-300: #86efac;
-  --color-sis-green-400: #9ef048;
-  --color-sis-green-500: #88d830;
-  --color-sis-green-600: #65a30d;
-  --color-sis-green-700: #4d7c0f;
-  --color-sis-green-800: #3f6212;
-  --color-sis-green-900: #365314;
+  --color-nucleo-red: #dd0101;
+  --color-nucleo-red-50: #fef2f2;
+  --color-nucleo-red-100: #fee2e2;
+  --color-nucleo-red-200: #fecaca;
+  --color-nucleo-red-300: #fca5a5;
+  --color-nucleo-red-400: #f87171;
+  --color-nucleo-red-500: #ef4444;
+  --color-nucleo-red-600: #dc2626;
+  --color-nucleo-red-700: #b91c1c;
+  --color-nucleo-red-800: #991b1b;
+  --color-nucleo-red-900: #7f1d1d;
+  --color-nucleo-red-950: #450a0a;
 }
 
 html {
@@ -73,12 +80,12 @@ body {
   background: #ffffff;
   color: #0f172a;
   font-family: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
-  caret-color: #0078d8;
+  caret-color: #01499a;
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: #0078d8;
+  background: #01499a;
   color: #ffffff;
 }
 
@@ -88,7 +95,7 @@ body {
 
 /* Eyebrows for medical badges */
 .eyebrow-blue,
-.eyebrow-green,
+.eyebrow-red,
 .eyebrow-dark {
   display: inline-flex;
   align-items: center;
@@ -101,19 +108,19 @@ body {
 }
 
 .eyebrow-blue {
-  color: #0078d8;
+  color: #01499a;
 }
 
-.eyebrow-green {
-  color: #65a30d;
+.eyebrow-red {
+  color: #b91c1c;
 }
 
 .eyebrow-dark {
-  color: #0a2540;
+  color: #071d3d;
 }
 
 .eyebrow-blue::before,
-.eyebrow-green::before,
+.eyebrow-red::before,
 .eyebrow-dark::before {
   width: 1.25rem;
   height: 2px;
@@ -134,11 +141,11 @@ body {
 }
 
 .nav-link:hover {
-  color: #0078d8;
+  color: #01499a;
 }
 
 .nav-link.active {
-  color: #0078d8;
+  color: #01499a;
   font-weight: 700;
 }
 
@@ -149,7 +156,7 @@ body {
   left: 0;
   width: 0%;
   height: 2px;
-  background-color: #0078d8;
+  background-color: #01499a;
   transition: width 0.2s ease-in-out;
   border-radius: 9999px;
 }
@@ -159,13 +166,29 @@ body {
   width: 100%;
 }
 
+/* Heartbeat pulse animation for cardiology CTA */
+@keyframes heart-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(221, 1, 1, 0.4);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 10px rgba(221, 1, 1, 0);
+  }
+}
+
+.pulse-cardio {
+  animation: heart-pulse 2.8s infinite;
+}
+
 /* Subtle glow animations for high-converting elements */
 @keyframes subtle-pulse {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(0, 120, 216, 0.4);
+    box-shadow: 0 0 0 0 rgba(1, 73, 154, 0.4);
   }
   50% {
-    box-shadow: 0 0 0 10px rgba(0, 120, 216, 0);
+    box-shadow: 0 0 0 10px rgba(1, 73, 154, 0);
   }
 }
 
